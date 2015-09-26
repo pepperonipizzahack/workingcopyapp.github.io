@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html class="no-js ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="no-js ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="no-js ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Working Copy, Git on iOS</title>
+    <meta name="author" content="Anders Borum">
+    <meta name="keywords" content="iOS,git,app,GitHub,BitBucket,iPad,iPhone,repository,programming,tools">
+    <meta name="description" content="Working Copy is a powerful Git client for iOS that clones, edits, commits, pushes and more.">
+    <style>
+        @media print {
+            video {
+                display: none;
+            }
+        }
+
+        body, input {
+            font-family: -apple-system, "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+            font-weight: 300;
+            color: #222;
+            background-color: #fff;
+            font-size: 35px;
+        }
+
+        #reviews {
+            margin-left: -10%;
+            width: 120%;
+            font-size: 50%;
+            color: #333;
+            position: relative;
+            padding-top: 30px;
+            padding-bottom: 20px;
+            background-color: #e7e7e7;
+        }
+
+        #reviews > div {
+            /*border: dotted 1px;*/
+            display: none;
+            width: 46%;
+            margin-left: 23%;
+        }
+
+        #reviews > div:first-child {
+            display: block;
+        }
+
+        #reviews > div > h4 {
+            display: inline;
+        }
+
+        #reviews > div > p {
+            font-style: italic;
+        }
+
+        #reviews > div > h4 > span {
+            font-weight: 200;
+            font-style: italic;
+        }
+
+        #reviews > div > span {
+            float: right;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 125%;
+        }
+
+        a:link, a:visited, a:hover, a:active {
+            color: #222;
+            border-bottom: 1px solid #222;
+            text-decoration: none;
+        }
+        a:hover {
+            border-bottom: 2px solid #222;
+        }
+
+        a img {
+            border:none;
+        }
+
+        a.img:link, a.img:visited, a.img:hover, a.img:active {
+            border-bottom: 0px ;
+        }
+
+        span {
+            white-space:nowrap;
+        }
+
+        footer {
+            padding-top: 20px;
+            padding-bottom: 10px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 35%;
+        }
+    </style>
+    <meta property="og:image" content="http://www.appliedphasor.com/img/iPad-Air-Space.jpg">
+    <meta property="og:video" content="http://youtu.be/pcBKQiSpLh4">
+    <meta name="apple-itunes-app" content="app-id=896694807" affiliate-data="at=1000lHq">
+    <meta name="twitter:card" content="app">
+    <meta name="twitter:site" content="@palmin">
+    <meta name="twitter:description" content="Access Git repositories on the go. Clone, edit, commit and push while taking advantage of iOS advancements allowing other apps to also access repositories.">
+    <meta name="twitter:image:src" content="http://www.appliedphasor.com/img/iPad-Air-Space.jpg">
+    <meta name="twitter:app:name:iphone" content="Working Copy">
+    <meta name="twitter:app:id:iphone" content="896694807">
+    <meta name="twitter:app:name:ipad" content="Working Copy">
+    <meta name="twitter:app:id:ipad" content="896694807">
+
+    <style>
+        body {
+            font-size: 40px;
+        }
+
+        header {
+            position: relative;
+            max-width: 1023px;
+            width: 69%;
+            margin:0 auto;
+            padding-bottom: 5px;
+        }
+        h1 {
+            margin: 0;
+            font-size: 125%;
+        }
+        div.summary {
+            display:inline;
+        }
+
+        header div {
+            margin: 0;
+            position: relative;
+        }
+
+        span {
+            white-space:nowrap;
+        }
+
+        .preview {
+            position:relative;
+            width:100%;
+        }
+        .frame {
+            display: block;
+            position: relative;
+            width: 85%;
+            max-width: 1252px;
+            height: auto;
+            margin:0 auto;
+        }
+        #video {
+            display: none;
+            position:absolute;
+            z-index: 1;
+            left: 50%;
+            margin-left: -511px;
+            top:61px;
+            width: 1023px;
+            height: 767px;
+
+            opacity: 0;
+        }
+
+        body {
+            font-size: 35px;
+        }
+
+        .download-button {
+            display: inline-block;
+            border: 0 !important;
+            position: relative;
+            right: 0;
+            bottom: 0;
+            margin: 5px;
+            float: right;
+        }
+
+        .download-button img {
+            height: 36px;
+        }
+
+        @media screen and (max-width: 1252px) { /* 80% */
+            body {
+                font-size: 34px;
+            }
+            .download-button img {
+                height: 32px;
+            }
+        }
+
+        @media screen and (max-width: 1002px) { /* 66% */
+            body {
+                font-size: 32px;
+            }
+            .download-button img {
+                height: 30px;
+            }
+        }
+
+        @media screen and (max-width: 835px) { /* 50% */
+            body {
+                font-size: 28px;
+            }
+            .download-button img {
+                height: 26px;
+            }
+        }
+
+        @media screen and (max-width: 626px) { /* 40% */
+            body {
+                font-size: 28px;
+            }
+            .download-button img {
+                height: 26px;
+            }
+        }
+
+        @media screen and (max-width: 501px) { /* 29% */
+            body {
+                font-size: 25px;
+            }
+            .download-button img {
+                height: 23px;
+            }
+        }
+
+        @media screen and (max-width: 363px) { /* 25% */
+            body {
+                font-size: 20px;
+            }
+            .download-button img {
+                height: 18px;
+            }
+        }
+
+        .features {
+            width: 100%;
+            font-size: 70%;
+            text-align: center;
+        }
+
+        .features div {
+            float: left;
+            width: 46%;
+            margin-left: 2%;
+            margin-right: 2%;
+            margin-top: 25px;
+        }
+
+        .features .cleareven {
+            clear: both;
+            width: 100%;
+        }
+        .features .clearthird {
+            display: none;
+            clear: none;
+        }
+
+        @media screen and (max-width: 400px) {
+            .features div {
+                width: 90%;
+                margin-left: 5%;
+                margin-right: 5%;
+            }
+            .features .cleareven {
+                display: none;
+                clear: none;
+            }
+        }
+
+        @media screen and (min-width: 800px) {
+            .features div {
+                width: 31%;
+                margin-left: 1%;
+                margin-right: 1%;
+            }
+            .features .cleareven {
+                display: none;
+                clear: none;
+            }
+            .features .clearthird {
+                display: block;
+                clear: both;
+                width: 100%;
+            }
+
+        }
+
+        .features div img {
+            width: auto;
+            height: 50px;
+        }
+
+        .features div h3 {
+            margin:0;
+        }
+
+        .features div p {
+            color: #888;
+            margin:0;
+        }
+
+        @media screen and (max-width: 400px) {
+            footer {
+                font-size: 50%;
+                padding-bottom: 20px;
+            }
+        }
+
+        .signup {
+            width: 100% !important;
+            font-size: 75%;
+            text-align: left;
+            display:none;
+        }
+
+        .signup form input {
+            font-size: 100%;
+            margin: 5px 0px;
+            padding-top: 7px;
+        }
+
+        .signup #status {
+            color: #555;
+            clear: both;
+        }
+
+        #email-field {
+            margin-right: 10px;
+        }
+
+        #status {
+            display:none;
+            width: 100%;
+        }
+
+        .beta-button {
+            position: relative;
+            display: none;
+            right: 0;
+            bottom: 0;
+            margin: 5px;
+            float: right;
+            border: 0 !important;
+            font-size: 75%;
+        }
+
+        .beta-button:link {
+            text-decoration: none;
+        }
+
+        .beta-button span {
+            background-color: #FFA42D;
+            display: inline-block;
+            padding: 2px 5px;
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            border-radius: 4px;
+        }
+
+        a.beta-button:hover span {
+            background-color: #FFE859;
+            color: #333;
+        }
+
+    </style>
+    <script>
+        function rev(s) { return s.length <= 1 ? s : rev(s.substr(1)) + s.substr(0,1); }
+
+        function showStatus(status) {
+            $('#status').text(status);
+            $('#status').delay(300).slideDown(400, function() {
+                $('html, body').animate({
+                    scrollTop: $("#status").offset().top
+                }, 400);
+            });
+        }
+
+        function submitEmail(email) {
+            $.post("http://www.appliedphasor.com/signup", { "email": email} )
+                    .done(function() {
+                        $('.signup').slideUp(300, function() {
+                            showStatus("You have signed up with " + email + " for beta-test. Thank you!");
+                        });
+                    })
+                    .fail(function(jqXHR, textStatus) {
+                        showStatus("Unable to submit email address: " + textStatus);
+                    });
+        }
+
+        function signUp(evt) {
+            $('.signup').slideDown(400, function() {
+                var field = document.getElementById('email-field');
+                field.focus();
+            });
+
+            $('html, body').animate({
+                scrollTop: $("#become-tester").offset().top
+            });
+
+            return false;
+        }
+
+        function preSignUp(evt) {
+            $('html, body').animate({
+                scrollTop: $("#become-tester").offset().top
+            }, 500, function() {
+                signUp();
+            });
+
+            return false;
+        }
+
+        function doSubmit() {
+            var field = document.getElementById('email-field');
+            var email = field.value.trim();
+            if(email.length == 0) {
+                $('.signup').slideUp();
+            } else {
+                submitEmail(email);
+            }
+            return false;
+        }
+
+        function resized() {
+            // size of frame
+            var width = Math.min(0.85 * $(window).width(), 1252);
+            var height = width * 890.0 / 1252.0;
+
+            // size of video
+            width = 1023.0 * width / 1252.0;
+            height = width * 767.0 / 1023.0;
+            var top = width * 61.0 / 1023 - 2;
+            $('#video').width(width).height(height).css('margin-left', -0.5 * width).css('top', top);
+
+            // show video
+            $('#video').show();
+        }
+
+        var reviewTimer = null;
+        function scheduleNextReview() {
+            if(reviewTimer) clearTimeout(reviewTimer);
+            reviewTimer = setTimeout(showNextReview, 10000);
+        }
+
+        function showNextReview() {
+            if(reviewTimer) clearTimeout(reviewTimer);
+            reviews = null;
+
+            // get all review blocks
+            var reviews = $('#reviews > div');
+
+            // determine which one is visible currently
+            var current = $('#reviews > div:visible')[0];
+
+            // pick the next one to make visible
+            var index = 0;
+            for(var k = 0; k < reviews.length; ++k) {
+                if(reviews[k] == current) index = k;
+            }
+            var next = reviews[(index + 1) % reviews.length];
+
+            // animate such that previously shown is hidden and next one is shown
+            $(next).show(400, 'swing', function() {
+                $(current).hide(400, 'swing');
+            });
+
+            scheduleNextReview();
+        }
+
+        (function() {
+            function getScript(url,success){
+                var script=document.createElement('script');
+                script.src=url;
+                var head=document.getElementsByTagName('head')[0],
+                        done=false;
+                script.onload=script.onreadystatechange = function(){
+                    if ( !done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete') ) {
+                        done=true;
+                        success();
+                        script.onload = script.onreadystatechange = null;
+                        head.removeChild(script);
+                    }
+                };
+                head.appendChild(script);
+            }
+
+            getScript('/js/jquery.min.js',function(){
+                resized();
+                $( window ).resize(function() {
+                    resized();
+                });
+
+                $("#video").animate({opacity: 1.0});
+
+                // every ten seconds or when tapped, we change review
+                scheduleNextReview();
+                $('#reviews > div').click(function() {
+                    showNextReview();
+                });
+                $('#reviews > div').css('cursor', 'pointer');
+
+                $("#more").click(function (evt) {
+                    $('html, body').animate({
+                        scrollTop: $("#features").offset().top
+                    }, 1000);
+                });
+
+                // redirect to users manual when there is #help or #manual
+                var hash = window.location.hash;
+                if(hash) {
+                    if(hash.indexOf('#help') >= 0 || hash.indexOf('#manual') >= 0) {
+                        window.location.href = '/manual.html';
+                    }
+                }
+
+                var email = document.getElementById("email");
+                email.href = "mailto:" + rev("moc.ppaypocgnikrow@sredna");
+            });
+        })();
+
+    </script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-2084164-5', 'auto');
+        ga('send', 'pageview');
+    </script>
+</head><body>
+<div itemscope itemtype="http://schema.org/SoftwareApplication">
+    <header>
+        <h1 itemprop="name">Working Copy</h1>
+        <div>
+            <div class="summary" itemprop="description">a powerful Git client for <span itemprop="operatingSystem">iOS</span> that clones,
+                edits, commits, pushes &amp; <a id="more" href="#">more</a>.</div>
+            <a onclick="return preSignUp();" href="#" class="beta-button"><span>Sign-Up</span></a>
+            <a href="https://itunes.apple.com/us/app/working-copy/id896694807?mt=8&amp;uo=6&amp;at=1000lHq&amp;ct=" target="itunes"
+               title="Get it now!"  class="download-button"><img src="img/download-on-the-app-store.png" /></a>
+            <div style="clear: both;"></div>
+        </div>
+    </header>
+    <div class="preview">
+        <img class="frame" src="img/iPad-Air-Space-frame.png" alt="Working Copy on iPad Air clones a Git repository which can then be edited
+             with Textastic and committed." />
+        <video id="video" itemprop="video" width="1023" height="766" controls="" preload="auto" autoplay=""
+               poster="img/working-copy-poster.jpg"
+               itemscope itemtype="http://schema.org/VideoObject">
+            <span itemprop="name">Working Copy in action</span>
+            <span itemprop="description">Working Copy clones a Git repository which can then be edited
+            with Textastic and committed.</span>
+            <img itemprop="thumbnailUrl" src="img/working-copy-poster.jpg" />
+            <meta itemprop="uploadDate" content="2015-05-08T08:00:00+08:00"/>
+            <source src="http://cdn.appliedphasor.com/Working_Copy_april.webm" type="video/webm">
+            <source src="http://cdn.appliedphasor.com/Working_Copy_april.mp4" type="video/mp4">
+            <div style="z-index: 1; width: 100%; text-align: center">Watch <a href="http://cdn.appliedphasor.com/Working_Copy_april.mp4">video</a> of Working Copy in action.
+            </div>
+        </video>
+    </div>
+    <div class="features" id="features">
+        <div>
+            <img alt="iOS 9 icon" src="img/ios9.png"/>
+            <h3>iOS 9 ready</h3>
+            <p>Supports Split Screen, Slide Over and SpotLight search.</p>
+        </div>
+        <div>
+            <img alt="Airplane mode" src="img/airplane.png"/>
+            <h3>Work Offline</h3>
+            <p>Clone repositories making them fully available even when offline.</p>
+        </div>
+        <div class="cleareven"></div>
+        <div>
+            <img alt="iOS 8 icon" src="img/ios8.png"/>
+            <h3>Extends iOS</h3>
+            <p>Other apps can <a href="/manual.htmlextending-ios">open and edit</a> in your repositories.</p>
+        </div>
+        <div class="clearthird"></div>
+        <div>
+            <img alt="GitHub Octomark" src="img/octocat.png"/>
+            <img alt="BitBucket logo" src="img/bitbucket.png"/>
+            <h3>Hosting Services</h3>
+            <p><a href="/manual.html#cloning-repos">Cloning</a> repositories is extra convenient from GitHub
+                and BitBucket.</p>
+        </div>
+        <div class="cleareven"></div>
+        <div>
+            <img alt="Commit Graph" src="img/graph.png"/>
+            <h3>Code Review</h3>
+            <p>View and Review your code. Alone or with your team.</p>
+        </div>
+        <div>
+            <img alt="Git logo" src="img/git.png"/>
+            <h3>Fits your workflow</h3>
+            <p>Fetches from and pushes to your existing <a href="/manual.html#remotes">remotes</a>.
+                A perfect fit.</p>
+        </div>
+        <div class="cleareven"></div>
+        <div class="clearthird"></div>
+        <div>
+            <img alt="X-Callback-URL icon" src="img/x-callback-url.png"/>
+            <h3>Automate Git</h3>
+            <p>Supports <a href="url-schemes.html">x-callback-url</a> for inter-app communication.</p>
+        </div>
+        <div>
+            <img alt="Checkmark" src="img/checkmark.png"/>
+            <h3>Do it now!</h3>
+            <p>Stop writing todos about minor stuff.
+                Fix and <a href="/manual.html#commit-revert">commit</a> on the fly.</p>
+        </div>
+        <div class="cleareven"></div>
+        <div>
+            <img id="become-tester" alt="Working Copy icon" src="img/icon-stylized.png"/>
+            <h3>Become a tester</h3>
+            <p>Working Copy is in rapid development. <a onclick="return signUp();" href="#">Get</a> the beta.</p>
+            <div class="signup">
+                <form method="post" action="#" onsubmit="return doSubmit();">
+		       <span><input id="email-field" name="email" type="email" autocapitalize="off"
+                            autocorrect="off" placeholder="email address">
+  			   <a href="#" onclick="return doSubmit();">Submit</a></span>
+                </form>
+                <p>Your email address is used to send you a invitation through Apple TestFlight and
+                    will not be used for anything else.</p>
+            </div>
+            <div id="status"></div>
+        </div>
+
+        <div style="clear: both;"></div>
+    </div>
+    <span itemprop="aggregateRating" itemscope="itemscope" itemtype="http://schema.org/AggregateRating">
+     <meta content="5.0" itemprop="ratingValue">
+     <meta content="5.0" itemprop="bestRating">
+     <meta content="1.0" itemprop="worstRating">
+     <meta content="53" itemprop="ratingCount">
+    </span>
+</div>
+<div style="clear: both"> </div>
+<div id="reviews">
+    <div>
+        <span>⭐⭐⭐⭐⭐</span> <h4>Jonathan.Muth: <span>It's Git in your pocket.</span></h4>
+        <p>Working Copy makes keeping track of your Git repositories a breeze. </p>
+        <p>  The app is so well designed that I prefer it over the GitHub's web-interface when familiarizing myself with a new code-base.
+            And let me tell you: It works extremely well in bed as well. </p>
+        <p>   Alas: Working Copy now contains my evening lecture in addition to all the source code I would not want to go missing. </p>
+        <p>  An all around great app.</p>
+    </div>
+    <div>
+        <span>⭐⭐⭐⭐⭐</span> <h4>z4ndr3i: <span>Manage Git and GitHub Repos</span></h4>
+        <p>For those of us who don't work exclusively with GitHub this is just awesome. </p>
+    </div>
+    <div>
+        <h4>sketchyTech: <span><a href="http://sketchytech.blogspot.dk/2015/07/github-on-your-ipad-working-copy-app.html" target="review">GitHub on your iPad: Working Copy App Review</a></span></h4>
+        <p>The app is billed as a "a powerful Git client for iOS 8 that clones, edits, commits, pushes & more". There is nothing in this statement that it doesn't live up to.
+            If you're looking for something to work with GitHub on the move then I can highly recommend. Is it worth the money? Definitely.</p>
+    </div>
+    <div>
+        <span>⭐⭐⭐⭐⭐</span> <h4>feoh: <span>I have been dreaming of this app for years!</span></h4>
+        <p>I have been yearning for a way to commit and push to Github for years.</p>
+        <p>The app id's solid and lets me use whatever editor I want to create my content.</p>
+        <p>My mobile development and blogging dreams have come true!</p>
+    </div>
+    <div>
+        <span>⭐⭐⭐⭐⭐</span> <h4>@regeek: <span>Makes iPad useful</span></h4>
+        <p>Finally the app that makes iPad useful. You can sync your Photos with it!</p>
+    </div>
+    <div>
+        <span>⭐⭐⭐⭐⭐</span> <h4>zemackdaddy: <span>Love it. About time someone did this.</span></h4>
+        <p>Love being able to pull and push commits to but bucket.</p>
+        <p>Being able to edit directly from TextAstic without having to upload is also quite awesome.</p>
+    </div>
+    <div>
+        <span>⭐⭐⭐⭐⭐</span>         <h4>DJ Bacon!: <span>Life Saver</span></h4>
+        <p>You ever searched so hard for something but just couldn't find it? I was doing that
+            until I stumbled upon Working Copy and it's push function.</p>
+    </div>
+    <div>
+        <span>⭐⭐⭐⭐⭐</span>         <h4>uxjulia: <span>Finally!</span></h4>
+        <p>This app is EXACTLY what I've been looking for. I can easily connect to my bitbucket account,
+            clone repos, commit and push changes right from my phone using third party apps that are already a part of my workflow.
+            I use this with Textastic and Ulysses to post to and tweak my Jekyll blog from my iPhone and iPad, wherever I may be.</p>
+    </div>
+    <div>
+        <span>⭐⭐⭐⭐⭐</span>         <h4>Lift the Camel: <span>Great Git App!</span></h4>
+        <p>This app is perfect for accessing your Git repositories on the go! It allows me to add my iPhone and iPad into my daily workflow.</p>
+    </div>
+    <div>
+        <span>⭐⭐⭐⭐⭐</span> <h4>ci0: <span>Perfect</span></h4>
+        <p>If Apple were to write a git client, it would look like this. Well done.</p>
+    </div>
+    <div>
+        <span>⭐⭐⭐⭐⭐</span>         <h4>meclizine50mg: <span>iOS Great job, and Thank you</span></h4>
+        <p>Working Copy + Bitbucket repository cloning + Textastic! This significantly improves my coding
+            lifestyle: I can relax with my iPad anywhere and even work on non-interface parts of iOS projects
+            without screwing up version management by relying on DropBox or iCloud filesaving. So far everything is working smoothly,
+            probably because the developer is an active user of this app himself.</p>
+    </div>
+    <div>
+        <span>⭐⭐⭐⭐⭐</span> <h4>Futurix: <span>Fantastic!</span></h4>
+        <p>Extremely useful for monitoring / managing my projects on the go (I'm using both iPhone 6+ and iPad).</p>
+    </div>
+    <div>
+        <span>⭐⭐⭐⭐⭐</span> <h4>Miguel_E_H: <span>Excelente aplicación</span></h4>
+        <p>Con un diseño sencillo y funcional, es una aplicación indispensable para cualquier desarrollador con dispositivos iOS.</p>
+        <p> La inclusión de funciones de iOS 8 permite que se editen los archivos de los repositorios con cualquier aplicación externa
+            (que sea compatible con el file picker).</p>
+    </div>
+    <div>
+        <span>⭐⭐⭐⭐⭐</span> <h4>leecanard: <span>Perfect for GitHub pages</span></h4>
+        <p>The only app I've found which allows for committing changes to GitHub. Easy to use and clean design.
+            A must have app if you deal with GitHub pages!</p>
+    </div>
+    <div>
+        <span>⭐⭐⭐⭐⭐</span> <h4>llllllooollllll: <span>Einfach GENIAL!!!</span></h4>
+        <p>Bin wirklich sehr begeistert, als Programmierer kann ich geleistetes Arbeit nur loben, weiter so.</p>
+    </div>
+</div>
+<footer>
+    Read the <a href="/manual.html">manual</a> and get in touch by <a href="/enable-js.html" id="email" title="email">email</a>
+    or on <a href="http://twitter.com/palmin" target="twitter">Twitter</a>.
+</footer>
+<!--[if lt IE 7 ]>
+<script src="/js/dd_belatedpng.js"></script>
+<script>DD_belatedPNG.fix('img, .png_bg'); // Fix any <img> or .png_bg bg-images. Also, please read goo.gl/mZiyb</script>
+<![endif]-->
+</body>
+</html>
