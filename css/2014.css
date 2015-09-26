@@ -1,0 +1,41 @@
+body, input {
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 300;
+    color: #222;
+	background-color: #fff;
+    font-size: 35px;
+}
+
+h1 {
+    margin: 0;
+    font-size: 125%;
+}
+
+a:link, a:visited, a:hover, a:active {
+    color: #222;
+    border-bottom: 1px solid #222;
+    text-decoration: none;
+}
+a:hover {
+    border-bottom: 2px solid #222;
+}
+
+a img {
+ border:none;
+}
+
+a.img:link, a.img:visited, a.img:hover, a.img:active {
+    border-bottom: 0px ;
+}
+
+span {
+    white-space:nowrap;
+}
+
+footer {
+    padding-top: 20px;
+    padding-bottom: 10px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 35%;
+}
