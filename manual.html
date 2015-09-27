@@ -621,13 +621,9 @@ andrew@company.se/home/andrew/git/site.git/
                 img.parentNode.insertBefore(video, img.nextSibling);
             });
 
-            // resize videos when window changes
-            $(window).resize(function(){
-                refreshVideoPlacement();
-            });
+            refreshVideoPlacement();
 
-            setTimeout(function() {
-                refreshVideoPlacement();
+            $(window).load(function() {
                 scrollToCurrentIdentifier();
 
                 $('video').each(function() {
@@ -635,7 +631,11 @@ andrew@company.se/home/andrew/git/site.git/
                     video.style.opacity = "1.0";
                 });
 
-            }, 250);
+                // resize videos when window changes
+                $(window).resize(function(){
+                    refreshVideoPlacement();
+                });
+            });
         }
 
         function scrollToIdentifier(id) {
