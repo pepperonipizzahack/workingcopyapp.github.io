@@ -621,11 +621,12 @@ andrew@company.se/home/andrew/git/site.git/
                 img.parentNode.insertBefore(video, img.nextSibling);
             });
 
-            refreshVideoPlacement();
+            scrollToCurrentIdentifier();
 
             $(window).load(function() {
                 scrollToCurrentIdentifier();
 
+                refreshVideoPlacement();
                 $('video').each(function() {
                     var video = $(this)[0];
                     video.style.opacity = "1.0";
