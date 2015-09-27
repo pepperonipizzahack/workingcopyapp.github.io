@@ -294,7 +294,8 @@
         <img class="right" src="/img/status-79.jpg"/>
 
         <p>Commits can be pushed to the remote from many sources. Other people contribute their work or you could be doing something
-            on a regular computer or another iOS device which results in commits that end up on the remote.</p>
+            on a regular computer or another iOS device which results in commits that end up on the remote. You need to unlock
+        the ability to <em>Push</em> with a in-app purchase.</p>
 
         <p>You get commits back into Working Copy through a two-step process where you <em>Fetch</em> and <em>Merge</em>.
             <em>Fetch</em> reads commits from the
@@ -534,32 +535,33 @@ andrew@company.se/home/andrew/git/site.git/
     <div class="inner">
         <h3 id="webdav-server">5.3 WebDAV access</h3>
         <img class="right" src="/img/webdav-settings.png"/>
-        <p>In situations where you need to transfer entire directory hierarchies, the
-            best way to get files into and out of Working Copy is often the built-in
+        <p>In situations where you need to transfer entire directory hierarchies,
+            a good way to get files into and out of Working Copy the built-in
             <a target="wikipedia" href="https://en.wikipedia.org/wiki/WebDAV">WebDAV</a> server. It is also
-            the best way to use
+            the best way to let
             <a target="app" href="https://itunes.apple.com/us/app/coda-for-ios/id500906297?mt=8&amp;at=1000lHq">Coda</a>
-            to edit files in your Git repositories.
+            edit directory in your Git repositories.
         </p>
         <p>As a security precaution you need to start the server before each use and it automatically shuts down
-            on 5 minutes of in-activity. You should be cautious using the WebDAV server on untrusted
-            networks as the transfers are not encrypted. In these cases you should restrict yourself
-            to connections from other applications on the same device, as the traffic cannot be intercepted when
+            after 5 minutes without activity. You should be cautious using the WebDAV server on untrusted
+            networks as the transfers are unencrypted. In these cases you should restrict yourself
+            to connections from applications on the same device, as the traffic cannot be intercepted when
             it never leaves your device. Local connections are also possible in situations without Internet
             connection. You need to specify <em>localhost</em> as the hostname in these situations.</p>
         <p>Applications on iOS are restricted in how long they are allowed to run in the background. If you start
-           the WebDAV server and switch to some other application you will be given a grace period before
+           the WebDAV server and switch to some other application, you will be given a grace period before
             Working Copy and its WebDAV server is terminated. A notification will inform you of this.
             To avoid such restrictions you should keep Working Copy in the foreground and on iPads that support
-            Split Screen multitasking you can keep both Working Copy and the other application alive.
+            Split Screen multitasking, you can keep both Working Copy and the other application alive.
         </p>
         <p>
             Using applications such as <a target="app" href="http://www.textasticapp.com">Textastic</a> and
             <a target="app" href="https://itunes.apple.com/us/app/transmit-ios/id917432930?mt=8&amp;at=1000lHq">Transmit</a>
             that can work with both WebDAV and SSH
-            servers, you can deploy from a Git repository to a standard Linux server by first transferring
+            servers, you can deploy from a Git repository to a standard Linux server by transferring
             the directory hierarchy from Working Copy into the other application and then from the other
-            application onto the server.
+            application onto the server. Watch a short <a target="youtube" href="https://www.youtube.com/watch?v=5_EF6TbOEz0">video</a>
+            illustrating this.
         </p>
 
 <div style="clear: both;"></div>
