@@ -220,13 +220,13 @@
 
             <li class="header2"><a href="#commit-revert">4. Committing or reverting:</a></li>
             <li class="header3"><a href="#commit-history">4.1 Commit history</a></li>
-
             <li class="header3"><a href="#branching">4.2 Branches</a></li>
             <li class="header3"><a href="#commit-graph">4.3 Commit Graph</a></li>
 
             <li class="header2"><a href="#extending-ios">5. Extending iOS:</a></li>
             <li class="header3"><a href="#saving">5.1 Saving to Working Copy</a>,</li>
-            <li class="header3"><a href="#workflows-callbacks">5.2 Workflows and URL Callbacks</a>,</li>
+            <li class="header3"><a href="#workflows-callbacks">5.2 Workflows and Callbacks</a>,</li>
+            <li class="header3"><a href="#webdav-server">5.3 WebDAV access</a></li>
 
             <li class="header2"><a href="#troubleshooting">6. Troubleshooting and Support</a></li>
         </ul>
@@ -518,7 +518,7 @@ andrew@company.se/home/andrew/git/site.git/
         <p>After saving a file you can optionally <em>Commit</em> this change immediately and <em>Push</em> to the remote right away.</p>
 
     </div><div class="inner">
-    <h3 id="workflows-callbacks">5.2 Workflows and URL Callbacks</h3>
+    <h3 id="workflows-callbacks">5.2 Workflows and Callbacks</h3>
     <img class="left" src="/img/callback-setup-26.png"/>
 
     <p>Working Copy supports the <a href="/url-schemes.html">x-callback-url</a> mechanism for inter-app corporation.
@@ -529,8 +529,42 @@ andrew@company.se/home/andrew/git/site.git/
 
     <p>Using applications such as Workflow and Editorial you can achieve some of the power of shell-scripting on iOS by
         combining actions of several applications into one action.</p>
-    <div style="clear: both;"></div>
-</div>
+ <div style="clear: both;"></div>
+   </div>
+    <div class="inner">
+        <h3 id="webdav-server">5.3 WebDAV access</h3>
+        <img class="right" src="/img/webdav-settings.png"/>
+        <p>In situations where you need to transfer entire directory hierarchies, the
+            best way to get files into and out of Working Copy is often the built-in
+            <a target="wikipedia" href="https://en.wikipedia.org/wiki/WebDAV">WebDAV</a> server. It is also
+            the best way to use
+            <a target="app" href="https://itunes.apple.com/us/app/coda-for-ios/id500906297?mt=8&amp;at=1000lHq">Coda</a>
+            to edit files in your Git repositories.
+        </p>
+        <p>As a security precaution you need to start the server before each use and it automatically shuts down
+            on 5 minutes of in-activity. You should be cautious using the WebDAV server on untrusted
+            networks as the transfers are not encrypted. In these cases you should restrict yourself
+            to connections from other applications on the same device, as the traffic cannot be intercepted when
+            it never leaves your device. Local connections are also possible in situations without Internet
+            connection. You need to specify <em>localhost</em> as the hostname in these situations.</p>
+        <p>Applications on iOS are restricted in how long they are allowed to run in the background. If you start
+           the WebDAV server and switch to some other application you will be given a grace period before
+            Working Copy and its WebDAV server is terminated. A notification will inform you of this.
+            To avoid such restrictions you should keep Working Copy in the foreground and on iPads that support
+            Split Screen multitasking you can keep both Working Copy and the other application alive.
+        </p>
+        <p>
+            Using applications such as <a target="app" href="http://www.textasticapp.com">Textastic</a> and
+            <a target="app" href="https://itunes.apple.com/us/app/transmit-ios/id917432930?mt=8&amp;at=1000lHq">Transmit</a>
+            that can work with both WebDAV and SSH
+            servers, you can deploy from a Git repository to a standard Linux server by first transferring
+            the directory hierarchy from Working Copy into the other application and then from the other
+            application onto the server.
+        </p>
+
+<div style="clear: both;"></div>
+    </div>
+
     <h2 id="troubleshooting">6. Troubleshooting and Support</h2>
     <div class="inner">
         <p>A lot of work has gone into making Working Copy as trouble-free to use as possible,
@@ -621,7 +655,7 @@ andrew@company.se/home/andrew/git/site.git/
                 img.parentNode.insertBefore(video, img.nextSibling);
             });
 
-            scrollToCurrentIdentifier();
+            refreshVideoPlacement();
 
             $(window).load(function() {
                 scrollToCurrentIdentifier();
