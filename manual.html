@@ -686,10 +686,9 @@ andrew@company.se/home/andrew/git/site.git/
 
                 video.refreshPosition = function() {
                     var img = video.anchorImage;
-                    var offset = $(img).position();
                     var width = Math.floor($(img).width() * 546.0 / 645.0);
-                    var left = offset.left - Math.floor($(img).width() * 18.0 / 645.0);
-                    var top = offset.top + Math.floor($(img).width() * 198.0 / 645.0);
+                    var left = Math.floor($(img).width() * 18.0 / 645.0);
+                    var top = Math.floor($(img).width() * 198.0 / 645.0);
 
                     video.setAttribute("style", "position: absolute; z-index: 1; width: " + width + "px; left: " +
                             left + "px; top: " + top + "px;");
@@ -727,7 +726,7 @@ andrew@company.se/home/andrew/git/site.git/
             if(hash) scrollToIdentifier(hash);
         }
 
-        getScript('/js/jquery.min.js',function(){
+        getScript('js/jquery.min.js',function(){
             resolveEmails();
 
             $('a[href^="#"]').on('click',function (e) {
