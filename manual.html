@@ -704,6 +704,11 @@ andrew@company.se/home/andrew/git/site.git/
                 img.parentNode.insertBefore(video, img.nextSibling);
             });
 
+            // resize videos when window changes
+            $(window).resize(function(){
+               refreshVideoPlacement();
+            });
+
             refreshVideoPlacement();
         }
 
