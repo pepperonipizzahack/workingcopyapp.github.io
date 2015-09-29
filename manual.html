@@ -247,7 +247,7 @@
     </script>
 </head><body>
 <header>
-    <h1 itemprop="name"><a href="/">Working Copy</a> <div style="color: darkred">users guide</div></h1>
+    <h1 itemprop="name"><a href="/">Working Copy</a> <div style="color: darkred">Users’ guide</div></h1>
 </header>
 <div class="outer">
     <nav>
@@ -287,21 +287,23 @@
     <h2 id="introduction">1. Introduction</h2>
     <div class="inner">
         <p><a href="/">Working Copy</a> is a full featured Git client for iOS. Git is a powerful version-control system and can take some time to master.
-            The same is true for Working Copy and even though you will not need to work with the command-line, some understanding of Git is needed.
-            If you are not confident with the core concepts of Git you should read the first few chapters of <a target="reference" href="http://git-scm.com/book/en/v2">Pro Git</a> by Scott Chacon or the
-            excellent <a target="reference" href="https://www.atlassian.com/git/tutorials/">tutorials</a> Atlassian has made available.</p>
+            The same is true for Working Copy, and even though you will not need to work with the command-line, some understanding of Git is needed.
+            If you are not confident with Git's core concepts you should read the first few chapters of <a target="reference" href="http://git-scm.com/book/en/v2">Pro Git</a> by Scott Chacon or the
+            excellent <a target="reference" href="https://www.atlassian.com/git/tutorials/">tutorials</a>
+            Atlassian has made available.</p>
 
         <h3 id="cloning-repos">1.1 Cloning repositories</h3>
         <div class="left">
          <img class="animated" src="img/clone-77.jpg" alt="Video showing cloning on phone: User presses + in the upper right corner and picks clone. Picks protocol, types username, hostname and path on the Other tab. Picks repository from list on GitHub tab. Presses Clone to start transfer. When cloning completes the repository contents are shown." />
         </div>
-        <p>The first step is to get a local copy of the Git repositories you want to access. Duplicating a repository from a remote server is
+        <p>The first step is to get hold of a local copy of the Git repositories you want to access.
+            Duplicating a repository from a remote server is
             known as cloning, and you do this by pressing + on the list of repositories.</p>
-        <p>You provide a URL pointing to a repository on the Git remote you want to clone from.
-            Working Copy can transfer data from the remote using http, https or ssh protocols, but you should be careful
+        <p>You provide a URL pointing to a repository on the Git remote you wish to clone from.
+            Working Copy can transfer data from the remote using http, https or ssh protocols. However, but you should be careful
             using http transfer since data will be sent without encryption, which means your login credentials and your source
             code can be intercepted. If you are not on a trusted network you should avoid using http transfer.</p>
-        <p>As a convenience for BitBucket and GitHub users, you can enter your credentials and get a list repositories.
+        <p>Conveniently for BitBucket and GitHub users, you can enter your credentials and get a list of repositories.
             Cloning then amounts to picking the repository and tapping clone. You are not restricted to these Git services.
             If you are using some other Git hosting service or a private server to host your repositories, copy-paste your
             URL into the top field and Working Copy will clone just as well.</p>
@@ -310,15 +312,18 @@
 
     <div class="right"><img src="img/css-content-45.png"/></div>
     <h3 id="accessing-files">1.2 Accessing files</h3>
-    <p>Data in Working Copy is organised as repositories, containing directories, containing either sub-directories or files.
+    <p>Data in Working Copy is organized as repositories, containing directories, which themselves contain
+        either sub-directories or files.
         Tapping a file shows the file content, the changes to the file and the status of the file.</p>
 
     <p>File content is shown with syntax highlighting for sourcecode and a preview of html and document files.
-        Tap the action-button in the upper right corner to Edit the file or to send the file to other applications such as Mail.</p>
+        Tap the action-button in the upper-right corner to Edit the file or to send the file to other applications such as Mail.</p>
 
-    <p>The editing inside Working Copy is bare-bones and neutral in that neither programming languages, markdown or regular text
-        files get special treatment. If you are doing heavy editing consider using specialised text-editor app for programming,
-        markdown or other purposes. You can read <a href="#extending-ios">more</a> about using Working Copy in combination
+    <p>The editing inside Working Copy is bare-bones and neutral in that
+        neither programming languages, markdown nor regular text
+        files get special treatment. If you are performing heavy editing consider using a
+        specialized text-editor app for programming, markdown or other purposes.
+        You can read <a href="#extending-ios">more</a> about using Working Copy in combination
         with other applications.</p>
 
 </div><div class="inner">
@@ -326,16 +331,18 @@
     <h3 id="committing-changes">1.3 Committing changes</h3>
     <div class="left"><img src="img/commit-sheet-32.png"/></div>
     <p>When you have file modifications the Changes tab lights up. You can see what has been added in green and what has
-        been deleted in red. If you are satisfied with the changes you commit them to the repository with a button on the Status tab.
-        A faster way is to swipe left on the file in the directory listing. Swiping left can generally be done on lists of files,
+        been deleted in red. If you are satisfied with the changes you can commit
+        them to the repository with a button on the Status tab.
+        A faster way, however, is to swipe left on the file in the directory listing.
+        Swiping left can generally be performed on lists of files,
         directories and repositories allowing convenient access to frequent actions.</p>
 
-    <p>You commit a single file, multiple files or the entire repository at once, and it is considered good practice to make a
+    <p>You can commit a single file, multiple files or the entire repository at once, and it is considered good practice to make a
         commit represent one conceptual change to your repository. Following this practice also makes it easier to come up with concise
         yet descriptive commit descriptions.
     </p>
 
-    <p>When you have made one or more commits your on-device repository is seen as ahead of the remote repository
+    <p>When you have made one or more commits your on-device repository is seen as being ahead of the remote repository
         and you <em>push</em> these commits to the remote. Because <em>Commit</em> and <em>Push</em> are distinct
         actions you can <em>Commit</em> while offline and <em>Push</em> once you get back online.</p>
 
@@ -345,17 +352,18 @@
         <h3 id="up-to-date">1.4 Staying up-to-date</h3>
         <div class="right"><img class="right" src="img/status-79.jpg"/></div>
 
-        <p>Commits can be pushed to the remote from many sources. Other people contribute their work or you could be doing something
+        <p>Commits can be pushed to the remote from many sources.
+            Other people contribute their work, or you could be doing something
             on a regular computer or another iOS device which results in commits that end up on the remote. You need to unlock
-        the ability to <em>Push</em> with a in-app purchase.</p>
+        the ability to <em>Push</em> with an in-app purchase.</p>
 
         <p>You get commits back into Working Copy through a two-step process where you <em>Fetch</em> and <em>Merge</em>.
             <em>Fetch</em> reads commits from the
             server and requires a network connection. The commits will not be integrated with the local data on your device until
-            you <em>Merge</em> which will combine the new commits from the server with your local data.</p>
+            you <em>Merge</em>, which will combine the new commits from the server with your local data.</p>
 
         <p>Sometimes data cannot be automatically combined because your local changes conflict with the changes from the commits fetched.
-            These conflicts need to be resolved by hand-picking the correct content of the conflicted files and picking
+            These conflicts need to be resolved by hand-picking the correct content of the conflicted files and choosing
             <em>Resolve</em> from the action button.</p>
 
         <p>As a short-hand you can <em>Fetch</em>, <em>Merge</em> and <em>Push</em> a repository with the <em>Sync</em> button
@@ -372,7 +380,7 @@
 
         <p>When you clone a repository, the URL of the remote repository is your starting point. Working Copy supports ssh, https and
             http remotes and the URL consists of protocol scheme, the hostname, username and the path to the repository on the host.
-            The following is typical examples of remote URLs:</p>
+            The following are typical examples of remote URLs:</p>
 
 <pre>https://user@git.company.se/home/user/site.git
 ssh://andrew@company.se/home/andrew/git/site.git/
@@ -380,23 +388,25 @@ andrew@company.se/home/andrew/git/site.git/
 </pre>
         <p>The last two URLs are equivalent since ssh is the default protocol.</p>
         <p>If you enter the Repository page you can add or delete remotes. After cloning there is only a single “origin”
-            remote and in many scenarios there is no need for additional remotes.</p>
+            remote and, in many scenarios, there is no need for additional remotes.</p>
 
     </div>
     <div class="inner">
         <h3 id="clone-catalog">2.1 Clone catalog</h3>
-        <p>When cloning repositories from BitBucket or GitHub you enter your credentials to get a list of repositories to clone.
+        <p>When cloning repositories from BitBucket or GitHub you must enter your credentials to get a list of repositories to clone.
             Working Copy tries to show the most relevant repositories at the top, these being the ones where you have administrative
-            privileges or write privileges. If the list is long, enter keywords in the search field to only see repositories containing these.
-            If you do not see the repository you want to clone, you can still copy-paste the clone URL into the top-field manually.</p>
+            or write privileges. If the list is long, enter keywords in the search field in order to only see repositories containing these.
+            If you do not see the repository you wish to clone, you can still copy-paste the clone URL into the top-field manually.</p>
 
-        <p>Working Copy will not store your BitBucket or GitHub password used to populate the list of remotes, but rather a authentication
+        <p>Working Copy will not store your BitBucket or GitHub password used to populate the list of remotes,
+            but rather as an authentication
             token that you can revoke from the BitBucket or GitHub settings. This is why you are required to login through Safari
             rather than inside Working Copy.</p>
 
         <p>When actually cloning the repository you cannot use the authentication token for the transfer and will either need to
-            configure a SSH authentication key or enter your password inside Working Copy. This password is stored in a encrypted
-            keychain maintained by iOS that is only accessible when your phone is unlocked. If you are using two-factor authentication
+            configure a SSH authentication key or enter your password inside Working Copy. This password is stored in an encrypted
+            keychain maintained by iOS that is only accessible when your phone is unlocked.
+            If you are using the two-factor authentication
             the password authentication will not work and you are required to use SSH key authentication for transfer.</p>
 
     </div>
@@ -412,7 +422,7 @@ andrew@company.se/home/andrew/git/site.git/
 
         <p>If you tap “Connect with BitBucket” or “Connect with GitHub” your public key will automatically be registered with this
             BitBucket or GitHub. For other Git hosting providers such as OpenShift or GitLab you need to enter your public key in
-            the settings page for that service. Details will depend on the service in question, but your first step is to Export the public key.
+            the settings page for that service. The details will depend upon the service in question, but your first step is to Export the public key.
             When using a Linux server, you need to append the public key to
             $HOME/.ssh/authorized_keys file.</p>
     </div>
@@ -420,9 +430,9 @@ andrew@company.se/home/andrew/git/site.git/
 
     <div class="inner">
         <h3 id="ssh-troubleshooting">2.3 SSH Troubleshooting</h3>
-        <p>If you are having problems authenticating with a SSH server you should make sure the public key installed on the server
+        <p>If you are having problems authenticating with an SSH server you should make sure the public key installed on the server
             matches the private key in Working Copy. If you have some other SSH client on your device or computer, you should make sure
-            you can connect from these without problems and if this works, make sure you use the same SSH key in Working Copy, possibly
+            you can connect from these without problems. If this works, you must also make sure you use the same SSH key in Working Copy, possibly
             importing the private key from the other application.</p>
     </div>
     <div style="clear: both;"></div>
@@ -433,12 +443,14 @@ andrew@company.se/home/andrew/git/site.git/
         <div class="left" style="position: relative; left: -50px; margin-right: -25px;">
          <img src="img/content-action-sheet-34.png"/>
         </div>
-        <p>A repository is presented as a hierarchy of directories and files where you tap a directory to enter and view the contents.
-            If you tap a file you are shown tab for Content with the ability to switch between Preview, Syntax Highlighted or Hex Dump modes.
-            Use the action button in the upper right corner to send the file to other apps or to edit inside Working Copy.</p>
+        <p>A repository is presented as a hierarchy of directories and files where you tap a directory to enter and
+            view the contents.
+            If you tap a file you are a shown tab for Content with the ability to switch between Preview,
+            Syntax Highlighted or Hex Dump modes.
+            Use the action button in the upper-right corner to send the file to other apps or to edit inside Working Copy.</p>
         <div class="right"><img class="right" src="img/content-mode-89.png"/></div>
 
-        <p>Some repositories have deep directory hierarchies and to avoid having to go back many times in succession, you can tap and hold
+        <p>Some repositories have deep directory hierarchies and to avoid having to go back repeatedly, you can tap and hold
             the back button to choose how far back you want to step.</p>
     </div><div class="inner">
     <h3 id="file-changes">3.1 File changes</h3>
@@ -447,19 +459,24 @@ andrew@company.se/home/andrew/git/site.git/
     <p>A badge on the Changes tab shows the number of lines added or deleted from a file.
         The Changes tab itself shows the differences
         between the last version committed and the current version. You can long-tap changed blocks to recover deleted blocks or
-        remove added blocks. The two-panel split-view in the screenshot requires the screen to be wide and phones need to be
+        remove added blocks. The two-panel split-view in the screenshot requires the screen to be wide and for phones to be
         turned to landscape mode.</p>
 
-    <p>Image changes can be viewed in a split-mode where zooming one image will make the other one follow making it easy to focus on details.
-        If you wonder where in a image there are changes, use the Color mode that highlight changed areas. Cut mode is useful for images with
-        global changes and allows you to drag and rotate a partitioning line such that everything on one side is the old image.
+    <p>Image changes can be viewed in a split-mode where zooming one image will make the other one follow -
+        making it easy to focus on the details.
+        If you are unsure as to where the changes are in an image, use the Color mode that highlights changed areas. Cut mode is useful for images with
+        global changes and allows you to drag and rotate a partitioning line in such a way that everything on one side is the old image.
         The previous image will have a red border, and the new one a green border.</p>
 
-    <p>Files can sometimes be conflicted because there have been changes made to the file that could not be automatically merged.
-        This will happen when two people work on the same part of a file at once and they commit changes without knowing about the other
-        changes made. You will then need to pick one, the other or a combined version of the file. When you edit the file there are conflict
-        markers showing how the two different versions of the file disagree on content. You need to sort this out and mark the file as Resolved,
-        which is done with the action button.</p>
+    <p>Files can sometimes be conflicted because there have been changes
+        made to the file that could not be automatically merged.
+        This will occur when two people work on the same part of a file at once and
+        they commit changes without knowing about the other changes made.
+        In such cases, you will then need to pick one or the other, or a combined version of the file.
+        When you edit the file there are conflict
+        markers showing how the two different versions of the file disagree on content.
+        You need to sort this out and mark the file as Resolved,
+        which can be done with the action button.</p>
 
     <p>The Status tab says whether the file is modified and allows you to commit or revert changes.
         If you tap edit you can rename or delete the file.</p>
@@ -470,37 +487,40 @@ andrew@company.se/home/andrew/git/site.git/
     <div class="inner">
         <div class="right"><img class="right" src="img/commit-sheet-32.png"/></div>
 
-        <p>You commit changes to your files for the entire repository, for all files in a sub-directory or for a specific file.
-            If you do not wish to commit some of your files you can Revert to how they where at last commit.
-            The files taken into account is determined by where in the directory structure you initiate the commit.
+        <p>You can commit changes to your files for the entire repository, for all files in a sub-directory or for a specific file.
+            If you do not wish to commit some of your files you can Revert to how they where at the last commit.
+            The files taken into account are determined by where in the directory structure you initiate the commit.
             As a short-hand you can swipe left on a repository, directory or file to commit.</p>
         <div class="left"><img class="left" src="img/status-modified-19.png"/></div>
 
         <p>During commit you are shown a list of changed files and can view differences for individual files by pressing the button
             that shows the number of lines added or deleted. Files with a checkmark will be included in the commit and you toggle the
-            checkmark by tapping the file. Working Copy will push the commit to the remote right away if you enable the +Push button.</p>
+            checkmark by tapping the file.
+            Working Copy will push the commit to the remote right away if you enable the <em>+Push</em> button.</p>
 
         <p>As a general rule you should make commits with a single purpose and only include the changed files that helped achieve this purpose.
-            You write a message in the top line describing this purpose; if is is hard to write something short but concrete you might
-            need to break you commit into smaller parts.</p>
+            You should write a message in the top line describing this purpose;
+            if it is hard to write something short but concrete you might
+            need to break your commit into smaller parts.</p>
     </div>
 
     <div class="inner">
         <div class="right"><img class="right" src="img/commit-list-28.png"/></div>
 
         <h3 id="commit-history">4.1 Commit history</h3>
-        <p>The value of well-drafted commit messages is apparent when looking at a log of previous commits.
-            You do this for either the entire repository, a directory with all its files or for single files.
-            If your commit messages are meaningful, even as you return to a project after months or years you have a much
+        <p>The value of well-drafted commit messages becomes apparent when looking at a log of previous commits.
+            You may do this for either the entire repository, a directory with all its files or for single files.
+            If your commit messages are meaningful, even if you return to a project after months or years you have a much
             better chance of making sense of the source-code.
             Tap a commit to see specific changes this commit made to the files in question.</p>
 
         <p>The images shown in commit-logs are determined from the email-address of the person making the commit with the
             help of <a target="gravatar" href="http://gravatar.com/">gravatar.com</a>.
-            At the commit-list for the entire repository you can Checkout old versions of your files by swiping left on a commit. Your repository will be in a “detached head” state where you cannot commit any changes,
+            At the commit-list for the entire repository you can Checkout old versions of your
+            files by swiping left on a commit. Your repository will be in a “detached head” state where you cannot commit any changes,
             but if you make modifications and wish to keep these, you should create a new branch.
         </p>
-        <p>Checking out the topmost commit will reattach head such that your repository is back to normal.</p>
+        <p>Checking out the topmost commit will reattach the head in such a way that your repository is back to normal.</p>
     </div>
 
     <div style="clear: both;"></div>
@@ -510,10 +530,12 @@ andrew@company.se/home/andrew/git/site.git/
         <div class="left"><img class="left" src="img/branch-52.png"/></div>
 
         <p>A great advantage of Git compared to other version-control software is the ease at which you can branch your
-            repository to work independently on different things. Once you are confident with the work done in a branch you can merge
+            repository to work independently on different things.
+            Once you are confident with the work undertaken in a branch you can merge
             it back to one of your main branches.</p>
 
-        <p>In Working Copy you do this from the Repository screen by tapping the current branch name to access a list of branches
+        <p>In Working Copy you can do this from the Repository screen by tapping the current
+            branch name to access a list of branches
             with the ability to switch to a new branch, create a new branch or merge branches back together.</p>
 
         <div style="clear: left"></div>
@@ -525,18 +547,18 @@ andrew@company.se/home/andrew/git/site.git/
         </p>
         <div class="right"><img class="right" src="img/commit-graph.png"/></div>
         <p>Pinch to zoom will let you explore additional details, such as the full commit message, the full name of the author
-            rather than initials, a commit identifier and the files modified by this commit. If you connect a external
+            rather than initials, a commit identifier and the files modified by this commit. If you connect an external
         screen or projector to your device, you will get a full-screen Commit Graph without any interface elements
-        obscuring the view. This makes for a nice tool when your team needs to discuss the project.</p>
+        obscuring the view. This makes for a convenient tool when your team needs to discuss the project.</p>
         <p>You can tap and hold or double-tap the elements of a commit for additional actions.</p>
         <p>The Commit Message lets you activate a share-sheet for the entire commit message, letting you
-            copy to clipboard or send in a email. You can also view Details of the commit switching away from
+            copy to clipboard or send in an email. You can also view Details of the commit switching away from
             the Commit Graph.</p>
         <p>You can copy the author email to the clipboard or start composing a email to the author.</p>
         <p>It is also possible to view the commit date in your calendar to see what else happened around this time and
             when <a href="https://flexibits.com/fantastical-iphone" target="fantastical">Fantastical</a> is installed,
             it will be used instead of the built-in Calendar app.</p>
-        <p>Finally the list of modified files let you generate a Patch, for non-merge Commits.</p>
+        <p>Finally, the list of modified files lets you generate a Patch, for non-merge Commits.</p>
     </div>
 
     <div style="clear: both;"></div>
@@ -545,11 +567,11 @@ andrew@company.se/home/andrew/git/site.git/
     <div class="inner">
         <div class="left"><img class="left" src="img/textastic-87.png"/></div>
 
-        <p>Working Copy takes advantage of recent improvements to iOS allowing richer corporation between applications.
+        <p>Working Copy takes advantage of recent improvements to iOS allowing richer cooperation between applications.
             All repositories in Working Copy can be accessed by other applications using the iCloud document picker.
             Once a file inside Working Copy is picked, the other application is allowed to read and make changes to this file
-            and these changes stay inside Working Copy. You can do editing in this application and switch to
-            Working Copy to review and commit changes. On iPad you can use
+            and these changes stay inside Working Copy. You can perform editing in this application and switch to
+            Working Copy to review and commit changes. On the iPad you can use
             <a target="iPad-guide" href="https://help.apple.com/ipad/9/#/iPad5afb8ee4">Slide Over</a> or
             <a target="iPad-guide" href="https://help.apple.com/ipad/9/#/iPad63ea0cbb">Split Screen</a>
             to avoid switching between Working Copy and the editing application.</p>
@@ -560,17 +582,18 @@ andrew@company.se/home/andrew/git/site.git/
         <p><a target="app" href="https://itunes.apple.com/app/byword/id482063361?mt=8&amp;at=1000lHq">Byword</a> is a special purpose Markdown
             editor that can also use the iCloud document picker to edit inside Working Copy
             by choosing Open Other…</p><p>Many Working Copy users like the
-        excellent <a target="app" href="http://itunes.apple.com/us/app/koder/id439271237?mt=8&amp;ls=1&amp;at=1000lHq">Koder</a> which also supports the
-        required document picker. Initially you need to enable Working Copy as a Location choice and you pick More as a location to do this.</p>
+        excellent <a target="app" href="http://itunes.apple.com/us/app/koder/id439271237?mt=8&amp;ls=1&amp;at=1000lHq">Koder</a>, which also supports the
+        required document picker. Initially you need to enable Working Copy as a Location choice and then
+        pick <em>More</em> as a location to do this.</p>
 
         <div class="right"><img class="right" src="img/share-sheet-38.png"/></div>
 
         <div style="clear: left"></div>
 
         <h3 id="saving">5.1 Saving to Working Copy</h3>
-        <p>Saving files into Working Copy can be done by way of a Share sheet, the mechanism also used to share files though Mail or Messages.
-            Picking Working Copy on a Share sheet will present a list of repositories where you drill down to the directory where the file should be saved.
-            To overwrite existing files you tap before confirming and otherwise you will be prompted to enter a new file name.</p>
+        <p>Saving files into Working Copy can be accomplished by way of a Share sheet, the mechanism also used to share files though Mail or Messages.
+            Picking Working Copy on a Share sheet will present a list of repositories, where you drill down to the directory where the file should be saved.
+            To overwrite existing files you tap a fie before confirming. Otherwise you will be prompted to enter a new file name.</p>
 
         <p>After saving a file you can optionally <em>Commit</em> this change immediately and <em>Push</em> to the remote right away.</p>
 
@@ -578,13 +601,13 @@ andrew@company.se/home/andrew/git/site.git/
     <h3 id="workflows-callbacks">5.2 Workflows and Callbacks</h3>
     <div class="left"><img class="left" src="img/callback-setup-26.png"/></div>
 
-    <p>Working Copy supports the <a href="/url-schemes.html">x-callback-url</a> mechanism for inter-app corporation.
+    <p>Working Copy supports the <a href="/url-schemes.html">x-callback-url</a> mechanism for inter-app coorporation.
         This allows reading and writing files from repositories as
         well as committing changes and pushing commits to your remotes. As a security measure this mechanism needs
         to be enabled from the settings
         page and is protected by a random key.</p>
 
-    <p>Using applications such as
+    <p>By using applications such as
         <a target="app" href="https://itunes.apple.com/app/workflow-powerful-automation/id915249334?mt=8&amp;at=1000lHq">Workflow</a>
         and <a target="app" href="https://itunes.apple.com/app/editorial/id673907758?mt=8&amp;at=1000lHq">Editorial</a>
         you can achieve some of the power of shell-scripting on iOS by
@@ -596,31 +619,32 @@ andrew@company.se/home/andrew/git/site.git/
         <div class="right"><img class="right" src="img/webdav-settings.png"/></div>
 
         <p>In situations where you need to transfer entire directory hierarchies,
-            a good way to get files into and out of Working Copy the built-in
+            a good way to get files into and out of Working Copy is the built-in
             <a target="wikipedia" href="https://en.wikipedia.org/wiki/WebDAV">WebDAV</a> server. It is also
             the best way to let
             <a target="app" href="https://itunes.apple.com/us/app/coda-for-ios/id500906297?mt=8&amp;at=1000lHq">Coda</a>
-            edit directory in your Git repositories.
+            edit the files in your Git repositories.
         </p>
         <p>As a security precaution you need to start the server before each use and it automatically shuts down
-            after 5 minutes without activity. You should be cautious using the WebDAV server on untrusted
+            after five minutes of inactivity. You should be cautious of using the WebDAV server on untrusted
             networks as the transfers are unencrypted. In these cases you should restrict yourself
             to connections from applications on the same device, as the traffic cannot be intercepted when
-            it never leaves your device. Local connections are also possible in situations without Internet
+            it never leaves your device. Local connections are also possible in situations without an Internet
             connection. You need to specify <em>localhost</em> as the hostname in these situations.</p>
-        <p>Applications on iOS are restricted in how long they are allowed to run in the background. If you start
+        <p>Applications on iOS are restricted as to how long they are allowed to run in the background. If you start
            the WebDAV server and switch to some other application, you will be given a grace period before
             Working Copy and its WebDAV server is terminated. A notification will inform you of this.
             To avoid such restrictions you should keep Working Copy in the foreground and on iPads that support
             Split Screen multitasking, you can keep both Working Copy and the other application alive.
         </p>
         <p>
-            Using applications such as <a target="app" href="http://www.textasticapp.com">Textastic</a> and
+            By using applications such as <a target="app" href="http://www.textasticapp.com">Textastic</a> and
             <a target="app" href="https://itunes.apple.com/us/app/transmit-ios/id917432930?mt=8&amp;at=1000lHq">Transmit</a>
             that can work with both WebDAV and SSH
             servers, you can deploy from a Git repository to a standard Linux server by transferring
             the directory hierarchy from Working Copy into the other application and then from the other
-            application onto the server. Watch a short <a target="youtube" href="https://www.youtube.com/watch?v=5_EF6TbOEz0">video</a>
+            application onto the server.
+            Here you can watch a short <a target="youtube" href="https://www.youtube.com/watch?v=5_EF6TbOEz0">video</a>
             illustrating this.
         </p>
 
