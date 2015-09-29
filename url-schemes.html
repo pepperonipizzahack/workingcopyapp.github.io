@@ -29,6 +29,10 @@ body {
     float: none !important;
 }
 
+body > div {
+    margin-left: 10px;
+}
+
 p {
     margin-bottom: 0px;
     max-width: 800px;
@@ -138,14 +142,15 @@ sup {
         sharing a password with everyone else. </p>
 
         <p>The following commands are supported, where a 🔒 indicates that the <em>push</em> feature must
-            be unlocked for that command to be available. <ul>
+            be unlocked for that command to be available. <>
         <li><a href="#writing">write</a> files,</li>
         <li><a href="#reading">read</a><sup>🔒</sup> files,</li>
         <li><a href="#zipping">archive</a><sup>🔒</sup> multiple files,</li>
         <li><a href="#committing">commit</a> changes,</li>
         <li>list file <a href="#status">status</a>,</li>
         <li><a href="#pushing">push</a><sup>🔒</sup> to remote and</li>
-        <li><a href="#pulling">pull</a> from remote.</li></ul>
+        <li><a href="#pulling">pull</a> from remote.</li>
+        <li>start or stop the <a href="#webdav">WebDAV</a> server.</li></ul>
         </p>
     </header>
     
@@ -280,7 +285,13 @@ sup {
       <pre> working-copy://x-callback-url/pull/?repo=my%20repo</pre>
       <p>Just like the <em>push</em> command you can use the <em>remote</em> parameter to pull from
       non-origin remotes.</p>
-    
+
+    <h2 id="webdav">Control WebDAV Server</h2>
+    <p>Use the <em>webdav</em> command to start or stop the
+        <a href="manual.html#webdav-server">internal WebDAV server</a>. The <em>cmd</em> parameter
+    can be either <em>start</em> or <em>stop</em> where the default is <em>cmd=start</em>.</p>
+    <pre> working-copy://x-callback-url/webdav/?cmd=start</pre>
+
     <h2>Chaining callbacks</h2>
     <p><img class="anim" src="img/textastic-new.gif" alt="Link is clicked that opens Working Copy and then sends file contents into Textastic to create new file." />
         URL callbacks can get pretty complicated when you want to send the result of one callback along to
