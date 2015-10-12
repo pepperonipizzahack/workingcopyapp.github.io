@@ -502,7 +502,9 @@
                     resized();
                 });
 
-                $("#video").animate({opacity: 1.0});
+                setTimeout(function() {
+                    $("#video").css({opacity: 1.0});
+                }, 50);
 
                 // every ten seconds or when tapped, we change review
                 scheduleNextReview();
