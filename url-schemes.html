@@ -99,7 +99,7 @@ sup {
         <p>
          To allow integration with other applications and automated workflows <a href="/">Working Copy</a>
             can be opened with special URL schemes and controlled with
-            <a href="http://x-callback-url.com/">x-callback-url</a>. Commands that change data
+            <a href="#x-callback-url">x-callback-url</a>. Commands that change data
             or read content out of Working Copy is protected by a secret key.
         </p>
 
@@ -132,7 +132,7 @@ sup {
             and otherwise initiate cloning.</p>
         <pre>working-copy://show?remote=https%3A%2F%2Fgithub.com%2Fgit%2Fgit.git</pre>
 
-        <h2>Callback commands</h2>
+        <h2 id="x-callback-url">Callback commands</h2>
         <p>To support workflows and automation, Working Copy has rich support for
         <a href="http://x-callback-url.com/">x-callback-url</a> commands.</p><p>
         Because the commands allow reading and writing your sourcecode, they are protected by a <em>key</em> parameter
@@ -151,6 +151,8 @@ sup {
         <li><a href="#pushing">push</a><sup>🔒</sup> to remote and</li>
         <li><a href="#pulling">pull</a> from remote.</li>
         <li>start or stop the <a href="#webdav">WebDAV</a> server.</li></ul>
+        <li><a href="#listing">list</a> repositories</li></ul>
+        <li><a href="#init">init</a> empty repository</li></ul>
         </p>
     </header>
     
@@ -291,6 +293,29 @@ sup {
         <a href="manual.html#webdav-server">internal WebDAV server</a>. The <em>cmd</em> parameter
     can be either <em>start</em> or <em>stop</em> where the default is <em>cmd=start</em>.</p>
     <pre> working-copy://x-callback-url/webdav/?cmd=start</pre>
+
+    <h2 id="listing">List repositories</h2>
+    <p>Use the <em>repos</em> command to get information about name, status, current branch and remotes for
+        all repositories inside Working Copy in JSON format. </p>
+    <pre> working-copy://x-callback-url/webdav/?cmd=start</pre>
+    <pre>[{"name":"welcome to working copy", "branch":"master", "status":"tap to learn more", "remotes":[]},
+ {"name":"libgit2", "branch":"master", "status":"nothing to commit",
+  "remotes":
+   [{"name":"origin", "fetch":1,"push":1,,"url":"https:\/\/github.com\/libgit2\/libgit2.git"}]},
+]</pre>
+    <p>It can get a little complicated to work with this JSON, but
+        <a target="app" href="https://itunes.apple.com/app/workflow-powerful-automation/id915249334?mt=8&at=1000lHq">Workflow</a>
+       users can try this small
+        <a target="app" href="https://workflow.is/workflows/a7fb61375f474925a1c047c7e28b3017">workflow</a> that
+        asks the user to pick one of the available repositories and could be used as a component for something
+        bigger. You will need to insert your URL key in the first action.
+    </p>
+
+
+    <h2 id="init">Init empty repository</h2>
+    <p>Use the <em>init</em> command to create a new repository without any files or remotes,
+        where <em>name</em> parameter must not be used by ano other repository.</p>
+    <pre> working-copy://x-callback-url/init/?name=new%20repository</pre>
 
     <h2>Chaining callbacks</h2>
     <p><img class="anim" src="img/textastic-new.gif" alt="Link is clicked that opens Working Copy and then sends file contents into Textastic to create new file." />
