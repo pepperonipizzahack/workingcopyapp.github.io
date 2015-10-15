@@ -149,27 +149,23 @@
 
         .preview {
             position:relative;
-            width:100%;
+            width:85%;
+            max-width: 1252px;
+            margin: 0 auto;
         }
         .frame {
             display: block;
             position: relative;
-            width: 85%;
-            max-width: 1252px;
+            width: 100%;
             height: auto;
-            margin:0 auto;
         }
         #video {
-            display: none;
-            position:absolute;
+            position: absolute;
+            left: 9.2651%;
+            top: 7.078%;
+            float: left;
+            width: 81.47%;
             z-index: 1;
-            left: 50%;
-            margin-left: -511px;
-            top:61px;
-            width: 1023px;
-            height: 767px;
-
-            opacity: 0;
         }
 
         body {
@@ -433,21 +429,6 @@
             return false;
         }
 
-        function resized() {
-            // size of frame
-            var width = Math.min(0.85 * $(window).width(), 1252);
-            var height = width * 890.0 / 1252.0;
-
-            // size of video
-            width = 1023.0 * width / 1252.0;
-            height = width * 767.0 / 1023.0;
-            var top = width * 61.0 / 1023 - 2;
-            $('#video').width(width).height(height).css('margin-left', -0.5 * width).css('top', top);
-
-            // show video
-            $('#video').show();
-        }
-
         var reviewTimer = null;
         function scheduleNextReview() {
             if(reviewTimer) clearTimeout(reviewTimer);
@@ -496,16 +477,7 @@
                 head.appendChild(script);
             }
 
-            getScript('/js/jquery.min.js',function(){
-                resized();
-                $( window ).resize(function() {
-                    resized();
-                });
-
-                setTimeout(function() {
-                    $("#video").css({opacity: 1.0});
-                }, 50);
-
+            getScript('js/jquery.min.js',function(){
                 // every ten seconds or when tapped, we change review
                 scheduleNextReview();
                 $('#reviews > div').click(function() {
@@ -558,12 +530,12 @@
     <div class="preview">
         <img class="frame" src="img/iPad-Air-Space-frame.jpg" alt="Working Copy on iPad Air clones a Git repository which can then be edited
              with Textastic and committed." />
-        <video id="video" itemprop="video" width="1023" height="766" controls="" preload="auto" autoplay=""
-               poster="/img/working-copy-poster.jpg"
+        <video id="video" itemprop="video" controls="" preload="auto" autoplay=""
+               poster="img/working-copy-poster.jpg"
                itemscope itemtype="http://schema.org/VideoObject">
             <meta itemprop="uploadDate" content="2015-05-08T08:00:00+08:00"/>
-            <source src="/video/Working_Copy_april.webm" type="video/webm">
-            <source src="/video/Working_Copy_april.mp4" type="video/mp4">
+            <source src="video/Working_Copy_april.webm" type="video/webm">
+            <source src="video/Working_Copy_april.mp4" type="video/mp4">
             <div itemprop="description" style="margin: auto; z-index: 1; width: 60%; font-size: 70%; text-align: center"><a title="Watch video of Working Copy in action." href="/video/Working_Copy_april.mp4">Working Copy clones a Git repository which can then be edited
                 with Textastic and committed.</a></div>
         </video>
