@@ -153,6 +153,7 @@
             max-width: 1252px;
             margin: 0 auto;
         }
+
         .frame {
             display: block;
             position: relative;
@@ -161,11 +162,17 @@
         }
         #video {
             position: absolute;
-            left: 9.2651%;
+            left: 9.1651%;
             top: 7.078%;
             float: left;
-            width: 81.47%;
+            width: 81.67%;
             z-index: 1;
+        }
+
+        .preview > div {
+            position: absolute;
+            width: 100%;
+            padding-bottom: 71.09%;
         }
 
         body {
@@ -528,6 +535,7 @@
         </div>
     </header>
     <div class="preview">
+        <div></div>
         <img class="frame" src="img/iPad-Air-Space-frame.jpg" alt="Working Copy on iPad Air clones a Git repository which can then be edited
              with Textastic and committed." />
         <video id="video" itemprop="video" controls="" preload="auto" autoplay=""
