@@ -102,6 +102,7 @@ sup {
             <a href="#x-callback-url">x-callback-url</a>. Commands that change data
             or read content out of Working Copy is protected by a secret key.
         </p>
+    </header>
 
         <h2>Opening Working Copy at specific screens</h2>
         <p>You can open Working Copy and make it go to a specific screen with a URL on the following form:
@@ -142,7 +143,7 @@ sup {
         sharing a password with everyone else. </p>
 
         <p>The following commands are supported, where a 🔒 indicates that the <em>push</em> feature must
-            be unlocked for that command to be available. <>
+            be unlocked for that command to be available.
         <li><a href="#writing">write</a> files,</li>
         <li><a href="#reading">read</a><sup>🔒</sup> files,</li>
         <li><a href="#zipping">archive</a><sup>🔒</sup> multiple files,</li>
@@ -154,8 +155,7 @@ sup {
         <li><a href="#listing">list</a> repositories</li></ul>
         <li><a href="#init">init</a> empty repository</li></ul>
         </p>
-    </header>
-    
+
     <h2>URL format for x-callback-url</h2>
     <p>URLs for x-callback-url must have the form:</p>
     <pre> working-copy://x-callback-url/&lt;command&gt;/?x-success=&lt;escaped-url&gt;&amp;repo=...&amp;key=...</pre>
