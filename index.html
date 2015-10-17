@@ -302,8 +302,15 @@
                 clear: both;
                 width: 100%;
             }
-
         }
+
+        @media screen and (max-width: 800px) and (min-width: 400px) {
+            .features div.last-feature {
+                margin-left: 27%;
+                margin-right: 27%;
+            }
+        }
+
 
         .features div img {
             width: auto;
@@ -606,7 +613,7 @@
                 Fix and <a href="/manual.html#commit-revert">commit</a> on the fly.</p>
         </div>
         <div class="cleareven"></div>
-        <div>
+        <div class="last-feature">
             <img id="become-tester" alt="Working Copy icon" src="img/icon-stylized.png"/>
             <h3>Become a tester</h3>
             <p>Working Copy is in rapid development. <a onclick="return signUp();" href="#">Get</a> the beta.</p>
