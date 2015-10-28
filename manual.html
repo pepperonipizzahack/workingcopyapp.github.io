@@ -316,7 +316,8 @@
             Working Copy can transfer data from the remote using http, https or ssh protocols. However, you should be careful
             using http transfer since data will be sent without encryption, which means your login credentials and your source
             code can be intercepted. If you are not on a trusted network you should avoid using http transfer.</p>
-        <p id="hosting-services">Conveniently for BitBucket and GitHub users, you can enter your credentials and get a list of repositories.
+        <p id="hosting-services">Conveniently for BitBucket and GitHub users, you can enter your credentials and get a
+            <a href="#clone-catalog">list of repositories</a>.
             Cloning then amounts to picking the repository and tapping clone. You are not restricted to these Git services.
             If you are using some other Git hosting service or a private server to host your repositories, copy-paste your
             URL into the top field and Working Copy will clone just as well.</p>
@@ -409,9 +410,11 @@ andrew@company.se/home/andrew/git/site.git/
     </div>
     <div class="inner">
         <h3 id="clone-catalog">2.1 Clone catalog</h3>
-        <p>When cloning repositories from BitBucket or GitHub you must enter your credentials to get a list of repositories to clone.
+        <p>When cloning repositories from BitBucket or GitHub you can enter your credentials to get a list of repositories to clone.
             Working Copy tries to show the most relevant repositories at the top, these being the ones where you have administrative
-            or write privileges. If the list is long, enter keywords in the search field in order to only see repositories containing these.
+            or write privileges. Your GitHub Gists and BitBucket Snippets are also available from this list.
+        </p>
+        <p>If the list is long, enter keywords in the search field in order to only see repositories containing these.
             If you do not see the repository you wish to clone, you can still copy-paste the clone URL into the top-field manually.</p>
 
         <p>Working Copy will not store your BitBucket or GitHub password used to populate the list of remotes,
@@ -422,7 +425,7 @@ andrew@company.se/home/andrew/git/site.git/
         <p>When actually cloning the repository you cannot use the authentication token for the transfer and will either need to
             configure a SSH authentication key or enter your password inside Working Copy. This password is stored in an encrypted
             keychain maintained by iOS that is only accessible when your phone is unlocked.
-            If you are using the two-factor authentication
+            If you are using the two-factor authentication,
             the password authentication will not work and you are required to use SSH key authentication for transfer.</p>
 
     </div>
