@@ -1,16 +1,13 @@
-<!DOCTYPE html>
-<!--[if lt IE 7 ]> <html class="no-js ie6" lang="en"> <![endif]-->
-<!--[if IE 7 ]>    <html class="no-js ie7" lang="en"> <![endif]-->
-<!--[if IE 8 ]>    <html class="no-js ie8" lang="en"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
-<head>
+bplist00—_WebMainResource’	
+_WebResourceTextEncodingName_WebResourceFrameName^WebResourceURL_WebResourceData_WebResourceMIMETypeUUTF-8P_%http://workingcopyapp.com/manual.htmlOæd<!DOCTYPE html><!--[if lt IE 7 ]> <html class="no-js ie6" lang="en"> <![endif]--><!--[if IE 7 ]>    <html class="no-js ie7" lang="en"> <![endif]--><!--[if IE 8 ]>    <html class="no-js ie8" lang="en"> <![endif]--><!--[if (gte IE 9)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]--><head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Working Copy users guide</title>
     <meta name="author" content="Anders Borum">
     <meta name="keywords" content="iOS,git,repository,programming,automation,workflow,x-callback-url,WebDAV">
     <meta name="apple-itunes-app" content="app-id=896694807">
-    <meta property="og:image" content="http://WorkingCopyApp.com/img/split-diff-36.png">
+    <link rel="mask-icon" href="/img/mask-icon.svg" color="#399CFC">
+    <meta property="og:image" content="http://WorkingCopyApp.com/img/split-diff-36-1364.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@palmin">
     <meta name="twitter:title" content="Working Copy - Users Guide">
@@ -28,8 +25,6 @@
                 display: none;
             }
         }
-
-        /* video { display: none; } */
 
         * {
             font-family: -apple-system, "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
@@ -71,8 +66,10 @@
 
         a:link, a:visited, a:hover, a:active {
             color: #222;
-            border-bottom: 1px solid #222;
             text-decoration: none;
+        }
+        a:link, a:visited, a:active {
+            border-bottom: 1px solid #222;
         }
         a:hover {
             border-bottom: 2px solid #222;
@@ -231,7 +228,7 @@
             padding-top: 30.54%;
             margin-left: auto;
             margin-right: auto;
-            width: 84.34%;
+            width: 85.34%;
             z-index: 1;
             position: absolute;
             top: 0; bottom: 0;
@@ -239,7 +236,7 @@
         }
 
     </style>
-    <script>
+    <script async="" src="//www.google-analytics.com/analytics.js"></script><script>var urchinTracker=function(){},_gaq={push:function(){try {if(arguments[0][0]=='_link')window.location.href=arguments[0][1]}catch(er){}}},_gat={_createTracker:function(){}, _getTracker:function(){return{__noSuchMethod__:function(){},_link:function(o){if(o)location.href=o;},_linkByPost:function(){return true;},_getLinkerUrl:function(o){return o;},_trackEvent:function(){}}}};</script><script>
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
                     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
                 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -292,7 +289,7 @@
     </nav>
 </div>
 <div class="full">
- <img src="img/action-shot-71.jpg" style="width: 100%; margin-top: 20px"/>
+ <img src="img/action-shot-71-800.jpg" style="width: 100%; margin-top: 20px" srcset="img/action-shot-71-800.jpg 800w, img/action-shot-71-1200.jpg 1200w, img/action-shot-71-2000.jpg 2000w">
 </div>
 <div class="outer">
     <h2 id="introduction">1. Introduction</h2>
@@ -305,23 +302,27 @@
 
         <h3 id="cloning-repos">1.1 Cloning repositories</h3>
         <div class="left">
-         <img class="animated" onload="imgLoaded(this)" src="img/clone-77.jpg" alt="Video showing cloning on phone: User presses + in the upper right corner and picks clone. Picks protocol, types username, hostname and path on the Other tab. Picks repository from list on GitHub tab. Presses Clone to start transfer. When cloning completes the repository contents are shown." />
+         <img class="animated" onload="imgLoaded(this)" src="img/clone-77.jpg" alt="Video showing cloning on phone: User presses + in the upper right corner and picks clone. Picks protocol, types username, hostname and path on the Other tab. Picks repository from list on GitHub tab. Presses Clone to start transfer. When cloning completes the repository contents are shown." srcset="img/clone-77.jpg 200w, img/clone-77-400.jpg 400w, img/clone-77-645.jpg 645w" style="background-color: transparent; background-position: initial initial; background-repeat: initial initial;"><video poster="video/clone-77.jpg" controls="true" preload="none"><source src="video/clone-77.mp4" type="video/mp4"></video>
         </div>
         <p>The first step is to get hold of a local copy of the Git repositories you want to access.
             Duplicating a repository from a remote server is
             known as cloning, and you do this by pressing + on the list of repositories.</p>
         <p>You provide a URL pointing to a repository on the Git remote you wish to clone from.
-            Working Copy can transfer data from the remote using http, https or ssh protocols. However, but you should be careful
+            Working Copy can transfer data from the remote using http, https or ssh protocols. However, you should be careful
             using http transfer since data will be sent without encryption, which means your login credentials and your source
             code can be intercepted. If you are not on a trusted network you should avoid using http transfer.</p>
-        <p id="hosting-services">Conveniently for BitBucket and GitHub users, you can enter your credentials and get a list of repositories.
+        <p id="hosting-services">Conveniently for BitBucket and GitHub users, you can enter your credentials and get a
+            <a href="#clone-catalog">list of repositories</a>.
             Cloning then amounts to picking the repository and tapping clone. You are not restricted to these Git services.
             If you are using some other Git hosting service or a private server to host your repositories, copy-paste your
             URL into the top field and Working Copy will clone just as well.</p>
+        <p id="itunes-import">You can also import repositories from a Mac or PC by dragging directories into iTunes Document lists.
+            If the directory does not contain a .git subdirectory at top-level, Working Copy assumes you want a new repository with
+            all these files added. Zip-files can also be dragged into iTunes.</p>
 
     </div><div class="inner">
 
-    <div class="right"><img src="img/css-content-45.png" onload="imgLoaded(this)" /></div>
+    <div class="right"><img src="img/css-content-45.png" onload="imgLoaded(this)" srcset="img/css-content-45.png 200w, img/css-content-45-400.png 400w, img/css-content-45-645.png 645w" style="background-color: transparent; background-position: initial initial; background-repeat: initial initial;"></div>
     <h3 id="accessing-files">1.2 Accessing files</h3>
     <p>Data in Working Copy is organized as repositories, containing directories, which themselves contain
         either sub-directories or files.
@@ -340,7 +341,7 @@
 </div><div class="inner">
 
     <h3 id="committing-changes">1.3 Committing changes</h3>
-    <div class="left"><img src="img/commit-sheet-32.png" onload="imgLoaded(this)" /></div>
+    <div class="left"><img src="img/commit-sheet-32.png" onload="imgLoaded(this)" srcset="img/commit-sheet-32.png 200w, img/commit-sheet-32-400.png 400w, img/commit-sheet-32-645.png 645w" style="background-color: transparent; background-position: initial initial; background-repeat: initial initial;"></div>
     <p>When you have file modifications the Changes tab lights up. You can see what has been added in green and what has
         been deleted in red. If you are satisfied with the changes you can commit
         them to the repository with a button on the Status tab.
@@ -361,12 +362,12 @@
     <div class="inner">
 
         <h3 id="up-to-date">1.4 Staying up-to-date</h3>
-        <div class="right"><img class="right" src="img/status-79.jpg" onload="imgLoaded(this)" /></div>
+        <div class="right"><img class="right" src="img/status-79.jpg" onload="imgLoaded(this)" srcset="img/status-79.jpg 200w, img/status-79-400.jpg 400w, img/status-79-645.jpg 645w" style="background-color: transparent; background-position: initial initial; background-repeat: initial initial;"></div>
 
         <p>Commits can be pushed to the remote from many sources.
             Other people contribute their work, or you could be doing something
-            on a regular computer or another iOS device which results in commits that end up on the remote. You need to unlock
-        the ability to <em>Push</em> with an in-app purchase.</p>
+            on a regular computer or another iOS device which results in commits that end up on the remote. You need to
+            <a href="#purchase">unlock</a> the ability to <em>Push</em> with an in-app purchase.</p>
 
         <p>You get commits back into Working Copy through a two-step process where you <em>Fetch</em> and <em>Merge</em>.
             <em>Fetch</em> reads commits from the
@@ -385,9 +386,9 @@
     <h2 id="remotes">2. Remotes</h2>
 
     <div class="inner">
-        <div class="left"><img class="left" onload="imgLoaded(this)" src="img/remote-details-81.jpg"/></div>
+        <div class="left"><img class="left" onload="imgLoaded(this)" src="img/remote-details-81.jpg" srcset="img/remote-details-81.jpg 200w, img/remote-details-81-400.jpg 400w, img/remote-details-81-645.jpg 645w" style="background-color: transparent; background-position: initial initial; background-repeat: initial initial;"></div>
         <p>Git remotes are server-side duplicates of your repositories with full history.
-            These can be services such as GitHub, BitBucket etc. or they can be be privately hosted servers or NAS drives.</p>
+            These can be services such as GitHub, BitBucket etc. or they can be be privately hosted servers.</p>
 
         <p>When you clone a repository, the URL of the remote repository is your starting point. Working Copy supports ssh, https and
             http remotes and the URL consists of protocol scheme, the hostname, username and the path to the repository on the host.
@@ -404,9 +405,11 @@ andrew@company.se/home/andrew/git/site.git/
     </div>
     <div class="inner">
         <h3 id="clone-catalog">2.1 Clone catalog</h3>
-        <p>When cloning repositories from BitBucket or GitHub you must enter your credentials to get a list of repositories to clone.
+        <p>When cloning repositories from BitBucket or GitHub you can enter your credentials to get a list of repositories to clone.
             Working Copy tries to show the most relevant repositories at the top, these being the ones where you have administrative
-            or write privileges. If the list is long, enter keywords in the search field in order to only see repositories containing these.
+            or write privileges. Your GitHub Gists and BitBucket Snippets are also available from this list.
+        </p>
+        <p>If the list is long, enter keywords in the search field in order to only see repositories containing these.
             If you do not see the repository you wish to clone, you can still copy-paste the clone URL into the top-field manually.</p>
 
         <p>Working Copy will not store your BitBucket or GitHub password used to populate the list of remotes,
@@ -417,14 +420,14 @@ andrew@company.se/home/andrew/git/site.git/
         <p>When actually cloning the repository you cannot use the authentication token for the transfer and will either need to
             configure a SSH authentication key or enter your password inside Working Copy. This password is stored in an encrypted
             keychain maintained by iOS that is only accessible when your phone is unlocked.
-            If you are using the two-factor authentication
+            If you are using the two-factor authentication,
             the password authentication will not work and you are required to use SSH key authentication for transfer.</p>
 
     </div>
 
     <div class="inner">
         <h3 id="ssh-keys">2.2 SSH keys</h3>
-        <div class="right"><img class="right" onload="imgLoaded(this)" src="img/ssh-config-30.png"/></div>
+        <div class="right"><img class="right" onload="imgLoaded(this)" src="img/ssh-config-30.png" srcset="img/ssh-config-30.png 200w, img/ssh-config-30-400.png 400w, img/ssh-config-30-645.png 645w" style="background-color: transparent; background-position: initial initial; background-repeat: initial initial;"></div>
 
         <p>SSH transfers support password authentication but also public/private key authentication for improved security.
             The public part of SSH key corresponds to a padlock that you use to lock-down resources. The private part of the SSH
@@ -452,23 +455,23 @@ andrew@company.se/home/andrew/git/site.git/
 
     <h2 id="viewing-editing">3. Viewing and editing</h2>
     <div class="inner">
-        <div class="left"><img class="left" onload="imgLoaded(this)" src="img/dir-structure-21.png"/></div>
+        <div class="left"><img class="left" onload="imgLoaded(this)" src="img/dir-structure-21.png" srcset="img/dir-structure-21.png 200w, img/dir-structure-21-400.png 400w, img/dir-structure-21-645.png 645w" style="background-color: transparent; background-position: initial initial; background-repeat: initial initial;"></div>
         <div class="left" style="position: relative; left: -50px; margin-right: -25px;">
-         <img src="img/content-action-sheet-34.png" onload="imgLoaded(this)" />
+         <img src="img/content-action-sheet-34.png" onload="imgLoaded(this)" srcset="img/content-action-sheet-34.png 200w, img/content-action-sheet-34-400.png 400w, img/content-action-sheet-34-645.png 645w" style="background-color: transparent; background-position: initial initial; background-repeat: initial initial;">
         </div>
         <p>A repository is presented as a hierarchy of directories and files where you tap a directory to enter and
             view the contents.
             If you tap a file you are a shown tab for Content with the ability to switch between Preview,
             Syntax Highlighted or Hex Dump modes.
             Use the action button in the upper-right corner to send the file to other apps or to edit inside Working Copy.</p>
-        <div class="right"><img class="right" src="img/content-mode-89.png" onload="imgLoaded(this)" /></div>
+        <div class="right"><img class="right" src="img/content-mode-89.png" onload="imgLoaded(this)" srcset="img/content-mode-89.png 200w, img/content-mode-89-400.png 400w, img/content-mode-89-645.png 645w" style="background-color: transparent; background-position: initial initial; background-repeat: initial initial;"></div>
 
         <p>Some repositories have deep directory hierarchies and to avoid having to go back repeatedly, you can tap and hold
             the back button to choose how far back you want to step.</p>
     </div><div class="inner">
     <h3 id="file-changes">3.1 File changes</h3>
-    <div class="wide left" style="margin-left: -5%"><img class="wide left" style="margin-left: -5%" onload="imgLoaded(this)" src="img/split-diff-36.png"/></div>
-    <div style="clear: both; margin-top: -75px" class="left"><img onload="imgLoaded(this)" src="img/image-diff-83.png"/></div>
+    <div class="wide left" style="margin-left: -5%"><img class="wide left" style="margin-left: -5%; background-color: transparent; background-position: initial initial; background-repeat: initial initial;" onload="imgLoaded(this)" src="img/split-diff-36.png" srcset="img/split-diff-36.png 417w, img/split-diff-36-834.png 834w, img/split-diff-36-1364.png 1364w"></div>
+    <div style="clear: both; margin-top: -75px" class="left"><img class="animated" onload="imgLoaded(this)" src="img/image-diff-83.png" srcset="img/image-diff-83.png 200w, img/image-diff-83-450.png 450w, img/image-diff-83-645.png 645w" style="background-color: transparent; background-position: initial initial; background-repeat: initial initial;"><video poster="video/image-diff-83.jpg" controls="true" preload="none"><source src="video/image-diff-83.mp4" type="video/mp4"></video></div>
     <p>A badge on the Changes tab shows the number of lines added or deleted from a file.
         The Changes tab itself shows the differences
         between the last version committed and the current version. You can long-tap changed blocks to recover deleted blocks or
@@ -477,7 +480,8 @@ andrew@company.se/home/andrew/git/site.git/
 
     <p>Image changes can be viewed in a split-mode where zooming one image will make the other one follow -
         making it easy to focus on the details.
-        If you are unsure as to where the changes are in an image, use the Color mode that highlights changed areas. Cut mode is useful for images with
+        If you are unsure as to where the changes are in an image, use the Color mode that
+        highlights changed areas in green where identical areas are without color. Cut mode is useful for images with
         global changes and allows you to drag and rotate a partitioning line in such a way that everything on one side is the old image.
         The previous image will have a red border, and the new one a green border.</p>
 
@@ -492,19 +496,19 @@ andrew@company.se/home/andrew/git/site.git/
         which can be done with the action button.</p>
 
     <p>The Status tab says whether the file is modified and allows you to commit or revert changes.
-        If you tap edit you can rename or delete the file.</p>
+    </p>
     <div style="clear: both;"></div>
 </div>
 
     <h2 id="commit-revert">4. Committing or reverting</h2>
     <div class="inner">
-        <div class="right"><img class="right" onload="imgLoaded(this)" src="img/commit-sheet-32.png"/></div>
+        <div class="right"><img class="right" onload="imgLoaded(this)" src="img/commit-sheet-32.png" srcset="img/commit-sheet-32.png 200w, img/commit-sheet-32-400.png 400w, img/commit-sheet-32-645.png 645w" style="background-color: transparent; background-position: initial initial; background-repeat: initial initial;"></div>
 
         <p>You can commit changes to your files for the entire repository, for all files in a sub-directory or for a specific file.
             If you do not wish to commit some of your files you can Revert to how they where at the last commit.
             The files taken into account are determined by where in the directory structure you initiate the commit.
             As a short-hand you can swipe left on a repository, directory or file to commit.</p>
-        <div class="left"><img class="left" onload="imgLoaded(this)" src="img/status-modified-19.png"/></div>
+        <div class="left"><img class="left" onload="imgLoaded(this)" src="img/status-modified-19.png" srcset="img/status-modified-19.png 200w, img/status-modified-19-400.png 400w, img/status-modified-19-645.png 645w" style="background-color: transparent; background-position: initial initial; background-repeat: initial initial;"></div>
 
         <p>During commit you are shown a list of changed files and can view differences for individual files by pressing the button
             that shows the number of lines added or deleted. Files with a checkmark will be included in the commit and you toggle the
@@ -518,7 +522,7 @@ andrew@company.se/home/andrew/git/site.git/
     </div>
 
     <div class="inner">
-        <div class="right"><img class="right" onload="imgLoaded(this)" src="img/commit-list-28.png"/></div>
+        <div class="right"><img class="right" onload="imgLoaded(this)" src="img/commit-list-28.png" srcset="img/commit-list-28.png 200w, img/commit-list-28-400.png 400w, img/commit-list-28-645.png 645w" style="background-color: transparent; background-position: initial initial; background-repeat: initial initial;"></div>
 
         <h3 id="commit-history">4.1 Commit history</h3>
         <p>The value of well-drafted commit messages becomes apparent when looking at a log of previous commits.
@@ -540,7 +544,7 @@ andrew@company.se/home/andrew/git/site.git/
     <div class="inner">
         <h3 id="branching">4.2 Branches</h3>
 
-        <div class="left"><img class="left" onload="imgLoaded(this)" src="img/branch-52.png"/></div>
+        <div class="left"><img class="left" onload="imgLoaded(this)" src="img/branch-52.png" srcset="img/branch-52.png 200w, img/branch-52-400.png 400w, img/branch-52-645.png 645w" style="background-color: transparent; background-position: initial initial; background-repeat: initial initial;"></div>
 
         <p>A great advantage of Git compared to other version-control software is the ease at which you can branch your
             repository to work independently on different things.
@@ -548,8 +552,11 @@ andrew@company.se/home/andrew/git/site.git/
             it back to one of your main branches.</p>
 
         <p>In Working Copy you can do this from the Repository screen by tapping the current
-            branch name to access a list of branches
-            with the ability to switch to a new branch, create a new branch or merge branches back together.</p>
+            branch name to access a list of branches. Switching to another branch is done by tapping the list.</p>
+
+        <p> You create new branches from the current one with the right-most button in the upper-right corner and you merge back
+            another branch into your current branch with the other button in the upper-right.
+            Swipe left to rename or delete branches.</p>
 
         <div style="clear: left"></div>
         <h3 id="commit-graph">4.3 Commit Graph</h3>
@@ -558,27 +565,24 @@ andrew@company.se/home/andrew/git/site.git/
         <p>Commits are presented in chronological order with lines showing which commits are based on each other,
             with tags and branch heads displayed as well as the commit message summary, date and information about the author of the commit.
         </p>
-        <div class="right"><img class="right" onload="imgLoaded(this)" src="img/commit-graph.png"/></div>
+        <div class="right"><img class="right" onload="imgLoaded(this)" src="img/commit-graph.png" srcset="img/commit-graph.png 200w, img/commit-graph-400.png 400w, img/commit-graph-645.png 645w" style="background-color: transparent; background-position: initial initial; background-repeat: initial initial;"></div>
         <p>Pinch to zoom will let you explore additional details, such as the full commit message, the full name of the author
             rather than initials, a commit identifier and the files modified by this commit. If you connect an external
         screen or projector to your device, you will get a full-screen Commit Graph without any interface elements
         obscuring the view. This makes for a convenient tool when your team needs to discuss the project.</p>
-        <p>You can tap and hold or double-tap the elements of a commit for additional actions.</p>
-        <p>The Commit Message lets you activate a share-sheet for the entire commit message, letting you
-            copy to clipboard or send in an email. You can also view Details of the commit switching away from
-            the Commit Graph.</p>
+        <p>You can tap and hold or double-tap the elements of a commit for additional actions, where
+            the commit message itself takes you to a detail view.</p>
         <p>You can copy the author email to the clipboard or start composing a email to the author.</p>
         <p>It is also possible to view the commit date in your calendar to see what else happened around this time and
             when <a href="https://flexibits.com/fantastical-iphone" target="fantastical">Fantastical</a> is installed,
             it will be used instead of the built-in Calendar app.</p>
-        <p>Finally, the list of modified files lets you generate a Patch, for non-merge Commits.</p>
     </div>
 
     <div style="clear: both;"></div>
 
     <h2 id="extending-ios">5. Extending iOS</h2>
     <div class="inner">
-        <div class="left"><img class="left" onload="imgLoaded(this)" src="img/textastic-87.png"/></div>
+        <div class="left"><img class="left" onload="imgLoaded(this)" src="img/textastic-87.png" srcset="img/textastic-87.png 200w, img/textastic-87-400.png 400w, img/textastic-87-645.png 645w" style="background-color: transparent; background-position: initial initial; background-repeat: initial initial;"></div>
 
         <p>Working Copy takes advantage of recent improvements to iOS allowing richer cooperation between applications.
             All repositories in Working Copy can be accessed by other applications using the iCloud document picker.
@@ -590,9 +594,11 @@ andrew@company.se/home/andrew/git/site.git/
             to avoid switching between Working Copy and the editing application.</p>
 
         <p><a target="app" href="http://www.textasticapp.com">Textastic</a> is a very good general purpose/programmers editor
-            that <a target="video" href="https://www.google.dk/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=3&amp;cad=rja&amp;uact=8&amp;ved=0CC0QtwIwAmoVChMI2oe0yO72xwIVB-saCh2t3wTr&amp;url=http%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DRB1Blvi7K9I&amp;usg=AFQjCNGDRGhgjmYSFcNnYSIMSM3SaZn3wg&amp;sig2=vWrSbTLsWgOTE6oklVX_FQ">works well</a> with Working Copy and you use Open‚Ä¶
-            to open the document picker. Initially you need to enable Working Copy as a Location choice by
-            picking <em>More</em>.</p>
+            that works well with Working Copy and you use Open‚Ä¶
+            to open the document picker. Alexander Blach the developer of Textastic has made a
+            <a target="video" href="https://www.google.dk/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=3&amp;cad=rja&amp;uact=8&amp;ved=0CC0QtwIwAmoVChMI2oe0yO72xwIVB-saCh2t3wTr&amp;url=http%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DRB1Blvi7K9I&amp;usg=AFQjCNGDRGhgjmYSFcNnYSIMSM3SaZn3wg&amp;sig2=vWrSbTLsWgOTE6oklVX_FQ">video</a>
+            showing how. Initially you need to enable Working Copy as a Location choice by
+            picking <em>More</em>. </p>
         <p><a target="app" href="https://itunes.apple.com/app/byword/id482063361?mt=8&amp;at=1000lHq">Byword</a> is a special purpose Markdown
             editor that can also use the iCloud document picker to edit inside Working Copy
             by choosing Open Other‚Ä¶ and many users also like
@@ -604,7 +610,7 @@ andrew@company.se/home/andrew/git/site.git/
         <div style="clear: left"></div>
 
         <h3 id="saving">5.1 Saving to Working Copy</h3>
-        <div class="right"><img class="right" onload="imgLoaded(this)" src="img/edit-in-app.png"/></div>
+        <div class="right"><img class="right" onload="imgLoaded(this)" src="img/edit-in-app.png" srcset="img/edit-in-app.png 200w, img/edit-in-app-400.png 400w, img/edit-in-app-645.png 645w" style="background-color: transparent; background-position: initial initial; background-repeat: initial initial;"></div>
         <p>Saving files into Working Copy can be accomplished by way of a Share sheet, the mechanism also used to share files
             with Mail or Messages.
             Picking Working Copy on a Share sheet will present a list of repositories, where you drill down to the
@@ -647,7 +653,7 @@ andrew@company.se/home/andrew/git/site.git/
 
     <div class="inner">
         <h3 id="webdav-server">5.3 WebDAV access</h3>
-        <div class="left"><img class="left" onload="imgLoaded(this)" src="img/webdav-settings.png"/></div>
+        <div class="left"><img class="left" onload="imgLoaded(this)" src="img/webdav-settings.png" srcset="img/webdav-settings.png 200w, img/webdav-settings-400.png 400w, img/webdav-settings-645.png 645w" style="background-color: transparent; background-position: initial initial; background-repeat: initial initial;"></div>
 
         <p>In situations where you need to transfer entire directory hierarchies,
             a good way to get files into and out of Working Copy is the built-in
@@ -684,7 +690,7 @@ andrew@company.se/home/andrew/git/site.git/
     </div>
     <div class="inner">
         <h3 id="workflows-callbacks">5.4 Workflows and Callbacks</h3>
-        <div class="right"><img class="right" onload="imgLoaded(this)" src="img/callback-setup-26.png"/></div>
+        <div class="right"><img class="right" onload="imgLoaded(this)" src="img/callback-setup-26.png" srcset="img/callback-setup-26.png 200w, img/callback-setup-26-400.png 400w, img/callback-setup-26-645.png 645w, " style="background-color: transparent; background-position: initial initial; background-repeat: initial initial;"></div>
 
         <p>Working Copy supports the <a href="/url-schemes.html">x-callback-url</a> mechanism for inter-app coorporation.
             This allows reading and writing files from repositories as
@@ -705,10 +711,10 @@ andrew@company.se/home/andrew/git/site.git/
     <div class="inner">
         <p>A lot of work has gone into making Working Copy as trouble-free to use as possible,
             but despite that, problems will sometimes occur. Please send your
-            questions by email to <a class="email"></a> and I will do my very best to assist.</p>
+            questions by email to <a class="email" href="mailto:anders@workingcopyapp.com">anders@workingcopyapp.com</a> and I will do my very best to assist.</p>
     </div>
     <div class="inner">
-        <div class="left"><img class="left" onload="imgLoaded(this)" src="img/unlock.png"/></div>
+        <div class="left"><img class="left" onload="imgLoaded(this)" src="img/unlock.png" srcset="img/unlock.png 200w, img/unlock-400.png 400w, img/unlock-645.png 645w" style="background-color: transparent; background-position: initial initial; background-repeat: initial initial;"></div>
         <h3 style="padding-top: 15px" id="purchase">6.1 How to purchase</h3>
         <p>Working Copy is a free download but you need to pay to unlock the ability to push commits back
             to remote servers. You can do this for 3 weeks or permanently where the permanent unlock
@@ -716,7 +722,7 @@ andrew@company.se/home/andrew/git/site.git/
             the same Apple ID.
 
         </p>
-        <p> Alternativaly you can use
+        <p> Alternatively you can use
             <a target="app" href="https://itunes.apple.com/us/app/working-copy-enterprise/id965019520?mt=8&amp;at=1000lHq">Working Copy Enterprise</a>
             that has the same features and includes the in-app purchase.
             Avoiding in-app purchases makes it easier for IT departments to deploy
@@ -729,7 +735,7 @@ andrew@company.se/home/andrew/git/site.git/
 </div>
 <div style="clear: both"> </div>
 <footer>
-    Get in touch by <a href="/enable-js.html" class="email" title="email">email</a> or on <a href="http://twitter.com/palmin" target="twitter">Twitter</a>.
+    Get in touch by <a href="mailto:anders@workingcopyapp.com" class="email" title="email">email</a> or on <a href="http://twitter.com/palmin" target="twitter">Twitter</a>.
 </footer>
 <!--[if lt IE 7 ]>
 <script src="/js/dd_belatedpng.js"></script>
@@ -818,5 +824,5 @@ andrew@company.se/home/andrew/git/site.git/
         });
     })();
 </script>
-</body>
-</html>
+
+</body></html>Ytext/html    ( F ] l ~ î ö õ √ø+                           ø5
