@@ -134,6 +134,7 @@
             font-size: 65%;
             word-wrap: break-word;
             margin-top: 5px;
+            margin-bottom: -0.5em;
             padding: 4px;
             max-width: 100%;
             color: #000000;
@@ -461,6 +462,11 @@ andrew@company.se/home/andrew/git/site.git/
             matches the private key in Working Copy. If you have some other SSH client on your device or computer, you should make sure
             you can connect from these without problems. If this works, you must also make sure you use the same SSH key in Working Copy,
             possibly importing the private key from the other application.</p>
+        <p>When exporting the public key you end up with something on the form:</p>
+        <pre>ssh-rsa AAAAB3NzaC1…g+y4Pfz9 Working Copy - device - 2015-24-12 08:10:00</pre>
+        <p>Everything after the second space is just a comment, that makes it easier to
+           determine where and how the key was created. It can sometimes help to remove this comment,
+           before registering the key with your Git server.</p>
     </div>
     <div style="clear: both;"></div>
 
