@@ -416,23 +416,37 @@ andrew@company.se/home/andrew/git/site.git/
     </div>
     <div class="inner">
         <h3 id="clone-catalog">2.1 Clone catalog</h3>
-        <p>When cloning repositories from BitBucket or GitHub you can enter your credentials to get a list of repositories to clone.
+        <div class="right"><img class="right" onload="imgLoaded(this)" src="img/clone-catalog.png" /></div>
+
+        <p>When cloning repositories from BitBucket, GitHub or GitLab you can enter your credentials to get a list of repositories to clone.
             Working Copy tries to show the most relevant repositories at the top, these being the ones where you have administrative
             or write privileges. Your GitHub Gists and BitBucket Snippets are also available from this list.
         </p>
         <p>If the list is long, enter keywords in the search field in order to only see repositories containing these.
             If you do not see the repository you wish to clone, you can still copy-paste the clone URL into the top-field manually.</p>
 
+        <p>Working Copy lets you configure private instances of
+            BitBucket <a target="hosting" href="https://www.atlassian.com/software/bitbucket/server">Server</a> (previously known as Stash),
+            GitHub <a target="hosting" href="https://enterprise.github.com/">Enterprise</a> and
+            <a target="hosting" href="https://about.gitlab.com/features/">GitLab</a> from Working Copy settings.
+            You enter the hostname of your server and the URL scheme and kind of service is identified automatically.
+           </p>
+        <div class="left" style="margin-top: 1em"><img class="left" onload="imgLoaded(this)" src="img/hosting-provider.png" /></div>
+        <p>In addition to listing repositories, this integration lets you create new repositories from within the
+            remote detail screen of Working Copy. </p>
+        <p>When you add hosting providers it is often a good idea to disable the built-in provides you are
+         not using to avoid clutter in other parts of Working Copy. </p>
+
         <p>Working Copy will not store your BitBucket or GitHub password used to populate the list of remotes,
-            but rather as an authentication
+            but rather an authentication
             token that you can revoke from the BitBucket or GitHub settings. This is why you are required to login through Safari
             rather than inside Working Copy.</p>
 
         <p>When actually cloning the repository you cannot use the authentication token for the transfer and will either need to
             configure a SSH authentication key or enter your password inside Working Copy. This password is stored in an encrypted
             keychain maintained by iOS that is only accessible when your phone is unlocked.
-            If you are using the two-factor authentication,
-            the password authentication will not work and you are required to use SSH key authentication for transfer.</p>
+            If you are using the two-factor authentication, the password authentication will not work and you are required to use
+            SSH key authentication for transfer.</p>
 
     </div>
 
