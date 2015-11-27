@@ -272,6 +272,7 @@
             <li class="header3"><a href="#clone-catalog">2.1 Clone catalog</a>,</li>
             <li class="header3"><a href="#ssh-keys">2.2 SSH keys</a>, </li>
             <li class="header3"><a href="#ssh-troubleshooting">2.3 SSH Troubleshooting</a></li>
+            <li class="header3"><a href="#heruko-remotes">2.4 Heroku Remotes</a></li>
 
             <li class="header2"><a href="#viewing-editing">3. Viewing and editing:</a></li>
             <li class="header3"><a href="#file-changes">3.1 File changes</a></li>
@@ -479,8 +480,26 @@ andrew@company.se/home/andrew/git/site.git/
         <p>When exporting the public key you end up with something on the form:</p>
         <pre>ssh-rsa AAAAB3NzaC1…g+y4Pfz9 Working Copy - device - 2015-24-12 08:10:00</pre>
         <p>Everything after the second space is just a comment, that makes it easier to
-           determine where and how the key was created. It can sometimes help to remove this comment,
-           before registering the key with your Git server.</p>
+            determine where and how the key was created. It can sometimes help to remove this comment,
+            before registering the key with your Git server.</p>
+    </div>
+    <div class="inner">
+        <h3 id="heruko-remotes">2.4 Heroku Remotes</h3>
+        <p>It is possible to deploy to
+            <a href="http://heroku.com/" target="heroku">Heroku</a> using Git.
+            You need to setup a second remote for your repository that points
+            to your Heroku application. Since the
+            <a target="heroku" href="https://toolbelt.heroku.com/">Heroku Toolbelt</a>
+            is not available on iOS, you need to manually configure the remote. </p>
+            <p>The easiest way to do this is to
+                <a target="heroku" href="https://devcenter.heroku.com/articles/git#creating-a-heroku-remote">setup your remote</a>
+                on a regular computer and determine the remote
+            details on the command line by entering:</p>
+            <pre>git remote -v</pre>
+            <p>You then create a new remote from this URL in Working Copy. Note that username and password
+                for remote is not your Heroku account credentials. You will find this information
+                in your home directory in the hidden file:</p>
+            <pre>~/.netrc</pre>
     </div>
     <div style="clear: both;"></div>
 
