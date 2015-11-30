@@ -9,45 +9,11 @@
 <title>URL schemes in Working Copy</title>
 <meta name="author" content="Anders Borum">
 <meta name="keywords" content="iOS,git,repository,programming,automation,workflow,x-callback-url,url scheme">
-<link rel="stylesheet" type="text/css" href="css/2014.css">
+<link rel="mask-icon" href="/img/mask-icon.svg" color="#399CFC">
+<link rel="stylesheet" type="text/css" href="css/style.css">
 <meta name="apple-itunes-app" content="app-id=896694807" affiliate-data="at=1000lHq">
 
 <style>
-
-h1 {
-    font-size: 125%;
-}
-
-h2 {
-    font-size: 110%;
-}
-
-body {
-    font-size: 20px;
-    max-width: 1080px;
-    margin: 0 auto !important;
-    float: none !important;
-}
-
-body > div {
-    margin-left: 10px;
-}
-
-p {
-    margin-bottom: 0px;
-    max-width: 800px;
-}
-
-pre {
-    font-size: 65%;
-    word-wrap: break-word;
-    margin-top: 5px;
-    padding: 4px;
-    max-width: 100%;
-    color: #000000;
-    background-color: #ecf0f3;
-    display: inline-block;
-}
 
 img {
     float: right;
@@ -59,21 +25,6 @@ img {
 
 img.anim {
     width: 140px;
-}
-
-footer {
-    font-size: 70%;
-    padding-bottom: 20px;
-}
-
-ul {
-    margin-top: 5px;
-    margin-left: 10px;
-    list-style-type: none;
-}
-
-ul li a {
-    border-bottom: 1px solid #222;
 }
 
 sup {
@@ -94,17 +45,24 @@ sup {
 </head><body>
 <div>
     <header>
+        <div class="outer">
         <h1 itemprop="name">Controlling Working Copy with URL schemes</h1>
-        
+
+        <div class="inner">
         <p>
          To allow integration with other applications and automated workflows <a href="/">Working Copy</a>
             can be opened with special URL schemes and controlled with
             <a href="#x-callback-url">x-callback-url</a>. Commands that change data
             or read content out of Working Copy is protected by a secret key.
         </p>
-    </header>
+        </div>
+       </div>
+     </header>
 
+    <div class="outer">
         <h2>Opening Working Copy at specific screens</h2>
+        <div class="inner">
+
         <p>You can open Working Copy and make it go to a specific screen with a URL on the following form:
         </p>
         <pre>working-copy://open?repo=my%20project&amp;path=README.md&amp;commit=23f387&amp;mode=content</pre>
@@ -120,8 +78,11 @@ sup {
         <p>
             Make sure all parameters are URL-coded and that space is percent- rather than plus-encoded.
         </p>
+      </div>
 
         <h2>Initiate cloning</h2>
+     <div class="inner">
+
         <p>You can ask Working Copy to open the clone-dialog with a specific URL awaiting the users
             confirmation:</p>
         <pre>working-copy://clone?remote=https%3A%2F%2Fgithub.com%2Fgit%2Fgit.git</pre>
@@ -132,9 +93,13 @@ sup {
             use the <em>show</em> command that will open the repository if one exists with that remote
             and otherwise initiate cloning.</p>
         <pre>working-copy://show?remote=https%3A%2F%2Fgithub.com%2Fgit%2Fgit.git</pre>
+       </div>
+    </div>
 
-        <h2 id="x-callback-url">Callback commands</h2>
-        <p>To support workflows and automation, Working Copy has rich support for
+<div class="outer">
+    <h2 id="x-callback-url">Callback commands</h2>
+    <div class="inner">
+    <p>To support workflows and automation, Working Copy has rich support for
         <a href="http://x-callback-url.com/">x-callback-url</a> commands.</p><p>
         Because the commands allow reading and writing your sourcecode, they are protected by a <em>key</em> parameter
         which must match a random alphanumeric code created when you first launch Working Copy on a new device. You can
@@ -155,8 +120,10 @@ sup {
         <li><a href="#listing">list</a> repositories</li></ul>
         <li><a href="#init">init</a> empty repository</li></ul>
         </p>
+        </div>
 
     <h2>URL format for x-callback-url</h2>
+    <div class="inner">
     <p>URLs for x-callback-url must have the form:</p>
     <pre> working-copy://x-callback-url/&lt;command&gt;/?x-success=&lt;escaped-url&gt;&amp;repo=...&amp;key=...</pre>
     <p>If you include a <em>x-error</em> parameter it will be used to deliver errors, otherwise errors are shown inside Working Copy.
@@ -178,8 +145,10 @@ sup {
       is the root directory and this the entire repository. Some commands will ask the user to pick
       a file or directory if no <em>path</em> is specified and others will just use the root directory
       as its default. The details are documented in the section for each command.</p>
+    </div>
 
     <h2 id="writing">Writing files</h2>
+    <div class="inner">
     <p><img src="img/my-repo.png" alt="Screenshot showing README.md as only file in 'my repo'" />
     Write to existing or new files with the <em>write</em> command. If you include a <em>text</em> parameter this will
     be the content written to the file at the given <em>path</em>. The text parameter is transferred as UTF-8 but will
@@ -207,8 +176,10 @@ sup {
        <em>repo</em> parameter. The filename must be recognized for this to work or you will get a error that the
        file is not known.</p>
     <p>You can include <em>askcommit=1</em> to be asked to commit and push the file after saving.</p>
+    </div>
 
     <h2 id="reading">Reading files<sup>🔒</sup></h2>
+    <div class="inner">
     <p>You can get the contents of text files with the <em>read</em> command and result will be URL-encoded and appended to
         the x-success callback.</p>
     <pre>working-copy://x-callback-url/read/?x-success=app://x-callback-url/read?t=/&amp;repo=my%20repo&amp;path=file </pre>
@@ -232,15 +203,19 @@ sup {
     the given <a href="http://en.wikipedia.org/wiki/Uniform_Type_Identifier">Uniform Type Identifier</a>. The
     default value for <em>uti</em> is "public.plain-text" but this is changed to "public.item"
     if <em>base64</em> indicates that you accept binary results.</p>
+   </div>
 
     <h2 id="zipping">Archiving multiple files<sup>🔒</sup></h2>
+    <div class="inner">
     <p>If you need to read multiple files you can use the <em>zip</em> command that will return a base64-coded zip-archive
         of all the files in the directory specified by <em>path</em>. If you do not specify any <em>path</em>
         the entire repository is archived and if <em>path</em> points to a single file, you will get a zip
         containing just this file.</p>
     <pre>working-copy://x-callback-url/zip/?x-success=my-app://x-callback-url/read?t=/&amp;repo=my%20repo </pre>
+    </div>
 
     <h2 id="committing">Committing changes</h2>
+    <div class="inner">
     <p>
       The <em>commit</em> command can be used on single files, directories or the entire repository.
         You use the <em>path</em>
@@ -255,8 +230,10 @@ sup {
       is your responsibility.
       <pre>working-copy://x-callback-url/commit/?repo=my%20repo&amp;path=&amp;limit=999&amp;message=fix </pre>
     </p>
+    </div>
 
     <h2 id="status">Listing file status</h2>
+    <div class="inner">
     <p>
         If you need to determine the status of the repository, the files that are modified or even all the
         files it contains, you can use the <em>status</em> command. It takes a <em>path</em> parameter and has the same
@@ -275,27 +252,35 @@ sup {
 ]</pre>
     <p>The results are delivered as JSON and note the difference between <em>path</em> which is relative
     to the root of the repository and <em>name</em> that is just the filename.</p>
+    </div>
 
     <h2 id="pushing">Push to remote<sup>🔒</sup></h2>
+    <div class="inner">
     <p>Use the <em>push</em> command to send commits back to the origin remote. If you need to authenticate, the
     push command will wait until you have entered your credentials. You can push to other remotes than origin by
      using the <em>remote</em> paramater.</p>
     <pre> working-copy://x-callback-url/push/?repo=my%20repo </pre>
+    </div>
 
     <h2 id="pulling">Pull from remote</h2>
-     <p>The <em>pull</em> command fetches and merges changes from your origin remote. If you need to authenticate, the
+    <div class="inner">
+    <p>The <em>pull</em> command fetches and merges changes from your origin remote. If you need to authenticate, the
      pull command will wait until you have entered your credentials. Any merge conflicts will count as a error.</p>
       <pre> working-copy://x-callback-url/pull/?repo=my%20repo</pre>
       <p>Just like the <em>push</em> command you can use the <em>remote</em> parameter to pull from
       non-origin remotes.</p>
+    </div>
 
     <h2 id="webdav">Control WebDAV Server</h2>
+    <div class="inner">
     <p>Use the <em>webdav</em> command to start or stop the
         <a href="manual.html#webdav-server">internal WebDAV server</a>. The <em>cmd</em> parameter
     can be either <em>start</em> or <em>stop</em> where the default is <em>cmd=start</em>.</p>
     <pre> working-copy://x-callback-url/webdav/?cmd=start</pre>
+    </div>
 
     <h2 id="listing">List repositories</h2>
+    <div class="inner">
     <p>Use the <em>repos</em> command to get information about name, status, current branch and remotes for
         all repositories inside Working Copy in JSON format. </p>
     <pre> working-copy://x-callback-url/webdav/?cmd=start</pre>
@@ -311,14 +296,18 @@ sup {
         asks the user to pick one of the available repositories and could be used as a component for something
         bigger. You will need to insert your URL key in the first action.
     </p>
-
+  </div>
 
     <h2 id="init">Init empty repository</h2>
+    <div class="inner">
     <p>Use the <em>init</em> command to create a new repository without any files or remotes,
         where <em>name</em> parameter must not be used by any other repository.</p>
     <pre> working-copy://x-callback-url/init/?name=new%20repository</pre>
+    </div>
 
     <h2>Chaining callbacks</h2>
+    <div class="inner">
+
     <p><img class="anim" src="img/textastic-new.gif" alt="Link is clicked that opens Working Copy and then sends file contents into Textastic to create new file." />
         URL callbacks can get pretty complicated when you want to send the result of one callback along to
        another URL callback. </p>
@@ -338,8 +327,10 @@ sup {
        <pre>working-copy://x-callback-url/read/?repo=my%20repo&amp;path=README.md&amp;x-success=mailto%3A%3Fbody%3D</pre>
        <p>If you need to debug your callbacks, setting <em>x-success=mailto%3A%3Fbody%3D</em>
        can be very helpful.</p>
+     </div>
+    </div>
+  </div>
 
-</div>
 <div style="clear: both"> </div>
 <footer>
     Read the <a href="/manual.html">manual</a> and get
