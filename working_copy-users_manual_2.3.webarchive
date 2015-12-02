@@ -1,5 +1,9 @@
-bplist00—_WebMainResource’	
-_WebResourceTextEncodingName_WebResourceFrameName^WebResourceURL_WebResourceData_WebResourceMIMETypeUUTF-8P_%http://workingcopyapp.com/manual.htmlOæd<!DOCTYPE html><!--[if lt IE 7 ]> <html class="no-js ie6" lang="en"> <![endif]--><!--[if IE 7 ]>    <html class="no-js ie7" lang="en"> <![endif]--><!--[if IE 8 ]>    <html class="no-js ie8" lang="en"> <![endif]--><!--[if (gte IE 9)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]--><head>
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html class="no-js ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="no-js ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="no-js ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Working Copy users guide</title>
@@ -7,6 +11,7 @@ bplist00—_WebMainResource’
     <meta name="keywords" content="iOS,git,repository,programming,automation,workflow,x-callback-url,WebDAV">
     <meta name="apple-itunes-app" content="app-id=896694807">
     <link rel="mask-icon" href="/img/mask-icon.svg" color="#399CFC">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
     <meta property="og:image" content="http://WorkingCopyApp.com/img/split-diff-36-1364.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@palmin">
@@ -17,226 +22,7 @@ bplist00—_WebMainResource’
     <meta name="twitter:app:id:iphone" content="896694807">
     <meta name="twitter:app:name:ipad" content="Working Copy">
     <meta name="twitter:app:id:ipad" content="896694807">
-
-    <style>
-
-        @media print {
-            video {
-                display: none;
-            }
-        }
-
-        * {
-            font-family: -apple-system, "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-        }
-
-        body {
-            color: #222;
-            font-size: 17px;
-        }
-
-        body {
-            margin-left: 0;
-            margin-right: 0;
-        }
-
-        pre {
-            font-size: 60%;
-        }
-
-        .outer {
-            margin: auto;
-            max-width: 800px;
-        }
-
-        .inner {
-            margin-left: 10%;
-            margin-right: 10%;
-            clear: both;
-        }
-
-        video::-webkit-media-controls {
-            opacity: .3;
-        }
-
-        h1 {
-            margin: 0;
-            font-size: 115%;
-        }
-
-        a:link, a:visited, a:hover, a:active {
-            color: #222;
-            text-decoration: none;
-        }
-        a:link, a:visited, a:active {
-            border-bottom: 1px solid #222;
-        }
-        a:hover {
-            border-bottom: 2px solid #222;
-        }
-
-        a img {
-            border:none;
-        }
-
-        a.img:link, a.img:visited, a.img:hover, a.img:active {
-            border-bottom: 0px ;
-        }
-
-        span {
-            white-space:nowrap;
-        }
-
-        footer {
-            padding-top: 20px;
-            padding-bottom: 10px;
-            text-align: center;
-            font-weight: bold;
-            font-size: 35%;
-        }
-
-        h1 {
-            font-size: 125%;
-            text-align: center;
-            margin: auto;
-        }
-
-        h2 {
-            font-size: 110%;
-            margin-left: 2.5%;
-        }
-
-        h3 {
-            margin-top: 10px;
-            font-size: 100%;
-        }
-
-        .header2 {
-            margin-top: 5px;
-            font-weight: bold;
-            font-size: 105%;
-        }
-
-        .header3 {
-            margin-left: 10px;
-            display: inline-block;
-        }
-
-        p {
-            margin-bottom: 0px;
-        }
-
-        pre {
-            font-size: 65%;
-            word-wrap: break-word;
-            margin-top: 5px;
-            padding: 4px;
-            max-width: 100%;
-            color: #000000;
-            background-color: #ecf0f3;
-            display: inline-block;
-        }
-
-        footer {
-            font-size: 70%;
-            padding-bottom: 20px;
-        }
-
-        ul {
-            padding: 0;
-            margin-top: 5px;
-            margin-left: 10px;
-            list-style-type: none;
-        }
-
-        ul li a {
-            border-bottom: 1px solid #222;
-        }
-
-        .toc a, h1 a {
-            border-bottom: 0px !important;
-        }
-
-        .toc a:hover, h1 a:hover {
-            border-bottom: 2px solid #222 !important;
-        }
-
-        sup {
-            font-size: 50%;
-        }
-
-        .left {
-            position: relative;
-            float: left;
-            margin-left: -4%;
-            width: 36%;
-            margin-right: 10px;
-            margin-bottom: 10px;
-        }
-
-        .right {
-            position: relative;
-            float: right;
-            margin-right: -4%;
-            width: 36%;
-            margin-left: 10px;
-            margin-bottom: 10px;
-        }
-
-        .left > img, .right > img {
-            background-color: #eee;
-        }
-
-        .left:before, .right:before {
-            display: block;
-            content: "";
-            width: 36%;
-            padding-top: 211.78%;
-        }
-
-        .wide:before {
-            width: 75%;
-            padding-top: 48.02%;
-        }
-
-        .wide {
-            width: 75%;
-        }
-
-        .full {
-            position: relative;
-            width: 100%;
-            margin-top: 20px;
-            margin-bottom: 40px;
-        }
-
-        .full:before {
-            display: block;
-            content: "";
-            width: 100%;
-            padding-top: 48.95%;
-        }
-
-        .full > img, .left > img, .right > img {
-            width: 100%;
-            position: absolute;
-            top: 0; bottom: 0;
-            left: 0; right: 0;
-        }
-
-        .left > video, .right > video {
-            padding-top: 30.54%;
-            margin-left: auto;
-            margin-right: auto;
-            width: 85.34%;
-            z-index: 1;
-            position: absolute;
-            top: 0; bottom: 0;
-            left: 0; right: 0;
-        }
-
-    </style>
-    <script async="" src="//www.google-analytics.com/analytics.js"></script><script>var urchinTracker=function(){},_gaq={push:function(){try {if(arguments[0][0]=='_link')window.location.href=arguments[0][1]}catch(er){}}},_gat={_createTracker:function(){}, _getTracker:function(){return{__noSuchMethod__:function(){},_link:function(o){if(o)location.href=o;},_linkByPost:function(){return true;},_getLinkerUrl:function(o){return o;},_trackEvent:function(){}}}};</script><script>
+    <script>
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
                     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
                 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -267,6 +53,7 @@ bplist00—_WebMainResource’
             <li class="header3"><a href="#clone-catalog">2.1 Clone catalog</a>,</li>
             <li class="header3"><a href="#ssh-keys">2.2 SSH keys</a>, </li>
             <li class="header3"><a href="#ssh-troubleshooting">2.3 SSH Troubleshooting</a></li>
+            <li class="header3"><a href="#heruko-remotes">2.4 Heroku Remotes</a></li>
 
             <li class="header2"><a href="#viewing-editing">3. Viewing and editing:</a></li>
             <li class="header3"><a href="#file-changes">3.1 File changes</a></li>
@@ -289,7 +76,8 @@ bplist00—_WebMainResource’
     </nav>
 </div>
 <div class="full">
- <img src="img/action-shot-71-800.jpg" style="width: 100%; margin-top: 20px" srcset="img/action-shot-71-800.jpg 800w, img/action-shot-71-1200.jpg 1200w, img/action-shot-71-2000.jpg 2000w">
+ <img src="img/action-shot-71-800.jpg" style="width: 100%; margin-top: 20px"
+      srcset="img/action-shot-71-800.jpg 800w, img/action-shot-71-1200.jpg 1200w, img/action-shot-71-2000.jpg 2000w"/>
 </div>
 <div class="outer">
     <h2 id="introduction">1. Introduction</h2>
@@ -302,7 +90,8 @@ bplist00—_WebMainResource’
 
         <h3 id="cloning-repos">1.1 Cloning repositories</h3>
         <div class="left">
-         <img class="animated" onload="imgLoaded(this)" src="img/clone-77.jpg" alt="Video showing cloning on phone: User presses + in the upper right corner and picks clone. Picks protocol, types username, hostname and path on the Other tab. Picks repository from list on GitHub tab. Presses Clone to start transfer. When cloning completes the repository contents are shown." srcset="img/clone-77.jpg 200w, img/clone-77-400.jpg 400w, img/clone-77-645.jpg 645w" style="background-color: transparent; background-position: initial initial; background-repeat: initial initial;"><video poster="video/clone-77.jpg" controls="true" preload="none"><source src="video/clone-77.mp4" type="video/mp4"></video>
+         <img class="animated" onload="imgLoaded(this)" src="img/clone-77.jpg" alt="Video showing cloning on phone: User presses + in the upper right corner and picks clone. Picks protocol, types username, hostname and path on the Other tab. Picks repository from list on GitHub tab. Presses Clone to start transfer. When cloning completes the repository contents are shown."
+           srcset="img/clone-77.jpg 200w, img/clone-77-400.jpg 400w, img/clone-77-645.jpg 645w"/>
         </div>
         <p>The first step is to get hold of a local copy of the Git repositories you want to access.
             Duplicating a repository from a remote server is
@@ -322,7 +111,8 @@ bplist00—_WebMainResource’
 
     </div><div class="inner">
 
-    <div class="right"><img src="img/css-content-45.png" onload="imgLoaded(this)" srcset="img/css-content-45.png 200w, img/css-content-45-400.png 400w, img/css-content-45-645.png 645w" style="background-color: transparent; background-position: initial initial; background-repeat: initial initial;"></div>
+    <div class="right"><img src="img/css-content-45.png" onload="imgLoaded(this)"
+     srcset="img/css-content-45.png 200w, img/css-content-45-400.png 400w, img/css-content-45-645.png 645w"/></div>
     <h3 id="accessing-files">1.2 Accessing files</h3>
     <p>Data in Working Copy is organized as repositories, containing directories, which themselves contain
         either sub-directories or files.
@@ -341,7 +131,8 @@ bplist00—_WebMainResource’
 </div><div class="inner">
 
     <h3 id="committing-changes">1.3 Committing changes</h3>
-    <div class="left"><img src="img/commit-sheet-32.png" onload="imgLoaded(this)" srcset="img/commit-sheet-32.png 200w, img/commit-sheet-32-400.png 400w, img/commit-sheet-32-645.png 645w" style="background-color: transparent; background-position: initial initial; background-repeat: initial initial;"></div>
+    <div class="left"><img src="img/commit-sheet-32.png" onload="imgLoaded(this)"
+     srcset="img/commit-sheet-32.png 200w, img/commit-sheet-32-400.png 400w, img/commit-sheet-32-645.png 645w" /></div>
     <p>When you have file modifications the Changes tab lights up. You can see what has been added in green and what has
         been deleted in red. If you are satisfied with the changes you can commit
         them to the repository with a button on the Status tab.
@@ -362,7 +153,8 @@ bplist00—_WebMainResource’
     <div class="inner">
 
         <h3 id="up-to-date">1.4 Staying up-to-date</h3>
-        <div class="right"><img class="right" src="img/status-79.jpg" onload="imgLoaded(this)" srcset="img/status-79.jpg 200w, img/status-79-400.jpg 400w, img/status-79-645.jpg 645w" style="background-color: transparent; background-position: initial initial; background-repeat: initial initial;"></div>
+        <div class="right"><img class="right" src="img/status-79.jpg" onload="imgLoaded(this)"
+          srcset="img/status-79.jpg 200w, img/status-79-400.jpg 400w, img/status-79-645.jpg 645w"/></div>
 
         <p>Commits can be pushed to the remote from many sources.
             Other people contribute their work, or you could be doing something
@@ -386,7 +178,8 @@ bplist00—_WebMainResource’
     <h2 id="remotes">2. Remotes</h2>
 
     <div class="inner">
-        <div class="left"><img class="left" onload="imgLoaded(this)" src="img/remote-details-81.jpg" srcset="img/remote-details-81.jpg 200w, img/remote-details-81-400.jpg 400w, img/remote-details-81-645.jpg 645w" style="background-color: transparent; background-position: initial initial; background-repeat: initial initial;"></div>
+        <div class="left"><img class="left" onload="imgLoaded(this)" src="img/remote-details-81.jpg"
+        srcset="img/remote-details-81.jpg 200w, img/remote-details-81-400.jpg 400w, img/remote-details-81-645.jpg 645w"/></div>
         <p>Git remotes are server-side duplicates of your repositories with full history.
             These can be services such as GitHub, BitBucket etc. or they can be be privately hosted servers.</p>
 
@@ -405,29 +198,44 @@ andrew@company.se/home/andrew/git/site.git/
     </div>
     <div class="inner">
         <h3 id="clone-catalog">2.1 Clone catalog</h3>
-        <p>When cloning repositories from BitBucket or GitHub you can enter your credentials to get a list of repositories to clone.
+        <div class="right"><img class="right" onload="imgLoaded(this)" src="img/clone-catalog.png" /></div>
+
+        <p>When cloning repositories from BitBucket, GitHub or GitLab you can enter your credentials to get a list of repositories to clone.
             Working Copy tries to show the most relevant repositories at the top, these being the ones where you have administrative
             or write privileges. Your GitHub Gists and BitBucket Snippets are also available from this list.
         </p>
         <p>If the list is long, enter keywords in the search field in order to only see repositories containing these.
             If you do not see the repository you wish to clone, you can still copy-paste the clone URL into the top-field manually.</p>
 
+        <p>Working Copy lets you configure private instances of
+            BitBucket <a target="hosting" href="https://www.atlassian.com/software/bitbucket/server">Server</a> (previously known as Stash),
+            GitHub <a target="hosting" href="https://enterprise.github.com/">Enterprise</a> and
+            <a target="hosting" href="https://about.gitlab.com/features/">GitLab</a> from Working Copy settings.
+            You enter the hostname of your server and the URL scheme and kind of service is identified automatically.
+           </p>
+        <div class="left" style="margin-top: 1em"><img class="left" onload="imgLoaded(this)" src="img/hosting-provider.png" /></div>
+        <p>In addition to listing repositories, this integration lets you create new repositories from within the
+            remote detail screen of Working Copy. </p>
+        <p>When you add hosting providers it is often a good idea to disable the built-in provides you are
+         not using to avoid clutter in other parts of Working Copy. </p>
+
         <p>Working Copy will not store your BitBucket or GitHub password used to populate the list of remotes,
-            but rather as an authentication
+            but rather an authentication
             token that you can revoke from the BitBucket or GitHub settings. This is why you are required to login through Safari
             rather than inside Working Copy.</p>
 
         <p>When actually cloning the repository you cannot use the authentication token for the transfer and will either need to
             configure a SSH authentication key or enter your password inside Working Copy. This password is stored in an encrypted
             keychain maintained by iOS that is only accessible when your phone is unlocked.
-            If you are using the two-factor authentication,
-            the password authentication will not work and you are required to use SSH key authentication for transfer.</p>
+            If you are using the two-factor authentication, the password authentication will not work and you are required to use
+            SSH key authentication for transfer.</p>
 
     </div>
 
     <div class="inner">
         <h3 id="ssh-keys">2.2 SSH keys</h3>
-        <div class="right"><img class="right" onload="imgLoaded(this)" src="img/ssh-config-30.png" srcset="img/ssh-config-30.png 200w, img/ssh-config-30-400.png 400w, img/ssh-config-30-645.png 645w" style="background-color: transparent; background-position: initial initial; background-repeat: initial initial;"></div>
+        <div class="right"><img class="right" onload="imgLoaded(this)" src="img/ssh-config-30.png"
+                                srcset="img/ssh-config-30.png 200w, img/ssh-config-30-400.png 400w, img/ssh-config-30-645.png 645w"/></div>
 
         <p>SSH transfers support password authentication but also public/private key authentication for improved security.
             The public part of SSH key corresponds to a padlock that you use to lock-down resources. The private part of the SSH
@@ -450,28 +258,57 @@ andrew@company.se/home/andrew/git/site.git/
             matches the private key in Working Copy. If you have some other SSH client on your device or computer, you should make sure
             you can connect from these without problems. If this works, you must also make sure you use the same SSH key in Working Copy,
             possibly importing the private key from the other application.</p>
+        <p>When exporting the public key you end up with something on the form:</p>
+        <pre>ssh-rsa AAAAB3NzaC1‚Ä¶g+y4Pfz9 Working Copy - device - 2015-24-12 08:10:00</pre>
+        <p>Everything after the second space is just a comment, that makes it easier to
+            determine where and how the key was created. It can sometimes help to remove this comment,
+            before registering the key with your Git server.</p>
+    </div>
+    <div class="inner">
+        <h3 id="heruko-remotes">2.4 Heroku Remotes</h3>
+        <p>It is possible to deploy to
+            <a href="http://heroku.com/" target="heroku">Heroku</a> using Git.
+            You need to setup a second remote for your repository that points
+            to your Heroku application. Since the
+            <a target="heroku" href="https://toolbelt.heroku.com/">Heroku Toolbelt</a>
+            is not available on iOS, you need to manually configure the remote. </p>
+            <p>The easiest way to do this is to
+                <a target="heroku" href="https://devcenter.heroku.com/articles/git#creating-a-heroku-remote">setup your remote</a>
+                on a regular computer and determine the remote
+            details on the command line by entering:</p>
+            <pre>git remote -v</pre>
+            <p>You then create a new remote from this URL in Working Copy. Note that username and password
+                for remote is not your Heroku account credentials. You will find this information
+                in your home directory in the hidden file:</p>
+            <pre>~/.netrc</pre>
     </div>
     <div style="clear: both;"></div>
 
     <h2 id="viewing-editing">3. Viewing and editing</h2>
     <div class="inner">
-        <div class="left"><img class="left" onload="imgLoaded(this)" src="img/dir-structure-21.png" srcset="img/dir-structure-21.png 200w, img/dir-structure-21-400.png 400w, img/dir-structure-21-645.png 645w" style="background-color: transparent; background-position: initial initial; background-repeat: initial initial;"></div>
+        <div class="left"><img class="left" onload="imgLoaded(this)" src="img/dir-structure-21.png"
+          srcset="img/dir-structure-21.png 200w, img/dir-structure-21-400.png 400w, img/dir-structure-21-645.png 645w"/></div>
         <div class="left" style="position: relative; left: -50px; margin-right: -25px;">
-         <img src="img/content-action-sheet-34.png" onload="imgLoaded(this)" srcset="img/content-action-sheet-34.png 200w, img/content-action-sheet-34-400.png 400w, img/content-action-sheet-34-645.png 645w" style="background-color: transparent; background-position: initial initial; background-repeat: initial initial;">
+         <img src="img/content-action-sheet-34.png" onload="imgLoaded(this)"
+              srcset="img/content-action-sheet-34.png 200w, img/content-action-sheet-34-400.png 400w, img/content-action-sheet-34-645.png 645w"
+         />
         </div>
         <p>A repository is presented as a hierarchy of directories and files where you tap a directory to enter and
             view the contents.
             If you tap a file you are a shown tab for Content with the ability to switch between Preview,
             Syntax Highlighted or Hex Dump modes.
             Use the action button in the upper-right corner to send the file to other apps or to edit inside Working Copy.</p>
-        <div class="right"><img class="right" src="img/content-mode-89.png" onload="imgLoaded(this)" srcset="img/content-mode-89.png 200w, img/content-mode-89-400.png 400w, img/content-mode-89-645.png 645w" style="background-color: transparent; background-position: initial initial; background-repeat: initial initial;"></div>
+        <div class="right"><img class="right" src="img/content-mode-89.png" onload="imgLoaded(this)"
+         srcset="img/content-mode-89.png 200w, img/content-mode-89-400.png 400w, img/content-mode-89-645.png 645w" /></div>
 
         <p>Some repositories have deep directory hierarchies and to avoid having to go back repeatedly, you can tap and hold
             the back button to choose how far back you want to step.</p>
     </div><div class="inner">
     <h3 id="file-changes">3.1 File changes</h3>
-    <div class="wide left" style="margin-left: -5%"><img class="wide left" style="margin-left: -5%; background-color: transparent; background-position: initial initial; background-repeat: initial initial;" onload="imgLoaded(this)" src="img/split-diff-36.png" srcset="img/split-diff-36.png 417w, img/split-diff-36-834.png 834w, img/split-diff-36-1364.png 1364w"></div>
-    <div style="clear: both; margin-top: -75px" class="left"><img class="animated" onload="imgLoaded(this)" src="img/image-diff-83.png" srcset="img/image-diff-83.png 200w, img/image-diff-83-450.png 450w, img/image-diff-83-645.png 645w" style="background-color: transparent; background-position: initial initial; background-repeat: initial initial;"><video poster="video/image-diff-83.jpg" controls="true" preload="none"><source src="video/image-diff-83.mp4" type="video/mp4"></video></div>
+    <div class="wide left" style="margin-left: -5%"><img class="wide left" style="margin-left: -5%" onload="imgLoaded(this)"
+         src="img/split-diff-36.png" srcset="img/split-diff-36.png 417w, img/split-diff-36-834.png 834w, img/split-diff-36-1364.png 1364w"/></div>
+    <div style="clear: both; margin-top: -75px" class="left"><img class="animated" onload="imgLoaded(this)" src="img/image-diff-83.png"
+            srcset="img/image-diff-83.png 200w, img/image-diff-83-450.png 450w, img/image-diff-83-645.png 645w"/></div>
     <p>A badge on the Changes tab shows the number of lines added or deleted from a file.
         The Changes tab itself shows the differences
         between the last version committed and the current version. You can long-tap changed blocks to recover deleted blocks or
@@ -502,13 +339,15 @@ andrew@company.se/home/andrew/git/site.git/
 
     <h2 id="commit-revert">4. Committing or reverting</h2>
     <div class="inner">
-        <div class="right"><img class="right" onload="imgLoaded(this)" src="img/commit-sheet-32.png" srcset="img/commit-sheet-32.png 200w, img/commit-sheet-32-400.png 400w, img/commit-sheet-32-645.png 645w" style="background-color: transparent; background-position: initial initial; background-repeat: initial initial;"></div>
+        <div class="right"><img class="right" onload="imgLoaded(this)" src="img/commit-sheet-32.png"
+                                srcset="img/commit-sheet-32.png 200w, img/commit-sheet-32-400.png 400w, img/commit-sheet-32-645.png 645w"/></div>
 
         <p>You can commit changes to your files for the entire repository, for all files in a sub-directory or for a specific file.
             If you do not wish to commit some of your files you can Revert to how they where at the last commit.
             The files taken into account are determined by where in the directory structure you initiate the commit.
             As a short-hand you can swipe left on a repository, directory or file to commit.</p>
-        <div class="left"><img class="left" onload="imgLoaded(this)" src="img/status-modified-19.png" srcset="img/status-modified-19.png 200w, img/status-modified-19-400.png 400w, img/status-modified-19-645.png 645w" style="background-color: transparent; background-position: initial initial; background-repeat: initial initial;"></div>
+        <div class="left"><img class="left" onload="imgLoaded(this)" src="img/status-modified-19.png"
+         srcset="img/status-modified-19.png 200w, img/status-modified-19-400.png 400w, img/status-modified-19-645.png 645w"/></div>
 
         <p>During commit you are shown a list of changed files and can view differences for individual files by pressing the button
             that shows the number of lines added or deleted. Files with a checkmark will be included in the commit and you toggle the
@@ -522,7 +361,8 @@ andrew@company.se/home/andrew/git/site.git/
     </div>
 
     <div class="inner">
-        <div class="right"><img class="right" onload="imgLoaded(this)" src="img/commit-list-28.png" srcset="img/commit-list-28.png 200w, img/commit-list-28-400.png 400w, img/commit-list-28-645.png 645w" style="background-color: transparent; background-position: initial initial; background-repeat: initial initial;"></div>
+        <div class="right"><img class="right" onload="imgLoaded(this)" src="img/commit-list-28.png"
+         srcset="img/commit-list-28.png 200w, img/commit-list-28-400.png 400w, img/commit-list-28-645.png 645w" /></div>
 
         <h3 id="commit-history">4.1 Commit history</h3>
         <p>The value of well-drafted commit messages becomes apparent when looking at a log of previous commits.
@@ -544,7 +384,8 @@ andrew@company.se/home/andrew/git/site.git/
     <div class="inner">
         <h3 id="branching">4.2 Branches</h3>
 
-        <div class="left"><img class="left" onload="imgLoaded(this)" src="img/branch-52.png" srcset="img/branch-52.png 200w, img/branch-52-400.png 400w, img/branch-52-645.png 645w" style="background-color: transparent; background-position: initial initial; background-repeat: initial initial;"></div>
+        <div class="left"><img class="left" onload="imgLoaded(this)" src="img/branch-52.png"
+           srcset="img/branch-52.png 200w, img/branch-52-400.png 400w, img/branch-52-645.png 645w" /></div>
 
         <p>A great advantage of Git compared to other version-control software is the ease at which you can branch your
             repository to work independently on different things.
@@ -565,7 +406,8 @@ andrew@company.se/home/andrew/git/site.git/
         <p>Commits are presented in chronological order with lines showing which commits are based on each other,
             with tags and branch heads displayed as well as the commit message summary, date and information about the author of the commit.
         </p>
-        <div class="right"><img class="right" onload="imgLoaded(this)" src="img/commit-graph.png" srcset="img/commit-graph.png 200w, img/commit-graph-400.png 400w, img/commit-graph-645.png 645w" style="background-color: transparent; background-position: initial initial; background-repeat: initial initial;"></div>
+        <div class="right"><img class="right" onload="imgLoaded(this)" src="img/commit-graph.png"
+          srcset="img/commit-graph.png 200w, img/commit-graph-400.png 400w, img/commit-graph-645.png 645w" /></div>
         <p>Pinch to zoom will let you explore additional details, such as the full commit message, the full name of the author
             rather than initials, a commit identifier and the files modified by this commit. If you connect an external
         screen or projector to your device, you will get a full-screen Commit Graph without any interface elements
@@ -582,7 +424,8 @@ andrew@company.se/home/andrew/git/site.git/
 
     <h2 id="extending-ios">5. Extending iOS</h2>
     <div class="inner">
-        <div class="left"><img class="left" onload="imgLoaded(this)" src="img/textastic-87.png" srcset="img/textastic-87.png 200w, img/textastic-87-400.png 400w, img/textastic-87-645.png 645w" style="background-color: transparent; background-position: initial initial; background-repeat: initial initial;"></div>
+        <div class="left"><img class="left" onload="imgLoaded(this)" src="img/textastic-87.png"
+                               srcset="img/textastic-87.png 200w, img/textastic-87-400.png 400w, img/textastic-87-645.png 645w"/></div>
 
         <p>Working Copy takes advantage of recent improvements to iOS allowing richer cooperation between applications.
             All repositories in Working Copy can be accessed by other applications using the iCloud document picker.
@@ -610,7 +453,8 @@ andrew@company.se/home/andrew/git/site.git/
         <div style="clear: left"></div>
 
         <h3 id="saving">5.1 Saving to Working Copy</h3>
-        <div class="right"><img class="right" onload="imgLoaded(this)" src="img/edit-in-app.png" srcset="img/edit-in-app.png 200w, img/edit-in-app-400.png 400w, img/edit-in-app-645.png 645w" style="background-color: transparent; background-position: initial initial; background-repeat: initial initial;"></div>
+        <div class="right"><img class="right" onload="imgLoaded(this)" src="img/edit-in-app.png"
+         srcset="img/edit-in-app.png 200w, img/edit-in-app-400.png 400w, img/edit-in-app-645.png 645w" /></div>
         <p>Saving files into Working Copy can be accomplished by way of a Share sheet, the mechanism also used to share files
             with Mail or Messages.
             Picking Working Copy on a Share sheet will present a list of repositories, where you drill down to the
@@ -653,7 +497,8 @@ andrew@company.se/home/andrew/git/site.git/
 
     <div class="inner">
         <h3 id="webdav-server">5.3 WebDAV access</h3>
-        <div class="left"><img class="left" onload="imgLoaded(this)" src="img/webdav-settings.png" srcset="img/webdav-settings.png 200w, img/webdav-settings-400.png 400w, img/webdav-settings-645.png 645w" style="background-color: transparent; background-position: initial initial; background-repeat: initial initial;"></div>
+        <div class="left"><img class="left" onload="imgLoaded(this)" src="img/webdav-settings.png"
+          srcset="img/webdav-settings.png 200w, img/webdav-settings-400.png 400w, img/webdav-settings-645.png 645w"/></div>
 
         <p>In situations where you need to transfer entire directory hierarchies,
             a good way to get files into and out of Working Copy is the built-in
@@ -690,7 +535,8 @@ andrew@company.se/home/andrew/git/site.git/
     </div>
     <div class="inner">
         <h3 id="workflows-callbacks">5.4 Workflows and Callbacks</h3>
-        <div class="right"><img class="right" onload="imgLoaded(this)" src="img/callback-setup-26.png" srcset="img/callback-setup-26.png 200w, img/callback-setup-26-400.png 400w, img/callback-setup-26-645.png 645w, " style="background-color: transparent; background-position: initial initial; background-repeat: initial initial;"></div>
+        <div class="right"><img class="right" onload="imgLoaded(this)" src="img/callback-setup-26.png"
+                                srcset="img/callback-setup-26.png 200w, img/callback-setup-26-400.png 400w, img/callback-setup-26-645.png 645w, "/></div>
 
         <p>Working Copy supports the <a href="/url-schemes.html">x-callback-url</a> mechanism for inter-app coorporation.
             This allows reading and writing files from repositories as
@@ -711,10 +557,11 @@ andrew@company.se/home/andrew/git/site.git/
     <div class="inner">
         <p>A lot of work has gone into making Working Copy as trouble-free to use as possible,
             but despite that, problems will sometimes occur. Please send your
-            questions by email to <a class="email" href="mailto:anders@workingcopyapp.com">anders@workingcopyapp.com</a> and I will do my very best to assist.</p>
+            questions by email to <a class="email"></a> and I will do my very best to assist.</p>
     </div>
     <div class="inner">
-        <div class="left"><img class="left" onload="imgLoaded(this)" src="img/unlock.png" srcset="img/unlock.png 200w, img/unlock-400.png 400w, img/unlock-645.png 645w" style="background-color: transparent; background-position: initial initial; background-repeat: initial initial;"></div>
+        <div class="left"><img class="left" onload="imgLoaded(this)" src="img/unlock.png"
+                               srcset="img/unlock.png 200w, img/unlock-400.png 400w, img/unlock-645.png 645w"/></div>
         <h3 style="padding-top: 15px" id="purchase">6.1 How to purchase</h3>
         <p>Working Copy is a free download but you need to pay to unlock the ability to push commits back
             to remote servers. You can do this for 3 weeks or permanently where the permanent unlock
@@ -735,7 +582,7 @@ andrew@company.se/home/andrew/git/site.git/
 </div>
 <div style="clear: both"> </div>
 <footer>
-    Get in touch by <a href="mailto:anders@workingcopyapp.com" class="email" title="email">email</a> or on <a href="http://twitter.com/palmin" target="twitter">Twitter</a>.
+    Get in touch by <a href="/enable-js.html" class="email" title="email">email</a> or on <a href="http://twitter.com/palmin" target="twitter">Twitter</a>.
 </footer>
 <!--[if lt IE 7 ]>
 <script src="/js/dd_belatedpng.js"></script>
@@ -824,5 +671,5 @@ andrew@company.se/home/andrew/git/site.git/
         });
     })();
 </script>
-
-</body></html>Ytext/html    ( F ] l ~ î ö õ √ø+                           ø5
+</body>
+</html>
