@@ -422,14 +422,20 @@
         }
 
         function signUp(evt) {
-            $('.signup').slideDown(400, function() {
-                var field = document.getElementById('email-field');
-                field.focus();
-            });
+            var signup = $('.signup');
 
-            $('html, body').animate({
-                scrollTop: $("#become-tester").offset().top
-            });
+            if(signup.is(":visible")) {
+                signup.slideUp(200);
+            } else {
+                signup.slideDown(400, function() {
+                    var field = document.getElementById('email-field');
+                    field.focus();
+                });
+
+                $('html, body').animate({
+                    scrollTop: $("#become-tester").offset().top
+                });
+            }
 
             return false;
         }
