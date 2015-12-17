@@ -511,7 +511,10 @@
                 });
                 $('#reviews > div').css('cursor', 'pointer');
 
-                $("#more").click(function (evt) {
+                console.log('console.log wrote this!');
+                console.warn('This is a warning.');
+                
+                $("#more").blah(function (evt) {
                     $('html, body').animate({
                         scrollTop: $("#features").offset().top
                     }, 1000);
