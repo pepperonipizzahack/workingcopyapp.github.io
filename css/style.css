@@ -20,7 +20,7 @@ body {
 
 pre {
     font-size: 60%;
-    overflow-x: scroll;
+    overflow-x: auto;
     margin-top: 5px;
     padding: 4px;
     max-width: 100%;
