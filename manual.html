@@ -71,7 +71,8 @@
             <li class="header3"><a href="#workflows-callbacks">5.4 Workflows and Callbacks</a></li>
 
             <li class="header2"><a href="#support">6. Help and Support</a></li>
-            <li class="header3"><a href="#purchase">6.1 How to purchase</a></li>
+            <li class="header3"><a href="#itunes-backup">6.1 File Backup</a></li>
+            <li class="header3"><a href="#purchase">6.2 How to purchase</a></li>
 
         </ul>
     </nav>
@@ -570,11 +571,25 @@ andrew@company.se/home/andrew/git/site.git/
         <p>A lot of work has gone into making Working Copy as trouble-free to use as possible,
             but despite that, problems will sometimes occur. Please send your
             questions by email to <a class="email"></a> and I will do my very best to assist.</p>
+
+        <h3 style="padding-top: 15px" id="itunes-backup">6.1 File Backup</h3>
+        <p>Files stored in Git are often very safe, since repositories are stored in multiple
+           locations some on local computers and some on remote servers. Files that has not yet
+           been committed and pushed to a server are still vulnerable to data loss.</p>
+        <p>Files that have not yet been both committed and pushed will be part of the regular
+            iOS backup to either iCloud or a local computer using iTunes. You can access these
+            files using
+            <a target="iPad-guide" href="https://support.apple.com/en-us/HT201301">iTunes File Sharing</a>
+            and since this uses a external computer, you can recover your files in situations
+            where Working Copy itself has problems running. Your files will be in a directory
+            called <b>changes</b>.
+        </p>
+
     </div>
     <div class="inner">
+        <h3 style="padding-top: 15px" id="purchase">6.2 How to purchase</h3>
         <div class="left"><img class="left" onload="imgLoaded(this)" src="img/unlock.png"
                                srcset="img/unlock.png 200w, img/unlock-400.png 400w, img/unlock-645.png 645w"/></div>
-        <h3 style="padding-top: 15px" id="purchase">6.1 How to purchase</h3>
         <p>Working Copy is a free download but you need to pay to unlock the ability to push commits back
             to remote servers. You can do this for 3 weeks or permanently where the permanent unlock
             is remembered by Apple such that you can restore this purchase on other devices using
