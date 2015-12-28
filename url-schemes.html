@@ -111,6 +111,7 @@ sup {
             be unlocked for that command to be available.
         <li><a href="#writing">write</a> files,</li>
         <li><a href="#reading">read</a><sup>🔒</sup> files,</li>
+        <li><a href="#moving">move</a> files,</li>
         <li><a href="#zipping">archive</a><sup>🔒</sup> multiple files,</li>
         <li><a href="#committing">commit</a> changes,</li>
         <li>list file <a href="#status">status</a>,</li>
@@ -180,30 +181,37 @@ sup {
 
     <h2 id="reading">Reading files<sup>🔒</sup></h2>
     <div class="inner">
-    <p>You can get the contents of text files with the <em>read</em> command and result will be URL-encoded and appended to
-        the x-success callback.</p>
-    <pre>working-copy://x-callback-url/read/?x-success=app://x-callback-url/read?t=/&amp;repo=my%20repo&amp;path=file </pre>
-    <p>will make Working Copy open a url on the form:</p>
-    <pre> app://x-callback-url/read?t=hello%20there</pre>
-    <p>It should be noted that in order to support different apps that want to read text differently and might not
-        follow the x-callback-url conventions (<a href="http://omz-software.com/pythonista/docs/ios/urlscheme.html">Pythonista</a>
-        being the prime example),
-        you should include the parameter name at the end of <em>x-success</em>
-        as in this <a href="#textastic-example">Textastic example</a>. Working Copy tries to be smart about appending
-        the file content as <em>&amp;text=...</em> if it detects a <em>x-callback-url</em> that would become malformed,
-        but your best bet is to format <em>x-success</em> manually.</p>
-    <p>If you are reading a binary file the result will be transferred as
-        <a href="http://en.wikipedia.org/wiki/Base64">base-64</a> and if Working Copy appends the
-        parameter name it will be <em>&amp;base64=...</em> but to ensure the file content is returned
-        in base64 coding you include the input parameter <em>base64=1</em>.</p>
-    <pre>working-copy://x-callback-url/read/?x-success=...&amp;repo=my%20repo&amp;path=README.md&amp;base64=1 </pre>
-    <p>If no <em>path</em> parameter is specified the user will be asked to pick a file and if no <em>repo</em>
-        is specified either the user will start out by picking a repository. You can use <em>uti</em> to
-    specifify the kind of files you want. The user will be warned when picking a file that does not match
-    the given <a href="http://en.wikipedia.org/wiki/Uniform_Type_Identifier">Uniform Type Identifier</a>. The
-    default value for <em>uti</em> is "public.plain-text" but this is changed to "public.item"
-    if <em>base64</em> indicates that you accept binary results.</p>
-   </div>
+        <p>You can get the contents of text files with the <em>read</em> command and result will be URL-encoded and appended to
+            the x-success callback.</p>
+        <pre>working-copy://x-callback-url/read/?x-success=app://x-callback-url/read?t=/&amp;repo=my%20repo&amp;path=file </pre>
+        <p>will make Working Copy open a url on the form:</p>
+        <pre> app://x-callback-url/read?t=hello%20there</pre>
+        <p>It should be noted that in order to support different apps that want to read text differently and might not
+            follow the x-callback-url conventions (<a href="http://omz-software.com/pythonista/docs/ios/urlscheme.html">Pythonista</a>
+            being the prime example),
+            you should include the parameter name at the end of <em>x-success</em>
+            as in this <a href="#textastic-example">Textastic example</a>. Working Copy tries to be smart about appending
+            the file content as <em>&amp;text=...</em> if it detects a <em>x-callback-url</em> that would become malformed,
+            but your best bet is to format <em>x-success</em> manually.</p>
+        <p>If you are reading a binary file the result will be transferred as
+            <a href="http://en.wikipedia.org/wiki/Base64">base-64</a> and if Working Copy appends the
+            parameter name it will be <em>&amp;base64=...</em> but to ensure the file content is returned
+            in base64 coding you include the input parameter <em>base64=1</em>.</p>
+        <pre>working-copy://x-callback-url/read/?x-success=...&amp;repo=my%20repo&amp;path=README.md&amp;base64=1 </pre>
+        <p>If no <em>path</em> parameter is specified the user will be asked to pick a file and if no <em>repo</em>
+            is specified either the user will start out by picking a repository. You can use <em>uti</em> to
+            specifify the kind of files you want. The user will be warned when picking a file that does not match
+            the given <a href="http://en.wikipedia.org/wiki/Uniform_Type_Identifier">Uniform Type Identifier</a>. The
+            default value for <em>uti</em> is "public.plain-text" but this is changed to "public.item"
+            if <em>base64</em> indicates that you accept binary results.</p>
+    </div>
+
+    <h2 id="moving">Moving files</h2>
+    <div class="inner">
+        <p>To move or rename files within a repository you use the <em>move</em> command. Both the <em>source</em>
+            and <em>destination</em> filenames are relative to the root of the repository.</p>
+        <pre>working-copy://x-callback-url/move/?repo=my%20repo&amp;source=from.txt&amp;destination=to.txt</pre>
+    </div>
 
     <h2 id="zipping">Archiving multiple files<sup>🔒</sup></h2>
     <div class="inner">
