@@ -225,3 +225,15 @@ sup {
     padding-top: 30%;
 
 }
+
+span.oneWriter {
+    display: inline-block;
+          text-align: center;
+          vertical-align: middle;
+          background: #DE443D;
+          color: #fff;
+          border-radius: 50%;
+          width: 1em;
+          height: 1em;
+          line-height: 1em;
+}
