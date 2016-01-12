@@ -651,7 +651,7 @@ andrew@company.se/home/andrew/git/site.git/
             $('img.animated').each(function() {
                 var src = $(this)[0].getAttribute("src");
                 var alt = $(this)[0].getAttribute("video-alt");
-                if(!alt) $(this)[0].getAttribute("alt");
+                if(!alt) alt = $(this)[0].getAttribute("alt");
 
                 var base = src.replace("img/", "");
                 base = base.replace(".png", "").replace(".jpg", "");

@@ -202,14 +202,14 @@ sup {
     padding-top: 48.95%;
 }
 
-.full > img, .left > img, .right > img {
+.full > img, .left > img {
     width: 100%;
     position: absolute;
     top: 0; bottom: 0;
     left: 0; right: 0;
 }
 
-.left > video, .right > video {
+.left > video {
     padding-top: 30.54%;
     margin-left: auto;
     margin-right: auto;
@@ -220,10 +220,12 @@ sup {
     left: 0; right: 0;
 }
 
-.right > video {
-    padding-left: 11%;
-    padding-top: 30%;
-
+.right > video, .right > img {
+    z-index: 1;
+    width: 100%;
+    position: absolute;
+    top: 0; right: 0;
+    margin-right: -4%;
 }
 
 span.oneWriter {
