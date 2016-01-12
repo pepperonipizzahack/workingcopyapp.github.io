@@ -56,8 +56,9 @@
             <li class="header3"><a href="#heruko-remotes">2.4 Heroku Remotes</a></li>
 
             <li class="header2"><a href="#viewing-editing">3. Viewing and editing:</a></li>
-            <li class="header3"><a href="#preview">3.1 View and Preview</a></li>
-            <li class="header3"><a href="#file-changes">3.2 File changes</a></li>
+            <li class="header3"><a href="#edit">3.1 Text Editing</a></li>
+            <li class="header3"><a href="#preview">3.2 Preview</a></li>
+            <li class="header3"><a href="#file-changes">3.3 File changes</a></li>
 
             <li class="header2"><a href="#commit-revert">4. Committing or reverting:</a></li>
             <li class="header3"><a href="#commit-history">4.1 Commit history</a>, </li>
@@ -297,14 +298,56 @@ andrew@company.se/home/andrew/git/site.git/
         </div>
         <p>A repository is presented as a hierarchy of directories and files where you tap a directory to enter and
             view the contents.</p>
-        <p style="padding-bottom: 1em">Some repositories have deep directory hierarchies and to avoid having to go back repeatedly, you can tap and hold
-            the back button to choose how far back you want to step.</p>
+        <p style="padding-bottom: 1em">Some repositories have deep directory hierarchies and to avoid having to go back repeatedly,
+            you can tap and hold the back button to choose how far back you want to step.</p>
 
+        <p> If you tap a file and pick the Content tab you can view the file in different modes.
+            This is controller by the button in the top bar indicating the current mode. The top choices
+            are the recommended mode for this file and depends on both filename and file content.
+            When you pick a mode for a given file, Working Copy remembers this choice for other files
+            with the same file extension.
+        </p>
+      </div>
+  <div style="clear: both;"></div>
+    <div class="inner">
+        <h3 id="edit">3.2&nbsp;Text Editing</h3>
         <div class="right"><img class="right animated" src="img/content-preview.png" onload="imgLoaded(this)" /></div>
-    <h3 id="preview">3.1&nbsp;View&nbsp;and&nbsp;Preview</h3>
-        <p> If you tap a file and pick the Content tab you can switch between Preview,
-            Syntax Highlighted or Hex Dump modes. Use the action button in the upper-right corner to send
-            the file to other apps or to edit inside Working Copy. </p>
+
+        <p>Text files can be viewed as plain text or with syntax highlighting for one of the
+            <a id="expandLanguages" href="" onclick="return showLanguages();">supported languages</a><span id="allLanguages" style="display: none; white-space: normal;">Apache, Bash, C#, C/C++, CSS, Clojure, CoffeeScript,
+                Dart, Diff, Erlang, F#, Go, HTML, HTTP Headers,
+                Haskell, Ini, JSON, Java, JavaScript, Lua, Makefile, Markdown, Nginx, Objective-C, PHP, Perl, Python, R, Ruby, SML,
+                SQL, SVG, Scala, Swift, VIM, XML, YAML, ΤeΧ
+            </span>.
+           Font size is adjusted in the popup switching between modes and is remembered
+           individually for different modes.</p>
+         <p>Looking at source code you can tap anywhere to start editing. <em>Done</em> in the upper right corner
+          stops editing. You undo latest changes with the undo-button above the keyboard on iPad or by shaking
+             your iPhone. If you want to undo all your changes, switch to the Status tab where you can revert the
+             file to how it as at last commit.</p>
+        <p>
+            File search is only case sensitive if there are uppercase letters in your query. Wrapping your query
+            in /slashes/ turns it into a regular expression search. The up &amp; down arrows are used to scroll
+            to search results not currently visible. The editor will scroll just enough to bring a new search result
+            into view. </p>
+        <p>
+             Any text selection can be transformed with action extensions, which will let you do things such as URL encode text
+             from within the editor.
+            <a target="app" href="https://itunes.apple.com/app/workflow-powerful-automation/id915249334?mt=8&amp;at=1000lHq">Workflow</a>
+            is the prime example of such a application.</p>
+        <p>
+             When your selection matches a valid <a target="wikipedia" href="https://en.wikipedia.org/wiki/Web_colors">CSS color</a>
+            you can adjust this. Placing the caret where a color is expected the popup menu also
+             lets you use the color picker to make a new color.</p>
+        <p>
+             If you have
+        <a target="app" href="https://itunes.apple.com/us/app/dash-api-docs/id935284832?ls=1&amp;mt=8&amp;at=1000lHq">Dash</a>
+        installed your text selection can be used to make a lookup. Just make sure you have the
+             relevant docsets downloaded in Dash.
+ </p>
+
+    <h3 id="preview">3.2&nbsp;Preview</h3>
+
         <p>When previewing HTML files, relative links to images, javascript and stylesheets resolve to files inside
             repository and will work without Internet connection. External assets require a Internet connection to load.
             If offline preview is important to you, consider including javascript frameworks inside repository.
@@ -317,7 +360,7 @@ andrew@company.se/home/andrew/git/site.git/
         </p>
 
     </div><div class="inner">
-    <h3 id="file-changes">3.2 File changes</h3>
+    <h3 id="file-changes">3.3 File changes</h3>
     <div class="wide left" style="margin-left: -5%"><img class="wide left" style="margin-left: -5%" onload="imgLoaded(this)"
          src="img/split-diff-36.png" srcset="img/split-diff-36.png 417w, img/split-diff-36-834.png 834w, img/split-diff-36-1364.png 1364w"/></div>
     <div style="clear: both; margin-top: -75px" class="left"><img class="animated" onload="imgLoaded(this)" src="img/image-diff-83.png"
@@ -618,6 +661,13 @@ andrew@company.se/home/andrew/git/site.git/
 <![endif]-->
 <script>
     function rev(s) { return s.length <= 1 ? s : rev(s.substr(1)) + s.substr(0,1); }
+
+    function showLanguages() {
+        $('#expandLanguages').hide();
+        $('#allLanguages').show();
+
+        return false;
+    }
 
     (function() {
         function getScript(url,success){
