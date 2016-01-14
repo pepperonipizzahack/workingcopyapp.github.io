@@ -269,6 +269,9 @@ sup {
     <pre> working-copy://x-callback-url/push/?repo=my%20repo </pre>
     <p>You can push to other remotes than origin by using the <em>remote</em> paramater.</p>
         <pre> working-copy://x-callback-url/push/?repo=my%20repo&amp;remote=heroku </pre>
+    <p>You can push all repositories remotes by using wildcards on the form <em>repo=*</em> where * matches
+        one or more characters, but these wildcards are only resolved against name, not remote URLs.</p>
+        <pre> working-copy://x-callback-url/push/?repo=* </pre>
     </div>
 
     <h2 id="pulling">Pull from remote</h2>
@@ -277,7 +280,7 @@ sup {
      pull command will wait until you have entered your credentials. Any merge conflicts will count as a error.</p>
       <pre> working-copy://x-callback-url/pull/?repo=my%20repo</pre>
       <p>Just like the <em>push</em> command you can use the <em>remote</em> parameter to pull from
-      non-origin remotes.</p>
+      non-origin remotes and <em>repo</em> parameters can contain wildcards.</p>
     </div>
 
     <h2 id="webdav">Control WebDAV Server</h2>
