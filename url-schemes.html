@@ -270,8 +270,9 @@ sup {
     <p>You can push to other remotes than origin by using the <em>remote</em> paramater.</p>
         <pre> working-copy://x-callback-url/push/?repo=my%20repo&amp;remote=heroku </pre>
     <p>You can push all repositories remotes by using wildcards on the form <em>repo=*</em> where * matches
-        one or more characters, but these wildcards are only resolved against name, not remote URLs.</p>
-        <pre> working-copy://x-callback-url/push/?repo=* </pre>
+        one or more characters, but these wildcards are only resolved against name, not remote URLs.
+        As with other special characters the * needs to be URL-encoded.</p>
+        <pre> working-copy://x-callback-url/push/?repo=%2A </pre>
     </div>
 
     <h2 id="pulling">Pull from remote</h2>
