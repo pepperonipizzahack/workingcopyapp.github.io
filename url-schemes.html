@@ -15,7 +15,7 @@
 
 <style>
 
-img {
+img.old {
     float: right;
     width: 200px;
     max-width: 50%;
@@ -121,6 +121,8 @@ sup {
         <li><a href="#listing">list</a> repositories</li></ul>
         <li><a href="#init">init</a> empty repository</li></ul>
         </p>
+        You can also read a little about creating URL templates in <a href="#drafts-templates">Drafts</a>
+        and <a href="#chaining-callbacks">chaining</a> together callbacks.
         </div>
 
     <h2>URL format for x-callback-url</h2>
@@ -130,7 +132,7 @@ sup {
     <p>If you include a <em>x-error</em> parameter it will be used to deliver errors, otherwise errors are shown inside Working Copy.
     Including <em>x-success</em> is also possible.
     </p>
-    <p> <img src="img/callback-settings.png" alt="Screenshot with URL callback settings including key." />
+    <p> <img class="old" src="img/callback-settings.png" alt="Screenshot with URL callback settings including key." />
        
        <p>To avoid very long examples the <em>key</em> parameter will not be included in every example here,
         but it IS required for every x-callback-url command.
@@ -150,7 +152,7 @@ sup {
 
     <h2 id="writing">Writing files</h2>
     <div class="inner">
-    <p><img src="img/my-repo.png" alt="Screenshot showing README.md as only file in 'my repo'" />
+    <p><img class="old" src="img/my-repo.png" alt="Screenshot showing README.md as only file in 'my repo'" />
     Write to existing or new files with the <em>write</em> command. If you include a <em>text</em> parameter this will
     be the content written to the file at the given <em>path</em>. The text parameter is transferred as UTF-8 but will
     be written in the encoding of the existing file or UTF-8 for new files. </p>
@@ -318,10 +320,40 @@ sup {
     <pre> working-copy://x-callback-url/init/?name=new%20repository</pre>
     </div>
 
-    <h2>Chaining callbacks</h2>
+    <h2 id="drafts-templates">Drafts Templates</h2>
+    <div class="inner">
+        <div class="right">
+            <img class="animated" src="video/drafts-example.jpg" />
+        </div>
+       <p>
+        If you are using
+        <a target="app" href="https://itunes.apple.com/app/id905337691?mt=8&amp;uo=4&amp;at=1000lHq">Drafts</a>
+        by <a target="app" href="http://agiletortoise.com/drafts/">Agile Tortoise</a>,
+           there are some tricks that make it much easier to make
+           <a target="app" href="https://agiletortoise.zendesk.com/hc/en-us/articles/202843484-Templates-and-Tags">URL templates</a>.
+           First line in a draft can be referenced as <em>[[title]]</em> and the remainder as <em>[[body]]</em>.
+       </p>
+        <p>
+            Often you want to send a draft into Working Copy. You need to use the
+            <a href="#writing">write</a> command, specifying filename (path), repository (repo),
+            access key (key), content (text) and perhaps you want to jump back to Drafts when done (x-success={{drafts://}}).
+        </p>
+        <p>Imagine that you need to create a new Jekyll post
+        from a draft. The date determines the filename and the content is a combination of YAML front matter
+        and content. Note how <em>%0a</em> is encoded manually to have newline in the front matter.</p>
+        <p>For more complicated actions it is probably a good idea to use javascript to compose the URL
+        with the <a target="app" href="https://agiletortoise.zendesk.com/hc/en-us/articles/202771590-Action-Step-Script">Script</a> action step.
+        using the clipboard as temporary storage.
+        </p>
+
+        <pre> working-copy://x-callback-url/write/?repo={{jekyll-site}}&amp;path={{posts/}}[[date]].md&amp;text=---%0a{{layout: post}}%0a{{title: }}[[title]]%0a---%0a[[body]]&amp;key={{12345678}}</pre>
+
+    </div>
+
+    <h2 id="chaining-callbacks">Chaining callbacks</h2>
     <div class="inner">
 
-    <p><img class="anim" src="img/textastic-new.gif" alt="Link is clicked that opens Working Copy and then sends file contents into Textastic to create new file." />
+    <p><img class="old anim" src="img/textastic-new.gif" alt="Link is clicked that opens Working Copy and then sends file contents into Textastic to create new file." />
         URL callbacks can get pretty complicated when you want to send the result of one callback along to
        another URL callback. </p>
     
@@ -353,13 +385,41 @@ sup {
 <script src="/js/dd_belatedpng.js"></script>
 <script>DD_belatedPNG.fix('img, .png_bg'); // Fix any <img> or .png_bg bg-images. Also, please read goo.gl/mZiyb</script>
 <![endif]-->
-<script src="/js/jquery.min.js"></script>
+<script src="js/jquery.min.js"></script>
 <script>
+    function setupVideos() {
+        $('img.animated').each(function() {
+            var src = $(this)[0].getAttribute("src");
+            var alt = $(this)[0].getAttribute("video-alt");
+            if(!alt) alt = $(this)[0].getAttribute("alt");
+
+            var base = src.replace("img/", "");
+            var base = src.replace("video/", "");
+            base = base.replace(".png", "").replace(".jpg", "");
+
+            var video = document.createElement("video");
+            video.setAttribute("poster", "video/" + base + ".jpg");
+            video.setAttribute("controls", "true");
+            video.setAttribute("preload", "none");
+            if(alt) video.setAttribute("alt", alt);
+
+            var source = document.createElement("source");
+            source.setAttribute("src", "video/" + base + ".mp4");
+            source.setAttribute("type", "video/mp4");
+            video.appendChild(source);
+
+            var img = $(this)[0];
+            img.parentNode.insertBefore(video, img.nextSibling);
+        });
+    }
+
     function rev(s) { return s.length <= 1 ? s : rev(s.substr(1)) + s.substr(0,1); }
 
     $(document).ready(function () {
         var email = document.getElementById("email");
-        email.href = "mailto:" + rev("moc.ppaypocgnikrow@sredna"); 
+        email.href = "mailto:" + rev("moc.ppaypocgnikrow@sredna");
+
+        setupVideos();
     });
 </script>
 </body>
