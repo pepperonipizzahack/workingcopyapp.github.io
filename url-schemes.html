@@ -342,8 +342,8 @@ sup {
         from a draft. The date determines the filename and the content is a combination of YAML front matter
         and content. Note how <em>%0a</em> is encoded manually to have newline in the front matter.</p>
         <p>For more complicated actions it is probably a good idea to use javascript to compose the URL
-        with the <a target="app" href="https://agiletortoise.zendesk.com/hc/en-us/articles/202771590-Action-Step-Script">Script</a> action step.
-        using the clipboard as temporary storage.
+        with the <a target="app" href="https://agiletortoise.zendesk.com/hc/en-us/articles/202771590-Action-Step-Script">Script</a>
+            action step using the clipboard as temporary storage.
         </p>
 
         <pre> working-copy://x-callback-url/write/?repo={{jekyll-site}}&amp;path={{posts/}}[[date]].md&amp;text=---%0a{{layout: post}}%0a{{title: }}[[title]]%0a---%0a[[body]]&amp;key={{12345678}}</pre>
