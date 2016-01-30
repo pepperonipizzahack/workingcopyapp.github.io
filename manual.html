@@ -288,14 +288,13 @@ andrew@company.se/home/andrew/git/site.git/
 
         <h3 id="aws-codecommit">2.5 AWS CodeCommit</h3>
         <p>To use Working Copy with <a href="https://aws.amazon.com/codecommit/" target="aws">AWS CodeCommit</a>
-            you need to create a AIM user with the IAMUserSSHKeys Policy. You also need to add some Policy allowing
+            you need to create a AIM user with the <em>IAMUserSSHKeys</em> Policy. You also need to add some Policy allowing
             repository access and <em>AWSCodeCommitPowerUser</em> is a good choice, unless you only need to
             clone and fetch code in which case <em>AWSCodeCommitReadOnly</em> is preferable.
         </p>
         <p>You also need to export your SSH Key from Working Copy and Upload as SSH Public Key. This is done
          in the <em>Security Credentials</em> tab of your AIM User. When your SSH Key has been uploaded it
-        will be listed with a <em>SSH Key Id</em> on the form <em>APKAJMDDPOLPSL7OAYOA</em>
-            that will be needed for the next step.</p>
+        will be listed with a <em>SSH Key Id</em> that will be needed for the next step.</p>
         <p>
          Your repositories are listed in the CodeCommit Dashboard. When looking at individual repositories
             you can request the Clone URL in the SSH format, which can be used inside Working Copy, but you need to
