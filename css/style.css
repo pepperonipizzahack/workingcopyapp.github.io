@@ -29,6 +29,12 @@ pre {
     display: inline-block;
 }
 
+em {
+    font-size: 90%;
+    color: #000000;
+    background-color: #ecf0f3;
+}
+
 .outer {
     margin: auto;
     max-width: 800px;
