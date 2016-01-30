@@ -47,7 +47,10 @@ em {
 }
 
 video::-webkit-media-controls {
-    opacity: .3;
+}
+
+video.animated::-webkit-media-controls {
+    opacity: 0.0;
 }
 
 h1 {
