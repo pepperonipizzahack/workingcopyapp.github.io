@@ -727,13 +727,14 @@ andrew@company.se/home/andrew/git/site.git/
 
                 var video = document.createElement("video");
                 video.setAttribute("poster", "video/" + base + ".jpg");
-                video.setAttribute("controls", "true");
+                video.setAttribute("muted", "true");
                 video.setAttribute("preload", "none");
                 if(alt) video.setAttribute("alt", alt);
 
                 var source = document.createElement("source");
                 source.setAttribute("src", "video/" + base + ".mp4");
                 source.setAttribute("type", "video/mp4");
+                video.setAttribute("onclick", "this.play();");
                 video.appendChild(source);
 
                 var img = $(this)[0];
