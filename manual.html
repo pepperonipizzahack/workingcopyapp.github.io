@@ -736,7 +736,11 @@ andrew@company.se/home/andrew/git/site.git/
                 var source = document.createElement("source");
                 source.setAttribute("src", "video/" + base + ".mp4");
                 source.setAttribute("type", "video/mp4");
-                video.setAttribute("onclick", "this.play();");
+                video.onclick = function() {
+                    var isPlaying = !!(video.currentTime > 0 && !video.paused && !video.ended && video.readyState > 2);
+                    if(isPlaying) video.pause();
+                    else video.play();
+                };
                 video.appendChild(source);
 
                 var img = $(this)[0];
