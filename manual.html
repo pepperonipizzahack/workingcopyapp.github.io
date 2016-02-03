@@ -721,9 +721,10 @@ andrew@company.se/home/andrew/git/site.git/
 
         function setupVideos() {
             $('img.animated').each(function() {
-                var src = $(this)[0].getAttribute("src");
-                var alt = $(this)[0].getAttribute("video-alt");
-                if(!alt) alt = $(this)[0].getAttribute("alt");
+                var img = $(this)[0];
+                var src = img.getAttribute("src");
+                var alt = img.getAttribute("video-alt");
+                if(!alt) alt = img.getAttribute("alt");
 
                 var base = src.replace("img/", "");
                 base = base.replace(".png", "").replace(".jpg", "");
@@ -735,17 +736,25 @@ andrew@company.se/home/andrew/git/site.git/
                 video.setAttribute("class", "animated");
                 if(alt) video.setAttribute("alt", alt);
 
+                var spinner = document.createElement("div");
+                spinner.style.opacity = "0";
+                spinner.className = "spinner";
+
                 var source = document.createElement("source");
                 source.setAttribute("src", "video/" + base + ".mp4");
                 source.setAttribute("type", "video/mp4");
+                video.oncanplay = function() {
+                    spinner.parentNode.removeChild(spinner);
+                };
                 video.onclick = function() {
+                    spinner.style.opacity = "1";
                     var isPlaying = !!(video.currentTime > 0 && !video.paused && !video.ended && video.readyState > 2);
                     if(isPlaying) video.pause();
                     else video.play();
                 };
                 video.appendChild(source);
 
-                var img = $(this)[0];
+                img.parentNode.insertBefore(spinner, img.nextSibling);
                 img.parentNode.insertBefore(video, img.nextSibling);
             });
         }
