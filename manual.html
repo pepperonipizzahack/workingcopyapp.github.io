@@ -734,10 +734,10 @@ andrew@company.se/home/andrew/git/site.git/
                 video.setAttribute("muted", "true");
                 video.setAttribute("preload", "none");
                 video.setAttribute("class", "animated");
+                video.spinner_started = false;
                 if(alt) video.setAttribute("alt", alt);
 
                 var spinner = document.createElement("div");
-                spinner.style.opacity = "0";
                 spinner.className = "spinner";
 
                 var source = document.createElement("source");
@@ -747,14 +747,17 @@ andrew@company.se/home/andrew/git/site.git/
                     spinner.parentNode.removeChild(spinner);
                 };
                 video.onclick = function() {
-                    spinner.style.opacity = "1";
+                    if(!video.spinner_started) {
+                        video.spinner_started = true;
+                        img.parentNode.insertBefore(spinner, img.nextSibling);
+                    }
+
                     var isPlaying = !!(video.currentTime > 0 && !video.paused && !video.ended && video.readyState > 2);
                     if(isPlaying) video.pause();
                     else video.play();
                 };
                 video.appendChild(source);
 
-                img.parentNode.insertBefore(spinner, img.nextSibling);
                 img.parentNode.insertBefore(video, img.nextSibling);
             });
         }
