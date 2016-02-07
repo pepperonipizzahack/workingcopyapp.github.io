@@ -737,28 +737,32 @@ andrew@company.se/home/andrew/git/site.git/
                 video.spinner_started = false;
                 if(alt) video.setAttribute("alt", alt);
 
-                var spinner = document.createElement("div");
-                spinner.className = "spinner";
+                var playButton = document.createElement("img");
+                playButton.setAttribute("class", "playButton");
+                playButton.setAttribute("src", "video/play.png");
 
                 var source = document.createElement("source");
                 source.setAttribute("src", "video/" + base + ".mp4");
                 source.setAttribute("type", "video/mp4");
                 video.oncanplay = function() {
-                    spinner.parentNode.removeChild(spinner);
+                    playButton.parentNode.removeChild(playButton);
                 };
                 video.onclick = function() {
                     if(!video.spinner_started) {
                         video.spinner_started = true;
-                        img.parentNode.insertBefore(spinner, img.nextSibling);
+                        playButton.setAttribute("class", "playButton spinning");
                     }
 
                     var isPlaying = !!(video.currentTime > 0 && !video.paused && !video.ended && video.readyState > 2);
                     if(isPlaying) video.pause();
                     else video.play();
                 };
+                playButton.onclick = video.onclick;
+
                 video.appendChild(source);
 
                 img.parentNode.insertBefore(video, img.nextSibling);
+                img.parentNode.insertBefore(playButton, img.nextSibling);
             });
         }
 
