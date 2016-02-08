@@ -242,6 +242,7 @@ img.playButton {
     z-index: 10;
     height:60px;
     width:60px;
+    opacity: 0.5;
 
     bottom: 0;
     right: 0;
