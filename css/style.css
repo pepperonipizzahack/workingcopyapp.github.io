@@ -1,5 +1,5 @@
 @media print {
-    video {
+    video, img.playButton {
         display: none;
     }
 }
@@ -289,12 +289,12 @@ img.spinning {
 
 span.oneWriter {
     display: inline-block;
-          text-align: center;
-          vertical-align: middle;
-          background: #DE443D;
-          color: #fff;
-          border-radius: 50%;
-          width: 1em;
-          height: 1em;
-          line-height: 0.96em;
+    text-align: center;
+    vertical-align: middle;
+    background: #DE443D;
+    color: #fff;
+    border-radius: 50%;
+    width: 1em;
+    height: 1em;
+    line-height: 0.96em;
 }
