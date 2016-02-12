@@ -795,7 +795,8 @@ andrew@company.se/home/andrew/git/site.git/
                 scrollToIdentifier(this.hash);
             });
 
-            setupVideos();
+            var noVideos = window.document.location.search.indexOf('novideo') >= 0;
+            if(!noVideos) setupVideos();
         });
     })();
 </script>
