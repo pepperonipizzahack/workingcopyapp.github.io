@@ -42,7 +42,7 @@ sup {
         ga('send', 'pageview');
 
     </script>
-    <script async src="//stat-now.herokuapp.com/s.js"></script>
+    <script async src="//stat-now.herokuapp.com/s.js?t=7P6gtxWBBlqN4pZA"></script>
 </head><body>
 <div>
     <header>
@@ -272,10 +272,10 @@ sup {
     <pre> working-copy://x-callback-url/push/?repo=my%20repo </pre>
     <p>You can push to other remotes than origin by using the <em>remote</em> paramater.</p>
         <pre> working-copy://x-callback-url/push/?repo=my%20repo&amp;remote=heroku </pre>
-    <!--<p>You can push all repositories remotes by using wildcards on the form <em>repo=*</em> where the asterix matches
+    <p>You can push all repositories remotes by using wildcards on the form <em>repo=*</em> where the asterix matches
         one or more characters, but these wildcards are only resolved against name, not remote URLs.
         As with other special characters <em>*</em> needs to be URL-encoded.</p>
-        <pre> working-copy://x-callback-url/push/?repo=%2A </pre>-->
+        <pre> working-copy://x-callback-url/push/?repo=%2A </pre>
     </div>
 
     <h2 id="pulling">Pull from remote</h2>
@@ -283,8 +283,8 @@ sup {
     <p>The <em>pull</em> command fetches and merges changes from your origin remote. If you need to authenticate, the
      pull command will wait until you have entered your credentials. Any merge conflicts will count as a error.</p>
       <pre> working-copy://x-callback-url/pull/?repo=my%20repo</pre>
-     <!--<p>Just like the <em>push</em> command you can use the <em>remote</em> parameter to pull from
-      non-origin remotes and <em>repo</em> parameters can contain wildcards.</p>-->
+     <p>Just like the <em>push</em> command you can use the <em>remote</em> parameter to pull from
+      non-origin remotes and <em>repo</em> parameter can contain wildcards.</p>
     </div>
 
     <h2 id="webdav">Control WebDAV Server</h2>
