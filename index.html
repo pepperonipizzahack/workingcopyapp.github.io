@@ -414,8 +414,8 @@
             $.post("http://www.appliedphasor.com/signup", { "email": email} )
                     .done(function() {
                         $('.signup').slideUp(300, function() {
-                            //showStatus("You have signed up with " + email + " for beta-testing. Thank you!");
-                            showStatus("You have signed up with " + email + " for beta-testing. I am working hard on the first beta for version 2.8 and you will receive a TestFlight email from Apple as soon as this is ready.");
+                            showStatus("You have signed up with " + email + " for beta-testing. Thank you!");
+                            //showStatus("You have signed up with " + email + " for beta-testing. I am working hard on the next beta and you will receive a TestFlight email from Apple as soon as this is ready.");
                         });
                     })
                     .fail(function(jqXHR, textStatus) {
