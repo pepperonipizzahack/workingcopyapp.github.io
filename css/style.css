@@ -46,11 +46,12 @@ em {
     clear: both;
 }
 
-video::-webkit-media-controls {
-}
-
 video.animated::-webkit-media-controls {
     opacity: 0.0;
+}
+
+video.started::-webkit-media-controls {
+    opacity: 1.0;
 }
 
 h1 {
@@ -218,23 +219,28 @@ sup {
     left: 0; right: 0;
 }
 
-.left > video {
-    padding-top: 30.54%;
-    margin-left: auto;
-    margin-right: auto;
-    width: 85.34%;
-    z-index: 1;
+.container {
+    z-index: 2;
     position: absolute;
     top: 0; bottom: 0;
     left: 0; right: 0;
 }
 
-.right > video, .right > img {
+.container > video {
+    padding-left: 8.15%;
+    padding-top: 30.7%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 83.7%;
+}
+
+.right > img, .right > .container {
     z-index: 1;
-    width: 100%;
     position: absolute;
+    width: 100%;
     top: 0; right: 0;
     margin-right: -4%;
+    margin-left: 10px;
 }
 
 img.playButton {
@@ -244,7 +250,8 @@ img.playButton {
     width:60px;
     opacity: 0.5;
 
-    bottom: 0;
+    position: absolute;
+    bottom: 18%;
     right: 0;
     left: 0;
 

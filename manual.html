@@ -31,7 +31,6 @@
         ga('create', 'UA-2084164-5', 'auto');
         ga('send', 'pageview');
     </script>
-    <script async src="//stat-now.herokuapp.com/s.js?t=7P6gtxWBBlqN4pZA"></script>
     <script>
         function imgLoaded(img) {
             img.style.background = 'transparent';
@@ -736,6 +735,9 @@ andrew@company.se/home/andrew/git/site.git/
                 var base = src.replace("img/", "");
                 base = base.replace(".png", "").replace(".jpg", "");
 
+                var container = document.createElement("div");
+                container.setAttribute("class", "container");
+
                 var video = document.createElement("video");
                 video.setAttribute("poster", "video/" + base + ".jpg");
                 video.setAttribute("muted", "true");
@@ -762,14 +764,19 @@ andrew@company.se/home/andrew/git/site.git/
 
                     var isPlaying = !!(video.currentTime > 0 && !video.paused && !video.ended && video.readyState > 2);
                     if(isPlaying) video.pause();
-                    else video.play();
+                    else {
+                        video.setAttribute("controls", "true");
+                        video.setAttribute("class", "animated started");
+                        video.play();
+                    }
                 };
                 playButton.onclick = video.onclick;
 
                 video.appendChild(source);
+                container.appendChild(video);
+                container.appendChild(playButton);
 
-                img.parentNode.insertBefore(video, img.nextSibling);
-                img.parentNode.insertBefore(playButton, img.nextSibling);
+                img.parentNode.insertBefore(container, img.nextSibling);
             });
         }
 
