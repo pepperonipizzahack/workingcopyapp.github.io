@@ -755,6 +755,8 @@ andrew@company.se/home/andrew/git/site.git/
                 source.setAttribute("type", "video/mp4");
                 video.oncanplay = function() {
                     playButton.parentNode.removeChild(playButton);
+                    video.setAttribute("controls", "true");
+                    video.setAttribute("class", "animated started");
                 };
                 video.onclick = function() {
                     if(!video.spinner_started) {
@@ -765,8 +767,6 @@ andrew@company.se/home/andrew/git/site.git/
                     var isPlaying = !!(video.currentTime > 0 && !video.paused && !video.ended && video.readyState > 2);
                     if(isPlaying) video.pause();
                     else {
-                        video.setAttribute("controls", "true");
-                        video.setAttribute("class", "animated started");
                         video.play();
                     }
                 };
