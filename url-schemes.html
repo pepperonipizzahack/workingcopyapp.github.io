@@ -323,7 +323,7 @@ sup {
     <h2 id="drafts-templates">Drafts Templates</h2>
     <div class="inner">
         <div class="right">
-            <img class="animated" src="video/drafts-example.jpg" />
+            <img class="right animated" src="img/drafts-example.jpg" />
         </div>
        <p>
         If you are using
@@ -389,27 +389,56 @@ sup {
 <script>
     function setupVideos() {
         $('img.animated').each(function() {
-            var src = $(this)[0].getAttribute("src");
-            var alt = $(this)[0].getAttribute("video-alt");
-            if(!alt) alt = $(this)[0].getAttribute("alt");
+            var img = $(this)[0];
+            var src = img.getAttribute("src");
+            var alt = img.getAttribute("video-alt");
+            if(!alt) alt = img.getAttribute("alt");
 
             var base = src.replace("img/", "");
-            var base = src.replace("video/", "");
             base = base.replace(".png", "").replace(".jpg", "");
+
+            var container = document.createElement("div");
+            container.setAttribute("class", "container");
 
             var video = document.createElement("video");
             video.setAttribute("poster", "video/" + base + ".jpg");
-            video.setAttribute("controls", "true");
+            video.setAttribute("muted", "true");
             video.setAttribute("preload", "none");
+            video.setAttribute("class", "animated");
+            video.spinner_started = false;
             if(alt) video.setAttribute("alt", alt);
+
+            var playButton = document.createElement("img");
+            playButton.setAttribute("class", "playButton");
+            playButton.setAttribute("src", "video/play.png");
 
             var source = document.createElement("source");
             source.setAttribute("src", "video/" + base + ".mp4");
             source.setAttribute("type", "video/mp4");
-            video.appendChild(source);
+            video.oncanplay = function() {
+                playButton.parentNode.removeChild(playButton);
+                video.setAttribute("controls", "true");
+                video.setAttribute("class", "animated started");
+            };
+            video.onclick = function() {
+                if(!video.spinner_started) {
+                    video.spinner_started = true;
+                    playButton.setAttribute("class", "playButton spinning");
+                }
 
-            var img = $(this)[0];
-            img.parentNode.insertBefore(video, img.nextSibling);
+                var isPlaying = !!(video.currentTime > 0 && !video.paused && !video.ended && video.readyState > 2);
+                if(isPlaying) video.pause();
+                else {
+                    video.play();
+                }
+            };
+            playButton.onclick = video.onclick;
+
+            video.appendChild(source);
+            container.appendChild(video);
+            container.appendChild(playButton);
+
+            img.parentNode.insertBefore(container, img.nextSibling);
         });
     }
 
