@@ -64,7 +64,8 @@
             <li class="header2"><a href="#commit-revert">4. Committing or reverting:</a></li>
             <li class="header3"><a href="#commit-history">4.1 Commit history</a>, </li>
             <li class="header3"><a href="#branching">4.2 Branches</a>, </li>
-            <li class="header3"><a href="#commit-graph">4.3 Commit Graph</a></li>
+            <li class="header3"><a href="#commit-graph">4.3 Commit Graph,</a></li>
+            <li class="header3"><a href="#resolve-tool">4.4 Resolving conflicts</a></li>
 
             <li class="header2"><a href="#extending-ios">5. Extending iOS:</a></li>
             <li class="header3"><a href="#saving">5.1 Saving to Working Copy</a>,</li>
@@ -174,9 +175,10 @@
            repositories received new commits you will be able to <em>Merge</em> all these repositories with a
            single tap.</p>
 
-        <p>Sometimes data cannot be automatically combined because your local changes conflict with the changes from the commits fetched.
-            These conflicts need to be resolved by hand-picking the correct content of the conflicted files and choosing
-            <em>Resolve</em> from the action button.</p>
+        <p>Sometimes data cannot be automatically combined because your local changes conflict with the changes from the
+            commits fetched. These conflicts can be resolved by manually editing files and picking the wanted parts
+            from the conflict markers and tapping the Resolve button. A faster solution is to use the
+            <a href="#resolve-tool">Resolve</a> tool that lets you resolve conflicts for many files at once.</p>
 
         <p>As a short-hand you can <em>Fetch</em>, <em>Merge</em> and <em>Push</em> a repository with the <em>Sync</em> button
             on the detail screen of your remote.</p>
@@ -498,12 +500,13 @@ andrew@company.se/home/andrew/git/site.git/
         <div style="clear: left"></div>
         <h3 id="commit-graph">4.3 Commit Graph</h3>
 
+        <div class="right"><img class="right" onload="imgLoaded(this)" src="img/commit-graph.png"
+                                srcset="img/commit-graph.png 200w, img/commit-graph-400.png 400w, img/commit-graph-645.png 645w" /></div>
+
         <p>To explore repository changes across branches use the Commit Graph available from the Repository screen.</p>
         <p>Commits are presented in chronological order with lines showing which commits are based on each other,
             with tags and branch heads displayed as well as the commit message summary, date and information about the author of the commit.
         </p>
-        <div class="right"><img class="right" onload="imgLoaded(this)" src="img/commit-graph.png"
-          srcset="img/commit-graph.png 200w, img/commit-graph-400.png 400w, img/commit-graph-645.png 645w" /></div>
         <p>Pinch to zoom will let you explore additional details, such as the full commit message, the full name of the author
             rather than initials, a commit identifier and the files modified by this commit. If you connect an external
         screen or projector to your device, you will get a full-screen Commit Graph without any interface elements
@@ -514,13 +517,40 @@ andrew@company.se/home/andrew/git/site.git/
         <p>It is also possible to view the commit date in your calendar to see what else happened around this time and
             when <a href="https://flexibits.com/fantastical-iphone" target="fantastical">Fantastical</a> is installed,
             it will be used instead of the built-in Calendar app.</p>
+
+        <div style="clear: both"></div>
+        <h3 id="resolve-tool">4.4 Resolving conflicts</h3>
+        <div class="left"><img class="left" onload="imgLoaded(this)" src="img/resolve-tool.png" /></div>
+
+        <p>Working Copy has a built-in Resolve tool that can be used to fix conflicts for the entire repository,
+        a subdirectory or single files, depending on where in the directory hierarchy the tool is invoked.
+        Swipe left on cells for repository, directories or files to get started.</p>
+
+        <p>Text files are shown as chunks of text, where everything both files agree on start out in the center,
+           and everything from <em>our</em> version is to the left and <em>their</em> version to the right.
+           You swipe these chunks towards the center to include them and away to exclude them. This way your final
+            file will be lined up at the center. Any chunks touching the border are pending your decision.
+        </p>
+
+        <p>There is no way to combine conflicted images and other binary images.
+            You need to pick one or the other by tapping the one you want.
+            The selected version is marked by a thick border.</p>
+
+        <p>When all chunks have been either accepted or rejected and no binary files are awaiting your choice,
+            tap <em>Resolve</em> to verify your choice and mark all files as resolved. Next commit
+        will conclude the merge. If there are chunks or files pending your decision, the <em>Resolve</em>
+        button will scroll to indicate this.</p>
+
+        <p>You can resolve conflicts by manually editing files. The Content tab for a conflicted file
+        has a <em>Resolve</em> button for marking the file as resolved, when you have picked the content
+        you want and removed the conflict markers.</p>
     </div>
 
     <div style="clear: both;"></div>
 
     <h2 id="extending-ios">5. Extending iOS</h2>
     <div class="inner">
-        <div class="left"><img class="left" onload="imgLoaded(this)" src="img/textastic-87.png"
+        <div class="right"><img class="right" onload="imgLoaded(this)" src="img/textastic-87.png"
                                srcset="img/textastic-87.png 200w, img/textastic-87-400.png 400w, img/textastic-87-645.png 645w"/></div>
 
         <p>Working Copy takes advantage of recent improvements to iOS allowing richer cooperation between applications.
@@ -550,7 +580,7 @@ andrew@company.se/home/andrew/git/site.git/
         <div style="clear: left"></div>
 
         <h3 id="saving">5.1 Saving to Working Copy</h3>
-        <div class="right"><img class="right" onload="imgLoaded(this)" src="img/edit-in-app.png"
+        <div class="left"><img class="left" onload="imgLoaded(this)" src="img/edit-in-app.png"
          srcset="img/edit-in-app.png 200w, img/edit-in-app-400.png 400w, img/edit-in-app-645.png 645w" /></div>
         <p>Saving files into Working Copy can be accomplished by way of a Share sheet, the mechanism also used to share files
             with Mail or Messages.
@@ -594,7 +624,7 @@ andrew@company.se/home/andrew/git/site.git/
 
     <div class="inner">
         <h3 id="webdav-server">5.3 WebDAV access</h3>
-        <div class="left"><img class="left" onload="imgLoaded(this)" src="img/webdav-settings.png"
+        <div class="right"><img class="right" onload="imgLoaded(this)" src="img/webdav-settings.png"
           srcset="img/webdav-settings.png 200w, img/webdav-settings-400.png 400w, img/webdav-settings-645.png 645w"/></div>
 
         <p>In situations where you need to transfer entire directory hierarchies,
@@ -632,7 +662,7 @@ andrew@company.se/home/andrew/git/site.git/
     </div>
     <div class="inner">
         <h3 id="workflows-callbacks">5.4 Workflows and Callbacks</h3>
-        <div class="right"><img class="right" onload="imgLoaded(this)" src="img/callback-setup-26.png"
+        <div class="left"><img class="left" onload="imgLoaded(this)" src="img/callback-setup-26.png"
                                 srcset="img/callback-setup-26.png 200w, img/callback-setup-26-400.png 400w, img/callback-setup-26-645.png 645w, "/></div>
 
         <p>Working Copy supports the <a href="/url-schemes.html">x-callback-url</a> mechanism for inter-app coorporation.
@@ -673,7 +703,7 @@ andrew@company.se/home/andrew/git/site.git/
     </div>
     <div class="inner">
         <h3 style="padding-top: 15px" id="purchase">6.2 How to purchase</h3>
-        <div class="left"><img class="left" onload="imgLoaded(this)" src="img/unlock.png"
+        <div class="right"><img class="right" onload="imgLoaded(this)" src="img/unlock.png"
                                srcset="img/unlock.png 200w, img/unlock-400.png 400w, img/unlock-645.png 645w"/></div>
         <p>Working Copy is a free download but you need to pay to unlock the ability to push commits back
             to remote servers. You can do this for 3 weeks or permanently where the permanent unlock
