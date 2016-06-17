@@ -184,14 +184,6 @@ div.left, div.right {
     background-repeat: no-repeat;
 }
 
-div.left {
-    background-position: -10px 0;
-}
-
-div.right {
-    background-position: 10px 0;
-}
-
 div.noshadow {
     background: none;
 }
