@@ -38,6 +38,7 @@ em {
 /* use background color from resolve tool */
 em.our {  background-color:  #dec592; }
 em.their {  background-color:  #95cade; }
+em.our, em.their { padding-left: 0.15em; padding-right: 0.2em; }
 
 .outer {
     margin: auto;
