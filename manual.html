@@ -789,6 +789,8 @@ andrew@company.se/home/andrew/git/site.git/
                 var video = document.createElement("video");
                 video.setAttribute("poster", "video/" + base + ".jpg");
                 video.setAttribute("muted", "true");
+                video.setAttribute("webkit-playsinline", "true");
+                video.setAttribute("playsinline", "true");
                 video.setAttribute("preload", "none");
                 video.setAttribute("class", "animated");
                 video.spinner_started = false;
