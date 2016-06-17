@@ -35,6 +35,10 @@ em {
     background-color: #ecf0f3;
 }
 
+/* use background color from resolve tool */
+em.our {  background-color:  #dec592; }
+em.their {  background-color:  #95cade; }
+
 .outer {
     margin: auto;
     max-width: 800px;
