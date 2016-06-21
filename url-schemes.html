@@ -65,11 +65,13 @@ sup {
 
         <p>You can open Working Copy and make it go to a specific screen with a URL on the following form:
         </p>
-        <pre>working-copy://open?repo=my%20project&amp;path=README.md&amp;commit=23f387&amp;mode=content</pre>
+        <pre>working-copy://open?repo=my%20project&amp;path=README.md&amp;mode=content
+working-copy://open?repo=my%20project&amp;commit=23f387&amp;mode=status
+working-copy://open?repo=https%3A%2F%2Fgithub.com%2Flibgit2%2Flibgit2&amp;branch=develop</pre>
         <p>Here <em>repo</em> is either the name of a repository as seen in the list of repositories or
            the full remote URL. If you specify a <em>path</em>, Working Copy will show the
         given directory or file and if you specify a <em>commit</em> hash (or prefix) you are shown the given commit.
-            Often the <em>path</em> or the <em>commit</em> parameter is specified but not both.
+            You can specify one of <em>path</em>, <em>commit</em> or <em>branch</em> but not more than one.
         </p><p>
             You can control what to show such that <em>mode=content</em> shows file content tab or directory
             contents for directories and repository; <em>mode=changes</em> shows the Changes-tab and is only valid for
