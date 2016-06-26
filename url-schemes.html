@@ -121,6 +121,7 @@ working-copy://open?repo=https%3A%2F%2Fgithub.com%2Flibgit2%2Flibgit2&amp;branch
         <li>list file <a href="#status">status</a>,</li>
         <li><a href="#pushing">push</a><sup>🔒</sup> to remote and</li>
         <li><a href="#pulling">pull</a> from remote.</li>
+        <li><a href="#merging">merge</a> branches.</li>
         <li>start or stop the <a href="#webdav">WebDAV</a> server.</li></ul>
         <li><a href="#listing">list</a> repositories</li></ul>
         <li><a href="#init">init</a> empty repository</li></ul>
@@ -277,7 +278,7 @@ working-copy://open?repo=https%3A%2F%2Fgithub.com%2Flibgit2%2Flibgit2&amp;branch
         <pre> working-copy://x-callback-url/push/?repo=my%20repo&amp;remote=heroku </pre>
     <p>You can push all repositories remotes by using wildcards on the form <em>repo=*</em> where the asterix matches
         one or more characters, but these wildcards are only resolved against name, not remote URLs.
-        As with other special characters <em>*</em> needs to be URL-encoded.</p>
+        As with other special characters <em>*</em> needs to be URL-encoded as <em>%2A</em>.</p>
         <pre> working-copy://x-callback-url/push/?repo=%2A </pre>
     </div>
 
@@ -288,6 +289,20 @@ working-copy://open?repo=https%3A%2F%2Fgithub.com%2Flibgit2%2Flibgit2&amp;branch
       <pre> working-copy://x-callback-url/pull/?repo=my%20repo</pre>
      <p>Just like the <em>push</em> command you can use the <em>remote</em> parameter to pull from
       non-origin remotes and <em>repo</em> parameter can contain wildcards.</p>
+    </div>
+
+    <h2 id="merging">Merge branches</h2>
+    <div class="inner">
+        <p>Use this command to merge branches programmatically. </p>
+        <pre>working-copy://x-callback-url/merge?repo=my%20repo&branch=develop</pre>
+        <p>The <em>branch</em> parameter names the branch that will be merged on
+          the current branch. You might have identical branch names on different
+          remotes and can use <em>remote</em> to identify a particular branch either by name
+            or URL.
+          </p>
+        <p>If there are any conflicts the user will be asked to fix these interactively
+        followed up by a commit to finish the merge. You can disable this with the
+        parameter <em>resolve=0</em> and merge conflicts will count as error.</p>
     </div>
 
     <h2 id="webdav">Control WebDAV Server</h2>
