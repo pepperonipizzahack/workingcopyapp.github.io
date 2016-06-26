@@ -121,6 +121,7 @@ working-copy://open?repo=https%3A%2F%2Fgithub.com%2Flibgit2%2Flibgit2&amp;branch
         <li>list file <a href="#status">status</a>,</li>
         <li><a href="#pushing">push</a><sup>🔒</sup> to remote and</li>
         <li><a href="#pulling">pull</a> from remote.</li>
+        <li><a href="#checkout">checkout</a> branch.</li>
         <li><a href="#merging">merge</a> branches.</li>
         <li>start or stop the <a href="#webdav">WebDAV</a> server.</li></ul>
         <li><a href="#listing">list</a> repositories</li></ul>
@@ -289,6 +290,12 @@ working-copy://open?repo=https%3A%2F%2Fgithub.com%2Flibgit2%2Flibgit2&amp;branch
       <pre> working-copy://x-callback-url/pull/?repo=my%20repo</pre>
      <p>Just like the <em>push</em> command you can use the <em>remote</em> parameter to pull from
       non-origin remotes and <em>repo</em> parameter can contain wildcards.</p>
+    </div>
+
+    <h2 id="checkout">Checkout branch</h2>
+    <div class="inner">
+        <p>If you have no current modifications you can checkout another branch.</p>
+        <pre>working-copy://x-callback-url/checkout?repo=my%20repo&branch=develop</pre>
     </div>
 
     <h2 id="merging">Merge branches</h2>
