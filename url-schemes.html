@@ -349,7 +349,7 @@ working-copy://open?repo=https%3A%2F%2Fgithub.com%2Flibgit2%2Flibgit2&amp;branch
     <h2 id="drafts-templates">Drafts Templates</h2>
     <div class="inner">
         <div class="right">
-            <img class="right animated" src="img/drafts-example.jpg" />
+            <img class="right animated" src="img/drafts-example.jpg" onload="imgLoaded(this)" />
         </div>
        <p>
         If you are using
@@ -467,6 +467,10 @@ working-copy://open?repo=https%3A%2F%2Fgithub.com%2Flibgit2%2Flibgit2&amp;branch
             img.parentNode.insertBefore(container, img.nextSibling);
         });
     }
+
+    function imgLoaded(img) {
+        img.parentNode.style.background = 'transparent';
+    };
 
     function rev(s) { return s.length <= 1 ? s : rev(s.substr(1)) + s.substr(0,1); }
 
