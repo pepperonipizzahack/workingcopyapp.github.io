@@ -126,6 +126,7 @@ working-copy://open?repo=https%3A%2F%2Fgithub.com%2Flibgit2%2Flibgit2&amp;branch
         <li>start or stop the <a href="#webdav">WebDAV</a> server.</li></ul>
         <li><a href="#listing">list</a> repositories</li></ul>
         <li><a href="#init">init</a> empty repository</li></ul>
+        <li><a href="#chain">chain</a> multiple commands</li></ul>
         </p>
         You can also read a little about creating URL templates in <a href="#drafts-templates">Drafts</a>
         and <a href="#chaining-callbacks">chaining</a> together callbacks.
@@ -347,6 +348,25 @@ working-copy://open?repo=https%3A%2F%2Fgithub.com%2Flibgit2%2Flibgit2&amp;branch
     <pre> working-copy://x-callback-url/init/?name=new%20repository</pre>
     </div>
 
+    <h2 id="chain">Chain multiple commands</h2>
+    <div class="inner">
+    <p>Sometimes you want to run several x-callback-url commands in Working Copy and this becomes
+        very convoluted with multiple levels of encoding. You would need to start with the last command and work
+        your way to the first building a larger and larger <em>x-success</em> chain.</p>
+        <p>To achieve the same result, use the <em>chain</em> command.</p>
+
+        <pre>working-copy://x-callback-url/chain?repo=my%20repo&amp;command=commit&amp;message=fix&amp;command=push
+working-copy://x-callback-url/chain?repo=%2A&amp;command=pull&amp;command=push</pre>
+
+        <p>You use the <em>command</em> parameter once for each command. The parameters before the first <em>command</em>
+        parameter is shared by all commands, and parameters meant for a single command is specified after the <em>command</em>
+        it applies to but before the next one. Often parameters <em>key</em>, <em>repo</em> and <em>x-error</em> are shared.</p>
+    <p>
+        You can use <em>x-success</em> as a shared parameter. It will only be used
+        for the last command since the earlier commands are bound by the command chain.
+    </p>
+    </div>
+
     <h2 id="drafts-templates">Drafts Templates</h2>
     <div class="inner">
         <div class="right">
@@ -393,7 +413,7 @@ working-copy://open?repo=https%3A%2F%2Fgithub.com%2Flibgit2%2Flibgit2&amp;branch
      you would need to URL escape the callback to Textastic which gives rise to double-encoding of parameters passed
      along.<br/> <em style="font-size: small">space → %20 → %2520</em></p>
      <pre>working-copy://x-callback-url/read/?repo=my%20repo&amp;path=README.md&amp;x-success=textastic%3A%2F%2Fx-callback-url%2Fnew%3Fname%3Dtwo%2520words.txt%26text%3D</pre>
-    
+
     <p id="mailto-example">You could also start a new email with the contents of this file, by making <em>x-success</em>
        use the <em>mailto:</em> scheme with something like
        <pre>working-copy://x-callback-url/read/?repo=my%20repo&amp;path=README.md&amp;x-success=mailto%3A%3Fbody%3D</pre>
