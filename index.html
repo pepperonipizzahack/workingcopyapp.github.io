@@ -411,15 +411,15 @@
         }
 
         function submitEmail(email) {
-            $.post("http://www.appliedphasor.com/signup", { "email": email} )
+            var post = $.post("/signup.php", { "email": email} )
                     .done(function() {
                         $('.signup').slideUp(300, function() {
                             showStatus("You have signed up with " + email + " for beta-testing. Thank you!");
                             //showStatus("You have signed up with " + email + " for beta-testing. I am working hard on the next beta and you will receive a TestFlight email from Apple as soon as this is ready.");
                         });
                     })
-                    .fail(function(jqXHR, textStatus) {
-                        showStatus("Unable to submit email address: " + textStatus);
+                    .fail(function() {
+                        showStatus("Signup problem: " + post.responseText);
                     });
         }
 
