@@ -1,5 +1,5 @@
 {"icons":
-[{"width": 29, "height": 29, "src": "https://workingcopyapp.com/img/icon-enterprise.png"},
- {"width": 58, "height": 58, "src": "https://workingcopyapp.com/img/icon-enterprise@2x.png"},
- {"width": 87, "height": 87, "src": "https://workingcopyapp.com/img/icon-enterprise@3x.png"}
+[{"width": 29, "height": 29, "src": "/img/icon-enterprise.png"},
+ {"width": 58, "height": 58, "src": "/img/icon-enterprise@2x.png"},
+ {"width": 87, "height": 87, "src": "/img/icon-enterprise@3x.png"}
 ]}
