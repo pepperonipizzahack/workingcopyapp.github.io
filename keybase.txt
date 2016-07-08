@@ -1,0 +1,68 @@
+==================================================================
+https://keybase.io/palmin
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://workingcopyapp.com
+  * I am palmin (https://keybase.io/palmin) on keybase.
+  * I have a public key with fingerprint D6E5 1709 0C54 8B06 6311  4E19 8E87 F332 DFBA A768
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "eldest_kid": "01015456602fd35f7ee989d1e417f2523d54a2391c96e8401b1851b72c4a79a33c170a",
+            "fingerprint": "d6e517090c548b0663114e198e87f332dfbaa768",
+            "host": "keybase.io",
+            "key_id": "8e87f332dfbaa768",
+            "kid": "01015456602fd35f7ee989d1e417f2523d54a2391c96e8401b1851b72c4a79a33c170a",
+            "uid": "6a5d97008326a08490bc4780e4f47619",
+            "username": "palmin"
+        },
+        "service": {
+            "hostname": "workingcopyapp.com",
+            "protocol": "https:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1468007197,
+    "expire_in": 157680000,
+    "prev": "e19e8bd7c6dbb4d1f8d607c935d4e617c2cfd850c80e4793f997a6007c8b2db9",
+    "seqno": 4,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.0.53
+Comment: https://keybase.io/crypto
+
+yMIuAnicrZJZbE1BGMfvVS2aoAkRoUWOB4kUM2ebmYtKRD1UohERjZTrnJk57XF7
+zznOuW1VQ2qNJYJYYg+x1dYUUUvtRRotEUvsiYQiSElsIZGa0/Dm0dNkvu//+8//
++zLXeqZFMqMldSPuDc7BV6ItV7aXR6bXpOVUS6bLqqRYtZTgnQcvYzxIxRM2k2IS
+gABqqqbrQLaYolmIc4IJg1yFyJI1WWGaasgKgZToHKsAmhBr0EQyVQ1EDEWhEAFD
+ypUs2ynhvufbTkrYMp1rokEA1VRsAl1XIFQ5JJhjZCmKzCzTMJCOBVjqBiEhwplG
+wEfarqiJS7wz3j/0/zl3eaedbmiMIACwIusGwCoBJlURBly1VKRDEgoD7jtGkgu1
+Z5QlbUdakCuJWoVNebjWcI4//UrXT4h1UNerMjxvJHWTgvd8N+VSt0z0S1MpL4iF
+fKrK6wS4Gf9jFTdthwlYEBXcD2zXkWJQKGnKDr2hqmMAECQoV+LzPNvncTtUaCis
+AxC+wyuEpVg2xyZDVGemqTJoYaYDRImiMZXrEFGZWgxrgIZDIqJYhCBDF9YUmzIz
+w4kDPtdxpZgqYholwjKwSxwjVe5zacHVy8VdI9HMSEZ6l/CPRTJ7ZP39eX3LukfO
+N4y7m7cPv1yYXrq05XHuhaa0U2O8Na8ra8v9AwXTNw6aOi27qfZQzeS1vZUPHf3b
+3719Nvrj9/f3W7OetV/vuXXQytYjaxvqZh+eUFx58khWwcNP2UN+vOhWdGbP2d6b
+1/yiM05Hz/U71Di0eebQrvkyWSU9Ldy4P2Nb4/EB54ofZOdf+wF+LpntrjhxtM/W
+eNHqjl3DcxqGnb5eVTP287FCuLfjRuGiD81v8p+0PSo62pYcRQ5Wb7s7PmPhwKBg
+/Ybjaos3MLmracrw569Wxuvb0kutnTt6zdm0e37rYm3Z7XV3ogNylibyppFZvZY7
+jffq5/mTblUEed/atUtPvyQmT9zy+evNi83dfgMhLUH8
+=iUFn
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/palmin
+
+==================================================================
