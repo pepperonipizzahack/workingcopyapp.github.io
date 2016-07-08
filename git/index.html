@@ -125,6 +125,7 @@
         var args = {};
         var fragment = window.location.hash;
         if(fragment) {
+            fragment = fragment.substr(1);
             var parts = fragment.split('&');
             for(var k = 0; k < parts.length; ++k) {
                 var keyval = parts[k].split('=');
