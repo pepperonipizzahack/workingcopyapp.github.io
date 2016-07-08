@@ -120,8 +120,39 @@
     <meta name="twitter:app:id:iphone" content="896694807">
     <meta name="twitter:app:name:ipad" content="Working Copy">
     <meta name="twitter:app:id:ipad" content="896694807">
+
+    <script>
+        var args = {};
+        var fragment = window.location.hash;
+        if(fragment) {
+            var parts = fragment.split('&');
+            for(var k = 0; k < parts.length; ++k) {
+                var keyval = parts[k].split('=');
+                if(keyval.length != 2) continue;
+
+                var key = decodeURIComponent(keyval[0]);
+                args[key] = decodeURIComponent(keyval[1]);
+                console.log(key + " = " + args[key]);
+            }
+        }
+
+    </script>
 </head>
 <body>
  <h1>Hello world!</h1>
+
+ You can clone this repository on the commandline by typing:
+    <pre>$ git clone ${REMOTE}</pre>
+
+
+
+ <p>
+     Information about Git repository, filename and file content is unavailable to the
+     webserver showing this page. The page itself is static html, with no tracking javascript
+     with all data in the fragment part of the url that is not send to the server.
+
+
+
+ </p>
 </body>
 </html>
