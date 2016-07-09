@@ -4,11 +4,11 @@
     "details": [
       {
         "appID": "4U9NSKBV63.com.appliedphasor.working-copy",
-        "paths": [ "/git/*" ]
+        "paths": [ "/git*" ]
       },
       {
         "appID": "4U9NSKBV63.com.appliedphasor.working-copy-enterprise",
-        "paths": [ "/git/*" ]
+        "paths": [ "/git*" ]
       }
     ]
   }

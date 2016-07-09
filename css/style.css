@@ -137,6 +137,10 @@ pre {
     display: inline-block;
 }
 
+pre.terminal {
+    font-size: 100%;
+}
+
 footer {
     font-size: 70%;
     padding-bottom: 20px;

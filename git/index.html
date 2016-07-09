@@ -10,150 +10,132 @@
     <meta name="author" content="Anders Borum">
     <meta name="keywords" content="iOS,git,app,GitHub,BitBucket,iPad,iPhone,repository,programming,tools,WebDAV">
     <meta name="description" content="Working Copy is a powerful Git client for iOS that clones, edits, commits, pushes and more.">
-    <style>
-        @media print {
-            video {
-                display: none;
-            }
-        }
-
-        video::-webkit-media-controls {
-            opacity: .3;
-        }
-
-        body, input {
-            font-family: -apple-system, "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-            font-weight: 300;
-            color: #222;
-            background-color: #fff;
-            font-size: 35px;
-        }
-
-        body {
-            margin-bottom: 0;
-        }
-
-        #reviews {
-            margin-top: 1em;
-            width: 100%;
-            font-size: 50%;
-            color: #333;
-            position: relative;
-            padding-top: 30px;
-            padding-bottom: 20px;
-            background-color: #e7e7e7;
-        }
-
-        #reviews > div {
-            /*border: dotted 1px;*/
-            display: none;
-            width: 46%;
-            margin-left: 23%;
-        }
-
-        #reviews > div:first-child {
-            display: block;
-        }
-
-        #reviews > div > h4 {
-            display: inline;
-        }
-
-        #reviews > div > p {
-            font-style: italic;
-        }
-
-        #reviews > div > h4 > span {
-            font-weight: 200;
-            font-style: italic;
-        }
-
-        #reviews > div > span {
-            float: right;
-        }
-
-        h1 {
-            margin: 0;
-            font-size: 125%;
-        }
-
-        a:link, a:visited, a:hover, a:active {
-            color: #222;
-            text-decoration: none;
-        }
-        a:link, a:visited, a:active {
-            border-bottom: 1px solid #222;
-        }
-        a:hover {
-            border-bottom: 2px solid #222;
-        }
-
-        a img {
-            border:none;
-        }
-
-        a.img:link, a.img:visited, a.img:hover, a.img:active {
-            border-bottom: 0px ;
-        }
-
-        span {
-            white-space:nowrap;
-        }
-
-        footer {
-            padding-top: 20px;
-            padding-bottom: 10px;
-            text-align: center;
-            font-weight: bold;
-            font-size: 35%;
-        }
-    </style>
-    <meta property="og:image" content="http://WorkingCopyApp.com/img/iPad-Air-Space.jpg">
+    <link rel="mask-icon" href="/img/mask-icon.svg" color="#399CFC">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <meta property="og:image" content="https://WorkingCopyApp.com/img/iPad-Air-Space.jpg">
     <meta property="og:video" content="http://youtu.be/pcBKQiSpLh4">
     <meta name="apple-itunes-app" content="app-id=896694807" affiliate-data="at=1000lHq">
     <link rel="mask-icon" href="/img/mask-icon.svg" color="#399CFC">
-    <meta name="twitter:card" content="app">
+    <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@palmin">
-    <meta name="twitter:description" content="Access Git repositories on the go. Clone, edit, commit and push while taking advantage of iOS advancements allowing other apps to also access repositories.">
-    <meta name="twitter:image" content="http://WorkingCopyApp.com/img/iPad-Air-Space.jpg">
+    <meta name="twitter:title" content="Working Copy - Git file">
+    <meta name="twitter:description" content="Learn how to use this powerful Git client for iOS, for stand-alone Post-PC development or to complement your existing workflow.">
+    <meta name="twitter:image" content="http://WorkingCopyApp.com/img/action-shot-71.jpg">
+    <meta name="twitter:description" content="File in Git repository. View in Working Copy or other Git clients.">
     <meta name="twitter:app:name:iphone" content="Working Copy">
     <meta name="twitter:app:id:iphone" content="896694807">
     <meta name="twitter:app:name:ipad" content="Working Copy">
     <meta name="twitter:app:id:ipad" content="896694807">
-
-    <script>
-        var args = {};
-        var fragment = window.location.hash;
-        if(fragment) {
-            fragment = fragment.substr(1);
-            var parts = fragment.split('&');
-            for(var k = 0; k < parts.length; ++k) {
-                var keyval = parts[k].split('=');
-                if(keyval.length != 2) continue;
-
-                var key = decodeURIComponent(keyval[0]);
-                args[key] = decodeURIComponent(keyval[1]);
-                console.log(key + " = " + args[key]);
-            }
-        }
-
-    </script>
 </head>
 <body>
- <h1>Hello world!</h1>
-
- You can clone this repository on the commandline by typing:
-    <pre>$ git clone ${REMOTE}</pre>
-
+<div class="outer">
+    <div class="inner">
+<p>You can clone this repository and view the file on the commandline by typing:</p>
+        <pre class="terminal" id="clone-and-view"></pre>
 
 
  <p>
      Information about Git repository, filename and file content is unavailable to the
-     webserver showing this page. The page itself is static html, with no tracking javascript
-     with all data in the fragment part of the url that is not send to the server.
-
-
-
+     webserver showing this page. The page itself is static html doing all processing
+     locally in your browser. It has no tracking javascript and all data in the fragment
+     part of the url that is never transmitted to the server.
  </p>
+
+    </div>
+</div>
+<script>
+    function rev(s) { return s.length <= 1 ? s : rev(s.substr(1)) + s.substr(0,1); }
+
+    (function() {
+        function getScript(url,success){
+            var script=document.createElement('script');
+            script.src=url;
+            var head=document.getElementsByTagName('head')[0],
+                    done=false;
+            script.onload=script.onreadystatechange = function(){
+                if ( !done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete') ) {
+                    done=true;
+                    success();
+                    script.onload = script.onreadystatechange = null;
+                    head.removeChild(script);
+                }
+            };
+            head.appendChild(script);
+        }
+
+        function resolveEmails() {
+            var emails = document.getElementsByClassName("email");
+            for(var k = 0; k < emails.length; ++k) {
+                var email = rev("moc.ppaypocgnikrow@sredna");
+                emails[k].href = "mailto:" + email;
+                if(emails[k].innerHTML == "") {
+                    emails[k].innerHTML = email;
+                }
+            }
+        }
+
+        function decodeArgs() {
+            var args = {};
+            var fragment = window.location.hash;
+            if(fragment) {
+                fragment = fragment.substr(1);
+                var parts = fragment.split('&');
+                for(var k = 0; k < parts.length; ++k) {
+                    var keyval = parts[k].split('=');
+                    if(keyval.length != 2) continue;
+
+                    var key = decodeURIComponent(keyval[0]);
+                    args[key] = decodeURIComponent(keyval[1]);
+                    console.log(key + " = " + args[key]);
+                }
+            }
+            return args;
+        }
+
+        function dirnameFromRemote(remote) {
+           var parts = remote.split('/');
+           var name = parts[parts.length - 1];
+           name = name.replace(/\.git$/, "");
+           return name;
+        }
+
+        getScript('/js/jquery.min.js',function(){
+            resolveEmails();
+            var args = decodeArgs();
+
+            if(typeof args['repo'] !== 'undefined' && typeof args['path'] !== 'undefined') {
+                var remote = args['repo'];
+                var dir = dirnameFromRemote(remote);
+
+                var path = args['path'];
+                var filename = path;
+                var parts = path.split('/');
+                if(parts.length >= 2) {
+                    filename = parts.pop();
+                    dir = dir + '/' + parts.join('/');
+                }
+
+                // quote dir and filename if needed
+                if(dir.indexOf(' ') >= 0) dir = '"' + dir + '"';
+                if(filename.indexOf(' ') >= 0) filename = '"' + filename + '"';
+
+                $('#clone-and-view').text("git clone " + remote + "\n" +
+                                          "cd " + dir + "\n" +
+                                          "cat " + filename);
+            }
+
+
+        });
+    })();
+</script>
+<div style="clear: both"> </div>
+<footer>
+    Read the <a href="/manual.html">manual</a> and get in touch by <a href="/enable-js.html" class="email" title="email">email</a>
+    or on <a href="http://twitter.com/palmin" target="twitter">Twitter</a>.
+</footer>
+<!--[if lt IE 7 ]>
+<script src="/js/dd_belatedpng.js"></script>
+<script>DD_belatedPNG.fix('img, .png_bg'); // Fix any <img> or .png_bg bg-images. Also, please read goo.gl/mZiyb</script>
+<![endif]-->
 </body>
 </html>
