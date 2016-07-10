@@ -26,22 +26,53 @@
     <meta name="twitter:app:id:iphone" content="896694807">
     <meta name="twitter:app:name:ipad" content="Working Copy">
     <meta name="twitter:app:id:ipad" content="896694807">
+    <style>
+        html {
+            position: relative;
+            min-height: 100%;
+        }
+        footer {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+        }
+        #link {
+            position: absolute;
+            top: 5px; right: 5px;
+            font-size: 70%;
+        }
+        .download-button {
+            display: inline-block;
+            margin: 5px;
+        }
+    </style>
 </head>
 <body>
+<header>
+    <p id="link">View on <a id="linkAnchor"></a></p>
+    <h1 itemprop="name"><a href="/">Working Copy</a></h1>
+</header>
 <div class="outer">
-    <div class="inner">
-<p>You can clone this repository and view the file on the commandline by typing:</p>
+    <div class="inner termTips" style="display: none">
+     <p>You can clone this repository and view the file on the commandline by typing:</p>
         <pre class="terminal" id="clone-and-view"></pre>
-
-
- <p>
-     Information about Git repository, filename and file content is unavailable to the
-     webserver showing this page. The page itself is static html doing all processing
-     locally in your browser. It has no tracking javascript and all data in the fragment
-     part of the url that is never transmitted to the server.
- </p>
-
     </div>
+    <div class="inner" id="app-clone">    </div>
+</div>
+<div class="outer">
+    <div class="inner fineprint">
+        <h3>Data privacy</h3>
+       <p>
+         Remote URL, file path, commit identifier and file content is unavailable to the
+         webserver showing this page. The page itself is static html doing all processing
+         locally in your browser. Information is passed in the URL fragment which never
+         leaves your browser and the page is without tracking javascript.
+      </p>
+    </div>
+
+
 </div>
 <script>
     function rev(s) { return s.length <= 1 ? s : rev(s.substr(1)) + s.substr(0,1); }
@@ -99,32 +130,174 @@
            return name;
         }
 
-        getScript('/js/jquery.min.js',function(){
-            resolveEmails();
-            var args = decodeArgs();
+        // convert secure shell remotes to https://
+        function linkForRemote(remote) {
+            // leave http(s) style remotes alone, they are already links
+            if(remote.indexOf('https://') == 0 ||
+               remote.indexOf('http://') == 0) return remote;
 
-            if(typeof args['repo'] !== 'undefined' && typeof args['path'] !== 'undefined') {
+            // skip protocol entirely, we do not care if missing (scp style)
+            // or is ssh:// or git://
+            var link = remote.replace(/^[a-z]:\/\/]/, "");
+
+            // skip git username since this is used when ssh key is actual user identifier
+            link = link.replace(/^git@/, "");
+
+            // convert : separator to slash
+            link = link.replace(':', '/');
+
+            // remove trailing .git
+            link = link.replace(/.git\/?$/, '');
+
+            // make sure link ends with slash
+            if(link.length >= 1 && link.charAt(link.length - 1) != '/') {
+                link += '/';
+            }
+
+            return 'https://' + link;
+        }
+
+        function populateTips(args) {
+            if(typeof args['repo'] !== 'undefined') {
                 var remote = args['repo'];
                 var dir = dirnameFromRemote(remote);
+                var filename = '';
+                var commit = '';
 
-                var path = args['path'];
-                var filename = path;
-                var parts = path.split('/');
-                if(parts.length >= 2) {
-                    filename = parts.pop();
-                    dir = dir + '/' + parts.join('/');
+                var mode = 'repo'; // repo, file or commit
+
+                if(typeof args['path'] !== 'undefined') {
+                    var path = args['path'];
+                    filename = path;
+                    var parts = path.split('/');
+                    if(parts.length >= 2) {
+                        filename = parts.pop();
+                        dir = dir + '/' + parts.join('/');
+                    }
+                    mode = 'file';
+                } else if(typeof args['commit'] !== 'undefined') {
+                    commit = args['commit'];
+                    mode = "commit";
                 }
 
                 // quote dir and filename if needed
                 if(dir.indexOf(' ') >= 0) dir = '"' + dir + '"';
                 if(filename.indexOf(' ') >= 0) filename = '"' + filename + '"';
 
-                $('#clone-and-view').text("git clone " + remote + "\n" +
-                                          "cd " + dir + "\n" +
-                                          "cat " + filename);
+                var text = "git clone " + remote + "\n" +
+                        "cd " + dir;
+                if(filename.length > 0) {
+                    text += "\n" + "cat " + filename;
+                }
+                if(commit.length > 0) {
+                    text += "\n" + "git diff " + commit;
+                }
+
+                var actionText;
+                if(mode == 'file') {
+                    actionText = "On the commandline you can clone and enter this repository by typing:";
+                } else if(mode == 'commit') {
+                    actionText = "On the commandline you can clone this repository and look at commit by typing:";
+                } else {
+                    actionText = "On the commandline you can clone and enter this repository by typing:";
+                }
+                $(".termTips > p").text(actionText);
+
+                $('#clone-and-view').text(text);
+                $('.termTips').show();
+            }
+        }
+
+        function buttonForApp(link, text) {
+            var a = document.createElement("a");
+            $(a).text(text);
+            a.className = "download-button";
+            a.href = link;
+            return a;
+        }
+
+        function populateOpen(args) {
+            if(typeof args['repo'] === 'undefined') return;
+            var remote = args['repo'];
+
+            var branch = "";
+            if(typeof args['branch'] !== 'undefined') {
+                branch = args['branch'];
             }
 
+            // different choices depending on platform
+            var lowerAgent = navigator.platform.toLowerCase();
+            var isMac = lowerAgent.indexOf('mac') >= 0;
+            var isWin = lowerAgent.indexOf('windows') >= 0;
+            if(!isMac && !isWin) return;
 
+            var container = document.getElementById('app-clone');
+            var sourcetree = "sourcetree://cloneRepo/" + remote;
+            if(isMac) {
+                var tower = "gittower://openRepo/" + remote;
+                container.appendChild(buttonForApp(tower, "Open in Tower"));
+
+                var github = "github-mac://openRepo/" + remote;
+                container.appendChild(buttonForApp(github, "Open in GitHub Desktop"));
+
+                container.appendChild(buttonForApp(sourcetree, "Clone in SourceTree"));
+            } else if(isWin) {
+                var github = "github-windows://openRepo/" + remote;
+                container.appendChild(buttonForApp(github, "Open in GitHub Desktop"));
+
+                container.appendChild(buttonForApp(sourcetree, "Clone in SourceTree"));
+            }
+
+            $(container).show();
+        }
+
+        function populateLink(args) {
+            if(typeof args['repo'] === 'undefined') return;
+            var remote = args['repo'];
+
+            var branch = '';
+            if(typeof args['branch'] !== 'undefined') {
+                branch = args['branch'];
+            }
+
+            var path = '';
+            if(typeof args['path'] !== 'undefined') {
+                path = args['path'];
+            }
+
+            var commit = '';
+            if(typeof args['commit'] !== 'undefined') {
+                commit = args['commit'];
+            }
+
+            var link = linkForRemote(remote);
+            if(link) {
+                if(commit.length > 0) link += "commit/" + commit;
+                else {
+                    if(branch.length > 0 && path.length == 0) link += "tree/" + branch;
+                    if(branch.length > 0 && path.length > 0) link += "blob/" + branch + "/" + path;
+                }
+            }
+
+            var anchor = document.getElementById('linkAnchor');
+            if(anchor && link) {
+                anchor.href = link;
+                $(anchor).text(anchor.hostname);
+
+                $('#link').show();
+            }
+        }
+
+        function populatePage() {
+            var args = decodeArgs();
+            populateLink(args);
+            populateTips(args);
+            populateOpen(args);
+        }
+
+        getScript('/js/jquery.min.js',function(){
+            resolveEmails();
+            populatePage();
         });
     })();
 </script>
