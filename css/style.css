@@ -141,6 +141,19 @@ pre.terminal {
     font-size: 100%;
 }
 
+.fineprint {
+    font-size: 80%;
+}
+
+.fineprint p {
+    margin-top: 0;
+}
+
+.fineprint h3 {
+    margin-top: 20px;
+    margin-bottom: 3px;
+}
+
 footer {
     font-size: 70%;
     padding-bottom: 20px;
