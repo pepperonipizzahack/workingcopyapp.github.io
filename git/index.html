@@ -12,6 +12,7 @@
     <meta name="description" content="Working Copy is a powerful Git client for iOS that clones, edits, commits, pushes and more.">
     <link rel="mask-icon" href="/img/mask-icon.svg" color="#399CFC">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/highlight.css">
     <meta property="og:image" content="https://WorkingCopyApp.com/img/iPad-Air-Space.jpg">
     <meta property="og:video" content="http://youtu.be/pcBKQiSpLh4">
     <meta name="apple-itunes-app" content="app-id=896694807" affiliate-data="at=1000lHq">
@@ -31,13 +32,6 @@
             position: relative;
             min-height: 100%;
         }
-        footer {
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 100%;
-            text-align: center;
-        }
         #link {
             display: block;
             position: absolute;
@@ -48,6 +42,15 @@
             display: inline-block;
             margin: 5px;
         }
+        pre > code, pre > code *, .hljs, .code {
+            color: rgba(0,0,32,1);
+            font-family: Consolas, Menlo, Courier, monospace;
+            background-color: #f8f8f8;
+        }
+        pre > code {
+            font-size: 120%;
+        }
+
     </style>
 </head>
 <body>
@@ -61,6 +64,10 @@
         <pre class="terminal" id="clone-and-view"></pre>
     </div>
     <div class="inner" id="app-clone">    </div>
+
+    <div class="inner">
+        <pre class="code"><code></code></pre>
+    </div>
 </div>
 <div class="outer">
     <div class="inner fineprint">
@@ -75,6 +82,8 @@
 
 
 </div>
+<script src="/js/base64.js"></script>
+<script src="/js/highlight.pack.js"></script>
 <script>
     function rev(s) { return s.length <= 1 ? s : rev(s.substr(1)) + s.substr(0,1); }
 
@@ -118,7 +127,6 @@
 
                     var key = decodeURIComponent(keyval[0]);
                     args[key] = decodeURIComponent(keyval[1]);
-                    console.log(key + " = " + args[key]);
                 }
             }
             return args;
@@ -303,11 +311,26 @@
             }
         }
 
+        function populateCode(args) {
+            if(typeof args['content'] !== 'undefined') {
+                var compressed = args['content'];
+                var decompressed = Base64.decode(compressed);
+
+                $("pre > code > *").remove();
+                $('pre > code').text(decompressed);
+                $('pre > code').each(function(i, block) {
+                    hljs.highlightBlock(block);
+                });
+            }
+
+        }
+
         function populatePage() {
             var args = decodeArgs();
             populateLink(args);
             populateTips(args);
             populateOpen(args);
+            populateCode(args);
         }
 
         window.onhashchange = populatePage;
