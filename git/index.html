@@ -39,6 +39,7 @@
             text-align: center;
         }
         #link {
+            display: block;
             position: absolute;
             top: 5px; right: 5px;
             font-size: 70%;
@@ -163,6 +164,7 @@
                 var dir = dirnameFromRemote(remote);
                 var filename = '';
                 var commit = '';
+                var branch = '';
 
                 var mode = 'repo'; // repo, file or commit
 
@@ -178,6 +180,9 @@
                 } else if(typeof args['commit'] !== 'undefined') {
                     commit = args['commit'];
                     mode = "commit";
+                } else if(typeof args['branch'] !== 'undefined') {
+                    branch = args['branch'];
+                    mode = "branch";
                 }
 
                 // quote dir and filename if needed
@@ -188,7 +193,10 @@
                         "cd " + dir;
                 if(filename.length > 0) {
                     text += "\n" + "cat " + filename;
+                } else if(branch.length > 0) {
+                    text += "\n" + "git checkout " + branch;
                 }
+
                 if(commit.length > 0) {
                     text += "\n" + "git diff " + commit;
                 }
@@ -198,6 +206,8 @@
                     actionText = "On the commandline you can clone and enter this repository by typing:";
                 } else if(mode == 'commit') {
                     actionText = "On the commandline you can clone this repository and look at commit by typing:";
+                } else if(mode == 'branch') {
+                    actionText = "On the commandline you can clone this repository and check out branch typing:";
                 } else {
                     actionText = "On the commandline you can clone and enter this repository by typing:";
                 }
@@ -231,7 +241,12 @@
             var isWin = lowerAgent.indexOf('windows') >= 0;
             if(!isMac && !isWin) return;
 
+            // remove existing buttons
             var container = document.getElementById('app-clone');
+            while (container.firstChild) {
+                container.removeChild(container.firstChild);
+            }
+
             var sourcetree = "sourcetree://cloneRepo/" + remote;
             if(isMac) {
                 var tower = "gittower://openRepo/" + remote;
@@ -294,6 +309,8 @@
             populateTips(args);
             populateOpen(args);
         }
+
+        window.onhashchange = populatePage;
 
         getScript('/js/jquery.min.js',function(){
             resolveEmails();
