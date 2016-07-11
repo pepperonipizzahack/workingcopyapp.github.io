@@ -66,17 +66,24 @@
     <div class="inner" id="app-clone">    </div>
 
     <div class="inner">
+        <h3>Content</h3>
         <pre class="code"><code></code></pre>
+    </div>
+    <div class="inner" id="diff">
+        <h3>Patch</h3>
+        <pre><code class="diff"></code></pre>
     </div>
 </div>
 <div class="outer">
     <div class="inner fineprint">
         <h3>Data privacy</h3>
        <p>
-         Remote URL, file path, commit identifier and file content is unavailable to the
+         Remote URL, branch name, commit identifier, file path, file content and
+           file differences is unavailable to the
          webserver showing this page. The page itself is static html doing all processing
          locally in your browser. Information is passed in the URL fragment which never
-         leaves your browser and the page is without tracking javascript.
+         leaves your browser and the page is without tracking javascript. You can share
+           this URL as you see fit, Working Copy will not.
       </p>
     </div>
 
@@ -318,11 +325,25 @@
 
                 $("pre > code > *").remove();
                 $('pre > code').text(decompressed);
-                $('pre > code').each(function(i, block) {
-                    hljs.highlightBlock(block);
-                });
+            }
+        }
+
+        function populatePatch(args) {
+            if(typeof args['patch'] !== 'undefined') {
+                $('#diff > pre > code').text(args['patch']);
+                $('#diff').show();
+
+            } else {
+                $('#diff').hide();
+                $('#diff > pre > code').text('');
             }
 
+        }
+
+        function highlightAll() {
+            $('pre > code').each(function(i, block) {
+                hljs.highlightBlock(block);
+            });
         }
 
         function populatePage() {
@@ -331,6 +352,8 @@
             populateTips(args);
             populateOpen(args);
             populateCode(args);
+            populatePatch(args);
+            highlightAll();
         }
 
         window.onhashchange = populatePage;
