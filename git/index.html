@@ -13,6 +13,8 @@
     <link rel="mask-icon" href="/img/mask-icon.svg" color="#399CFC">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link rel="stylesheet" type="text/css" href="/css/highlight.css">
+    <link rel="stylesheet" type="text/css" href="/css/tooltip.css">
+    <script src="/js/clipboard.min.js"></script>
     <meta property="og:image" content="https://WorkingCopyApp.com/img/iPad-Air-Space.jpg">
     <meta property="og:video" content="http://youtu.be/pcBKQiSpLh4">
     <meta name="apple-itunes-app" content="app-id=896694807" affiliate-data="at=1000lHq">
@@ -22,7 +24,7 @@
     <meta name="twitter:title" content="Working Copy - Git file">
     <meta name="twitter:description" content="Learn how to use this powerful Git client for iOS, for stand-alone Post-PC development or to complement your existing workflow.">
     <meta name="twitter:image" content="http://WorkingCopyApp.com/img/action-shot-71.jpg">
-    <meta name="twitter:description" content="File in Git repository. View in Working Copy or other Git clients.">
+    <meta name="twitter:description" content="Data in Git repository. View in Working Copy or other Git clients.">
     <meta name="twitter:app:name:iphone" content="Working Copy">
     <meta name="twitter:app:id:iphone" content="896694807">
     <meta name="twitter:app:name:ipad" content="Working Copy">
@@ -31,12 +33,6 @@
         html {
             position: relative;
             min-height: 100%;
-        }
-        #link {
-            display: block;
-            position: absolute;
-            top: 5px; right: 5px;
-            font-size: 70%;
         }
         .download-button {
             display: inline-block;
@@ -51,22 +47,146 @@
             font-size: 120%;
         }
 
+        pre {
+            display: block;
+        }
+
+        table {
+            background-color: #F2F7F9;
+            width: 100%;
+        }
+
+        table * {
+            font-family: Consolas, Menlo, Courier, monospace;
+        }
+
+        tr {
+            display: none;
+        }
+
+        th {
+            text-align: left;
+            width: 80px;
+            font-size: 80%;
+        }
+        
+        td, td * {
+            text-align: right;
+        }
+
+        td > input {
+            width: 80%;
+        }
+
+        div.terminal {
+            width: auto;
+            overflow: hidden;
+        }
+
+        .terminal > textarea {
+            width: 98%;
+            white-space: pre;
+            font-family: Consolas, Menlo, Courier, monospace;
+            resize: none;
+            height: 5em;
+            background-color: #f8f8f8;
+        }
+
+        a.button {
+            position: relative;
+            display: inline-block;
+            padding: 6px 12px;
+            font-size: 13px;
+            font-weight: bold;
+            line-height: 20px;
+            color: #333;
+            white-space: nowrap;
+            vertical-align: middle;
+            cursor: pointer;
+            background-color: #eee;
+            background-image: linear-gradient(#fcfcfc, #eee);
+            border: 1px solid #d5d5d5;
+            border-radius: 3px;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-appearance: none
+        }
+
+        a.copy {
+            padding: 6px 6px 0px 6px;
+        }
+
+        a.button:focus {
+            text-decoration: none;
+            border-color: #51a7e8;
+            outline: none;
+            box-shadow: 0 0 5px rgba(81, 167, 232, 0.5)
+        }
+
+        a.button:hover, a.button:focus {
+            background-color: #ddd;
+            background-image: linear-gradient(#eee, #ddd);
+            border-color: #ccc
+        }
+
+        a.button > img {
+            padding: 0;
+            height: 14px;
+            width: auto;
+        }
+
+        a.external-icon {
+            text-decoration: none;
+            border: 0;
+        }
+
+        .external-icon, .external-icon * {
+            vertical-align: baseline;
+            padding-right: 2px;
+        }
+        .external-icon > img {
+            height: 16px;
+        }
+
     </style>
 </head>
 <body>
 <header>
-    <p id="link">View on <a id="linkAnchor"></a></p>
-    <h1 itemprop="name"><a href="/">Working Copy</a></h1>
+    <h1 itemprop="name"><span></span> <a href="/">Working Copy</a></h1>
 </header>
 <div class="outer">
-    <div class="inner termTips" style="display: none">
-     <p>You can clone this repository and view the file on the commandline by typing:</p>
-        <pre class="terminal" id="clone-and-view"></pre>
+    <div class="inner">
+        <table>
+            <tr id="repoRow"><th>Repository:</th><td></td></tr>
+            <tr id="branchRow"><th>Branch:</th><td></td></tr>
+            <tr id="commitRow"><th>Commit:</th><td></td></tr>
+            <tr id="fileRow"><th>File:</th><td></td></tr>
+        </table>
     </div>
-    <div class="inner" id="app-clone">    </div>
 
+    <div class="inner termTips" style="display: none">
+     <p>You can clone this repository and view the file on the commandline:</p>
+        <div style="float: right; display: block; width: 20px; padding-right: 10px">
+           <a class="button copy" data-clipboard-target="#clone-and-view">
+            <img src="/img/copy-clipboard.png"/>
+           </a>
+        </div>
+        <div class="terminal">
+         <textarea readonly="readonly" id="clone-and-view"></textarea>
+        </div>
+    </div>
+    </div>
+    <div class="outer">
+    <div class="inner" id="app-clone">
+        <p>Show or clone in Desktop Git clients:</p>
+    </div>
+</div>
+<div class="outer">
     <div class="inner">
         <h3>Content</h3>
+        <img id="thumbnail" style="display: none"/>
         <pre class="code"><code></code></pre>
     </div>
     <div class="inner" id="diff">
@@ -218,13 +338,13 @@
 
                 var actionText;
                 if(mode == 'file') {
-                    actionText = "On the commandline you can clone and enter this repository by typing:";
+                    actionText = "On the commandline you can clone and enter this repository:";
                 } else if(mode == 'commit') {
-                    actionText = "On the commandline you can clone this repository and look at commit by typing:";
+                    actionText = "On the commandline you can clone this repository and look at commit:";
                 } else if(mode == 'branch') {
-                    actionText = "On the commandline you can clone this repository and check out branch typing:";
+                    actionText = "On the commandline you can clone this repository and check out " + branch + ":";
                 } else {
-                    actionText = "On the commandline you can clone and enter this repository by typing:";
+                    actionText = "On the commandline you can clone and enter this repository:";
                 }
                 $(".termTips > p").text(actionText);
 
@@ -236,7 +356,7 @@
         function buttonForApp(link, text) {
             var a = document.createElement("a");
             $(a).text(text);
-            a.className = "download-button";
+            a.className = "button";
             a.href = link;
             return a;
         }
@@ -258,9 +378,7 @@
 
             // remove existing buttons
             var container = document.getElementById('app-clone');
-            while (container.firstChild) {
-                container.removeChild(container.firstChild);
-            }
+            $('#app-clone > a').remove();
 
             var sourcetree = "sourcetree://cloneRepo/" + remote;
             if(isMac) {
@@ -281,49 +399,117 @@
             $(container).show();
         }
 
-        function populateLink(args) {
+        function copyLinkForId(id) {
+            var anchor = document.createElement('a');
+            anchor.setAttribute("class", "button copy");
+            anchor.setAttribute("data-clipboard-target", "#" + id);
+
+            var icon = document.createElement("img");
+            icon.src = "/img/copy-clipboard.png";
+            icon.alt = icon.title = "Copy to clipboard";
+            anchor.appendChild(icon);
+
+            return anchor;
+        }
+
+        function createCopyableField(cell, fieldId, content) {
+            var input = document.createElement("input");
+            input.setAttribute("readonly", "readonly");
+            input.setAttribute("id", fieldId);
+            input.value = content;
+            cell.appendChild(input);
+
+            var copy = copyLinkForId(fieldId);
+            cell.appendChild(copy);
+        }
+
+        function populateTitle(args) {
+            var hasRepo = typeof args['repo'] !== 'undefined';
+            var hasBranch = typeof args['branch'] !== 'undefined';
+            var hasCommit = typeof args['commit'] !== 'undefined';
+            var hasPath = typeof args['path'] !== 'undefined';
+
+            var kind = 'Invalid Universal Link';
+
+            if(hasRepo) {
+                var repo = dirnameFromRemote(args['repo']);
+
+                kind = "Repository";
+                if(hasBranch && hasPath) kind = args['path'] + " in " + repo;
+                if(hasBranch && !hasPath) kind = args['branch'] + " in " + repo;
+                if(hasCommit) {
+                    var shorter = args['commit'];
+                    if(shorter.length > 7) shorter = shorter.substr(0, 7);
+                    kind = shorter + " in " + repo;
+                }
+            }
+
+            document.title = kind;
+            $('header h1 span').text(kind + " for ");
+        }
+
+        function populateTable(args) {
+            // hide and clean out
+            $('table tr').hide();
+            $('table td').children().remove();
+
             if(typeof args['repo'] === 'undefined') return;
             var remote = args['repo'];
 
+            // repo
+            var link = linkForRemote(remote);
+            var cell = $('#repoRow > td')[0];
+            if(link) cell.appendChild(createExternalLinkIcon(link));
+            createCopyableField(cell, "repo-field", remote);
+            $('#repoRow').show();
+
+            // branch
             var branch = '';
             if(typeof args['branch'] !== 'undefined') {
                 branch = args['branch'];
-            }
 
-            var path = '';
-            if(typeof args['path'] !== 'undefined') {
-                path = args['path'];
+                cell = $('#branchRow > td')[0];
+                cell.appendChild(createExternalLinkIcon(link + "tree/" + branch));
+                createCopyableField(cell, "branch-field", branch);
+                $('#branchRow').show();
             }
 
             var commit = '';
             if(typeof args['commit'] !== 'undefined') {
                 commit = args['commit'];
+
+                cell = $('#commitRow > td')[0];
+                cell.appendChild(createExternalLinkIcon(link + "commit/" + commit));
+                createCopyableField(cell, "commit-field", commit);
+                $('#commitRow').show();
             }
 
-            var link = linkForRemote(remote);
-            if(link) {
-                if(commit.length > 0) link += "commit/" + commit;
-                else {
-                    if(branch.length > 0 && path.length == 0) link += "tree/" + branch;
-                    if(branch.length > 0 && path.length > 0) link += "blob/" + branch + "/" + path;
+            var path = '';
+            if(typeof args['path'] !== 'undefined') {
+                path = args['path'];
+
+                cell = $('#fileRow > td')[0];
+                if(branch.length > 0) {
+                    cell.appendChild(createExternalLinkIcon(link + "blob/" + branch + "/" + path));
                 }
-            }
-
-            var anchor = document.getElementById('linkAnchor');
-            if(anchor && link) {
-                anchor.href = link;
-                $(anchor).text(anchor.hostname);
-
-                $('#link').show();
+                createCopyableField(cell, "path-field", path);
+                $('#fileRow').show();
             }
         }
 
         function populateCode(args) {
+            $("pre > code > *").remove();
             if(typeof args['content'] !== 'undefined') {
                 var compressed = args['content'];
                 var decompressed = Base64.decode(compressed);
 
-                $("pre > code > *").remove();
+                $('pre > code').text(decompressed);
+            }
+
+            if(typeof args['summary'] !== 'undefined') {
+                var compressed = args['summary'];
+                var decompressed = Base64.decode(compressed);
+
                 $('pre > code').text(decompressed);
             }
         }
@@ -340,6 +526,32 @@
 
         }
 
+        // simple attempt at picking mime-type for well-known image
+        // types using file extension only
+        function imageMimeTypeForPath(path) {
+            var parts = path.split('.');
+            var ext = parts.pop().toLocaleLowerCase();
+
+            // simple attempt at picking mime-type for well-known image
+            // types using file extension only
+            if(ext.indexOf('g') == 0) mimeType = 'image/gif';
+            if(ext.indexOf('j') == 0) mimeType = 'image/jpeg';
+            if(ext.indexOf('s') == 0) mimeType = 'image/svg';
+            return "image/png";
+        }
+
+        function populateThumbnail(args) {
+            if(typeof args['thumbnail'] !== 'undefined') {
+                var thumbnail = args['thumbnail'];
+                var element = $('#thumbnail')[0];
+                element.src = "data:image/png;base64," + thumbnail;
+
+                $('#thumbnail').show();
+            } else {
+                $('#thumbnail').hide();
+            }
+        }
+
         function highlightAll() {
             $('pre > code').each(function(i, block) {
                 hljs.highlightBlock(block);
@@ -348,12 +560,80 @@
 
         function populatePage() {
             var args = decodeArgs();
-            populateLink(args);
+            populateTitle(args);
+            populateTable(args);
             populateTips(args);
             populateOpen(args);
             populateCode(args);
             populatePatch(args);
+            populateThumbnail(args);
+
+            configureClipboard();
             highlightAll();
+        }
+
+        function createExternalLinkIcon(href) {
+            // determine hostname from href
+            var anchor = document.createElement('a');
+            anchor.href = href;
+            anchor.setAttribute("class", "external-icon");
+
+            // It would be pretty sweet to use favicon for destination host, but
+            // this would leak information. :-(
+            //
+            // var imageSrc = anchor.protocol + "//" + anchor.hostname + "/favicon.ico";
+
+            var imageSrc = "/img/open-link.png";
+            var image = document.createElement("img");
+            image.src = imageSrc;
+            image.title = image.alt = href;
+            image.onerror = function() {
+                // hide link if favicon image is missing,
+                // as this does not look like a hosting provider
+                anchor.style.display = "none";
+            };
+            anchor.appendChild(image);
+
+            return anchor;
+        }
+
+        function configureClipboard () {
+            var showTooltip = function(elem, msg) {
+                if(msg.length == 0) return;
+
+                var oldClass = elem.getAttribute('class');
+                elem.setAttribute('class', oldClass + ' tooltipped tooltipped-s');
+                elem.setAttribute('aria-label', msg);
+            };
+            var fallbackMessage = function(action) {
+                var actionMsg = '';
+                var actionKey = (action === 'cut' ? 'X' : 'C');
+                if (/iPhone|iPad/i.test(navigator.userAgent)) {
+                    actionMsg = 'Not supported!';
+                } else if (/Mac/i.test(navigator.userAgent)) {
+                    actionMsg = 'Press ⌘-' + actionKey + ' to ' + action;
+                } else {
+                    actionMsg = 'Press Ctrl-' + actionKey + ' to ' + action;
+                }
+                return actionMsg;
+            };
+
+            // remove clipboard button on iOS where not supported
+            var iOS = /iPhone|iPad/i.test(navigator.userAgent);
+            if(iOS) {
+                $('.copy').hide();
+                return;
+            }
+
+            var clipboard = new Clipboard('.copy');
+            clipboard.on('success', function(e) {
+                e.clearSelection();
+                showTooltip(e.trigger, 'Copied!');
+            });
+            clipboard.on('error', function(e) {
+                showTooltip(e.trigger, fallbackMessage(e.action));
+            });
+
         }
 
         window.onhashchange = populatePage;
