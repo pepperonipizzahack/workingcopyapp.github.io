@@ -203,7 +203,7 @@
          webserver showing this page. The page itself is static html doing all processing
          locally in your browser. Information is passed in the URL fragment which never
          leaves your browser and the page is without tracking javascript. You can share
-           this URL as you see fit, Working Copy will not.
+           this URL as you see fit. Working Copy will not.
       </p>
     </div>
 
@@ -429,23 +429,33 @@
             var hasCommit = typeof args['commit'] !== 'undefined';
             var hasPath = typeof args['path'] !== 'undefined';
 
-            var kind = 'Invalid Universal Link';
+            var long = 'Invalid Universal Link';
+            var short = long;
 
             if(hasRepo) {
-                var repo = dirnameFromRemote(args['repo']);
+                var remote = args['repo'];
+                var repo = dirnameFromRemote(remote);
 
-                kind = "Repository";
-                if(hasBranch && hasPath) kind = args['path'] + " in " + repo;
-                if(hasBranch && !hasPath) kind = args['branch'] + " in " + repo;
+                short = "Repository";
+                if(hasBranch && hasPath) {
+                    short = args['path'] + " in " + repo;
+                    long = args['path'] + " in " + remote;
+                }
+                if(hasBranch && !hasPath) {
+                    short = args['branch'] + " in " + repo;
+                    long = args['branch'] + " in " + remote;
+                }
                 if(hasCommit) {
                     var shorter = args['commit'];
                     if(shorter.length > 7) shorter = shorter.substr(0, 7);
-                    kind = shorter + " in " + repo;
+
+                    short = shorter + " in " + repo;
+                    long = shorter + " in " + remote;
                 }
             }
 
-            document.title = kind;
-            $('header h1 span').text(kind + " for ");
+            document.title = long;
+            $('header h1 span').text(short + " for ");
         }
 
         function populateTable(args) {
