@@ -195,6 +195,8 @@ working-copy://open?repo=https%3A%2F%2Fgithub.com%2Flibgit2%2Flibgit2&amp;branch
        <em>repo</em> parameter. The filename must be recognized for this to work or you will get a error that the
        file is not known.</p>
     <p>You can include <em>askcommit=1</em> to be asked to commit and push the file after saving.</p>
+        <p>To avoid loosing information the command refuses to write to files that have uncommitted changes.
+        You can change this behaviour with <em>overwrite=1</em>.</p>
     </div>
 
     <h2 id="reading">Reading files<sup>🔒</sup></h2>
