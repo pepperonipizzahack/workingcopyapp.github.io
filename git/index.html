@@ -51,9 +51,17 @@
             display: block;
         }
 
+        #summary-info {
+            font-size: 70%;
+        }
+
         table {
             background-color: #F2F7F9;
             width: 100%;
+        }
+
+        h3 {
+            margin-bottom: 0;
         }
 
         table * {
@@ -184,8 +192,8 @@
     </div>
 </div>
 <div class="outer">
-    <div class="inner">
-        <h3>Content</h3>
+    <div class="inner" id="content">
+        <h3><span>Content</span> <span id="summary-info"></span></h3>
         <img id="thumbnail" style="display: none"/>
         <pre class="code"><code></code></pre>
     </div>
@@ -508,19 +516,30 @@
         }
 
         function populateCode(args) {
+            $('#content').hide();
+
             $("pre > code > *").remove();
             if(typeof args['content'] !== 'undefined') {
+                $('#content h3 span').first().text('Content');
+
                 var compressed = args['content'];
                 var decompressed = Base64.decode(compressed);
 
                 $('pre > code').text(decompressed);
+                $('#summary-info').text('');
+                $('#content').show();
             }
 
             if(typeof args['summary'] !== 'undefined') {
+                $('#content h3 span').first().text('Summary');
                 var compressed = args['summary'];
                 var decompressed = Base64.decode(compressed);
 
+                var shownLines = decompressed.split("\n").length;
+
                 $('pre > code').text(decompressed);
+                $('#summary-info').text('' + shownLines + " lines of " +  args['lines'] + '.');
+                $('#content').show();
             }
         }
 
@@ -554,7 +573,7 @@
             if(typeof args['thumbnail'] !== 'undefined') {
                 var thumbnail = args['thumbnail'];
                 var element = $('#thumbnail')[0];
-                element.src = "data:image/png;base64," + thumbnail;
+                element.src = "data:image/jpeg;base64," + thumbnail;
 
                 $('#thumbnail').show();
             } else {
