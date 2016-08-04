@@ -201,7 +201,12 @@
 ssh://andrew@company.se/home/andrew/git/site.git/
 andrew@company.se/home/andrew/git/site.git/
 </pre>
-        <p>The last two URLs are equivalent since ssh is the default protocol.</p>
+        <p>The last two URLs are equivalent since ssh is the default protocol. </p>
+
+        <p>Authentication will always try with a username included on the form <em>username@</em>
+            otherwise remembering the last username for that host.
+            The username <em>git</em> has special meaning for many hosts such that the actual user
+        account is derived from the SSH key used to authenticate.</p>
         <p>If you enter the Repository page you can add or delete remotes. After cloning there is only a single “origin”
             remote and, in many scenarios, there is no need for additional remotes.</p>
 
