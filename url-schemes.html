@@ -338,8 +338,9 @@ working-copy://open?repo=https%3A%2F%2Fgithub.com%2Flibgit2%2Flibgit2&amp;branch
     <p>Use the <em>repos</em> command to get information about name, status, current branch and remotes for
         all repositories inside Working Copy in JSON format. </p>
     <pre> working-copy://x-callback-url/repos</pre>
-    <pre>[{"name":"welcome to working copy", "branch":"master", "status":"tap to learn more", "remotes":[]},
- {"name":"libgit2", "branch":"master", "status":"nothing to commit",
+    <pre>[{"name":"welcome to working copy", "branch":"master", "head":"d39002a…",
+  "status":"tap to learn more", "remotes":[]},
+ {"name":"libgit2", "branch":"master", "head":"e70d822…", "status":"nothing to commit",
   "remotes":
    [{"name":"origin", "fetch":1,"push":1,"url":"https:\/\/github.com\/libgit2\/libgit2.git"}]},
 ]</pre>
