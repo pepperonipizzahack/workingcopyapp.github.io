@@ -142,7 +142,12 @@ pre.terminal {
 }
 
 .fineprint {
-    font-size: 80%;
+    margin-top: 1em;
+}
+
+.fineprint, .fineprint * {
+    font-size: 85%;
+    color: #333;
 }
 
 .fineprint p {
