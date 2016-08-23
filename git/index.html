@@ -468,12 +468,13 @@
             $('header h1 span').text(short + " for ");
         }
 
+        // return whether anything could be populated
         function populateTable(args) {
             // hide and clean out
             $('table tr').hide();
             $('table td').children().remove();
 
-            if(typeof args['repo'] === 'undefined') return;
+            if(typeof args['repo'] === 'undefined') return false;
             var remote = args['repo'];
 
             // repo
@@ -515,6 +516,8 @@
                 createCopyableField(cell, "path-field", path);
                 $('#fileRow').show();
             }
+
+            return true;
         }
 
         function populateCode(args) {
@@ -592,7 +595,11 @@
         function populatePage() {
             var args = decodeArgs();
             populateTitle(args);
-            populateTable(args);
+            var ok = populateTable(args);
+            if(!ok) {
+                window.location = '/';
+            }
+
             populateTips(args);
             populateOpen(args);
             populateCode(args);
