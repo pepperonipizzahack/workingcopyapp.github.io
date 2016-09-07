@@ -490,7 +490,7 @@
                 branch = args['branch'];
 
                 cell = $('#branchRow > td')[0];
-                cell.appendChild(createExternalLinkIcon(link + "tree/" + branch));
+                cell.appendChild(createExternalLinkIcon(link + "/tree/" + branch));
                 createCopyableField(cell, "branch-field", branch);
                 $('#branchRow').show();
             }
@@ -500,7 +500,7 @@
                 commit = args['commit'];
 
                 cell = $('#commitRow > td')[0];
-                cell.appendChild(createExternalLinkIcon(link + "commit/" + commit));
+                cell.appendChild(createExternalLinkIcon(link + "/commit/" + commit));
                 createCopyableField(cell, "commit-field", commit);
                 $('#commitRow').show();
             }
@@ -511,7 +511,7 @@
 
                 cell = $('#fileRow > td')[0];
                 if(branch.length > 0) {
-                    cell.appendChild(createExternalLinkIcon(link + "blob/" + branch + "/" + path));
+                    cell.appendChild(createExternalLinkIcon(link + "/blob/" + branch + "/" + path));
                 }
                 createCopyableField(cell, "path-field", path);
                 $('#fileRow').show();
