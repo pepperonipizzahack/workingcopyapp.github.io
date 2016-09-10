@@ -194,9 +194,12 @@
     </div>
 </div>
 <div class="outer">
+    <div id="thumbnail" style="display: none" class="inner">
+        <h3><span>Thumbail</span></h3>
+        <img />
+    </div>
     <div class="inner" id="content">
         <h3><span>Content</span> <span id="summary-info"></span></h3>
-        <img id="thumbnail" style="display: none"/>
         <pre class="code"><code></code></pre>
     </div>
     <div class="inner" id="diff">
@@ -490,7 +493,7 @@
                 branch = args['branch'];
 
                 cell = $('#branchRow > td')[0];
-                cell.appendChild(createExternalLinkIcon(link + "tree/" + branch));
+                cell.appendChild(createExternalLinkIcon(link + "/tree/" + branch));
                 createCopyableField(cell, "branch-field", branch);
                 $('#branchRow').show();
             }
@@ -500,7 +503,7 @@
                 commit = args['commit'];
 
                 cell = $('#commitRow > td')[0];
-                cell.appendChild(createExternalLinkIcon(link + "commit/" + commit));
+                cell.appendChild(createExternalLinkIcon(link + "/commit/" + commit));
                 createCopyableField(cell, "commit-field", commit);
                 $('#commitRow').show();
             }
@@ -511,7 +514,7 @@
 
                 cell = $('#fileRow > td')[0];
                 if(branch.length > 0) {
-                    cell.appendChild(createExternalLinkIcon(link + "blob/" + branch + "/" + path));
+                    cell.appendChild(createExternalLinkIcon(link + "/blob/" + branch + "/" + path));
                 }
                 createCopyableField(cell, "path-field", path);
                 $('#fileRow').show();
@@ -577,7 +580,7 @@
         function populateThumbnail(args) {
             if(typeof args['thumbnail'] !== 'undefined') {
                 var thumbnail = args['thumbnail'];
-                var element = $('#thumbnail')[0];
+                var element = $('#thumbnail img')[0];
                 element.src = "data:image/jpeg;base64," + thumbnail;
 
                 $('#thumbnail').show();
