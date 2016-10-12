@@ -502,13 +502,31 @@ andrew@company.se/home/andrew/git/site.git/
 
         <p>A great advantage of Git compared to other version-control software is the ease at which you can branch your
             repository to work independently on different things.
-            Once you are confident with the work undertaken in a branch you can merge
+            Once you are confident with the work undertaken in a branch, you can merge
             it back to one of your main branches.</p>
 
         <p>In Working Copy you can do this from the Repository screen by tapping the current
-            branch name to access a list of branches. Switching to another branch is done by tapping the list.</p>
+            branch name to access a list of branches. Tapping a branch brings up a detail view
+            where you can checkout the branch (make it current), rename or delete it. </p>
+        <p>You can swipe left on branches to <em>Checkout</em>, <em>Rename</em> or <em>Delete</em> without having to
+            go to the detail screen and when a local branch is ahead of its remote, you can <em>Push</em> as well.
+        </p>
 
-        <p> You create new branches from the current one with the right-most button in the upper-right corner and you merge back
+        <p> You create new branches from the current one with the upper-rightmost button.
+            To put commits on a branch you can either <em>Merge</em> or <em>Rebase</em>. Atlassian has a
+            great <a target="atlassian" href="https://www.atlassian.com/git/tutorials/merging-vs-rebasing/">tutorial</a>
+            describing the differences. In both situations you change your current branch to include commits from some
+            other branch.
+         </p>
+        <p>
+            Merge will create a merge-commit as needed, while rebase will rewrite commits from your
+            current branch on top of the commits from the other remote. Working Copy will not rebase if this
+            requires rewriting commits that have already been pushed to a server. You can override this behaviur
+            by configuring the branch for <em>History Rewriting</em>, but this in turn requires you to <em>Force Push</em.
+         </p>
+         <p>
+
+            and you merge back
             another branch into your current branch with the other button in the upper-right.
             Swipe left to rename or delete branches.</p>
 
