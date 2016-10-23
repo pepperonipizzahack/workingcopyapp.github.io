@@ -77,7 +77,7 @@
             width: 80px;
             font-size: 70%;
         }
-        
+
         td, td * {
             text-align: right;
         }
@@ -177,18 +177,18 @@
     </div>
 
     <div class="inner termTips" style="display: none">
-     <p>You can clone this repository and view the file on the commandline:</p>
+        <p>You can clone this repository and view the file on the commandline:</p>
         <div style="float: right; display: block; width: 20px; padding-right: 10px">
-           <a class="button copy" data-clipboard-target="#clone-and-view">
-            <img src="/img/copy-clipboard.png"/>
-           </a>
+            <a class="button copy" data-clipboard-target="#clone-and-view">
+                <img src="/img/copy-clipboard.png"/>
+            </a>
         </div>
         <div class="terminal">
-         <textarea readonly="readonly" id="clone-and-view"></textarea>
+            <textarea readonly="readonly" id="clone-and-view"></textarea>
         </div>
     </div>
-    </div>
-    <div class="outer">
+</div>
+<div class="outer">
     <div class="inner" id="app-clone">
         <p>Show or clone in Desktop Git clients:</p>
     </div>
@@ -210,14 +210,14 @@
 <div class="outer">
     <div class="inner fineprint">
         <h3>Data privacy</h3>
-       <p>
-         Remote URL, branch name, commit identifier, file path, file content and
-           file differences is unavailable to the
-         webserver showing this page. The page itself is static html doing all processing
-         locally in your browser. Information is passed in the URL fragment which never
-         leaves your browser and the page is without tracking javascript. Everything will
-           remain private unless you share the URL with others.
-      </p>
+        <p>
+            Remote URL, branch name, commit identifier, file path, file content and
+            file differences is unavailable to the
+            webserver showing this page. The page itself is static html doing all processing
+            locally in your browser. Information is passed in the URL fragment which never
+            leaves your browser and the page is without tracking javascript. Everything will
+            remain private unless you share the URL with others.
+        </p>
     </div>
 
 
@@ -273,17 +273,17 @@
         }
 
         function dirnameFromRemote(remote) {
-           var parts = remote.split('/');
-           var name = parts[parts.length - 1];
-           name = name.replace(/\.git$/, "");
-           return name;
+            var parts = remote.split('/');
+            var name = parts[parts.length - 1];
+            name = name.replace(/\.git$/, "");
+            return name;
         }
 
         // convert secure shell remotes to https://
         function linkForRemote(remote) {
             // leave http(s) style remotes alone, they are already links
             if(remote.indexOf('https://') == 0 ||
-               remote.indexOf('http://') == 0) return remote;
+                    remote.indexOf('http://') == 0) return remote;
 
             // skip protocol entirely, we do not care if missing (scp style)
             // or is ssh:// or git://
@@ -600,7 +600,7 @@
             populateTitle(args);
             var ok = populateTable(args);
             if(!ok) {
-                window.location = '/';
+                //window.location = '/';
             }
 
             populateTips(args);
@@ -681,7 +681,7 @@
 
         getScript('/js/jquery.min.js',function(){
             resolveEmails();
-            //populatePage();
+            populatePage();
         });
     })();
 </script>
