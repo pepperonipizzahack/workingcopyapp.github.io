@@ -254,7 +254,7 @@
                     if(branch) {
                         var url = branchUrlForArgs(link, args);
                         html += "\n# checkout " + possibleAnchor(branch, url) + "\n";
-                        html += "git checkout " + escape(branch) + "\n";
+                        html += "git checkout " + escape(branch) + " branch\n";
                     }
 
                     // checkout commit
