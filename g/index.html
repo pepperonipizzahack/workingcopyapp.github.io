@@ -5,693 +5,329 @@
 <!--[if (gte IE 9)|!(IE)]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Working Copy, Git on iOS</title>
     <meta name="author" content="Anders Borum">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
     <meta name="keywords" content="iOS,git,app,GitHub,BitBucket,iPad,iPhone,repository,programming,tools,WebDAV">
     <meta name="description" content="Working Copy is a powerful Git client for iOS that clones, edits, commits, pushes and more.">
-    <link rel="mask-icon" href="/img/mask-icon.svg" color="#399CFC">
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
-    <link rel="stylesheet" type="text/css" href="/css/highlight.css">
-    <link rel="stylesheet" type="text/css" href="/css/tooltip.css">
-    <script src="/js/clipboard.min.js"></script>
-    <meta property="og:image" content="https://WorkingCopyApp.com/img/iPad-Air-Space.jpg">
-    <meta property="og:video" content="http://youtu.be/pcBKQiSpLh4">
     <meta name="apple-itunes-app" content="app-id=896694807" affiliate-data="at=1000lHq">
     <link rel="mask-icon" href="/img/mask-icon.svg" color="#399CFC">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@palmin">
-    <meta name="twitter:title" content="Working Copy - Git file">
-    <meta name="twitter:description" content="Learn how to use this powerful Git client for iOS, for stand-alone Post-PC development or to complement your existing workflow.">
-    <meta name="twitter:image" content="http://WorkingCopyApp.com/img/action-shot-71.jpg">
-    <meta name="twitter:description" content="Data in Git repository. View in Working Copy or other Git clients.">
-    <meta name="twitter:app:name:iphone" content="Working Copy">
-    <meta name="twitter:app:id:iphone" content="896694807">
-    <meta name="twitter:app:name:ipad" content="Working Copy">
-    <meta name="twitter:app:id:ipad" content="896694807">
     <style>
-        html {
-            position: relative;
-            min-height: 100%;
-        }
-        .download-button {
-            display: inline-block;
-            margin: 5px;
-        }
-        pre > code, pre > code *, .hljs, .code {
-            color: rgba(0,0,32,1);
-            font-family: Consolas, Menlo, Courier, monospace;
-            background-color: #f8f8f8;
-        }
-        pre > code {
-            font-size: 120%;
-        }
-
-        pre {
-            display: block;
-        }
-
-        #summary-info {
-            font-size: 70%;
-        }
-
-        table {
+        body {
+            background: #132E1F url("../img/scanline.png") repeat fixed;
             width: 100%;
-            background-color: #e5e5e5;
         }
 
-        h3 {
-            margin-bottom: 0;
+        a:link, a:visited, a:active {
+            color: #2B8755;
+            border-bottom: 1px solid #2B8755;
         }
 
-        table * {
+        a:hover {
+            border-bottom: 2px solid #2B8755;
+        }
+
+        footer {
+            color: #2B8755;
+        }
+
+        .terminal {
+            color: #35B87C;
+            padding: 1em;
+            font-family: Consolas, Menlo, Courier, monospace;
+            white-space: pre-wrap;
+        }
+
+        a:link, a:visited, a:active, a:hover {
             font-family: Consolas, Menlo, Courier, monospace;
         }
 
-        tr {
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top of regular content */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        }
+
+        @keyframes blink {
+            0% {border-color: #FF0000;}
+            49% {border-color: #FF0000;}
+            50% {border-color: #010101;}
+            100% {border-color: #010101;}
+        }
+
+        /* Modal Content/Box */
+        .modal-content {
+            font-family: Consolas, Menlo, Courier, monospace;
+            font-size: Large;
+            background-color: #010101;
+            background-color: rgba(10,10,10,0.95);
+            color: #FF0000;
+            border: 5px solid #FF0000;
+            white-space: pre-wrap;
+            margin: 0% auto; /* 15% from the top and centered */
+            padding: 10px;
+
+            animation-name: blink;
+            animation-duration: 1.2s;
+            animation-iteration-count: infinite;
+        }
+
+        /* The Close Button */
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        footer {
             display: none;
         }
 
-        th {
-            text-align: left;
-            width: 80px;
-            font-size: 70%;
-        }
-        
-        td, td * {
-            text-align: right;
-        }
-
-        td > input {
-            width: 80%;
-            background-color: #f8f8f8;
-        }
-
-        div.terminal {
-            width: auto;
-            overflow: hidden;
-        }
-
-        .terminal > textarea {
-            width: 98%;
-            white-space: pre;
-            font-family: Consolas, Menlo, Courier, monospace;
-            resize: none;
-            height: 5em;
-            background-color: #f8f8f8;
-        }
-
-        a.button {
-            position: relative;
-            display: inline-block;
-            padding: 6px 12px;
-            font-size: 13px;
-            font-weight: bold;
-            line-height: 20px;
-            color: #333;
-            white-space: nowrap;
-            vertical-align: middle;
-            cursor: pointer;
-            background-color: #eee;
-            background-image: linear-gradient(#fcfcfc, #eee);
-            border: 1px solid #d5d5d5;
-            border-radius: 3px;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-            -webkit-appearance: none
-        }
-
-        a.copy {
-            padding: 6px 6px 0px 6px;
-        }
-
-        a.button:focus {
-            text-decoration: none;
-            border-color: #51a7e8;
-            outline: none;
-            box-shadow: 0 0 5px rgba(81, 167, 232, 0.5)
-        }
-
-        a.button:hover, a.button:focus {
-            background-color: #ddd;
-            background-image: linear-gradient(#eee, #ddd);
-            border-color: #ccc
-        }
-
-        a.button > img {
-            padding: 0;
-            height: 14px;
-            width: auto;
-        }
-
-        a.external-icon {
-            text-decoration: none;
-            border: 0;
-        }
-
-        .external-icon, .external-icon * {
-            vertical-align: baseline;
-            padding-right: 2px;
-        }
-        .external-icon > img {
-            height: 16px;
-            opacity: 0.6;
-        }
-
     </style>
-</head>
-<body>
-<header>
-    <h1 itemprop="name"><span></span> <a href="/">Working Copy</a></h1>
-</header>
-<div class="outer">
-    <div class="inner">
-        <table>
-            <tr id="repoRow"><th>Repository:</th><td></td></tr>
-            <tr id="branchRow"><th>Branch:</th><td></td></tr>
-            <tr id="commitRow"><th>Commit:</th><td></td></tr>
-            <tr id="fileRow"><th>File:</th><td></td></tr>
-        </table>
-    </div>
 
-    <div class="inner termTips" style="display: none">
-     <p>You can clone this repository and view the file on the commandline:</p>
-        <div style="float: right; display: block; width: 20px; padding-right: 10px">
-           <a class="button copy" data-clipboard-target="#clone-and-view">
-            <img src="/img/copy-clipboard.png"/>
-           </a>
-        </div>
-        <div class="terminal">
-         <textarea readonly="readonly" id="clone-and-view"></textarea>
-        </div>
-    </div>
-    </div>
-    <div class="outer">
-    <div class="inner" id="app-clone">
-        <p>Show or clone in Desktop Git clients:</p>
-    </div>
-</div>
-<div class="outer">
-    <div id="thumbnail" style="display: none" class="inner">
-        <h3><span>Thumbail</span></h3>
-        <img />
-    </div>
-    <div class="inner" id="content">
-        <h3><span>Content</span> <span id="summary-info"></span></h3>
-        <pre class="code"><code></code></pre>
-    </div>
-    <div class="inner" id="diff">
-        <h3>Patch</h3>
-        <pre><code class="diff"></code></pre>
-    </div>
-</div>
-<div class="outer">
-    <div class="inner fineprint">
-        <h3>Data privacy</h3>
-       <p>
-         Remote URL, branch name, commit identifier, file path, file content and
-           file differences is unavailable to the
-         webserver showing this page. The page itself is static html doing all processing
-         locally in your browser. Information is passed in the URL fragment which never
-         leaves your browser and the page is without tracking javascript. Everything will
-           remain private unless you share the URL with others.
-      </p>
-    </div>
+    <script>
+        function rev(s) { return s.length <= 1 ? s : rev(s.substr(1)) + s.substr(0,1); }
 
-
-</div>
-<script src="/js/base64.js"></script>
-<script src="/js/highlight.pack.js"></script>
-<script>
-    function rev(s) { return s.length <= 1 ? s : rev(s.substr(1)) + s.substr(0,1); }
-
-    (function() {
-        function getScript(url,success){
-            var script=document.createElement('script');
-            script.src=url;
-            var head=document.getElementsByTagName('head')[0],
-                    done=false;
-            script.onload=script.onreadystatechange = function(){
-                if ( !done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete') ) {
-                    done=true;
-                    success();
-                    script.onload = script.onreadystatechange = null;
-                    head.removeChild(script);
-                }
-            };
-            head.appendChild(script);
+        function showMessage(message) {
+            $('.modal-content').text(message);
+            $('.modal').show();
         }
 
-        function resolveEmails() {
-            var emails = document.getElementsByClassName("email");
-            for(var k = 0; k < emails.length; ++k) {
-                var email = rev("moc.ppaypocgnikrow@sredna");
-                emails[k].href = "mailto:" + email;
-                if(emails[k].innerHTML == "") {
-                    emails[k].innerHTML = email;
-                }
-            }
-        }
+        (function() {
+            function decodeArgs() {
+                var args = {};
+                var fragment = window.location.hash;
+                if(fragment) {
+                    fragment = fragment.substr(1);
+                    var parts = fragment.split('&');
+                    for(var k = 0; k < parts.length; ++k) {
+                        var keyval = parts[k].split('=');
+                        if(keyval.length != 2) continue;
 
-        function decodeArgs() {
-            var args = {};
-            var fragment = window.location.hash;
-            if(fragment) {
-                fragment = fragment.substr(1);
-                var parts = fragment.split('&');
-                for(var k = 0; k < parts.length; ++k) {
-                    var keyval = parts[k].split('=');
-                    if(keyval.length != 2) continue;
-
-                    var key = decodeURIComponent(keyval[0]);
-                    args[key] = decodeURIComponent(keyval[1]);
-                }
-            }
-            return args;
-        }
-
-        function dirnameFromRemote(remote) {
-           var parts = remote.split('/');
-           var name = parts[parts.length - 1];
-           name = name.replace(/\.git$/, "");
-           return name;
-        }
-
-        // convert secure shell remotes to https://
-        function linkForRemote(remote) {
-            // leave http(s) style remotes alone, they are already links
-            if(remote.indexOf('https://') == 0 ||
-               remote.indexOf('http://') == 0) return remote;
-
-            // skip protocol entirely, we do not care if missing (scp style)
-            // or is ssh:// or git://
-            var link = remote.replace(/^[a-z]:\/\/]/, "");
-
-            // skip git username since this is used when ssh key is actual user identifier
-            link = link.replace(/^git@/, "");
-
-            // convert : separator to slash
-            link = link.replace(':', '/');
-
-            // remove trailing .git
-            link = link.replace(/.git\/?$/, '');
-
-            // make sure link ends with slash
-            if(link.length >= 1 && link.charAt(link.length - 1) != '/') {
-                link += '/';
-            }
-
-            return 'https://' + link;
-        }
-
-        function populateTips(args) {
-            if(typeof args['repo'] !== 'undefined') {
-                var remote = args['repo'];
-                var dir = dirnameFromRemote(remote);
-                var filename = '';
-                var commit = '';
-                var branch = '';
-
-                var mode = 'repo'; // repo, file or commit
-
-                if(typeof args['path'] !== 'undefined') {
-                    var path = args['path'];
-                    filename = path;
-                    var parts = path.split('/');
-                    if(parts.length >= 2) {
-                        filename = parts.pop();
-                        dir = dir + '/' + parts.join('/');
+                        var key = decodeURIComponent(keyval[0]);
+                        args[key] = decodeURIComponent(keyval[1]);
                     }
-                    mode = 'file';
-                } else if(typeof args['commit'] !== 'undefined') {
-                    commit = args['commit'];
-                    mode = "commit";
-                } else if(typeof args['branch'] !== 'undefined') {
-                    branch = args['branch'];
-                    mode = "branch";
+                }
+                return args;
+            }
+
+            function dirnameFromRemote(remote) {
+                var parts = remote.split('/');
+                var name = parts[parts.length - 1];
+                name = name.replace(/\.git$/, "");
+                return name;
+            }
+
+            // convert secure shell remotes to https://
+            function linkForRemote(remote) {
+                // leave http(s) style remotes alone, they are already links
+                if(remote.indexOf('https://') == 0 ||
+                        remote.indexOf('http://') == 0) return remote;
+
+                // skip protocol entirely, we do not care if missing (scp style)
+                // or is ssh:// or git://
+                var link = remote.replace(/^[a-z]:\/\/]/, "");
+
+                // skip git username since this is used when ssh key is actual user identifier
+                link = link.replace(/^git@/, "");
+
+                // convert : separator to slash
+                link = link.replace(':', '/');
+
+                // remove trailing .git
+                link = link.replace(/.git\/?$/, '');
+
+                // make sure link ends with slash
+                if(link.length >= 1 && link.charAt(link.length - 1) != '/') {
+                    link += '/';
                 }
 
-                // quote dir and filename if needed
-                if(dir.indexOf(' ') >= 0) dir = '"' + dir + '"';
-                if(filename.indexOf(' ') >= 0) filename = '"' + filename + '"';
+                return 'https://' + link;
+            }
 
-                var text = "git clone " + remote + "\n" +
-                        "cd " + dir;
-                if(filename.length > 0) {
-                    text += "\n" + "cat " + filename;
-                } else if(branch.length > 0) {
-                    text += "\n" + "git checkout " + branch;
+            function fileUrlForArgs(link, args) {
+                if(!args['branch'] || !args['path']) return null;
+                return link + "/blob/" + encodeURIComponent(args['branch']) +
+                        "/" + encodeURIComponent(args['path']);
+            }
+
+            function branchUrlForArgs(link, args) {
+                if(!args['branch']) return null;
+                return link + "/tree/" + encodeURIComponent(args['branch']);
+            }
+
+            function commitUrlForArgs(link, args) {
+                if(!args['commit']) return null;
+                return link + "/commit/" + encodeURIComponent(args['commit']);
+            }
+
+            function hostnameForUrl(url) {
+                var anchor = document.createElement('a');
+                anchor.href = url;
+                return  anchor.hostname;
+            }
+
+            function escape(unsafe) {
+                return unsafe
+                        .replace(/&/g, "&amp;")
+                        .replace(/</g, "&lt;")
+                        .replace(/>/g, "&gt;")
+                        .replace(/"/g, "&quot;")
+                        .replace(/'/g, "&#039;");
+            }
+
+            function titleForArgs(args) {
+                if(args['path']) return args['path'];
+                if(args['commit']) return "commit " + args['commit'].substr(0, 7);
+                if(args['branch']) return args['branch'] + " branch";
+                if(args['repo']) return dirnameFromRemote(args['repo']) + " repository";
+                return "";
+            }
+
+            function descForArgs(args) {
+                if(args['path'] || args['commit'] || args['branch']) {
+                    return titleForArgs(args) + " in " + dirnameFromRemote(args['repo']);
                 }
+                return titleForArgs(args);
+            }
 
-                if(commit.length > 0) {
-                    text += "\n" + "git diff " + commit;
-                }
+            // return html for either anchor or raw text
+            function possibleAnchor(title, linkOrNull) {
+                if(!linkOrNull) return escape(title);
+                return '<a class="guess" href="' + escape(linkOrNull) + '">' + escape(title) + '</a>';
+            }
 
-                var actionText;
-                if(mode == 'file') {
-                    actionText = "On the commandline you can clone and enter this repository:";
-                } else if(mode == 'commit') {
-                    actionText = "On the commandline you can clone this repository and look at commit:";
-                } else if(mode == 'branch') {
-                    actionText = "On the commandline you can clone this repository and check out " + branch + ":";
+            function populateTerminal() {
+                var args = decodeArgs();
+                var repo = args['repo'];
+
+                var footer = "\n\n\n# Learn more about Working Copy, the powerful Git client for iOS\n" +
+                        "links <a href=\"/manual.html\">https://workingcopyapp.com/manual.html</a>\n";
+
+                var html = '';
+                if(!repo) {
+                    html = "\n# This page normally contains command-line instructions for Git repositories.\n";
+                    html += "# Links to this page are created by <a href=\"/\">Working Copy</a> but this link is not valid.";
                 } else {
-                    actionText = "On the commandline you can clone and enter this repository:";
+                    var link = linkForRemote(repo);
+                    var dirname = dirnameFromRemote(link);
+                    var hostname = hostnameForUrl(link);
+                    var title = titleForArgs(args);
+                    var desc = descForArgs(args);
+
+                    document.title = title;
+
+                    // intro
+                    var html = "# This page normally contains command-line instructions for accessing " + escape(desc) + "\n";
+                    html += "# You can jump straight to " + escape(title) + " when <a href=\"/\">Working Copy</a> is installed.\n\n";
+
+                    // repo cloning
+                    html += "# clone " + escape(dirname) + " from <a class=\"guess\" href=\"" + escape(link) + "\">" + escape(hostname) + "</a>\n";
+                    html += "git clone " + escape(repo) + "\n";
+                    html += "cd " + escape(dirname) + "\n";
+
+                    // view file content
+                    var path = args['path'];
+                    if(path) {
+                        var url = fileUrlForArgs(link, args);
+                        html += "\n# view contents of " + possibleAnchor(path, url) + "\n";
+                        html += "cat " + escape(path) + "\n";
+                    }
+
+                    // checkout branch
+                    var branch = args['branch'];
+                    if(branch) {
+                        var url = branchUrlForArgs(link, args);
+                        html += "\n# checkout " + possibleAnchor(branch, url) + "\n";
+                        html += "git checkout " + escape(branch) + "\n";
+                    }
+
+                    // checkout commit
+                    var commit = args['commit'];
+                    if(commit) {
+                        var url = commitUrlForArgs(link, args);
+                        html += "\n# detach to commit " + possibleAnchor(commit.substr(0,10), url) + "\n";
+                        html += "git checkout " + escape(commit.substr(0,10)) + "\n";
+                    }
                 }
-                $(".termTips > p").text(actionText);
 
-                $('#clone-and-view').text(text);
-                $('.termTips').show();
-            }
-        }
+                $('.terminal').html(html + footer);
 
-        function buttonForApp(link, text) {
-            var a = document.createElement("a");
-            $(a).text(text);
-            a.className = "button";
-            a.href = link;
-            return a;
-        }
-
-        function populateOpen(args) {
-            if(typeof args['repo'] === 'undefined') return;
-            var remote = args['repo'];
-
-            var branch = "";
-            if(typeof args['branch'] !== 'undefined') {
-                branch = args['branch'];
+                $('a.guess').click(function(e) {
+                    e.preventDefault();
+                    var href = $(this).attr("href");
+                    $.ajax({type: "HEAD", async: true, url: href,
+                        success: function(){
+                            window.open(href);
+                        },
+                        error: function(jqXHR, textStatus, errorThrown) {
+                            var leadingUpper = textStatus.charAt(0).toUpperCase() + textStatus.slice(1);
+                            var message = "Unable to open " + href + "\n" +
+                                    leadingUpper + ": " + errorThrown;
+                            showMessage(message);
+                        }
+                    });
+                });
             }
 
-            // different choices depending on platform
-            var lowerAgent = navigator.platform.toLowerCase();
-            var isMac = lowerAgent.indexOf('mac') >= 0;
-            var isWin = lowerAgent.indexOf('windows') >= 0;
-            if(!isMac && !isWin) return;
-
-            // remove existing buttons
-            var container = document.getElementById('app-clone');
-            $('#app-clone > a').remove();
-
-            var sourcetree = "sourcetree://cloneRepo/" + remote;
-            if(isMac) {
-                var tower = "gittower://openRepo/" + remote;
-                container.appendChild(buttonForApp(tower, "Open in Tower"));
-
-                var github = "github-mac://openRepo/" + remote;
-                container.appendChild(buttonForApp(github, "Open in GitHub Desktop"));
-
-                container.appendChild(buttonForApp(sourcetree, "Clone in SourceTree"));
-            } else if(isWin) {
-                var github = "github-windows://openRepo/" + remote;
-                container.appendChild(buttonForApp(github, "Open in GitHub Desktop"));
-
-                container.appendChild(buttonForApp(sourcetree, "Clone in SourceTree"));
+            function getScript(url,success){
+                var script=document.createElement('script');
+                script.src=url;
+                var head=document.getElementsByTagName('head')[0],
+                        done=false;
+                script.onload=script.onreadystatechange = function(){
+                    if ( !done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete') ) {
+                        done=true;
+                        success();
+                        script.onload = script.onreadystatechange = null;
+                        head.removeChild(script);
+                    }
+                };
+                head.appendChild(script);
             }
 
-            $(container).show();
-        }
+            getScript('../js/jquery.min.js',function(){
+                $('.email').each(function(){
+                    $(this).attr("href", "mailto:" + rev("moc.ppaypocgnikrow@sredna"));
+                });
 
-        function copyLinkForId(id) {
-            var anchor = document.createElement('a');
-            anchor.setAttribute("class", "button copy");
-            anchor.setAttribute("data-clipboard-target", "#" + id);
+                window.onhashchange = populateTerminal;
+                populateTerminal();
 
-            var icon = document.createElement("img");
-            icon.src = "/img/copy-clipboard.png";
-            icon.alt = icon.title = "Copy to clipboard";
-            anchor.appendChild(icon);
-
-            return anchor;
-        }
-
-        function createCopyableField(cell, fieldId, content) {
-            var input = document.createElement("input");
-            input.setAttribute("readonly", "readonly");
-            input.setAttribute("id", fieldId);
-            input.value = content;
-            cell.appendChild(input);
-
-            var copy = copyLinkForId(fieldId);
-            cell.appendChild(copy);
-        }
-
-        function populateTitle(args) {
-            var hasRepo = typeof args['repo'] !== 'undefined';
-            var hasBranch = typeof args['branch'] !== 'undefined';
-            var hasCommit = typeof args['commit'] !== 'undefined';
-            var hasPath = typeof args['path'] !== 'undefined';
-
-            var long = 'Invalid Universal Link';
-            var short = long;
-
-            if(hasRepo) {
-                var remote = args['repo'];
-                var repo = dirnameFromRemote(remote);
-
-                short = long = "Repository";
-                if(hasBranch && hasPath) {
-                    short = args['path'] + " in " + repo;
-                    long = args['path'] + " in " + remote;
-                }
-                if(hasBranch && !hasPath) {
-                    short = args['branch'] + " in " + repo;
-                    long = args['branch'] + " in " + remote;
-                }
-                if(hasCommit) {
-                    var shorter = args['commit'];
-                    if(shorter.length > 7) shorter = shorter.substr(0, 7);
-
-                    short = shorter + " in " + repo;
-                    long = shorter + " in " + remote;
-                }
-            }
-
-            document.title = long;
-            $('header h1 span').text(short + " for ");
-        }
-
-        // return whether anything could be populated
-        function populateTable(args) {
-            // hide and clean out
-            $('table tr').hide();
-            $('table td').children().remove();
-
-            if(typeof args['repo'] === 'undefined') return false;
-            var remote = args['repo'];
-
-            // repo
-            var link = linkForRemote(remote);
-            var cell = $('#repoRow > td')[0];
-            if(link) cell.appendChild(createExternalLinkIcon(link));
-            createCopyableField(cell, "repo-field", remote);
-            $('#repoRow').show();
-
-            // branch
-            var branch = '';
-            if(typeof args['branch'] !== 'undefined') {
-                branch = args['branch'];
-
-                cell = $('#branchRow > td')[0];
-                cell.appendChild(createExternalLinkIcon(link + "/tree/" + branch));
-                createCopyableField(cell, "branch-field", branch);
-                $('#branchRow').show();
-            }
-
-            var commit = '';
-            if(typeof args['commit'] !== 'undefined') {
-                commit = args['commit'];
-
-                cell = $('#commitRow > td')[0];
-                cell.appendChild(createExternalLinkIcon(link + "/commit/" + commit));
-                createCopyableField(cell, "commit-field", commit);
-                $('#commitRow').show();
-            }
-
-            var path = '';
-            if(typeof args['path'] !== 'undefined') {
-                path = args['path'];
-
-                cell = $('#fileRow > td')[0];
-                if(branch.length > 0) {
-                    cell.appendChild(createExternalLinkIcon(link + "/blob/" + branch + "/" + path));
-                }
-                createCopyableField(cell, "path-field", path);
-                $('#fileRow').show();
-            }
-
-            return true;
-        }
-
-        function populateCode(args) {
-            $('#content').hide();
-
-            $("pre > code > *").remove();
-            if(typeof args['content'] !== 'undefined') {
-                $('#content h3 span').first().text('Content');
-
-                var compressed = args['content'];
-                var decompressed = Base64.decode(compressed);
-
-                $('pre > code').text(decompressed);
-                $('#summary-info').text('');
-                $('#content').show();
-            }
-
-            if(typeof args['summary'] !== 'undefined') {
-                $('#content h3 span').first().text('Summary');
-                var compressed = args['summary'];
-                var decompressed = Base64.decode(compressed);
-
-                var shownLines = decompressed.split("\n").length;
-
-                $('pre > code').text(decompressed);
-                $('#summary-info').text('' + shownLines + " lines of " +  args['lines'] + '.');
-                $('#content').show();
-            }
-        }
-
-        function populatePatch(args) {
-            if(typeof args['patch'] !== 'undefined') {
-                $('#diff > pre > code').text(args['patch']);
-                $('#diff').show();
-
-            } else {
-                $('#diff').hide();
-                $('#diff > pre > code').text('');
-            }
-
-        }
-
-        // simple attempt at picking mime-type for well-known image
-        // types using file extension only
-        function imageMimeTypeForPath(path) {
-            var parts = path.split('.');
-            var ext = parts.pop().toLocaleLowerCase();
-
-            // simple attempt at picking mime-type for well-known image
-            // types using file extension only
-            if(ext.indexOf('g') == 0) mimeType = 'image/gif';
-            if(ext.indexOf('j') == 0) mimeType = 'image/jpeg';
-            if(ext.indexOf('s') == 0) mimeType = 'image/svg';
-            return "image/png";
-        }
-
-        function populateThumbnail(args) {
-            if(typeof args['thumbnail'] !== 'undefined') {
-                var thumbnail = args['thumbnail'];
-                var element = $('#thumbnail img')[0];
-                element.src = "data:image/jpeg;base64," + thumbnail;
-
-                $('#thumbnail').show();
-            } else {
-                $('#thumbnail').hide();
-            }
-        }
-
-        function highlightAll() {
-            $('pre > code').each(function(i, block) {
-                hljs.highlightBlock(block);
+                $('.modal').click(function() {
+                    $('.modal').hide();
+                });
             });
-        }
+        })();
 
-        function populatePage() {
-            var args = decodeArgs();
-            populateTitle(args);
-            var ok = populateTable(args);
-            if(!ok) {
-                window.location = '/';
-            }
-
-            populateTips(args);
-            populateOpen(args);
-            populateCode(args);
-            populatePatch(args);
-            populateThumbnail(args);
-
-            configureClipboard();
-            highlightAll();
-        }
-
-        function createExternalLinkIcon(href) {
-            // determine hostname from href
-            var anchor = document.createElement('a');
-            anchor.href = href;
-            anchor.setAttribute("class", "external-icon");
-
-            // It would be pretty sweet to use favicon for destination host, but
-            // this would leak information. :-(
-            //
-            // var imageSrc = anchor.protocol + "//" + anchor.hostname + "/favicon.ico";
-
-            var imageSrc = "/img/open-link.png";
-            var image = document.createElement("img");
-            image.src = imageSrc;
-            image.title = image.alt = href;
-            image.onerror = function() {
-                // hide link if favicon image is missing,
-                // as this does not look like a hosting provider
-                anchor.style.display = "none";
-            };
-            anchor.appendChild(image);
-
-            return anchor;
-        }
-
-        function configureClipboard () {
-            var showTooltip = function(elem, msg) {
-                if(msg.length == 0) return;
-
-                var oldClass = elem.getAttribute('class');
-                elem.setAttribute('class', oldClass + ' tooltipped tooltipped-s');
-                elem.setAttribute('aria-label', msg);
-            };
-            var fallbackMessage = function(action) {
-                var actionMsg = '';
-                var actionKey = (action === 'cut' ? 'X' : 'C');
-                if (/iPhone|iPad/i.test(navigator.userAgent)) {
-                    actionMsg = 'Not supported!';
-                } else if (/Mac/i.test(navigator.userAgent)) {
-                    actionMsg = 'Press ⌘-' + actionKey + ' to ' + action;
-                } else {
-                    actionMsg = 'Press Ctrl-' + actionKey + ' to ' + action;
-                }
-                return actionMsg;
-            };
-
-            // remove clipboard button on iOS where not supported
-            var iOS = /iPhone|iPad/i.test(navigator.userAgent);
-            if(iOS) {
-                $('.copy').hide();
-                return;
-            }
-
-            var clipboard = new Clipboard('.copy');
-            clipboard.on('success', function(e) {
-                e.clearSelection();
-                showTooltip(e.trigger, 'Copied!');
-            });
-            clipboard.on('error', function(e) {
-                showTooltip(e.trigger, fallbackMessage(e.action));
-            });
-
-        }
-
-        window.onhashchange = populatePage;
-
-        getScript('/js/jquery.min.js',function(){
-            resolveEmails();
-            populatePage();
-        });
-    })();
-</script>
+    </script>
+</head><body>
+<div class="modal">
+    <div class="modal-content"></div>
+</div>
+<div class="terminal"></div>
 <div style="clear: both"> </div>
 <footer>
-    Read the <a href="/manual.html">manual</a> and get in touch by <a href="/enable-js.html" class="email" title="email">email</a>
+    Read the users’ <a href="/manual.html">guide</a> and get in touch by <a href="/enable-js.html" id="email" title="email">email</a>
     or on <a href="http://twitter.com/palmin" target="twitter">Twitter</a>.
 </footer>
 <!--[if lt IE 7 ]>
-<script src="/js/dd_belatedpng.js"></script>
+<script src="js/dd_belatedpng.js"></script>
 <script>DD_belatedPNG.fix('img, .png_bg'); // Fix any <img> or .png_bg bg-images. Also, please read goo.gl/mZiyb</script>
 <![endif]-->
 </body>
