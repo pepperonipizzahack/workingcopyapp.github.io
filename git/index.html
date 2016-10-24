@@ -124,7 +124,8 @@
             }
 
             function dirnameFromRemote(remote) {
-                var parts = remote.split('/');
+                var withoutSlash = remote.replace(/\/+$/, "");
+                var parts = withoutSlash.split('/');
                 var name = parts[parts.length - 1];
                 name = name.replace(/\.git$/, "");
                 return name;
@@ -159,18 +160,21 @@
 
             function fileUrlForArgs(link, args) {
                 if(!args['branch'] || !args['path']) return null;
-                return link + "/blob/" + encodeURIComponent(args['branch']) +
+                var withoutSlash = link.replace(/\/+$/, "");
+                return withoutSlash + "/blob/" + encodeURIComponent(args['branch']) +
                         "/" + encodeURIComponent(args['path']);
             }
 
             function branchUrlForArgs(link, args) {
                 if(!args['branch']) return null;
-                return link + "/tree/" + encodeURIComponent(args['branch']);
+                var withoutSlash = link.replace(/\/+$/, "");
+                return withoutSlash + "/tree/" + encodeURIComponent(args['branch']);
             }
 
             function commitUrlForArgs(link, args) {
                 if(!args['commit']) return null;
-                return link + "/commit/" + encodeURIComponent(args['commit']);
+                var withoutSlash = link.replace(/\/+$/, "");
+                return withoutSlash + "/commit/" + encodeURIComponent(args['commit']);
             }
 
             function hostnameForUrl(url) {
@@ -234,7 +238,7 @@
 
                     // intro
                     var html = "# This page contains command-line instructions for accessing " + escape(desc) + "\n";
-                    html += "# You can jump straight to " + escape(title) + " when <a href=\"/\">Working Copy</a> is installed.\n\n";
+                    html += "# You can jump straight to " + escape(title) + " from Safari on iOS when <a href=\"/\">Working Copy</a> is installed.\n\n";
 
                     // repo cloning
                     html += "# clone " + escape(dirname) + " from <a class=\"guess\" href=\"" + escape(link) + "\">" + escape(hostname) + "</a>\n";
