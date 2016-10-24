@@ -51,8 +51,6 @@
             width: 100%; /* Full width */
             height: 100%; /* Full height */
             overflow: auto; /* Enable scroll if needed */
-            background-color: rgb(0,0,0); /* Fallback color */
-            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
         }
 
         @keyframes blink {
@@ -63,7 +61,9 @@
         }
 
         /* Modal Content/Box */
-        .modal-content {
+        .guru {
+            display: none;
+            z-index: 5;
             font-family: Consolas, Menlo, Courier, monospace;
             font-size: Large;
             background-color: #010101;
@@ -103,8 +103,9 @@
     <script>
         function rev(s) { return s.length <= 1 ? s : rev(s.substr(1)) + s.substr(0,1); }
 
-        function showMessage(message) {
-            $('.modal-content').text(message);
+        function showError(message) {
+            $('.guru').text(message);
+            $('.guru').show();
             $('.modal').show();
         }
 
@@ -192,7 +193,10 @@
             }
 
             function titleForArgs(args) {
-                if(args['path']) return args['path'];
+                if(args['path']) {
+                    var parts = args['path'].split("/");
+                    return parts[parts.length - 1];
+                }
                 if(args['commit']) return "commit " + args['commit'].substr(0, 7);
                 if(args['branch']) return args['branch'] + " branch";
                 if(args['repo']) return dirnameFromRemote(args['repo']) + " repository";
@@ -245,7 +249,7 @@
                     var path = args['path'];
                     if(path) {
                         var url = fileUrlForArgs(link, args);
-                        html += "\n# view contents of " + possibleAnchor(path, url) + "\n";
+                        html += "\n# view contents of " + possibleAnchor(title, url) + "\n";
                         html += "cat " + escape(path) + "\n";
                     }
 
@@ -253,8 +257,8 @@
                     var branch = args['branch'];
                     if(branch) {
                         var url = branchUrlForArgs(link, args);
-                        html += "\n# checkout " + possibleAnchor(branch, url) + "\n";
-                        html += "git checkout " + escape(branch) + " branch\n";
+                        html += "\n# checkout " + possibleAnchor(branch, url) + " branch\n";
+                        html += "git checkout " + escape(branch) + "\n";
                     }
 
                     // checkout commit
@@ -271,7 +275,7 @@
                 $('a.guess').click(function(e) {
                     e.preventDefault();
                     var href = $(this).attr("href");
-                    $.ajax({type: "HEAD", async: true, url: href,
+                    $.ajax({async: true, url: "/check/?" + href,
                         success: function(){
                             window.open(href);
                         },
@@ -279,7 +283,7 @@
                             var leadingUpper = textStatus.charAt(0).toUpperCase() + textStatus.slice(1);
                             var message = "Unable to open " + href + "\n" +
                                     leadingUpper + ": " + errorThrown;
-                            showMessage(message);
+                            showError(message);
                         }
                     });
                 });
@@ -311,14 +315,15 @@
 
                 $('.modal').click(function() {
                     $('.modal').hide();
+                    $('.guru').hide();
                 });
             });
         })();
 
     </script>
 </head><body>
+<div class="guru"></div>
 <div class="modal">
-    <div class="modal-content"></div>
 </div>
 <div class="terminal"></div>
 <div style="clear: both"> </div>
