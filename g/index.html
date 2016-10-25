@@ -233,12 +233,12 @@
                 var repo = args['repo'];
 
                 var footer = "\n\n\n# Learn more about Working Copy, the powerful Git client for iOS\n" +
-                        "links <a href=\"/manual.html\">https://workingcopyapp.com/manual.html</a>\n";
+                        "links <a class=\"guess\" href=\"https://workingcopyapp.com/manual.html\">https://workingcopyapp.com/manual.html</a>\n";
 
                 var html = '';
                 if(!repo) {
                     html = "\n# This page normally contains command-line instructions for Git repositories.\n";
-                    html += "# Links to this page are created by <a href=\"/\">Working Copy</a> but this link is not valid.";
+                    html += "# Links to this page are created by <a class=\"guess\" href=\"https://workingcopyapp.com/\">Working Copy</a> but this link is not valid.";
                 } else {
                     var link = linkForRemote(repo);
                     var dirname = dirnameFromRemote(link);
@@ -250,7 +250,7 @@
 
                     // intro
                     var html = "# This page contains command-line instructions for accessing " + escape(desc) + "\n";
-                    html += "# You can jump straight to " + escape(title) + " from Safari on iOS when <a href=\"/\">Working Copy</a> is installed.\n\n";
+                    html += "# You can jump straight to " + escape(title) + " from Safari on iOS when <a class=\"guess\" href=\"https://workingcopyapp.com/\">Working Copy</a> is installed.\n\n";
 
                     // repo cloning
                     html += "# clone " + escape(dirname) + " from <a class=\"guess\" href=\"" + escape(link) + "\">" + escape(hostname) + "</a>\n";
@@ -291,7 +291,7 @@
                     var href = $(this).attr("href");
                     $.ajax({async: true, url: "/check/?" + href,
                         success: function(){
-                            window.open(href);
+                            window.location = href;
                         },
                         error: function(jqXHR, textStatus, errorThrown) {
                             var leadingUpper = textStatus.charAt(0).toUpperCase() + textStatus.slice(1);
