@@ -254,7 +254,8 @@
                     html += "# You can jump straight to " + escape(title) + " from Safari on iOS when <a class=\"guess\" href=\"https://workingcopyapp.com/\">Working Copy</a> is installed.\n\n";
 
                     // repo cloning
-                    html += "# clone " + escape(dirname) + " from <a class=\"guess\" href=\"" + escape(link) + "\">" + escape(hostname) + "</a>\n";
+                    html += '# clone <a class="guess" href="' + escape(link) + '">' + escape(dirname) +
+                            '</a> from <a class="guess" href="' + escape("https://" + hostname) + '">' + escape(hostname) + "</a>\n";
                     html += "git clone " + escape(repo) + "\n";
                     html += "cd " + escape(dirname) + "\n";
 
