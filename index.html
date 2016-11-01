@@ -438,7 +438,7 @@
                 });
 
                 $('html, body').animate({
-                    scrollTop: $("#become-tester").offset().top
+                    scrollTop: $("#testflight-signup").offset().top
                 });
             }
 
@@ -447,7 +447,7 @@
 
         function preSignUp(evt) {
             $('html, body').animate({
-                scrollTop: $("#become-tester").offset().top
+                scrollTop: $("#testflight-signup").offset().top
             }, 500, function() {
                 signUp();
             });
@@ -533,11 +533,16 @@
                     }, 1000);
                 });
 
-                // redirect to users manual when there is #help or #manual
                 var hash = window.location.hash;
                 if(hash) {
+                    // redirect to users manual when there is #help or #manual
                     if(hash.indexOf('#help') >= 0 || hash.indexOf('#manual') >= 0) {
                         window.location.href = '/manual.html';
+                    }
+
+                    // start beta signup if #become-tester is present
+                    if(hash.indexOf('#become-tester') >= 0) {
+                        setTimeout(signUp, 500);
                     }
                 }
 
@@ -645,7 +650,7 @@
         </div>
         <div class="cleareven"></div>
         <div class="last-feature">
-            <img id="become-tester" alt="Working Copy icon" src="img/icon-stylized.png"/>
+            <img id="testflight-signup" alt="Working Copy icon" src="img/icon-stylized.png"/>
             <h3>Become a tester</h3>
             <p>Working Copy is in rapid development. <a onclick="return signUp();" href="#">Get</a> the beta.</p>
             <div class="signup">
