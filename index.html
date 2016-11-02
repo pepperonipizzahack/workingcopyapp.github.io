@@ -544,6 +544,7 @@
                     if(hash.indexOf('#become-tester') >= 0) {
                         setTimeout(signUp, 500);
                     }
+
                 }
 
                 var email = document.getElementById("email");
@@ -676,7 +677,7 @@
 </div>
 <div style="clear: both"> </div>
 <footer>
-    Read the <a href="/manual.html">users’ guide</a> and get in touch by <a href="/enable-js.html" id="email" title="email">email</a>
+    Read the <a href="/manual.html">users’ guide</a> or the <a href="javascript:newsletterSignup()">newsletter</a> and get in touch by <a href="/enable-js.html" id="email" title="email">email</a>
     or on <a href="http://twitter.com/palmin" target="twitter">Twitter</a>.
 </footer>
 <div id="reviews">
@@ -841,5 +842,14 @@
 <script src="js/dd_belatedpng.js"></script>
 <script>DD_belatedPNG.fix('img, .png_bg'); // Fix any <img> or .png_bg bg-images. Also, please read goo.gl/mZiyb</script>
 <![endif]-->
+<script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script>
+<script type="text/javascript">
+    // newsletter signup when ?newsletter is present
+    function newsletterSignup() {
+        require(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us14.list-manage.com","uuid":"650f24a8eda4be09fddf370d7","lid":"c1eccfd902"}) })
+        document.cookie = "MCEvilPopupClosed=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+    }
+    if(window.location.href.indexOf('?newsletter') >= 0) newsletterSignup();
+</script>
 </body>
 </html>
