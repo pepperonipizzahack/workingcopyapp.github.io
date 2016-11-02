@@ -34,9 +34,12 @@
         }
 
         .terminal {
+            opacity: 0;
             color: #35B87C;
             padding: 1em;
             font-family: Consolas, Menlo, Courier, monospace;
+
+            transition: opacity 0.6s;
         }
 
         *::selection {
@@ -58,7 +61,7 @@
         .modal {
             display: none; /* Hidden by default */
             position: fixed; /* Stay in place */
-            z-index: 1; /* Sit on top of regular content */
+            z-index: 20; /* Sit on top of regular content */
             left: 0;
             top: 0;
             width: 100%; /* Full width */
@@ -76,7 +79,7 @@
         /* Modal Content/Box */
         .guru {
             display: none;
-            z-index: 5;
+            z-index: 25;
             font-family: Consolas, Menlo, Courier, monospace;
             font-size: Large;
             background-color: #010101;
@@ -292,7 +295,9 @@
 
                 html = html + footer;
                 html = html.replace(/(?:\r\n|\r|\n)/g, '<br />');
-                $('.terminal').html(html);
+                var terminal = $('.terminal');
+                $(terminal).html(html);
+                $(terminal).css('opacity', '1.0');
 
                 $('a.guess').click(function(e) {
                     e.preventDefault();
