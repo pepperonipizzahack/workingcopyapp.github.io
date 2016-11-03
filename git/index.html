@@ -288,6 +288,8 @@
                     var commit = args['commit'];
                     if(commit) {
                         var url = commitUrlForArgs(link, args);
+                        html += "\n# show diff for commit " + possibleAnchor(commit.substr(0,10), url) + "\n";
+                        html += "git diff " + escape(commit.substr(0,10)) + "\n";
                         html += "\n# detach to commit " + possibleAnchor(commit.substr(0,10), url) + "\n";
                         html += "git checkout " + escape(commit.substr(0,10)) + "\n";
                     }
