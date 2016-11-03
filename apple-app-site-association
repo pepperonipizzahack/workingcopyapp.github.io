@@ -20,5 +20,11 @@
         "paths": [ "/g*" ]
       }
     ]
+  },
+
+  "activitycontinuation": {
+    "apps": [    "4U9NSKBV63.com.appliedphasor.working-copy",
+                 "4U9NSKBV63.com.appliedphasor.working-copy-enterprise"
+            ]
   }
 }
