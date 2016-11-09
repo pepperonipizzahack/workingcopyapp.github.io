@@ -130,10 +130,11 @@
         (function() {
             function decodeArgs() {
                 var args = {};
-                var fragment = window.location.hash;
-                if(fragment) {
-                    fragment = fragment.substr(1);
-                    var parts = fragment.split('&');
+                var data = window.location.search;
+                if(!data || data.length == 0) data = window.location.hash;
+                if(data) {
+                    data = data.substr(1);
+                    var parts = data.split('&');
                     for(var k = 0; k < parts.length; ++k) {
                         var keyval = parts[k].split('=');
                         if(keyval.length != 2) continue;
