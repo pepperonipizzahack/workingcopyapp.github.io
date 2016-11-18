@@ -310,6 +310,13 @@
                             window.location = href;
                         },
                         error: function(jqXHR, textStatus, errorThrown) {
+                            var status = jqXHR.status;
+                            if(status >= 300 && status < 400) {
+                                // ignore non-fatal errors such as redirection
+                                window.location = href;
+                                return;
+                            }
+
                             var leadingUpper = textStatus.charAt(0).toUpperCase() + textStatus.slice(1);
                             var message = "Unable to open " + href + "\n" +
                                     leadingUpper + ": " + errorThrown;
