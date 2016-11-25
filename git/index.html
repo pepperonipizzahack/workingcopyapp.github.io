@@ -302,28 +302,31 @@
                 $(terminal).html(html);
                 $(terminal).css('opacity', '1.0');
 
-                $('a.guess').click(function(e) {
-                    e.preventDefault();
-                    var href = $(this).attr("href");
-                    $.ajax({async: true, url: "/check/?" + href,
-                        success: function(){
-                            window.location = href;
-                        },
-                        error: function(jqXHR, textStatus, errorThrown) {
-                            var status = jqXHR.status;
-                            if(status >= 300 && status < 400) {
-                                // ignore non-fatal errors such as redirection
+                var checkLinks = false;
+                if(checkLinks) {
+                    $('a.guess').click(function(e) {
+                        e.preventDefault();
+                        var href = $(this).attr("href");
+                        $.ajax({async: true, url: "/check/?" + href,
+                            success: function(){
                                 window.location = href;
-                                return;
-                            }
+                            },
+                            error: function(jqXHR, textStatus, errorThrown) {
+                                var status = jqXHR.status;
+                                if(status >= 300 && status < 400) {
+                                    // ignore non-fatal errors such as redirection
+                                    window.location = href;
+                                    return;
+                                }
 
-                            var leadingUpper = textStatus.charAt(0).toUpperCase() + textStatus.slice(1);
-                            var message = "Unable to open " + href + "\n" +
-                                    leadingUpper + ": " + errorThrown;
-                            showError(message);
-                        }
+                                var leadingUpper = textStatus.charAt(0).toUpperCase() + textStatus.slice(1);
+                                var message = "Unable to open " + href + "\n" +
+                                        leadingUpper + ": " + errorThrown;
+                                showError(message);
+                            }
+                        });
                     });
-                });
+                }
             }
 
             function getScript(url,success){
