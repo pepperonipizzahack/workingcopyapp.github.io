@@ -23,15 +23,16 @@
         }
 
         body, input {
+            background-color: #eee;
             font-family: -apple-system, "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
             font-weight: 300;
             color: #222;
-            background-color: #fff;
             font-size: 35px;
         }
 
         body {
             margin-bottom: 0;
+            background: linear-gradient(#fff, #ddd);
         }
 
         #reviews {
@@ -43,6 +44,7 @@
             padding-top: 30px;
             padding-bottom: 20px;
             background-color: #e7e7e7;
+            background-color: rgba(0,0,0, 0.1);
         }
 
         #reviews > div {
@@ -167,16 +169,16 @@
         .frame {
             display: block;
             position: absolute;
-			top:0;
+            top:0;
             width: 100%;
             height: auto;
         }
         #video {
             position: absolute;
-            left: 9.1651%;
-            top: 7.078%;
+            left: 8.30%;
+            top: 6.1%;
             float: left;
-            width: 81.67%;
+            width: 83.5%;
             z-index: 1;
         }
 
@@ -577,7 +579,7 @@
     </header>
     <div class="preview">
         <div id="placeholder"></div>
-        <img class="frame" src="img/iPad-Air-Space-frame@2x.jpg" srcset="img/iPad-Air-Space-frame.jpg 626w, img/iPad-Air-Space-frame@2x.jpg 1252w"
+        <img class="frame" src="img/iPad-Air-Space-frame.png" xxx_srcset="img/iPad-Air-Space-frame.jpg 626w, img/iPad-Air-Space-frame@2x.jpg 1252w"
              alt="Working Copy on iPad Air clones a Git repository which can then be edited
              with Textastic and committed." />
         <video id="video" itemprop="video" controls="" preload="auto" autoplay="" muted="true"
@@ -588,8 +590,8 @@
             <source src="video/frontpage-16.mp4" type="video/mp4">
             <div itemprop="description" style="margin: auto; z-index: 1; width: 60%; font-size: 70%; text-align: center">
                 <a title="Watch video of Working Copy in action." href="video/frontpage.mp4">Working Copy
-                clones a Git repository which can then be edited
-                with Textastic and committed.</a></div>
+                    clones a Git repository which can then be edited
+                    with Textastic and committed.</a></div>
         </video>
     </div>
     <div class="features" id="features">
@@ -621,7 +623,7 @@
         </div>
         <div class="cleareven"></div>
         <div>
-            <img alt="Commit Graph" src="img/graph.jpg" srcset="img/graph@2x.jpg 164w, img/graph.jpg 82w"/>
+            <img alt="Commit Graph" src="img/graph.png" />
             <h3>Code Review</h3>
             <p><a href="manual.html#preview">View</a> and
                 <a href="manual.html#commit-graph">Review</a> your code. Alone or with your team.</p>
