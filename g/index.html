@@ -158,7 +158,7 @@
             function linkForRemote(remote) {
                 // leave http(s) style remotes alone, they are already links
                 if(remote.indexOf('https://') == 0 ||
-                        remote.indexOf('http://') == 0) return remote;
+                   remote.indexOf('http://') == 0) return remote;
 
                 // skip protocol entirely, we do not care if missing (scp style)
                 // or is ssh:// or git://
@@ -181,9 +181,26 @@
                 return 'https://' + link;
             }
 
+            function isBitBucket(args) {
+                var repo = args['repo'];
+                return repo.indexOf("bitbucket.org") >= 0;
+            }
+
             function fileUrlForArgs(link, args) {
-                if(!args['branch'] || !args['path']) return null;
                 var withoutSlash = link.replace(/\/+$/, "");
+                if(!args['path']) return null;
+                if(isBitBucket(args)) {
+                    if(!args["commit"]) return null;
+
+                    var url = withoutSlash + "/src/" + args["commit"] + "/" + encodeURIComponent(args['path']);
+                    if(args["branch"]) {
+                        url += "?at=" + encodeURIComponent(args["branch"]);
+                    }
+                    return url;
+                }
+
+                if(!args['branch']) return null;
+
                 return withoutSlash + "/blob/" + encodeURIComponent(args['branch']) +
                         "/" + encodeURIComponent(args['path']);
             }
@@ -191,13 +208,23 @@
             function branchUrlForArgs(link, args) {
                 if(!args['branch']) return null;
                 var withoutSlash = link.replace(/\/+$/, "");
-                return withoutSlash + "/tree/" + encodeURIComponent(args['branch']);
+                var subdir = isBitBucket(args) ? '/branch/' : '/tree/';
+                return withoutSlash + subdir + encodeURIComponent(args['branch']);
             }
 
             function commitUrlForArgs(link, args) {
                 if(!args['commit']) return null;
                 var withoutSlash = link.replace(/\/+$/, "");
+                if(isBitBucket(args)) {
+                    var url = withoutSlash + "/commits/" + encodeURIComponent(args['commit']);
+                    if(args["branch"]) {
+                        url += "?at=" + encodeURIComponent(args["branch"]);
+                    }
+                    return url;
+                }
+
                 return withoutSlash + "/commit/" + encodeURIComponent(args['commit']);
+
             }
 
             function hostnameForUrl(url) {
