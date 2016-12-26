@@ -174,13 +174,13 @@ working-copy://open?repo=https%3A%2F%2Fgithub.com%2Flibgit2%2Flibgit2&amp;branch
     be the content written to the file at the given <em>path</em>. The text parameter is transferred as UTF-8 but will
     be written in the encoding of the existing file or UTF-8 for new files. </p>
     <pre> working-copy://x-callback-url/write/?key=123ABC&amp;repo=my%20repo&amp;path=README.md&amp;text=hello%20there </pre>
-    <p>Include the parameter <em>append=1</em> to append the <em>text</em> or pasteboard content to
+    <p>Include the parameter <em>append=1</em> to append the <em>text</em> or clipboard content to
         the existing file. The <em>path</em> is relative to repository and must <em>not</em> start with /.</p>
     <p>If you need to write images or other binary files you can transfer the content as <a href="http://en.wikipedia.org/wiki/Base64">base-64</a>
        by using the parameter <em>base64=</em> instead of <em>text=</em>. You need to URL-encode after base-64
        encoding since the characters <em>+</em> and <em>/</em> occur after base-64 coding. This can also be handy
        if you want to overwrite the encoding of a existing file.</p>
-    <p>If you do not include either a <em>text</em> or <em>base64</em> parameter the pasteboard content is written.</p>
+    <p>If you do not include either a <em>text</em> or <em>base64</em> parameter the clipboard content is written.</p>
     <p>If no <em>path</em> parameter is specified the user will be asked to pick a file and if no <em>repo</em>
     is specified either the user will start out by picking a repository. In these situations you can suggest a filename
         with the <em>filename</em> parameter and <em>uti</em> to indicate the
