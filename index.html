@@ -32,7 +32,7 @@
 
         body {
             margin-bottom: 0;
-            background: linear-gradient(#fff, #ddd);
+            background: linear-gradient(#fff, #eee);
         }
 
         #reviews {
@@ -419,8 +419,8 @@
             var post = $.post("/signup.php", { "email": email} )
                     .done(function() {
                         $('.signup').slideUp(300, function() {
-                            //showStatus("You have signed up with " + email + " for beta-testing. Thank you!");
-                            showStatus("You have signed up with " + email + " for beta-testing. I am working on the next beta and you will receive a TestFlight email from Apple as soon as this is ready.");
+                            showStatus("You have signed up with " + email + " for beta-testing. Thank you!");
+                            //showStatus("You have signed up with " + email + " for beta-testing. I am working on the next beta and you will receive a TestFlight email from Apple as soon as this is ready.");
                         });
                     })
                     .fail(function() {
