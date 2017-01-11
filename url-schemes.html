@@ -135,11 +135,12 @@ working-copy://open?repo=https%3A%2F%2Fgithub.com%2Flibgit2%2Flibgit2&amp;branch
         <li><a href="#merging">merge</a> branches.</li>
         <li>start or stop the <a href="#webdav">WebDAV</a> server.</li></ul>
         <li><a href="#listing">list</a> repositories</li></ul>
+        <li>show commit <a href="#log">log</a></li></ul>
         <li><a href="#init">init</a> empty repository</li></ul>
         <li><a href="#chain">chain</a> multiple commands</li></ul>
         </p>
         You can also read a little about creating URL templates in <a href="#drafts-templates">Drafts</a>
-        and <a href="#chaining-callbacks">chaining</a> together callbacks.
+        and manually <a href="#chaining-callbacks">chaining</a> together callbacks.
         </div>
 
     <h2>URL format for x-callback-url</h2>
@@ -336,23 +337,40 @@ working-copy://open?repo=https%3A%2F%2Fgithub.com%2Flibgit2%2Flibgit2&amp;branch
 
     <h2 id="listing">List repositories</h2>
     <div class="inner">
-    <p>Use the <em>repos</em> command to get information about name, status, current branch and remotes for
-        all repositories inside Working Copy in JSON format. </p>
-    <pre> working-copy://x-callback-url/repos</pre>
+        <p>Use the <em>repos</em> command to get information about name, status, current branch and remotes for
+            all repositories inside Working Copy in JSON format. </p>
+        <pre> working-copy://x-callback-url/repos</pre>
     <pre>[{"name":"welcome to working copy", "branch":"master", "head":"d39002a…",
   "status":"tap to learn more", "remotes":[]},
  {"name":"libgit2", "branch":"master", "head":"e70d822…", "status":"nothing to commit",
   "remotes":
-   [{"name":"origin", "fetch":1,"push":1,"url":"https:\/\/github.com\/libgit2\/libgit2.git"}]},
+   [{"name":"origin", "fetch":1,"push":1,"url":"https:\/\/github.com\/libgit2\/libgit2.git"}]}
 ]</pre>
-    <p>It can get a little complicated to work with this JSON, but
-        <a target="app" href="https://itunes.apple.com/app/workflow-powerful-automation/id915249334?mt=8&at=1000lHq">Workflow</a>
-       users can try this small
-        <a target="app" href="https://workflow.is/workflows/a7fb61375f474925a1c047c7e28b3017">workflow</a> that
-        asks the user to pick one of the available repositories and could be used as a component for something
-        bigger. You will need to insert your URL key in the first action.
-    </p>
-  </div>
+        <p>It can get a little complicated to work with this JSON, but
+            <a target="app" href="https://itunes.apple.com/app/workflow-powerful-automation/id915249334?mt=8&at=1000lHq">Workflow</a>
+            users can try this small
+            <a target="app" href="https://workflow.is/workflows/a7fb61375f474925a1c047c7e28b3017">workflow</a> that
+            asks the user to pick one of the available repositories and could be used as a component for something
+            bigger. You will need to insert your URL key in the first action.
+        </p>
+    </div>
+
+    <h2 id="log">Commit Log</h2>
+    <div class="inner">
+        <p>You can read a list of commits with the <em>log</em> command. You need to specify a <em>repo</em>
+            and will get the newest 10 commits in JSON format, unless <em>limit</em> parameter overrides this.
+            To only get commits relevant for particular files or diretories, use the <em>path</em> parameter
+            or use <em>branch</em> to only get commits for that particular branch.
+        <pre> working-copy://x-callback-url/log?repo=my%20repo</pre>
+    <pre>[{"summary":"fix README.md spelling","id":"af6a47f8a831d17513ec13357d11cf3cab222b19",
+  "author":"Anders Borum &lt;palmin@users.noreply.github.com&gt;", "timestamp":"2017-01-08T15:06:20.000Z",
+  "description":"","parent":["133ca4376290313d0359f8ed97a93125a4e2f297"]},
+
+{"summary":"import image assets","id":"47040b679c5bfd8c99f1d0df7b04c5a9af157adc",
+  "author":"Anders Borum &lt;palmin@users.noreply.github.com&gt;", "timestamp":"2017-01-08T15:05:07.000Z",
+  "description":"longer description", "parent":["7f03af16e1bbe820ae48d25a27143c5765007930"]}
+]</pre>
+    </div>
 
     <h2 id="init">Init empty repository</h2>
     <div class="inner">
