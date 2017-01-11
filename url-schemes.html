@@ -398,6 +398,24 @@ working-copy://x-callback-url/chain?repo=%2A&amp;command=pull&amp;command=push</
     </p>
     </div>
 
+    <h2 id="universal-url-arg">Universal Link parameters</h2>
+    <div class="inner">
+        <p>Inside Working Copy you can create Universal Links that describe repositories or
+        files, branches or commits inside repositories with the Share Sheet. </p>
+        <a href="https://workingcopyapp.com/git/#repo=https://github.com/twbs/bootstrap&path=README.md">
+            <pre>https://workingcopyapp.com/git/#repo=https://github.com/twbs/bootstrap&path=README.md</pre></a>
+            <p>Their primary purpose is to make it easy to
+        jump to specific content in Working Copy, but they also serve a purpose as x-callback-url
+        parameters. You can include a Universal Link in the <em>url</em> parameter and all the inner
+            parameters will be extracted and used making the following two commands equivalent:</p>
+        <pre>working-copy://x-callback-url/read?url=https%3A%2F%2Fworkingcopyapp.com%2Fgit%2F%23repo%3Dhttps%3A%2F%2Fgithub.com%2Ftwbs%2Fbootstrap%26path%3DREADME.md
+working-copy://x-callback-url/read?repo=https://github.com/twbs/bootstrap&path=README.md
+        </pre>
+        <p>This is useful when you start a Workflow from within Working Copy, as you can specify
+           the file, directory or repository to act on and send this along as a single parameter.
+        </p>
+    </div>
+
     <h2 id="drafts-templates">Drafts Templates</h2>
     <div class="inner">
         <div class="right">
