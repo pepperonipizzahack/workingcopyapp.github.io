@@ -276,6 +276,40 @@ andrew@company.se/home/andrew/git/site.git/
 
     </div>
 
+    <div id="ssh-clone-catalog" class="inner" style="display: none">
+        <h3 id="ssh-host-warning">SSH Providers</h3>
+        <p>
+            When Working Copy lists your repositories on a regular SSH server, it uses the built-in shell
+            on the server to execute commands. When you create a new repository a series of commands are also executed.</p>
+
+        <p>
+            For this to work <em>git</em>, <em>/bin/sh</em>, <em>find</em> amd <em>mkdir</em> need to be available
+            and have sensible behaviour.
+            If these commands are not available you will get error messages and the server will not work as
+            a hosting provider. The series of commands have been tested on major Linux and BSD variants to
+            work as expected when commands are available and to fail with no side-effects when commands are
+            not available.
+        </p>
+
+        <p> In the rare case where these commands do something else on your server,
+            there is the possibility that using the server as a hosting provider will have unintended
+            consequences and can even cause data loss. When enabling a SSH Server
+            as a hosting provider, Working Copy will execute commands on your behalf, and this is done entirely
+            at your own risk.
+        </p>
+<pre>git --version && echo && find "$path" -type d \( -exec sh -c 'cd "{}"; var=`git 2> /dev/null rev-parse --is-bare-repository`; if [ "$var" = "true" ]; then exit 0; else exit 1; fi' - \; -print -prune \)
+</pre>
+        <p>The script listing repositories starts by making sure <em>git</em> is installed, to avoid doing any work on a server
+        that is unable to function as a remote. It then looks at all directories from the starting <em>path</em>
+        of your hosting provider and outputs the ones that are <em>bare</em> repositories. Notice that non-bare repositories
+        will not be included.</p>
+<pre>git --version && cd "$path" && mkdir "$repo" && cd "$repo" && git init --bare
+</pre>
+        <p>When creating repositories we also make sure <em>git</em> is installed. All the commands need to
+            complete without error for the next one to start. If you try to create a <em>repo</em> where a directory already
+            resides, <em>mkdir</em> fails and <em>git init</em> never runs.</p>
+    </div>
+
     <div class="inner">
         <h3 id="ssh-keys">2.2 SSH keys</h3>
         <div class="right"><img class="right" onload="imgLoaded(this)" src="img/ssh-config-30.png"
@@ -907,6 +941,11 @@ andrew@company.se/home/andrew/git/site.git/
 
         getScript('js/jquery.min.js',function(){
             resolveEmails();
+
+            if(window.location.hash == "#ssh-host-warning") {
+                $('#ssh-clone-catalog').show();
+                scrollToIdentifier('#ssh-host-warning');
+            }
 
             $('a[href^="#"]').on('click',function (e) {
                 e.preventDefault();
