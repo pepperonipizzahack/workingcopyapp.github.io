@@ -288,14 +288,14 @@ andrew@company.se/home/andrew/git/site.git/
             If these commands are not available you will get error messages and the server will not work as
             a hosting provider. The series of commands have been tested on major Linux and BSD variants to
             work as expected when commands are available and to fail with no side-effects when commands are
-            not available.
+            unavailable.
         </p>
 
         <p> In the rare case where these commands do something else on your server,
             there is the possibility that using the server as a hosting provider will have unintended
             consequences and can even cause data loss. When enabling a SSH Server
             as a hosting provider, Working Copy will execute commands on your behalf, and this is done entirely
-            at your own risk.
+            at your own risk. You can investigate the
         </p>
 <pre>git --version && echo && find "$path" -type d \( -exec sh -c 'cd "{}"; var=`git 2> /dev/null rev-parse --is-bare-repository`; if [ "$var" = "true" ]; then exit 0; else exit 1; fi' - \; -print -prune \)
 </pre>
