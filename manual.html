@@ -304,7 +304,7 @@ andrew@company.se/home/andrew/git/site.git/
         that is unable to function as a remote. It then looks at all directories from the starting <em>path</em>
         of your hosting provider and outputs the ones that are <em>bare</em> repositories. Notice that non-bare repositories
         will not be included.</p>
-<pre>git --version && cd "$path" && mkdir "$repo" && cd "$repo" && git init --bare
+<pre>git --version && cd "$path" && mkdir "$repo" && cd "$repo" && ( var=`git 2> /dev/null rev-parse --is-inside-git-dir`; if [ "$var" = "true" ]; then echo "Unable to create repository inside existing repository"; exit 1; fi ) && ( var=`git 2> /dev/null rev-parse --is-inside-work-tree`; if [ "$var" = "true" ]; then echo "Unable to create repository inside existing repository"; exit 1; fi ) && git init --bare
 </pre>
         <p>When creating repositories we also make sure <em>git</em> is installed. All the commands need to
             complete without error for the next one to start. If you try to create a <em>repo</em> where a directory already
