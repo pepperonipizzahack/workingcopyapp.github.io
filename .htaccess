@@ -34,3 +34,7 @@ ErrorDocument 404 /404.html
 RewriteEngine On
 RewriteBase "/"
 RewriteRule "^x-callback-url\.html$"  "url-schemes.html"
+
+# Maps /manual/clone-catalog to /manual/index.php?clone-catalog
+RewriteRule    "^(manual/index\.php.*)$"  "$1"   [L]
+RewriteRule    "^manual/(.+)$"  "manual/index.php?hash=$1"   [L]
