@@ -18,6 +18,7 @@ for section in $sections; do
 	
 	# extract title
 	title=`echo "$markup" | grep -E '<h[1-4] ' | head -n 1 | sed -e 's/<[^>]*>//g' | sed -e 's/^ *//'`
+	title=`echo "$title" | sed -e 's/^[ 0-9.]*//'`
 	echo title="$title"
 	
 	# extract summary
