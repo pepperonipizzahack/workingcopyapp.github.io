@@ -21,7 +21,7 @@ for section in $sections; do
 	echo title="$title"
 	
 	# extract summary
-	summary=`echo "$markup" | sed -n "/<p>/,/<\/p>/p" | sed -e 's/<[^>]*>//g' | sed -e 's/^ *//' | tr '\n' ' ' | sed -e 's/ +/ /g' | cut -d ' ' -f 1-80 `
+	summary=`echo "$markup" | sed -n "/<p>/,/<\/p>/p" | sed -e 's/<[^>]*>//g' | sed -e 's/^ *//' | tr '\n' ' ' | sed -e 's/ +/ /g' | cut -d ' ' -f 1-250 `
 	summary="$summary..."
 	echo "$summary"
 	
