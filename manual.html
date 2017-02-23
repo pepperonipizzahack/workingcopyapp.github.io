@@ -21,16 +21,12 @@
     <meta name="twitter:title" content="Working Copy - Users Guide">
     <meta name="twitter:description" content="Learn how to use this powerful Git client for iOS, for stand-alone Post-PC development or to complement your existing workflow.">
     <meta name="twitter:image" content="https://WorkingCopyApp.com/img/action-shot-71.jpg">
-    <meta name="twitter:app:name:iphone" content="Working Copy">
-    <meta name="twitter:app:id:iphone" content="896694807">
-    <meta name="twitter:app:name:ipad" content="Working Copy">
-    <meta name="twitter:app:id:ipad" content="896694807">
     <script>
         // redirect /manual/section-name to manual.html#section-name
         var pathname = window.location.pathname;
         if(pathname.indexOf("/manual/") == 0 && !window.location.hash && pathname.indexOf("/manual.html") < 0) {
             var section = pathname.substr("/manual/".length).replace(/\/+$/, "");
-            //window.location = window.location.protocol + "//" + window.location.host + "/manual.html#" + section;
+            window.location = window.location.protocol + "//" + window.location.host + "/manual.html#" + section;
         }
     </script>
     <script>
@@ -970,6 +966,13 @@ andrew@company.se/home/andrew/git/site.git/
             var hash = window.location.hash;
             if(hash == "#ssh-host-warning" || hash == "#ssh-host-info") {
                 showSecureShellInfo();
+            } else if(hash) {
+                // if there is element with this name, we adjust style of url
+                var id = hash.substring(1);
+                if(history && document.getElementById(id)) {
+                    var url = "/manual/" + id;
+                    history.replaceState({}, "", url);
+                }
             }
 
             $('a[href^="#"]').on('click',function (e) {
