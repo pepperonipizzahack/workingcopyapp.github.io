@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Working Copy Users’ guide</title>
     <link rel="shortcut icon" href="/img/favicon.png">
+    <base href=/">
     <meta name="author" content="Anders Borum">
     <meta name="keywords" content="iOS,git,repository,programming,automation,workflow,x-callback-url,WebDAV">
     <meta name="apple-itunes-app" content="app-id=896694807">
@@ -19,7 +20,7 @@
     <meta name="twitter:site" content="@palmin">
     <meta name="twitter:title" content="Working Copy - Users Guide">
     <meta name="twitter:description" content="Learn how to use this powerful Git client for iOS, for stand-alone Post-PC development or to complement your existing workflow.">
-    <meta name="twitter:image" content="http://WorkingCopyApp.com/img/action-shot-71.jpg">
+    <meta name="twitter:image" content="https://WorkingCopyApp.com/img/action-shot-71.jpg">
     <meta name="twitter:app:name:iphone" content="Working Copy">
     <meta name="twitter:app:id:iphone" content="896694807">
     <meta name="twitter:app:name:ipad" content="Working Copy">
@@ -852,7 +853,7 @@ andrew@company.se/home/andrew/git/site.git/
         }, 900, 'swing', function () {
 
             if(false && history) {
-                var url = "https://workingcopyapp.com/manual/" + id.substr(1);
+                var url = "/manual/" + id.substr(1);
                 history.replaceState({}, "", url);
             } else {
                 window.location.hash = id;
