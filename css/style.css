@@ -9,8 +9,14 @@
 }
 
 body {
+    background-color: #fff;
     color: #222;
     font-size: 17px;
+}
+
+body.dark {
+    background-color: #111;
+    color: #eee;
 }
 
 body {
@@ -33,6 +39,11 @@ em {
     font-size: 90%;
     color: #000000;
     background-color: #ecf0f3;
+}
+
+body.dark em, body.dark pre {
+    color: #fff;
+    background-color: #333;
 }
 
 /* use background color from resolve tool */
@@ -64,6 +75,14 @@ h1 {
     font-size: 115%;
 }
 
+.subhead {
+    color: darkred;
+}
+
+body.dark .subhead {
+    color: #ff061c;
+}
+
 a:link, a:visited, a:hover, a:active {
     color: #222;
     text-decoration: none;
@@ -73,6 +92,18 @@ a:link, a:visited, a:active {
 }
 a:hover {
     border-bottom: 2px solid #222;
+}
+
+body.dark a:link, body.dark a:visited,
+body.dark a:hover, body.dark a:active {
+    color: #ddd;
+}
+
+body.dark a:link, body.dark a:visited, body.dark a:active {
+    border-bottom: 1px solid #ddd;
+}
+body.dark a:hover {
+    border-bottom: 2px solid #ddd;
 }
 
 a img {
@@ -181,6 +212,10 @@ ul li a {
 
 .toc a:hover, h1 a:hover {
     border-bottom: 2px solid #222 !important;
+}
+
+body.dark .toc a:hover, body.dark h1 a:hover {
+    border-bottom: 2px solid #ddd !important;
 }
 
 sup {
