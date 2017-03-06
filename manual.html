@@ -45,7 +45,8 @@
     </script>
 </head><body>
 <header>
-    <h1 itemprop="name"><a href="/">Working Copy</a> <div style="color: darkred">Users’ guide</div></h1>
+    <h1 itemprop="name"><a href="/">Working Copy</a>
+                        <div class="subhead">Users’ guide</div></h1>
 </header>
 <div class="outer">
     <nav>
@@ -104,7 +105,7 @@
         <h3 id="cloning-repos">1.1 Cloning repositories</h3>
         <div class="left">
          <img class="animated" onload="imgLoaded(this)" src="img/clone-77.jpg" alt="Video showing cloning on phone: User presses + in the upper right corner and picks clone. Picks protocol, types username, hostname and path on the Other tab. Picks repository from list on GitHub tab. Presses Clone to start transfer. When cloning completes the repository contents are shown."
-           srcset="img/clone-77.jpg 200w, img/clone-77-400.jpg 400w, img/clone-77-645.jpg 645w"/>
+              _dark_src="img/clone-77.png" srcset="img/clone-77.jpg 200w, img/clone-77-400.jpg 400w, img/clone-77-645.jpg 645w"/>
         </div>
         <p>The first step is to get hold of a local copy of the Git repositories you want to access.
             Duplicating a repository from a remote server is
@@ -844,6 +845,22 @@ andrew@company.se/home/andrew/git/site.git/
 <script>DD_belatedPNG.fix('img, .png_bg'); // Fix any <img> or .png_bg bg-images. Also, please read goo.gl/mZiyb</script>
 <![endif]-->
 <script>
+    if(window.document.location.search.indexOf('darkmode') >= 0) {
+        document.body.className = 'dark';
+
+        // run through all image with _dark_src and replace src and remove srcset to get transparent
+        // images
+        var imgs = document.getElementsByTagName('img');
+        for(var k = 0; k < imgs.length; ++k) {
+            var img = imgs[k];
+            var src =  img.getAttribute('_dark_src');
+            if(src) {
+                img.setAttribute('src', src);
+                img.setAttribute('srcset', '');
+            }
+        }
+    }
+
     function rev(s) { return s.length <= 1 ? s : rev(s.substr(1)) + s.substr(0,1); }
 
     function showLanguages() {
@@ -984,7 +1001,8 @@ andrew@company.se/home/andrew/git/site.git/
                 scrollToIdentifier(this.hash);
             });
 
-            var noVideos = window.document.location.search.indexOf('novideo') >= 0;
+            var search = window.document.location.search;
+            var noVideos = search.indexOf('novideo') >= 0 || search.indexOf('darkmode') >= 0;
             if(!noVideos) setupVideos();
         });
     })();
