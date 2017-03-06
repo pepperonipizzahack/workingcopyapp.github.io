@@ -15,8 +15,8 @@ body {
 }
 
 body.dark {
-    background-color: #111;
-    color: #eee;
+    background-color: #1f1f1f;
+    color: #ddd;
 }
 
 body {
@@ -43,7 +43,7 @@ em {
 
 body.dark em, body.dark pre {
     color: #fff;
-    background-color: #333;
+    background-color: #222;
 }
 
 /* use background color from resolve tool */
