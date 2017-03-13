@@ -37,8 +37,10 @@ for section in $sections; do
 	# extract image
 	imginfo=`echo "$markup" | grep -E -A1 '<img ' | head -n 2`
 	image=`echo "$imginfo" | awk -F'srcset=' '{print $2}' | awk -F'"' '{print $2}'`
+	#echo "imginfo=$imginfo"
+	#echo "image=$image"
 	if [ "$image" == "" ]; then
-		image=`echo "$imginfo" | awk -F'src=' '{print $2}' | awk -F'"' '{print $2}'`
+		image=`echo "$imginfo" | awk -F' src=' '{print $2}' | awk -F'"' '{print $2}' | tr '\n' ' ' | sed -e 's/^ *//'`
 	else
 		# grab last source
 		srcset=`echo "$image" | tail -n 1`
