@@ -419,8 +419,8 @@
             var post = $.post("/signup.php", { "email": email} )
                     .done(function() {
                         $('.signup').slideUp(300, function() {
-                            showStatus("You have signed up with " + email + " for beta-testing. Thank you!");
-                            //showStatus("You have signed up with " + email + " for beta-testing. I am working on the next beta and you will receive a TestFlight email from Apple as soon as this is ready.");
+                            //showStatus("You have signed up with " + email + " for beta-testing. Thank you!");
+                            showStatus("You have signed up with " + email + " for beta-testing. I am working on the next beta and you will receive a TestFlight email from Apple as soon as this is ready.");
                         });
                     })
                     .fail(function() {
@@ -596,8 +596,8 @@
     </div>
     <div class="features" id="features">
         <div>
-            <img alt="iOS 9 icon" src="img/ios9.png" srcset="img/ios9@2x.png 93w, img/ios9.png 47w"/>
-            <h3>iOS 9 capable</h3>
+            <img alt="iOS 10 icon" src="img/ios10.png" srcset="img/ios10@2x.png 93w, img/ios10.png 46w"/>
+            <h3>iOS 10 capable</h3>
             <p>Supports Split View, 3D Touch and SpotLight search.</p>
         </div>
         <div>
