@@ -43,7 +43,7 @@ em {
 
 body.dark em, body.dark pre {
     color: #fff;
-    background-color: #222;
+    background-color: #383838;
 }
 
 /* use background color from resolve tool */
