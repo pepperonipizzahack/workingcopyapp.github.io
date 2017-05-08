@@ -421,8 +421,8 @@
             var post = $.post("/signup.php", { "email": email} )
                     .done(function() {
                         $('.signup').slideUp(300, function() {
-                            //showStatus("You have signed up with " + email + " for beta-testing. Thank you!");
-                            showStatus("You have signed up with " + email + " for beta-testing. I am working on the next beta (which will be a big update to celebrate reaching version 3.0.0) and you will receive a TestFlight email from Apple as soon as this is ready.");
+                            showStatus("You have signed up with " + email + " for beta-testing. Thank you!");
+                            //showStatus("You have signed up with " + email + " for beta-testing. I am working on the next beta and you will receive a TestFlight email from Apple as soon as this is ready.");
                         });
                     })
                     .fail(function() {
@@ -734,7 +734,7 @@
     </div>
     <div>
         <h4>sketchyTech: <span><a href="http://sketchytech.blogspot.dk/2015/07/github-on-your-ipad-working-copy-app.html" target="review">GitHub on your iPad: Working Copy App Review</a></span></h4>
-        <p>The app is billed as a "a powerful Git client for iOS 8 that clones, edits, commits, pushes & more". There is nothing in this statement that it doesn't live up to.
+        <p>The app is billed as a "a powerful Git client for iOS 8 that clones, edits, commits, pushes &amp; more". There is nothing in this statement that it doesn't live up to.
             If you're looking for something to work with GitHub on the move then I can highly recommend. Is it worth the money? Definitely.</p>
     </div>
     <div>
