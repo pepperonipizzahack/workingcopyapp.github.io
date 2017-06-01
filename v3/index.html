@@ -11,7 +11,7 @@
     <link rel="shortcut icon" href="/img/favicon.png">
     <meta name="author" content="Anders Borum">
     <meta name="keywords" content="iOS,git,app,GitHub,BitBucket,iPad,iPhone,repository,programming,tools,WebDAV">
-    <meta name="description" content="Working Copy is a powerful Git client for iOS that clones, edits, commits, pushes and more.">
+    <meta name="description" content="Working Copy is the powerful Git client for iOS that clones, edits, commits, pushes and more.">
     <style>
         @media print {
             video {
@@ -405,6 +405,44 @@
             color: #333;
         }
 
+        #product-hunt {
+            position: fixed;
+            z-index: 100;
+            bottom: 0;
+            right:-40em;
+            opacity: 0;
+            background-color: rgba(30, 30, 30, 0.75);
+        }
+
+        #product-hunt div {
+            color: #DA552F;
+            font-weight: 700;
+            font-size: smaller;
+        }
+
+        #product-hunt a:link,
+        #product-hunt a:hover,
+        #product-hunt a:visited,
+        #product-hunt a:active {
+            color: #DA552F;
+            border-bottom: 1px solid #DA552F;
+            white-space: nowrap;
+        }
+
+        #product-hunt a:hover {
+            border-bottom: 2px solid #DA552F;
+        }
+
+        #product-hunt div {
+            padding-left: 1em;
+            padding-top: 0.5em;
+        }
+
+        #product-hunt img {
+            float: right;
+            height: 3em;
+        }
+
     </style>
     <script>
         function rev(s) { return s.length <= 1 ? s : rev(s.substr(1)) + s.substr(0,1); }
@@ -554,6 +592,12 @@
 
                 var email = document.getElementById("email");
                 email.href = "mailto:" + rev("moc.ppaypocgnikrow@sredna");
+
+                /*$('#product-hunt').delay(1.1).animate({"right":"0", "opacity": "1"}, 1000);
+
+                $('#product-hunt').click(function() {
+                    $(this).animate({"opacity": "0", "right":"-40em"});
+                })*/
             });
         })();
 
@@ -572,7 +616,7 @@
     <header>
         <h1 itemprop="name">Working Copy 3</h1>
         <div>
-            <div class="summary" itemprop="description">a powerful Git client for
+            <div class="summary" itemprop="description">the powerful Git client for
                 <span itemprop="operatingSystem">iOS</span>
                 that clones, edits, commits,
                 pushes &amp; <a id="more" href="#">more</a>.
@@ -674,6 +718,12 @@
         </div>-->
 
         <div style="clear: both;"></div>
+    </div>
+    <div id="product-hunt"><a >
+        <a href="https://www.producthunt.com/posts/working-copy-v3"><img alt="Product Hunt" src="/img/product-hunt.png" /></a>
+        <div>The app is on
+            <a href="https://www.producthunt.com/posts/working-copy-v3">Product Hunt</a>. Please stop by.</div>
+       </a>
     </div>
     <span itemprop="aggregateRating" itemscope="itemscope" itemtype="http://schema.org/AggregateRating">
      <meta content="4.7" itemprop="ratingValue">

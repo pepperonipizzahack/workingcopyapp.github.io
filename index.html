@@ -4,13 +4,14 @@
 <!--[if IE 8 ]>    <html class="no-js ie8" lang="en"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 <head>
+    <base href="https://workingcopyapp.com/" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Working Copy, Git on iOS</title>
     <link rel="shortcut icon" href="/img/favicon.png">
     <meta name="author" content="Anders Borum">
     <meta name="keywords" content="iOS,git,app,GitHub,BitBucket,iPad,iPhone,repository,programming,tools,WebDAV">
-    <meta name="description" content="Working Copy is a powerful Git client for iOS that clones, edits, commits, pushes and more.">
+    <meta name="description" content="Working Copy is the powerful Git client for iOS that clones, edits, commits, pushes and more.">
     <style>
         @media print {
             video {
@@ -404,6 +405,44 @@
             color: #333;
         }
 
+        #product-hunt {
+            position: fixed;
+            z-index: 100;
+            bottom: 0;
+            right:-40em;
+            opacity: 0;
+            background-color: rgba(30, 30, 30, 0.75);
+        }
+
+        #product-hunt div {
+            color: #DA552F;
+            font-weight: 700;
+            font-size: smaller;
+        }
+
+        #product-hunt a:link,
+        #product-hunt a:hover,
+        #product-hunt a:visited,
+        #product-hunt a:active {
+            color: #DA552F;
+            border-bottom: 1px solid #DA552F;
+            white-space: nowrap;
+        }
+
+        #product-hunt a:hover {
+            border-bottom: 2px solid #DA552F;
+        }
+
+        #product-hunt div {
+            padding-left: 1em;
+            padding-top: 0.5em;
+        }
+
+        #product-hunt img {
+            float: right;
+            height: 3em;
+        }
+
     </style>
     <script>
         function rev(s) { return s.length <= 1 ? s : rev(s.substr(1)) + s.substr(0,1); }
@@ -553,6 +592,12 @@
 
                 var email = document.getElementById("email");
                 email.href = "mailto:" + rev("moc.ppaypocgnikrow@sredna");
+
+                $('#product-hunt').delay(1.1).animate({"right":"0", "opacity": "1"}, 1000);
+
+                $('#product-hunt').click(function() {
+                    $(this).animate({"opacity": "0", "right":"-40em"});
+                })
             });
         })();
 
@@ -571,7 +616,7 @@
     <header>
         <h1 itemprop="name">Working Copy</h1>
         <div>
-            <div class="summary" itemprop="description">a powerful Git client for
+            <div class="summary" itemprop="description">the powerful Git client for
                 <span itemprop="operatingSystem">iOS</span>
                 that clones, edits, commits,
                 pushes &amp; <a id="more" href="#">more</a>.
@@ -606,10 +651,9 @@
             <p>Supports Split View, 3D Touch and SpotLight search.</p>
         </div>
         <div>
-            <img alt="Airplane mode" src="img/airplane.png"/>
-            <h3>Work Offline</h3>
-            <p><a href="/manual.html#cloning-repos">Clone</a> repositories making them fully
-                available even when offline.</p>
+            <img alt="magnifying glass" src="img/search.png"/>
+            <h3>Fuzzy Search</h3>
+            <p>Navigate by querying filenames, symbols or text occurrences.</p>
         </div>
         <div class="cleareven"></div>
         <div>
@@ -636,13 +680,8 @@
         <div>
             <img alt="Two nodes merged to one." src="img/merge.png"/>
             <h3>Resolve Tool</h3>
-            <p><a href="/manual.html#resolve-tool">Resolve</a> merge conflicts with speed and safety.</p>
+            <p>Fix merge &amp; rebase <a href="/manual.html#resolve-tool">conflicts</a> with speed and safety.</p>
         </div>
-        <!--<div>
-            <img alt="Git logo" src="img/git.png"/>
-            <h3>Fits your workflow</h3>
-            <p>Fetches from and pushes to your existing <a href="/manual.html#remotes">remotes</a>.</p>
-        </div>-->
         <div class="cleareven"></div>
         <div class="clearthird"></div>
         <div>
@@ -657,6 +696,12 @@
         </div>
         <div class="cleareven"></div>
         <div class="last-feature">
+            <img alt="Airplane mode" src="img/airplane.png"/>
+            <h3>Work Offline</h3>
+            <p><a href="/manual.html#cloning-repos">Clone</a> repositories making them fully
+                available even when offline.</p>
+        </div>
+        <!-- <div class="last-feature">
             <img id="testflight-signup" alt="Working Copy icon" src="img/icon-stylized.png"/>
             <h3>Become a tester</h3>
             <p>Working Copy is in rapid development. <a onclick="return signUp();" href="#">Get</a> the beta.</p>
@@ -670,9 +715,15 @@
                     will not be used for anything else.</p>
             </div>
             <div id="status"></div>
-        </div>
+        </div>-->
 
         <div style="clear: both;"></div>
+    </div>
+    <div id="product-hunt"><a >
+        <a href="https://www.producthunt.com/posts/working-copy-v3"><img alt="Product Hunt" src="/img/product-hunt.png" /></a>
+        <div>The app is on
+            <a href="https://www.producthunt.com/posts/working-copy-v3">Product Hunt</a>. Please stop by.</div>
+    </a>
     </div>
     <span itemprop="aggregateRating" itemscope="itemscope" itemtype="http://schema.org/AggregateRating">
      <meta content="4.7" itemprop="ratingValue">
