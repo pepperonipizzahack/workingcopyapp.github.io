@@ -495,11 +495,24 @@ andrew@company.se/home/andrew/git/site.git/
             order but characters in the match can be skipped. The query <em>read.md</em>
             will fuzzy match both <em><u>read</u>me<u>.md</u></em> and <em><u>read</u>me<u>.m</u>ark<u>d</u>own</em> but the first one
             will be ranked higher because it is closer to a non-fuzzy match.
-
-
-            This can be
-            combined by starting with
-
+        </p><p>
+            When you type several search words they all have to match either a filename, symbol, line number or text.
+            The query <em>read.md 10</em> will be understood in the following ways
+            <ul>
+             <li>line 10 of the files where name fuzzy matches "read.md"</li>
+             <li>occurrences of the text "10" in files where name fuzzy matches "read.md"</li>
+             <li>files containing the text "read.md" and "10"</li>
+            </ul>
+           To make it easier to restrict queries the words matching the filename must be the start of your query and search results
+           matching filenames or symbols will appear at the top of search results with lower ranking the more fuzzyness was
+           required to reach a match.
+        </p>
+        <p>
+         To satisfy searching for symbols and text content all files in your repistory need to be read and parsed.
+         When you search for the first time in a large repository, indexing can take several minutes and the progress is shown
+            in the search field. Filename searches will be available almost immediately while symbol and text content results will
+            update as the repository is indexed. When you search a repository that has been indexed previously only files
+            that have changed since the last search will be indexed, which requires much less work.
 
         </p>
         <p>Search from the editor uses your current selection or the word the cursor is as the start of your search,
