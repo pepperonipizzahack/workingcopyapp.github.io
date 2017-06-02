@@ -483,46 +483,50 @@ andrew@company.se/home/andrew/git/site.git/
     </div><div class="inner">
 
         <h3 id="search">3.3&nbsp;Search and navigation</h3>
-        <div class="right"><img class="right animated" src="img/content-preview.png" onload="imgLoaded(this)" /></div>
-
         <p>
-           You can search from directory listings or from the <em>Content</em> tab of the editor. Search from directory
-           listing only shows results from that location in the file hierarchy including files in sub-directories. Search from
-            the editor includes the entire repository.
-        </p>
-        <p>Your search query will be matched against filenames, symbols, line numbers, text content and results. For filenames
-            and symbols a fuzzy matching will be performed which means that the characters in query must occur in the correct
-            order but characters in the match can be skipped. The query <em>read.md</em>
+            When you search from the top of directory listings, results are included from this location
+            in the file hierarchy including files inside sub-directories. Search from the <em>Content</em> tab of a file
+            includes results from the entire repository.
+       </p>
+    <div class="ipad"><img class="ipad animated" src="img/manual-search.png" onload="imgLoaded(this)" /></div>
+    <p>Search queries will be matched against filenames, symbols, line numbers and text content. For filenames
+            and symbols a fuzzy matching will be performed which means that the characters in query must occur in the given
+            order but characters can be skipped. The query <em>read.md</em>
             will fuzzy match both <em><u>read</u>me<u>.md</u></em> and <em><u>read</u>me<u>.m</u>ark<u>d</u>own</em> but the first one
-            will be ranked higher because it is closer to a non-fuzzy match.
+            will be ranked higher as it's closer to a non-fuzzy match.
         </p><p>
             When you type several search words they all have to match either a filename, symbol, line number or text.
-            The query <em>read.md 10</em> will be understood in the following ways
+            The query <em>read.md 10</em> will be understood as
             <ul>
              <li>line 10 of the files where name fuzzy matches "read.md"</li>
              <li>occurrences of the text "10" in files where name fuzzy matches "read.md"</li>
              <li>files containing the text "read.md" and "10"</li>
             </ul>
-           To make it easier to restrict queries the words matching the filename must be the start of your query and search results
+           To make it easier to restrict queries, the words matching the filename must lead your query and search results
            matching filenames or symbols will appear at the top of search results with lower ranking the more fuzzyness was
            required to reach a match.
         </p>
         <p>
-         To satisfy searching for symbols and text content all files in your repistory need to be read and parsed.
+           All files in your repository need to be read and parsed to satisfy searching for symbols and text content.
          When you search for the first time in a large repository, indexing can take several minutes and the progress is shown
-            in the search field. Filename searches will be available almost immediately while symbol and text content results will
-            update as the repository is indexed. When you search a repository that has been indexed previously only files
-            that have changed since the last search will be indexed, which requires much less work.
-
+           in the right part of the search field. Filename searches will be available almost immediately
+            while symbol and text content results will
+            update as the repository is indexed. Only files that have changed since the last search will be indexed
+            when you search a repository that has been indexed previously, requiring much less work.
         </p>
-        <p>Search from the editor uses your current selection or the word the cursor is as the start of your search,
-           supporting quick lookup of where a symbol is declared or the reverse where your search for usages of
-           a. Invoking search when looking at the <em>Content</em> tab of a non-text file the query will be your
-            current filename, letting you lookup usages of that particular file.
+        <p>Editor search uses your current selection or the word at your cursor as the start of your search.
+           This is convenient to lookup a symbol declaration or the usages of
+           a function or class. Invoking search when looking at the <em>Content</em> tab of a non-text file the query will be your
+            current filename, showing usages of that particular file.
         </p>
-        <p> The prefilled query is selected such that it can be deleted with a single backspace. When the query is
+        <p> The prefilled query is selected such that it can be deleted with a single keypress and when the query is
             empty you are shown recent edit points, which is useful for quick back and forth navigation.
         </p>
+       <p>Typing on a external keyboard it can be efficient to not more your hands from the keyboard to the screen.
+          The arrow keys let you cycle through search history, but this makes it impossible to navigate search results
+          with these keys. The trick is to refine your query until the result you want is the top one,
+           and ⌘⏎ lets you pick the top result.
+          </p>
 
     </div><div class="inner">
     <h3 id="file-changes">3.4 File changes</h3>
@@ -1016,7 +1020,7 @@ andrew@company.se/home/andrew/git/site.git/
 
                 var playButton = document.createElement("img");
                 playButton.setAttribute("class", "playButton");
-                playButton.setAttribute("src", "video/play.png");
+                playButton.setAttribute("src", "video/play-grey.png");
 
                 var source = document.createElement("source");
                 source.setAttribute("src", "video/" + base + ".mp4");
