@@ -59,8 +59,12 @@ for section in $sections; do
 	
 	# replace image when valid
 	if [[ ! -z "$image" ]]; then
-		imgsrc="https://workingcopyapp.com/$image"
-		echo "image=$imgsrc"
+
+        image="${image#"${image%%[![:space:]]*}"}"    # remove leading whitespace characters
+        image="${image%"${image##*[![:space:]]}"}"    # remove trailing whitespace characters
+
+    	imgsrc="https://workingcopyapp.com/$image"
+		echo "image='$imgsrc'"
 				
 		# we use ! as regular expression delimiter intead of /
 		content=`echo "$content" | sed -e "s!<meta property=\"og:image\" [^>]*>!<meta property=\"og:image\" content=\"$imgsrc\">!"` || exit
