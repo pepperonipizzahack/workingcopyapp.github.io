@@ -192,13 +192,12 @@
         }
 
         .download-button {
-            display: inline-block;
+            display: block;
             border: 0 !important;
-            position: relative;
+            position: absolute;
             right: 0;
-            bottom: 0;
+            top: 0;
             margin: 5px;
-            float: right;
         }
 
         /* 100% */
@@ -206,15 +205,12 @@
             font-size: 31px;
         }
         .download-button img {
-            height: 30px;
+            height: 1.5em;
         }
 
         @media screen and (max-width: 1252px) { /* 80% */
             body {
                 font-size: 30px;
-            }
-            .download-button img {
-                height: 28px;
             }
         }
 
@@ -222,17 +218,11 @@
             body {
                 font-size: 28px;
             }
-            .download-button img {
-                height: 27px;
-            }
         }
 
         @media screen and (max-width: 835px) { /* 50% */
             body {
                 font-size: 25px;
-            }
-            .download-button img {
-                height: 23px;
             }
         }
 
@@ -240,26 +230,17 @@
             body {
                 font-size: 25px;
             }
-            .download-button img {
-                height: 23px;
-            }
         }
 
         @media screen and (max-width: 501px) { /* 29% */
             body {
                 font-size: 22px;
             }
-            .download-button img {
-                height: 21px;
-            }
         }
 
         @media screen and (max-width: 363px) { /* 25% */
             body {
                 font-size: 18px;
-            }
-            .download-button img {
-                height: 16px;
             }
         }
 
@@ -612,6 +593,8 @@
         ga('send', 'pageview');
     </script>
 </head><body>
+<a href="https://itunes.apple.com/us/app/working-copy/id896694807?mt=8&amp;uo=6&amp;at=1000lHq&amp;ct=" target="itunes"
+   title="Download on the App Store"  class="download-button"><img src="img/download-on-the-app-store.png" /></a>
 <div itemscope itemtype="http://schema.org/SoftwareApplication">
     <header>
         <h1 itemprop="name">Working Copy</h1>
@@ -622,8 +605,6 @@
                 pushes &amp; <a id="more" href="#">more</a>.
             </div>
             <a onclick="return preSignUp();" href="#" class="beta-button"><span>Sign-Up</span></a>
-            <a href="https://itunes.apple.com/us/app/working-copy/id896694807?mt=8&amp;uo=6&amp;at=1000lHq&amp;ct=" target="itunes"
-               title="Get it now!"  class="download-button"><img src="img/download-on-the-app-store.png" /></a>
             <div style="clear: both;"></div>
         </div>
     </header>
