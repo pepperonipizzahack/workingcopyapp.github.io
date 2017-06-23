@@ -136,6 +136,7 @@ working-copy://open?repo=https%3A%2F%2Fgithub.com%2Flibgit2%2Flibgit2&amp;branch
         <li>start or stop the <a href="#webdav">WebDAV</a> server.</li></ul>
         <li><a href="#listing">list</a> repositories</li></ul>
         <li>show commit <a href="#log">log</a></li></ul>
+        <li>list <a href="#branches">branches</a></li></ul>
         <li><a href="#init">init</a> empty repository</li></ul>
         <li><a href="#chain">chain</a> multiple commands</li></ul>
         </p>
@@ -370,6 +371,21 @@ working-copy://open?repo=https%3A%2F%2Fgithub.com%2Flibgit2%2Flibgit2&amp;branch
   "author":"Anders Borum &lt;palmin@users.noreply.github.com&gt;", "timestamp":"2017-01-08T15:05:07.000Z",
   "description":"longer description", "parent":["7f03af16e1bbe820ae48d25a27143c5765007930"]}
 ]</pre>
+    </div>
+
+    <h2 id="branches">List branches</h2>
+    <div class="inner">
+        <p>Use the <em>branches</em> command to enquire about all local and remote
+            branches in a repository.</p>
+        <pre> working-copy://x-callback-url/branches?repo=my%20repo</pre><br/>
+        <pre>
+[{"name":"master",
+  "head":"af6a47f8a831d17513ec13357d11cf3cab222b19",
+  "latest":"2017-01-08T15:06:20.000Z"},
+ {"name":"origin/master",
+  "head":"af6a47f8a831d17513ec13357d11cf3cab222b19",
+  "latest":"2017-01-08T15:06:20.000Z"},
+  ...]</pre>
     </div>
 
     <h2 id="init">Init empty repository</h2>
