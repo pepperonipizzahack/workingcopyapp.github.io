@@ -206,7 +206,8 @@
                     return url;
                 }
 
-                var where = args['branch'];
+                var where = args['commit'];
+                if(!where) where = args['branch'];
                 if(!where) where = 'HEAD';
 
                 return withoutSlash + "/blob/" + encodeURIComponent(where) +
