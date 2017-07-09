@@ -206,9 +206,10 @@
                     return url;
                 }
 
-                if(!args['branch']) return null;
+                var where = args['branch'];
+                if(!where) where = 'HEAD';
 
-                return withoutSlash + "/blob/" + encodeURIComponent(args['branch']) +
+                return withoutSlash + "/blob/" + encodeURIComponent(where) +
                         "/" + encodeURIComponent(args['path']);
             }
 
