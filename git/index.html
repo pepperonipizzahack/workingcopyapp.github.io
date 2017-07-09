@@ -242,6 +242,23 @@
                         .replace(/'/g, "&#039;");
             }
 
+            // if text contains anything that needs slash escapes or has space,
+            // it is returned in quotes and with slashes, otherwise original string
+            // is returned
+            function quoteSlashIfNeeded(string) {
+                var quoted = string.replace(/\\/g, '\\\\').
+                                    replace(/\u0008/g, '\\b').
+                                    replace(/\t/g, '\\t').
+                                    replace(/\n/g, '\\n').
+                                    replace(/\f/g, '\\f').
+                                    replace(/\r/g, '\\r').
+                                    replace(/'/g, '\\\'').
+                                    replace(/"/g, '\\"');
+                var needsQuote = quoted != string || string.indexOf(' ') >= 0;
+                if(!needsQuote) return string;
+                return '"' + quoted + '"';
+            }
+
             function titleForArgs(args) {
                 if(args['path']) {
                     var parts = args['path'].split("/");
@@ -300,8 +317,9 @@
                     var path = args['path'];
                     if(path) {
                         var url = fileUrlForArgs(link, args);
+                        var escapedPath = escape(path);
                         html += "\n# view contents of " + possibleAnchor(title, url) + "\n";
-                        html += "cat " + escape(path) + "\n";
+                        html += "cat " + quoteSlashIfNeeded(escapedPath) + "\n";
                     }
 
                     // checkout branch
