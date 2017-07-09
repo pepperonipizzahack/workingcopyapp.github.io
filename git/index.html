@@ -190,10 +190,17 @@
                 var withoutSlash = link.replace(/\/+$/, "");
                 if(!args['path']) return null;
                 if(isBitBucket(args)) {
-                    if(!args["commit"]) return null;
+                    var showAt = true;
 
-                    var url = withoutSlash + "/src/" + args["commit"] + "/" + encodeURIComponent(args['path']);
-                    if(args["branch"]) {
+                    var where = args["commit"];
+                    if(!where) {
+                        where = args["branch"];
+                        showAt = false;
+                    }
+                    if(!where) where = "HEAD";
+
+                    var url = withoutSlash + "/src/" + where + "/" + encodeURIComponent(args['path']);
+                    if(showAt && args["branch"]) {
                         url += "?at=" + encodeURIComponent(args["branch"]);
                     }
                     return url;
