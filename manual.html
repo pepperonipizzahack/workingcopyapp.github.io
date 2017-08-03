@@ -75,7 +75,8 @@
             <li class="header3"><a href="#commit-history">4.1 Commit history</a>,</li>
             <li class="header3"><a href="#branching">4.2 Branches</a>,</li>
             <li class="header3"><a href="#commit-graph">4.3 Commit Graph</a>,</li>
-            <li class="header3"><a href="#resolve-tool">4.4 Resolving conflicts</a></li>
+            <li class="header3"><a href="#resolve-tool">4.4 Resolving conflicts</a>,</li>
+            <li class="header3"><a href="#signed-commits">4.5 Signed Commits</a></li>
 
             <li class="header2"><a href="#extending-ios">5. Extending iOS:</a></li>
             <li class="header3"><a href="#saving">5.1 Saving to Working Copy</a>,</li>
@@ -701,6 +702,37 @@ andrew@company.se/home/andrew/git/site.git/
         <p>You can also resolve conflicts by manually editing files. The Content tab for a conflicted file
         has a <em>Resolve</em> button for marking the file as resolved, when you have picked the content
         you want and removed conflict markers.</p>
+
+        <h3 id="signed-commits">4.5 Signed Commits</h3>
+        <p>Git supports
+            <a target="gitbook" href="https://git-scm.com/book/en/v2/Git-Tools-Signing-Your-Work#_signing_commits">signing commits</a>
+           to make it possible for others to verify that commits have been made by you. When signing you need
+            a <a target="pgp" href="https://gnupg.org">GPG</a> private key that must be kept secret and when
+            verifying commits the corresponding public key is needed.</p>
+        <p>
+            Before signing commits in Working Copy you need to import a private key. You attach the private key
+            to your Identity which can be imported from the clipboard or a file. GitHub has a nice description
+            of how to <a target="github" href="https://help.github.com/articles/generating-a-new-gpg-key/">generate</a>
+            and <a target="github" href="https://help.github.com/articles/signing-commits-using-gpg/">use</a> a PGP key.
+            To export a private key from your keychain using the command:
+            <pre>gpg --export-secret-key -a "email@your.domain.net"</pre>
+        </p><p>
+            Your private key should have a passphrase that needs to be entered before using the key. You can configure
+            Working Copy to <em>Ask</em> every time the passphrase is needed, to store the passphrase in the keychain
+            requiring you to authenticate with <em>Touch ID</em> before it is read or to just
+            <em>Remember</em> the passphrase in the keychain. </p>
+
+        <div class="ipad"><img class="ipad animated" src="img/commit-signing.png" onload="imgLoaded(this)" /></div>
+
+        <p>Signing commits makes it possible to verify that the commit is made by someone with access to
+           the private key. This information is only useful when other people can trust the private key is yours
+           and they need a PGP public key for this. GitHub makes this easy by letting you
+            <a target="github" href="https://help.github.com/articles/adding-a-new-gpg-key-to-your-github-account/">associate</a>
+            a public key with your <a target="github" href="https://github.com/settings/keys">user account</a>,
+            but commit verification is possible in other environments
+            by <a target="pgp" href="https://www.gnupg.org/gph/en/manual/x56.html#AEN83">importing public keys</a> into the PGP keyring.
+        </p>
+
     </div>
 
     <div style="clear: both;"></div>
