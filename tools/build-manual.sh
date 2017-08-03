@@ -15,10 +15,11 @@ for section in $sections; do
 	# only grab until next section
     markup=`echo "$markup" | sed -n -e "/<h[1-4][^>]* id=\"$section/,/<h[1-4] id=/p"`
 	
-	# filter out <pre> blocks
+	# filter out <pre> blocks taking care to remove single-line pre blocks first
+	markup=`echo "$markup" | sed -e "s/<pre[ >].*<\/pre>//g"`
     markup=`echo "$markup" | sed -e "/<pre>/,/<\/pre>/d"`
 	
-	#echo "$markup"
+	# echo "$markup"
 
 	# when things are working we need to output this markup
 	# echo "$markup"
@@ -37,8 +38,8 @@ for section in $sections; do
 	# extract image
 	imginfo=`echo "$markup" | grep -E -A1 '<img ' | head -n 2`
 	image=`echo "$imginfo" | awk -F'srcset=' '{print $2}' | awk -F'"' '{print $2}'`
-	#echo "imginfo=$imginfo"
-	#echo "image=$image"
+	# echo "imginfo=$imginfo"
+	# echo "image=$image"
 	if [ "$image" == "" ]; then
 		image=`echo "$imginfo" | awk -F' src=' '{print $2}' | awk -F'"' '{print $2}' | tr '\n' ' ' | sed -e 's/^ *//'`
 	else
