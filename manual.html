@@ -721,7 +721,7 @@ andrew@company.se/home/andrew/git/site.git/
             requiring you to authenticate with <em>Touch ID</em> before it is read or to just
             <em>Remember</em> the passphrase in the keychain. </p>
 
-        <div class="ipad"><img class="ipad animated" src="img/commit-signing.png" onload="imgLoaded(this)" /></div>
+        <div class="ipad"><img class="ipad animated" play_button_bottom="20%" src="img/commit-signing.png" onload="imgLoaded(this)" /></div>
 
         <p>Signing commits makes it possible to verify that the commit is made by someone with access to
            the private key. This information is only useful when other people can trust the private key is yours
@@ -1051,6 +1051,13 @@ andrew@company.se/home/andrew/git/site.git/
                 var playButton = document.createElement("img");
                 playButton.setAttribute("class", "playButton");
                 playButton.setAttribute("src", "video/play-grey.png");
+
+                // we can override placement of grey play button with play_button_bottom
+                // attribute on img tag
+                var playButtonBottom = img.getAttribute("play_button_bottom");
+                if(playButtonBottom) {
+                    playButton.style.bottom = playButtonBottom;
+                }
 
                 var source = document.createElement("source");
                 source.setAttribute("src", "video/" + base + ".mp4");
