@@ -713,8 +713,7 @@ andrew@company.se/home/andrew/git/site.git/
             Before signing commits in Working Copy you need to import a private key. You attach the private key
             to your Identity which can be imported from the clipboard or a file. GitHub has a nice description
             of how to <a target="github" href="https://help.github.com/articles/generating-a-new-gpg-key/">generate</a>
-            and <a target="github" href="https://help.github.com/articles/signing-commits-using-gpg/">use</a> a PGP key.
-            To export a private key from your keychain using the command:
+            a PGP key. To export a private key from your keychain use the command:
             <pre>gpg --export-secret-key -a "email@your.domain.net"</pre>
         </p><p>
             Your private key should have a passphrase that needs to be entered before using the key. You can configure
@@ -730,7 +729,7 @@ andrew@company.se/home/andrew/git/site.git/
             <a target="github" href="https://help.github.com/articles/adding-a-new-gpg-key-to-your-github-account/">associate</a>
             a public key with your <a target="github" href="https://github.com/settings/keys">user account</a>,
             but commit verification is possible in other environments
-            by <a target="pgp" href="https://www.gnupg.org/gph/en/manual/x56.html#AEN83">importing public keys</a> into the PGP keyring.
+            by <a target="pgp" href="https://www.gnupg.org/gph/en/manual/x56.html#AEN83">importing public keys</a> into the GPG keyring.
         </p>
 
     </div>
