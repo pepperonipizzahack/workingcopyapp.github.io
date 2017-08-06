@@ -598,7 +598,7 @@ andrew@company.se/home/andrew/git/site.git/
             but if you make modifications and wish to keep these, you should create a new branch.
         </p>
         <p>Checking out the topmost commit will reattach the head in such a way that your repository is back to normal.</p>
-        <p>When not yet pushed to a remote, you can <em>Undo</em> your latest commit by swiping left in the commit-list.
+        <p id="commit-undo">When not yet pushed to a remote, you can <em>Undo</em> your latest commit by swiping left in the commit-list.
             All changes for that commit are kept in your working directory as modified files. If you commit again
             the last commit message is remembered, making it very easy to commit again to fix typos in the
         commit message or only commit some of the files, splitting a large commit into smaller ones. When the
@@ -637,6 +637,7 @@ andrew@company.se/home/andrew/git/site.git/
             current branch on top of the commits from the other branch. Working Copy will not rebase if this
             requires rewriting commits that have already been pushed to a server. You can override this behaviur
             by configuring the branch for <em>History Rewriting</em>, but this in turn requires you to <em>Force Push</em>.
+            This also lets you <a href="#commit-undo">Undo</a> commits already pushed to a remote.
          </p>
          <p>            Swipe left to rename or delete branches from the list of branches.</p>
 
