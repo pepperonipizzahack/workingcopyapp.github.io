@@ -114,13 +114,12 @@
             Duplicating a repository from a remote server is
             known as cloning, and you do this by pressing + on the list of repositories.</p>
         <p>You provide a URL pointing to a repository on the Git remote you wish to clone from.
-            Working Copy can transfer data from the remote using http, https or ssh protocols. However, you should be careful
+            Working Copy can transfer data from the remote using http, https, git or ssh protocols. However, you should be careful
             using http transfer since data will be sent without encryption, which means your login credentials and your source
             code can be intercepted. If you are not on a trusted network you should avoid using http transfer.</p>
-        <p id="hosting-services">Conveniently for BitBucket and GitHub users, you can enter your credentials and get a
-            <a href="#clone-catalog">list of repositories</a>.
-            Cloning then amounts to picking the repository and tapping clone. You are not restricted to these Git services.
-            If you are using some other Git hosting service or a private server to host your repositories, copy-paste your
+        <p id="hosting-services">There is special support for BitBucket, GitHub and some other <a href="#clone-catalog">hosting
+            providers</a> to list your available repositories such that cloning amounts to picking a repository and tapping clone.
+            Even when Working Copy has no specific support for a hosting provider, you can copy-paste your
             URL into the top field and Working Copy will clone just as well. </p>
         <p id="itunes-import">You can also import repositories from a Mac or PC by dragging directories into iTunes Document lists.
             If the directory does not contain a .git subdirectory at top-level, Working Copy assumes you want a new repository with
@@ -248,7 +247,8 @@ andrew@company.se/home/andrew/git/site.git/
         <div class="right"><img class="right" onload="imgLoaded(this)"
                                 _dark_src="img/clone-catalog-transparent.png" src="img/clone-catalog.png" /></div>
 
-        <p>When cloning repositories from BitBucket, GitHub or GitLab you can enter your credentials to get a list of repositories to clone.
+        <p>When cloning repositories from BitBucket, GitHub and other supported hosting providers
+            you can enter your credentials to get a list of repositories to clone.
             Working Copy tries to show the most relevant repositories at the top, these being the ones where you have administrative
             or push privileges. Your GitHub Gists and BitBucket Snippets are also available from this list.
         </p>
