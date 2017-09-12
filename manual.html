@@ -79,16 +79,17 @@
             <li class="header3"><a href="#signed-commits">4.5 Signed Commits</a></li>
 
             <li class="header2"><a href="#extending-ios">5. Extending iOS:</a></li>
-            <li class="header3"><a href="#saving">5.1 Saving to Working Copy</a>,</li>
-            <li class="header3"><a href="#edit-in-app">5.2 Edit in App</a>,</li>
-            <li class="header3"><a href="#webdav-server">5.3 WebDAV access</a>,</li>
-            <li class="header3"><a href="#workflows-callbacks">5.4 Workflows and Callbacks</a>,</li>
-            <li class="header3"><a href="#draftcode">5.5 DraftCode</a></li>
+            <li class="header3"><a href="#dragdrop">5.1 Drag and Drop</a>,</li>
+            <li class="header3"><a href="#saving">5.2 Saving to Working Copy</a>,</li>
+            <li class="header3"><a href="#edit-in-app">5.3 Edit in App</a>,</li>
+            <li class="header3"><a href="#webdav-server">5.4 WebDAV access</a>,</li>
+            <li class="header3"><a href="#workflows-callbacks">5.5 Workflows and Callbacks</a>,</li>
+            <li class="header3"><a href="#draftcode">5.6 DraftCode</a></li>
 
             <li class="header2"><a href="#support">6. Help and Support</a></li>
             <li class="header3"><a href="#itunes-backup">6.1 File Backup</a>,</li>
             <li class="header3"><a href="#purchase">6.2 How to purchase</a></li>
-
+            <li class="header3"><a href="#ios10">6.3 iOS 10 support</a></li>
         </ul>
     </nav>
 </div>
@@ -735,33 +736,53 @@ andrew@company.se/home/andrew/git/site.git/
         <div class="right"><img class="right" onload="imgLoaded(this)" src="img/textastic-87.png"
                                srcset="img/textastic-87.png 200w, img/textastic-87-400.png 400w, img/textastic-87-645.png 645w"/></div>
 
-        <p>All repositories in Working Copy can be accessed by other applications using the iCloud document picker.
-            Once a file inside Working Copy is picked, the other application is allowed to read and make changes to this file
-            and these changes stay inside Working Copy. You can perform editing in this application and switch to
+        <p>All repositories in Working Copy can be accessed by other applications using the document picker or
+            file browser components introduced on iOS 11.
+            The other application is allowed to read and make changes to this file and these changes stay inside Working Copy.
+            You can perform editing in this application and switch to
             Working Copy to review and commit changes. On the iPad you can use
-            <a target="iPad-guide" href="https://help.apple.com/ipad/9/#/iPad5afb8ee4">Slide Over</a> or
             <a target="iPad-guide" href="https://help.apple.com/ipad/9/#/iPad63ea0cbb">Split View</a>
-            to avoid switching between Working Copy and the editing application.</p>
+            to avoid switching between Working Copy and the editing application.
+            Initially you need to enable Working Copy as a Location choice by picking <em>More</em>.</p>
 
-        <p><a target="app" href="https://itunes.apple.com/dk/app/textastic-code-editor-6/id1049254261?mt=8&amp;at=1000lHq">Textastic</a> is a very good general purpose/programmers editor
-            that works well with Working Copy and you use Open…
+        <p><a target="app" href="https://itunes.apple.com/dk/app/textastic-code-editor-6/id1049254261?mt=8&amp;at=1000lHq">Textastic</a> is a
+            very good general purpose/programmers editor that works well with Working Copy and you use <em>Open…</em>
             to open the document picker. Alexander Blach the developer of Textastic has made a
-            <a target="video" href="http://blach.io/2016/08/02/opening-git-repository-folders-in-textastic-6-2/">video</a>
-            showing how. You can pick individual files, directories or entire repositories.
-            Initially you need to enable Working Copy as a Location choice by
-            picking <em>More</em>. </p>
+            <a target="video" href="http://blach.io/2015/05/26/using-git-on-your-ipad-or-iphone-with-working-copy-and-textastic/">video</a>
+            showing how. Picking entire directories is currently only possible on iOS 10,
+            but I am working with Apple and Alexander Blach to again be able to pick directories for in-place editing and hope
+            to restore this capability in a later update.
+             </p>
         <p><a target="app" href="https://itunes.apple.com/app/byword/id482063361?mt=8&amp;at=1000lHq">Byword</a> is a special purpose Markdown
             editor that can also use the iCloud document picker to edit inside Working Copy
-            by choosing <em>Open Other…</em> but only individual files are supported. </p><p>
-            <a target="app" href="https://itunes.apple.com/us/app/1writer/id680469088?ls=1&amp;mt=8&amp;at=1000lHq">1Writer</a>
+            by choosing <em>Open Other…</em>. </p>
+        <p><a target="app" href="https://itunes.apple.com/us/app/1writer/id680469088?ls=1&amp;mt=8&amp;at=1000lHq">1Writer</a>
         is another good Markdown editor and you open files in Working Copy by tapping <span class="oneWriter">+</span>
         in the lower right corner. If you need to work with images
             <a target="app" href="https://itunes.apple.com/us/app/pixelmator/id924695435?mt=8&amp;at=1000lHq">Pixelmator</a>
             is a good choice.</p>
 
         <div style="clear: left"></div>
+        <h3 id="dragdrop">5.1 Drag and Drop</h3>
 
-        <h3 id="saving">5.1 Saving to Working Copy</h3>
+        ***Video som viser det på iPad***
+
+        <p>
+            Drag and Drop between apps is exclusive to iPad, and makes it much easier to get files into or out of your repositories.
+        </p>
+        <p>Drag files from your emails, the Files app or any other supporting app to add to your repositories.
+            When files already exist you can import as a new file or overwrite the existing one and when the existing file in your
+            repository is already committed overwriting is automatic, saving you a little time, as it is very easy to Revert to
+            get back old files.</p>
+        <p>Directories can be dragged into repositories or to the repository list to import a new repository and zip
+            archives can be decompressed as they are dragged.</p>
+       <p>When dragging files out of Working Copy the result will depend on the target app. Dragging files into
+           emails will attach them and dragging into the Files app will export to this location. Editing apps that support
+           this can receive a reference to files or directories letting them edit in-place such that changes are made
+           inside the repository.</p>
+
+        <div style="clear: left"></div>
+        <h3 id="saving">5.2 Saving to Working Copy</h3>
         <div class="left"><img class="left" onload="imgLoaded(this)" src="img/edit-in-app.png"
                                _dark_src="img/edit-in-app-transparent.png"
          srcset="img/edit-in-app.png 200w, img/edit-in-app-400.png 400w, img/edit-in-app-645.png 645w" /></div>
@@ -780,7 +801,7 @@ andrew@company.se/home/andrew/git/site.git/
         repository, extract to a existing repository overwriting existing files as needed,
         or you can save the zip-file as is.</p>
 
-        <h3 style="padding-top: 15px" id="edit-in-app">5.2 Edit in App</h3>
+        <h3 style="padding-top: 15px" id="edit-in-app">5.3 Edit in App</h3>
 
         <p>In some situations you browse files in Working Copy and need to pick out a file you want to edit in
         another application. The action-button in the upper-right corner used to present a share-sheet also
@@ -812,7 +833,7 @@ andrew@company.se/home/andrew/git/site.git/
     </div>
 
     <div class="inner">
-        <h3 id="webdav-server">5.3 WebDAV access</h3>
+        <h3 id="webdav-server">5.4 WebDAV access</h3>
         <div class="right"><img class="right" onload="imgLoaded(this)" src="img/webdav-settings.png"
           srcset="img/webdav-settings.png 200w, img/webdav-settings-400.png 400w, img/webdav-settings-645.png 645w"/></div>
 
@@ -857,7 +878,7 @@ andrew@company.se/home/andrew/git/site.git/
 
     </div>
     <div class="inner">
-        <h3 id="workflows-callbacks">5.4 Workflows and Callbacks</h3>
+        <h3 id="workflows-callbacks">5.5 Workflows and Callbacks</h3>
         <div class="left"><img class="left" onload="imgLoaded(this)" src="img/callback-setup-26.png"
                                _dark_src="img/callback-setup-26-transparent.png"
                                 srcset="img/callback-setup-26.png 200w, img/callback-setup-26-400.png 400w, img/callback-setup-26-645.png 645w, "/></div>
@@ -875,7 +896,7 @@ andrew@company.se/home/andrew/git/site.git/
             you can achieve some of the power of shell-scripting on iOS by
             combining actions of several applications into one action.</p>
 
-        <h3 id="draftcode">5.5 DraftCode</h3>
+        <h3 id="draftcode">5.6 DraftCode</h3>
         <p>
             <a href="http://solesignal.com/draftcode/">DraftCode</a> is comphrehensive
             editor and runtime for PHP, that lets you run entire websites on your iPad or iPhone.
@@ -929,6 +950,19 @@ andrew@company.se/home/andrew/git/site.git/
             If you are purchasing Working Copy for yourself,
             there is no advantage or disadvantage in picking the Enterprise version.
             Note that repositories in one app will not show up in the other.</p>
+
+        <h3 id="ios10">6.3 iOS 10 support</h3>
+        <p>The latest version of Working Copy only supports iOS 11 and iOS 10 devices cannot upgrade.
+           This is a unfurtunate consequence of technical difficulties getting the iOS 10 document picker to work
+            while also supporting the iOS 11 Files app.</p>
+        <p>Working Copy could be released in a iOS 10 compatible way that did not support the iOS 10 document picker,
+            but many users rely on the document picker. Since the major new features
+        in the latest version depend on iOS 11 the users running iOS 10 are not really missing out on any features.</p>
+
+        <p>Because iOS 11 has just recently released in a final version, it has only shortly been possible
+           to request engineering assistance from Apple. I am working as quickly as possible to restore the ability to
+           use Working Copy with iOS 10 and I hope to keep supporting iOS 10 until June 2018 when work to
+            support iOS 12 starts. </p>
     </div>
 </div>
 <div style="clear: both"> </div>
