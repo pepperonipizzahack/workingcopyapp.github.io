@@ -6,7 +6,7 @@
 <head>
     <base href="https://workingcopyapp.com/" />
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <title>Working Copy, Git on iOS</title>
     <link rel="shortcut icon" href="/img/favicon.png">
     <meta name="author" content="Anders Borum">
@@ -34,6 +34,10 @@
         body {
             margin-bottom: 0;
             background: linear-gradient(#FFFFFF, #F0F6FA);
+        }
+
+        body > div {
+            padding: constant(safe-area-inset-top) constant(safe-area-inset-right) constant(safe-area-inset-bottom) constant(safe-area-inset-left);
         }
 
         #reviews {
@@ -592,7 +596,7 @@
         ga('create', 'UA-2084164-5', 'auto');
         ga('send', 'pageview');
     </script>
-</head><body>
+</head><body><div>
 <a href="https://itunes.apple.com/us/app/working-copy/id896694807?mt=8&amp;uo=6&amp;at=1000lHq&amp;ct=" target="itunes"
    title="Download on the App Store"  class="download-button"><img src="img/download-on-the-app-store.png" /></a>
 <div itemscope itemtype="http://schema.org/SoftwareApplication">
@@ -627,12 +631,10 @@
     </div>
     <div class="features" id="features">
         <div>
-            <img alt="iOS 10 icon" src="img/ios10.png" srcset="img/ios10@2x.png 93w, img/ios10.png 46w"/>
-            <h3>iOS 10 capable</h3>
-            <p>Supports Split View, 3D Touch and SpotLight search.</p>
-            <!--<img alt="iOS 11 icon" src="img/ios11.png" srcset="img/ios11@2x.png 94w, img/ios11.png 46w"/>
+            <img alt="iOS 11 icon" src="img/ios11.png" srcset="img/ios11@2x.png 94w, img/ios11.png 46w"/>
             <h3>iOS 11 capable</h3>
-            <p>Files app &amp; Drag and Drop support.</p>-->
+            <p><a href="/manual.html#dragdrop">Drag and Drop</a> on iPad and
+               <a href="/manual.html#extending-ios">Files app</a> support.</p>
         </div>
         <div>
             <img alt="magnifying glass" src="img/search.png"/>
@@ -896,5 +898,5 @@
     }
     if(window.location.href.indexOf('?newsletter') >= 0) newsletterSignup();
 </script>
-</body>
+</div></body>
 </html>
