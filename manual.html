@@ -85,6 +85,7 @@
             <li class="header3"><a href="#webdav-server">5.4 WebDAV access</a>,</li>
             <li class="header3"><a href="#workflows-callbacks">5.5 Workflows and Callbacks</a>,</li>
             <li class="header3"><a href="#draftcode">5.6 DraftCode</a></li>
+            <!--<li class="header3"><a href="#swift-playgrounds">5.7 Swift Playgrounds</a></li>-->
 
             <li class="header2"><a href="#support">6. Help and Support</a></li>
             <li class="header3"><a href="#itunes-backup">6.1 File Backup</a>,</li>
@@ -845,8 +846,7 @@ andrew@company.se/home/andrew/git/site.git/
             of Windows also let you access WebDAV by mapping to a network drive. You will also be able to
             use third party WebDAV clients for <a target="app" href="https://panic.com/transmit/">macOS</a>,
             <a href="https://cyberduck.io" target="app">Windows</a>,
-            <a href="https://play.google.com/store/apps/details?id=com.estrongs.android.pop&amp;hl=en" target="app">Linux</a>,
-            Android &amp; <a target="app" href="https://panic.com/transmit-ios/">iOS</a>.
+            Linux, <a href="https://play.google.com/store/apps/details?id=com.estrongs.android.pop&amp;hl=en" target="app">Android</a> &amp; <a target="app" href="https://panic.com/transmit-ios/">iOS</a>.
         </p>
         <p>As a security precaution you need to start the server before each use and it automatically shuts down
             after five minutes of inactivity. You should be cautious of using the WebDAV server on untrusted
@@ -895,7 +895,7 @@ andrew@company.se/home/andrew/git/site.git/
 
         <h3 id="draftcode">5.6 DraftCode</h3>
         <p>
-            <a href="http://solesignal.com/draftcode/">DraftCode</a> is comphrehensive
+            <a href="http://solesignal.com/draftcode/" target="app">DraftCode</a> is comphrehensive
             editor and runtime for PHP, that lets you run entire websites on your iPad or iPhone.
             Everything happens on your device and works even when offline.</p>
          <p>You can transfer a directory to DraftCode by picking <em>Serve in DraftCode</em>
@@ -905,7 +905,18 @@ andrew@company.se/home/andrew/git/site.git/
         </p>
 
         <div style="clear: both;"></div>
+
     </div>
+    <!--<div class="inner">
+        <h3 id="swift-playgrounds">5.7 Swift Playgrounds</h3>
+        Apple has made
+        <a target="app" href="https://www.apple.com/swift/playgrounds/">Swift Playgrounds</a>
+        as a tool to learn Swift. There are some tricks that are nice to know when combining
+        Working Copy with Swift Playgrounds.
+
+        https://oleb.net/blog/2017/05/whats-new-in-swift-4-playground/
+
+    </div>-->
 
     <div style="clear: both;"></div>
     <h2 id="support">6. Help and Support</h2>
@@ -949,17 +960,18 @@ andrew@company.se/home/andrew/git/site.git/
             Note that repositories in one app will not show up in the other.</p>
 
         <h3 id="ios10">6.3 iOS 10 support</h3>
-        <p>The latest version of Working Copy only supports iOS 11 and iOS 10 devices cannot upgrade.
-           This is a unfurtunate consequence of technical difficulties getting the iOS 10 document picker to work
+        <p>Working Copy 3.1.0 and later only supports iOS 11 and iOS 10 devices cannot upgrade.
+           This is a unfortunate consequence of technical difficulties getting the iOS 10 document picker to work
             while also supporting the iOS 11 Files app.</p>
-        <p>Working Copy could be released in a iOS 10 compatible way that did not support the iOS 10 document picker,
-            but many users rely on the document picker. Since the major new features
-        in the latest version depend on iOS 11 the users running iOS 10 are not really missing out on any features.</p>
 
-        <p>Because iOS 11 was just recently released in a final version, it has only shortly been possible
-           to request engineering assistance from Apple. I am working as quickly as possible to restore the ability to
-           use Working Copy with iOS 10 and I hope to keep supporting iOS 10 until June 2018 when work to
-            support iOS 12 starts. </p>
+        <p>Working Copy could be released in a iOS 10 compatible way that did not support the document picker,
+            but many users rely on the document picker. They would upgrade to the latest version of the
+            app and loose a feature critical to their workflow with no way to go back.</p>
+
+        <p>Apple engineers have verified that this is a bug in iOS that will require a fix from them.
+           I expect this fix to be delivered as a software update to iOS 10.3 and when this is in place,
+            Working Copy will be updated to again work with iOS 10.3. Updates supporting this version of iOS
+            will continue until June 2018.</p>
     </div>
 </div>
 <div style="clear: both"> </div>
