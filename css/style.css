@@ -129,6 +129,7 @@ footer {
 h1 {
     font-size: 125%;
     text-align: center;
+    padding-top: 2em;
     margin: auto;
 }
 
@@ -248,16 +249,18 @@ sup {
     left: -5%;
 }
 
-div.left, div.right {
-    background-image: url(data:image/gif;base64,R0lGODdh8AD8AZEAAAAAAPHx8f///wAAACH5BAkAAAMALAAAAADwAPwBAAL/lI+py+0Po5y02ouz3rz7D4biSJbmiabqyrbuCwfyTNf2jef6zvf+DwwKczDI8IhMKpfMJq6IcEqn1Ko1GLtqt9xukuUNi8dkWaqMTqubprX7DfeN4vS6HWTP69+dvf9PtgE4SLiVUYiYKHWh2OiIZPEoOclTQXmJWTORyZkZ0Ql6aRRK6vhQitrokMpa2NAKO8gQS7u3UIubp5DLG5fQC8x3EEycFlWMLHaczGxo0AztHD1d9Ux9zSaAva2kzf0NHi4+Tl5ufo6err7O3u7+Dh8vP09fb3+Pn6+/z9/v/w8woMCBBAsaPIgwocKFDBs6fAgxosSJFCtavIgxo8aN/xw7evwIMqTIkSRLmjyJMqXKlSxbunwJM6bMmTRr2ryJM6fOnTx7+vwJNKjQoUSLGj2KNKnSpUybOn0KNarUqVSrWr2KNavWrVy7ev0KNqzYsWTLmj2LNq3atWzbun0LN67cuXTr2r2LN6/evXz7+v0LOLDgwYQLGz6MOLHixYwbO34MObLkyZQrW76MObPmzZw7e/4MOrTo0aRLmz6NOrXq1axbu34NO7bs2bRr276NO7fu3bx7+/4NPLjw4cSLGz+OPLny5cybO38OPbr06dSrW7+OPbv27dy7e/8OPrz48eTLmz+PPr369ezbu38PP778+fTr27+PP7/+/fz7+8n/D2CAAg5IYIEGHohgggouyGCDDj4IYYQSTkhhhRZeiGGGGm7IYYcefghiiCKOSGKJJp6IYooqrshiiy6+CGOMMs5IY4023ohjjjruyGOPPv4IZJBCDklkkUZK4k1X1iiZJFdLOtnkVsNA+WRWy2j1C5ZZWrklVrd4+eVVr1i1CpllTvWJVBKguSZUljjFCFOHKCUIUn0Y9UFRIQxFwk8n9KRCTi7UBEVMUHR50qGniKRoo44+Cmmkkk5KaaWWXopppppuyukKBQAAOw==);
+div.left, div.right, div.ipad, div.ipad-pro {
     background-size: 100% auto;
     background-repeat: no-repeat;
+    /*page-break-inside: avoid;*/
+}
+
+div.left, div.right {
+    background-image: url(data:image/gif;base64,R0lGODdh8AD8AZEAAAAAAPHx8f///wAAACH5BAkAAAMALAAAAADwAPwBAAL/lI+py+0Po5y02ouz3rz7D4biSJbmiabqyrbuCwfyTNf2jef6zvf+DwwKczDI8IhMKpfMJq6IcEqn1Ko1GLtqt9xukuUNi8dkWaqMTqubprX7DfeN4vS6HWTP69+dvf9PtgE4SLiVUYiYKHWh2OiIZPEoOclTQXmJWTORyZkZ0Ql6aRRK6vhQitrokMpa2NAKO8gQS7u3UIubp5DLG5fQC8x3EEycFlWMLHaczGxo0AztHD1d9Ux9zSaAva2kzf0NHi4+Tl5ufo6err7O3u7+Dh8vP09fb3+Pn6+/z9/v/w8woMCBBAsaPIgwocKFDBs6fAgxosSJFCtavIgxo8aN/xw7evwIMqTIkSRLmjyJMqXKlSxbunwJM6bMmTRr2ryJM6fOnTx7+vwJNKjQoUSLGj2KNKnSpUybOn0KNarUqVSrWr2KNavWrVy7ev0KNqzYsWTLmj2LNq3atWzbun0LN67cuXTr2r2LN6/evXz7+v0LOLDgwYQLGz6MOLHixYwbO34MObLkyZQrW76MObPmzZw7e/4MOrTo0aRLmz6NOrXq1axbu34NO7bs2bRr276NO7fu3bx7+/4NPLjw4cSLGz+OPLny5cybO38OPbr06dSrW7+OPbv27dy7e/8OPrz48eTLmz+PPr369ezbu38PP778+fTr27+PP7/+/fz7+8n/D2CAAg5IYIEGHohgggouyGCDDj4IYYQSTkhhhRZeiGGGGm7IYYcefghiiCKOSGKJJp6IYooqrshiiy6+CGOMMs5IY4023ohjjjruyGOPPv4IZJBCDklkkUZK4k1X1iiZJFdLOtnkVsNA+WRWy2j1C5ZZWrklVrd4+eVVr1i1CpllTvWJVBKguSZUljjFCFOHKCUIUn0Y9UFRIQxFwk8n9KRCTi7UBEVMUHR50qGniKRoo44+Cmmkkk5KaaWWXopppppuyukKBQAAOw==);
 }
 
 div.ipad {
     background-image: url(data:image/gif;base64,R0lGODdh9AFiAZEAAAAAAPHx8f///wAAACH5BAQAAAAALAAAAAD0AWIBAAL/lI+Jwe0Po5y02ouz3rz7D4biSJbmWSrqyi6MgMbyTNf2jef6bsNvC1S8eMSi8YhMKpfMhi8YDPia1Kr1is1qTTDoSroNi8fksrnW9R7A57b7DY+L01C2/I7P6/cpaXTKFyg4SJhH9wVYqLjI2Nh0mGDnOElZaYkCuXa5ydnpWaEi+TlKWlqYmWiqusrqJtQKGysb5jJre4tbtJaa2+v7C5IGPExcrGFgnKy8rLns/HyLDD1NXW19jZ2tvc3d7f0NHi4+Tl5ufo6err7O3u7+Dh8vP09fb3+Pn6+/z9/v/w8woMCBBAsaPIgwocKFDBs6fAgxosSJFCtavIgxo8aN/xw7evwIMqTIkSRLmjyJMqXKlSxbunwJM6bMmTRr2ryJM6fOnTx7+vwJNKjQoUSLGj2KNKnSpUybOn0KNarUqVSrWr2KNavWrVy7ev0KNqzYsWTLmj2LNq3atWzbun0LN67cuXTr2r2LN6/evXz7+v0LOLDgwYQLGz6MOLHixYwbO34MObLkyZQrW76MObPmzZw7e/4MOrTo0aRLmz6NOrXq1axbu34NO7bs2bRr276NO7fu3bx7+/4NPLjw4cSLGz+OPLny5cybO38OPbr06dSrW7+OPbv27dy7e/8OPrz48eTLmz+PPr369ezbu38PP778+fTr27+PP7/+/fz7+///D2CAAg5IYIEGHohgggouyGCDDj4IYYQSTkhhhRZeiGGGGm7IYYcefghiiCKOSGKJJp6IYooqrshiiy6+CGOMMs5IY4023ohjjjruyGOPPv4IZJBCDklkkUYeiWSSSi7JZJNOPglllFJOSWWVVl6JZZZabslll15+CWaYYo5JZplmnolmmmquyWabbr4JZ5xyzklnnXbeiWeeeu7JZ59+/glooIIOSmihhh6KaKKKLspoo44+CmmkfEjzYzNAUnppF5X6wYuOtfj4yo6hdDojKj0ikiMqyJDqoqq71OjqAqymGGsks5pY66gt5sqCKLhyqsYrt2b4RLBAOPHhFMYGGpvssgUAADs=);
-    background-size: 100% auto;
-    background-repeat: no-repeat;
 }
 
 div.noshadow {
@@ -332,6 +335,14 @@ div.noshadow {
     margin-left: 4%;
 }
 
+.ipad-pro {
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 35px;
+    position: relative;
+    left: 0%;
+}
+
 .ipad > img, .ipad > .container {
     z-index: 1;
     position: absolute;
@@ -345,6 +356,28 @@ div.noshadow {
     margin-left: auto;
     margin-right: auto;
     width: 82.54%;
+}
+
+.ipad-pro:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: 70.8%;
+}
+
+.ipad-pro > img, .ipad-pro > .container {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.ipad-pro .container > video {
+    padding-left: 7.13%;
+    padding-top: 5.69%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 85.58%;
 }
 
 img.playButton {
@@ -412,4 +445,17 @@ span.oneWriter {
     width: 1em;
     height: 1em;
     line-height: 0.942em;
+}
+
+.download-button {
+    display: block;
+    border: 0 !important;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 5px;
+}
+
+.download-button img {
+    height: 2.5em;
 }

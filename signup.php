@@ -18,6 +18,10 @@ if(!strpos($email, '@')) {
 $subject = "$email signed up for Working Copy";
 $body = "$email\n\nhas signed up for Working Copy";
 
+if(isset($_POST['subject'])) {
+    $body .= "\nSubject: " . $_POST['subject'];
+}
+
 // send email
 $ok = mail("working-copy-signup@appliedphasor.com", $subject, $body);
 if($ok) {
