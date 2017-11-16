@@ -242,8 +242,8 @@ working-copy://open?repo=https%3A%2F%2Fgithub.com%2Flibgit2%2Flibgit2&amp;branch
         of all the files in the directory specified by <em>path</em>. If you do not specify any <em>path</em>
         the entire repository is archived and if <em>path</em> points to a single file, you will get a zip
         containing just this file.</p>
-        <p>When you zip up entire repositories, the .git directory is not included, and
-          include the parameter <em>.git=1</em> to change this behaviour.</p>
+        <p>When you zip up entire repositories, the .git directory is not included unless
+            <em>.git=1</em> is passed along.</p>
     <pre>working-copy://x-callback-url/zip/?x-success=my-app://x-callback-url/read?path=/&amp;repo=my%20repo </pre>
     </div>
 
