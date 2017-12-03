@@ -108,6 +108,22 @@ working-copy://open?repo=https%3A%2F%2Fgithub.com%2Flibgit2%2Flibgit2&amp;branch
             and otherwise initiate cloning.</p>
         <pre>working-copy://show?remote=https%3A%2F%2Fgithub.com%2Fgit%2Fgit.git</pre>
        </div>
+
+        <h2 id="import-log">Import logs</h2>
+        <div class="inner">
+            <p>The app supports using log files in the context of the repository contents
+               and it can be useful to import and show these with a URL:
+            </p>
+            <pre>working-copy://import-log?lines=first%20line%0asecond%20line</pre>
+            <p>The <em>lines</em> parameter is mandatory and you can use <em>repo</em>
+            to specify either a repository name or remote url the log refers to, <em>timestamp</em> to
+            indicate the time the log was recorded as
+            <a href="https://en.wikipedia.org/wiki/Unix_time" target="wikipedia">unix time</a>
+            and <em>kind</em> to one of <em>import</em>, <em>bitrise</em>, <em>circleci</em>, <em>jenkins</em>,
+                    <em>buddy</em>, <em>fetch</em>, <em>push</em>, <em>pull</em>, <em>clone</em>
+                where <em>import</em> is the default value.
+            </p>
+        </div>
     </div>
 
 <div class="outer">
