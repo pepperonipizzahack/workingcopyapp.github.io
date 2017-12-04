@@ -111,10 +111,10 @@ working-copy://open?repo=https%3A%2F%2Fgithub.com%2Flibgit2%2Flibgit2&amp;branch
 
         <h2 id="import-log">Import logs</h2>
         <div class="inner">
-            <p>The app supports using log files in the context of the repository contents
-               and it can be useful to import and show these with a URL:
+            <p>The app supports using <a target="manual" href="manual.html#logfiles">log files</a> in the
+                context of the repository contents and it can be useful to import and show these with a URL:
             </p>
-            <pre>working-copy://import-log?lines=first%20line%0asecond%20line</pre>
+            <pre>working-copy://import-log?lines=first%20line%0Asecond%20line</pre>
             <p>The <em>lines</em> parameter is mandatory and you can use <em>repo</em>
             to specify either a repository name or remote url the log refers to, <em>timestamp</em> to
             indicate the time the log was recorded as
@@ -125,7 +125,7 @@ working-copy://open?repo=https%3A%2F%2Fgithub.com%2Flibgit2%2Flibgit2&amp;branch
                 <a target="ci" href="https://jenkins.io">jenkins</a>,
                 <a target="ci" href="https://www.buddybuild.com">buddy</a>,
                 <em>fetch</em>, <em>push</em>, <em>pull</em>, <em>clone</em>
-                where <em>import</em> is the default value.
+                where <em>kind=import</em> is the default.
             </p>
         </div>
     </div>
