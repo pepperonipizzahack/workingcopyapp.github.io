@@ -85,7 +85,8 @@
             <li class="header3"><a href="#webdav-server">5.4 WebDAV access</a>,</li>
             <li class="header3"><a href="#workflows-callbacks">5.5 Workflows and Callbacks</a>,</li>
             <li class="header3"><a href="#draftcode">5.6 DraftCode</a></li>
-            <!--<li class="header3"><a href="#swift-playgrounds">5.7 Swift Playgrounds</a></li>-->
+            <li class="header3"><a href="#logfiles">5.7 Log files</a></li>
+            <!--<li class="header3"><a href="#swift-playgrounds">5.8 Swift Playgrounds</a></li>-->
 
             <li class="header2"><a href="#support">6. Help and Support</a></li>
             <li class="header3"><a href="#itunes-backup">6.1 File Backup</a>,</li>
@@ -906,12 +907,47 @@ andrew@company.se/home/andrew/git/site.git/
          <p>DraftCode can export a zip archive that you can use with <a href="#saving">Save in Working Copy</a>
             to write changes back to your repository.
         </p>
+    </div>
 
-        <div style="clear: both;"></div>
+    <div style="clear: both;"></div>
+    <h3 id="logfiles">5.7 Log files</h3>
+    <div class="inner">
+        <p>
+            Working Copy will record log files as you clone, fetch from and push to repositories.
+            This can be helpful when troubleshooting connection problems and if you are pushing to
+            special remotes such as <a href="https://devcenter.heroku.com/articles/git">Heroku</a>
+            the log can contain information such as whether deployment was successful.</p>
 
+        <div class="ipad-pro"><img class="ipad-pro animated" src="img/log-file.png" onload="imgLoaded(this)"/></div>
+
+        <p>When something interesting is logged during a remote transfer, a log thumbnail
+            will appear in the lower right corner. You can drag this out of the
+           screen to fully hide it or tap to open up the log.</p>
+
+        <p>Access the list of previous logs using a button at the top of the repository list.
+            To keep this list tidy, only recent log files will be kept, but you can mark
+            a log file as favourite by tapping the star to avoid automatic cleanup.</p>
+
+       <p>Log files can be linked to a repository inside Working Copy, such that filenames
+            are turned into references. Regular URL's and email addresses are detected
+            as well and tapping these will show a preview and let you act on them.</p>
+
+        <p>Often the log files exist outside Working Copy in emails, on build-server
+            status pages or as raw text in actual log files.
+            To import logs into the app, use the <em>Open in Working Copy</em>
+            action extension from the share sheet. It knows how to deal with special status pages from
+            <a target="ci" href="https://www.bitrise.io/">BitRise</a>,
+            <a target="ci" href="https://circleci.com/">Circle CI</a> and
+            <a target="ci" href="https://jenkins.io">Jenkins</a> but it can be used on raw text as well.
+        </p>
+
+        <p>Your log files are entirely private and unless you explicitly export them
+            they stay on your device.</p>
+
+        </p>
     </div>
     <!--<div class="inner">
-        <h3 id="swift-playgrounds">5.7 Swift Playgrounds</h3>
+        <h3 id="swift-playgrounds">5.8 Swift Playgrounds</h3>
         Apple has made
         <a target="app" href="https://www.apple.com/swift/playgrounds/">Swift Playgrounds</a>
         as a tool to learn Swift. There are some tricks that are nice to know when combining
@@ -1020,6 +1056,8 @@ andrew@company.se/home/andrew/git/site.git/
         $('html, body').stop().animate({
             'scrollTop': $target.offset().top
         }, 900, 'swing', function () {
+
+            if(window.document.location.hostname != "workingcopyapp.com") return;
 
             if(history) {
                 var url = "/manual/" + id.substr(1);
@@ -1138,7 +1176,7 @@ andrew@company.se/home/andrew/git/site.git/
             var hash = window.location.hash;
             if(hash == "#ssh-host-warning" || hash == "#ssh-host-info") {
                 showSecureShellInfo();
-            } else if(hash) {
+            } else if(hash && window.document.location.hostname == "workingcopyapp.com") {
                 // if there is element with this name, we adjust style of url
                 var id = hash.substring(1);
                 if(history && document.getElementById(id)) {
