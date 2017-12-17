@@ -7,10 +7,18 @@
         "paths": [ "/git*" ]
       },
       {
+        "appID": "4U9NSKBV63.com.appliedphasor.working-copy-enterprise-2018",
+        "paths": [ "/git*" ]
+      },
+      {
         "appID": "4U9NSKBV63.com.appliedphasor.working-copy-enterprise",
         "paths": [ "/git*" ]
       },
 
+      {
+        "appID": "4U9NSKBV63.com.appliedphasor.working-copy-enterprise-2018",
+        "paths": [ "/g*" ]
+      },
       {
         "appID": "4U9NSKBV63.com.appliedphasor.working-copy-enterprise",
         "paths": [ "/g*" ]
@@ -24,7 +32,8 @@
 
   "activitycontinuation": {
     "apps": [    "4U9NSKBV63.com.appliedphasor.working-copy",
-                 "4U9NSKBV63.com.appliedphasor.working-copy-enterprise"
+                 "4U9NSKBV63.com.appliedphasor.working-copy-enterprise",
+                 "4U9NSKBV63.com.appliedphasor.working-copy-enterprise-2018"
             ]
   }
 }
