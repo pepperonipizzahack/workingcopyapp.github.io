@@ -36,7 +36,7 @@ for section in $sections; do
 	echo "$summary"
 	
 	# extract image
-	imginfo=`echo "$markup" | grep -E -A1 '<img ' | head -n 2`
+	imginfo=`echo "$markup" | grep -E -A3 '<img ' | head -n 3`
 	image=`echo "$imginfo" | awk -F'srcset=' '{print $2}' | awk -F'"' '{print $2}'`
 	# echo "imginfo=$imginfo"
 	# echo "image=$image"
