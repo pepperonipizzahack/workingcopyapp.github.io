@@ -705,11 +705,11 @@ andrew@company.se/home/andrew/git/site.git/
             a <a target="pgp" href="https://gnupg.org">GPG</a> private key that must be kept secret and when
             verifying commits the corresponding public key is needed.</p>
         <p>
-            Before signing commits in Working Copy you need to import a private key. You attach the private key
-            to your Identity which can be imported from the clipboard or a file. GitHub has a nice description
-            of how to <a target="github" href="https://help.github.com/articles/generating-a-new-gpg-key/">generate</a>
-            a PGP key. To export a private key from your keychain use the command:
-            <pre>gpg --export-secret-key -a "email@your.domain.net"</pre>
+            Before signing commits in Working Copy you need to have a private gpg key.
+            You attach the key to your Identity which can be imported from the clipboard or a file
+            or generated inside the app. If the key is generated inside Working Copy you can attach
+            it to your GitHub account with a single tap or you can export the public or private parts of
+            the key to do manual configuration.
         </p><p>
             Your private key should have a passphrase that needs to be entered before using the key. You can configure
             Working Copy to <em>Ask</em> every time the passphrase is needed, to store the passphrase in the keychain
