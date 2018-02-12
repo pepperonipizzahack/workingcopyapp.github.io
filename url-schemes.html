@@ -77,7 +77,8 @@ sup {
         </p>
         <pre>working-copy://open?repo=my%20project&amp;path=README.md&amp;mode=content
 working-copy://open?repo=my%20project&amp;commit=23f387&amp;mode=status
-working-copy://open?repo=https%3A%2F%2Fgithub.com%2Flibgit2%2Flibgit2&amp;branch=develop</pre>
+working-copy://open?repo=https%3A%2F%2Fgithub.com%2Flibgit2%2Flibgit2&amp;branch=develop
+working-copy://open?repo=my%20project&amp;path=README.md&amp;mode=preview</pre>
         <p>Here <em>repo</em> is either the name of a repository as seen in the list of repositories or
            the full remote URL. If you specify a <em>path</em>, Working Copy will show the
         given directory or file and if you specify a <em>commit</em> hash (or prefix) you are shown the given commit.
@@ -85,8 +86,9 @@ working-copy://open?repo=https%3A%2F%2Fgithub.com%2Flibgit2%2Flibgit2&amp;branch
         </p><p>
             You can control what to show such that <em>mode=content</em> shows file content tab or directory
             contents for directories and repository; <em>mode=changes</em> shows the Changes-tab and is only valid for
-            files, while <em>mode=status</em> shows the Status-tab for files or Status screen for directories and
-            repositories. You can omit the <em>mode</em> parameter to leave mode unchanged.</p>
+            files, <em>mode=status</em> shows the Status-tab for files or Status screen for directories and
+            repositories while <em>mode=preview</em> shows the Content-tab in preview mode for files supporting
+            this. You can omit the <em>mode</em> parameter to leave mode unchanged.</p>
         <p>
             Make sure all parameters are URL-coded and that space is percent- rather than plus-encoded.
         </p>
