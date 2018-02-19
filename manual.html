@@ -972,11 +972,16 @@ andrew@company.se/home/andrew/git/site.git/
 
     <h3 id="ssh-upload">6.2 SSH Upload</h3>
     <div class="inner">
+        <p>
+            It can be convenient to upload the files in your repository to a test server,
+
+        </p>
+
         <blockquote>
      Jekyll:
             side-om-side med Working Copy venstre og Safari højre,
             og Jekyll som kører med:
-               jekyll serve --livereload
+               jekyll serve --host pPro.local
 
             tænder for Upload og venter på upload færdig
 
@@ -990,8 +995,31 @@ andrew@company.se/home/andrew/git/site.git/
     <div class="inner">
         <p>make, pdflatex, xcodebuild</p>
 
+
+        <p>Working Copy has no way of knowing if the commands you run require no files,
+            a single file or all files in a directory, just doing the best it can to
+            run remote commands on the local files in your repository.
+            <ul>
+             <li>It will make sure
+                 all files in your <em>Local</em> directory exist in the <em>Remote</em> directory
+                 doing the inital step of the <em>SSH Upload</em> command.</li>
+             <li>It runs the <em>Command</em> and waits for it to complete</li>
+             <li>Finally it downloads all files in <em>Remote</em> directory that have been
+                 created or modified since running the command. This makes the results of
+                 the command available in your repository on device but might also download
+                 temporary files you don't really need. </li>
+            </ul>
+           </p>
+
         <p>tips til hvor man kan købe egen billige ssh server, fx Hetzner i Europe,
-            og noget i USA og evt. noget i Asien</p>
+            og noget i USA og evt. noget i Asien:
+
+           Europe: Hetzner
+           North America: Linode
+            https://www.linode.com/?r=d7ad6d4a9a88ff1f55d74d3849004845d31fb27d
+        </p>
+
+
     </div>
 
 
@@ -1050,7 +1078,7 @@ andrew@company.se/home/andrew/git/site.git/
 
         <p>Working Copy could be released in a iOS 10 compatible way that did not support the document picker,
             but many users rely on the document picker. They would upgrade to the latest version of the
-            app and loose a feature critical to their workflow with no way to go back.</p>
+            app and lose a feature critical to their workflow with no way to go back.</p>
 
         <p>Apple engineers have verified that this is a bug in iOS that will require a fix from them.
            I expect this fix to be delivered as a software update to iOS 10.3 and when this is in place,
