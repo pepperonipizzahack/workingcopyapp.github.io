@@ -85,13 +85,17 @@
             <li class="header3"><a href="#webdav-server">5.4 WebDAV access</a>,</li>
             <li class="header3"><a href="#workflows-callbacks">5.5 Workflows and Callbacks</a>,</li>
             <li class="header3"><a href="#draftcode">5.6 DraftCode</a></li>
-            <li class="header3"><a href="#logfiles">5.7 Log files</a></li>
             <!--<li class="header3"><a href="#swift-playgrounds">5.8 Swift Playgrounds</a></li>-->
 
-            <li class="header2"><a href="#support">6. Help and Support</a></li>
-            <li class="header3"><a href="#itunes-backup">6.1 File Backup</a>,</li>
-            <li class="header3"><a href="#purchase">6.2 How to purchase</a></li>
-            <li class="header3"><a href="#ios10">6.3 iOS 10 support</a></li>
+            <li class="header2"><a href="#beyond-ios">6. Beyond iOS:</a></li>
+            <li class="header3"><a href="#logfiles">6.1 Log files</a></li>
+            <li class="header3"><a href="#ssh-upload">6.2 SSH Upload</a></li>
+            <li class="header3"><a href="#ssh-command">6.3 SSH Command</a></li>
+
+            <li class="header2"><a href="#support">7. Help and Support</a></li>
+            <li class="header3"><a href="#itunes-backup">7.1 File Backup</a>,</li>
+            <li class="header3"><a href="#purchase">7.2 How to purchase</a></li>
+            <li class="header3"><a href="#ios10">7.3 iOS 10 support</a></li>
         </ul>
     </nav>
 </div>
@@ -808,24 +812,21 @@ andrew@company.se/home/andrew/git/site.git/
 
         <p><em>Open In …</em> or <em>Copy to …</em> is the most basic choice and lets you pick any app
             supporting that type of file. Editing will often be on a copy of the file and it must be transferred back
-            to Working Copy with <em>Save in Working Copy</em>, but if the app you pick says "" as opposed to "Copy to"
-            the application is able to edit the file inside your repository with no need to write back changes.
+            to Working Copy with <em>Save in Working Copy</em>, but if the app you pick
+            says <em>Open in</em> as opposed to <em>Copy to</em>
+            the application is able to edit the file in-place with no need to write back changes.
+            In some situations the iOS share sheet does not know whether editing will be on a copy of the
+            file or in-place until you have picked the action once. This has been known to happen with
+            <a target="app" href="https://itunes.apple.com/dk/app/textastic-code-editor-6/id1049254261?mt=8&amp;at=1000lHq">Textastic</a>
+            that might start out with the action <em>Copy to Textastic</em> even though editing happens in-place.
         </p>
-        <p>If <a target="app" href="https://itunes.apple.com/dk/app/textastic-code-editor-6/id1049254261?mt=8&amp;at=1000lHq">Textastic</a> is installed you can
-        use the <em>Edit in Textastic</em> action. A copy of the file is transferred to
-        Textastic with a filename such that Working Copy can recognise the file later on,
-            saving you the trouble of picking the destination file. </p>
-        <p id="edit-in-editorial">
-            <em>Edit in Editorial</em>
-            works similarly, but requires a workflow inside
-            <a target="app" href="https://itunes.apple.com/app/editorial/id673907758?mt=8&amp;at=1000lHq">Editorial</a>
-            to facilitate file transfer. It
+        <p>To edit with <a target="app" href="https://itunes.apple.com/app/editorial/id673907758?mt=8&amp;at=1000lHq">Editorial</a>
+            you transfer a copy of the file into Editorial with a filename such that Working Copy can recognise the file later on.
+            This requires a workflow inside Editorial to facilitate file transfer. It
             is installed the first time you use <em>Edit in Editorial</em> or if you delete
             or rename the workflow. This workflow serves a dual purpose in that it receives files
             when activated from Working Copy, and returns files to Working Copy when activated from Editorial. </p>
-    <p>The <em>Edit in <a target="app" href="https://itunes.apple.com/app/byword/id482063361?mt=8&amp;at=1000lHq">Byword</a></em>
-        action has one extra step, where you need to use the share sheet to save back to Working Copy.
-    </p><p>
+    <p><p>
         You will only see actions for apps you have already installed and you can change the order
         by picking <em>More</em> to the far right.
     </p>
@@ -909,8 +910,30 @@ andrew@company.se/home/andrew/git/site.git/
         </p>
     </div>
 
+    <!--<div class="inner">
+    <h3 id="swift-playgrounds">5.8 Swift Playgrounds</h3>
+    Apple has made
+    <a target="app" href="https://www.apple.com/swift/playgrounds/">Swift Playgrounds</a>
+    as a tool to learn Swift. There are some tricks that are nice to know when combining
+    Working Copy with Swift Playgrounds.
+
+    https://oleb.net/blog/2017/05/whats-new-in-swift-4-playground/ </div>-->
+
+
     <div style="clear: both;"></div>
-    <h3 id="logfiles">5.7 Log files</h3>
+    <h2 id="beyond-ios">6. Beyond iOS</h2>
+
+    <div class="inner">
+    <p>Not every tool is available on iOS, and Working Copy lets you
+       use remote computers to work on the files in your repositories.
+       Git remotes can be
+        <a target="gitbook" href="https://git-scm.com/book/gr/v2/Customizing-Git-Git-Hooks">configured</a>
+        to perform operations at <em>Push</em>ed or you can use secure-shell to upload files to remote server
+        and invoke commands.
+    </p>
+    </div>
+
+    <h3 id="logfiles">6.1 Log files</h3>
     <div class="inner">
         <p>
             Working Copy will record log files as you clone, fetch from and push to repositories.
@@ -922,13 +945,13 @@ andrew@company.se/home/andrew/git/site.git/
 
         <p>When something interesting is logged during a remote transfer, a log thumbnail
             will appear in the lower right corner. You can drag this out of the
-           screen to fully hide it or tap to open up the log.</p>
+            screen to fully hide it or tap to open up the log.</p>
 
         <p>Access the list of previous logs using a button at the top of the repository list.
             To keep this list tidy, only recent log files will be kept, but you can mark
             a log file as favourite by tapping the star to avoid automatic cleanup.</p>
 
-       <p>Log files can be linked to a repository inside Working Copy, such that filenames
+        <p>Log files can be linked to a repository inside Working Copy, such that filenames
             are turned into references. Regular URL's and email addresses are detected
             as well and tapping these will show a preview and let you act on them.</p>
 
@@ -946,25 +969,42 @@ andrew@company.se/home/andrew/git/site.git/
 
         </p>
     </div>
-    <!--<div class="inner">
-        <h3 id="swift-playgrounds">5.8 Swift Playgrounds</h3>
-        Apple has made
-        <a target="app" href="https://www.apple.com/swift/playgrounds/">Swift Playgrounds</a>
-        as a tool to learn Swift. There are some tricks that are nice to know when combining
-        Working Copy with Swift Playgrounds.
 
-        https://oleb.net/blog/2017/05/whats-new-in-swift-4-playground/
+    <h3 id="ssh-upload">6.2 SSH Upload</h3>
+    <div class="inner">
+        <blockquote>
+     Jekyll:
+            side-om-side med Working Copy venstre og Safari højre,
+            og Jekyll som kører med:
+               jekyll serve --livereload
 
-    </div>-->
+            tænder for Upload og venter på upload færdig
+
+            laver lokal rettelse, venter på upload og laver Safari refresh
+        </blockquote>
+
+        <p>Jekyll, Node.js</p>
+    </div>
+
+    <h3 id="ssh-command">6.3 SSH Command</h3>
+    <div class="inner">
+        <p>make, pdflatex, xcodebuild</p>
+
+        <p>tips til hvor man kan købe egen billige ssh server, fx Hetzner i Europe,
+            og noget i USA og evt. noget i Asien</p>
+    </div>
+
+
+
 
     <div style="clear: both;"></div>
-    <h2 id="support">6. Help and Support</h2>
+    <h2 id="support">7. Help and Support</h2>
     <div class="inner">
         <p>A lot of work has gone into making Working Copy as trouble-free to use as possible,
             but despite that, problems will sometimes occur. Please send your
             questions by email to <a class="email"></a> and I will do my very best to assist.</p>
 
-        <h3 style="padding-top: 15px" id="itunes-backup">6.1 File Backup</h3>
+        <h3 style="padding-top: 15px" id="itunes-backup">7.1 File Backup</h3>
         <p>Files stored in Git are often very safe, since repositories are stored in multiple
            locations some on local computers and some on remote servers. Files that have not yet
            been committed and pushed to a server are somewhat vulnerable to data loss.</p>
@@ -978,8 +1018,9 @@ andrew@company.se/home/andrew/git/site.git/
         </p>
 
     </div>
+
     <div class="inner">
-        <h3 style="padding-top: 15px" id="purchase">6.2 How to purchase</h3>
+        <h3 style="padding-top: 15px" id="purchase">7.2 How to purchase</h3>
         <div class="right"><img class="right" onload="imgLoaded(this)" src="img/unlock.png"
                                 _dark_src="img/unlock-transparent.png"
                                srcset="img/unlock.png 200w, img/unlock-400.png 400w, img/unlock-645.png 645w"/></div>
@@ -1002,7 +1043,7 @@ andrew@company.se/home/andrew/git/site.git/
             improvements and bug-fixes.
         </p>
 
-        <h3 id="ios10">6.3 iOS 10 support</h3>
+        <h3 id="ios10">7.3 iOS 10 support</h3>
         <p>Working Copy 3.1.0 and later only supports iOS 11 and iOS 10 devices cannot upgrade.
            This is a unfortunate consequence of technical difficulties getting the iOS 10 document picker to work
             while also supporting the iOS 11 Files app.</p>
