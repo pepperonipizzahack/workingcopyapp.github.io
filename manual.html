@@ -928,7 +928,7 @@ andrew@company.se/home/andrew/git/site.git/
        use remote computers to work on the files in your repositories.
        Git remotes can be
         <a target="gitbook" href="https://git-scm.com/book/gr/v2/Customizing-Git-Git-Hooks">configured</a>
-        to perform operations at <em>Push</em>ed or you can use secure-shell to upload files to remote server
+        to perform operations at <em>Push</em> or you can use secure-shell to upload files to remote server
         and invoke commands.
     </p>
     </div>
@@ -974,99 +974,88 @@ andrew@company.se/home/andrew/git/site.git/
     <div class="inner">
         <p>
             It can be convenient to upload the files in your repository to a test server,
-            and to make sure your changed files are updated on this server as you make
-            changes in Working Copy. This is possible with the <em>SSH Upload</em> feature
-            that you enable from the share sheet for a repository or directory.</p>
+            and to keep server files in sync as you make changes on iOS. To do this you
+            enable the <em>SSH Upload</em> feature from the share sheet for a repository or directory.</p>
 
         <p>As implied by the name, files are transferred using secure shell, where you either
            authenticate using password or SSH keys. You pick a server, a <em>Remote</em>
            directory and a <em>Local</em> directory where the entire repository is used if you
-           do not specify a Local directory.
+           do not specify a Local directory. You access a list of previously used servers
+            with a button to the right of the <em>Server</em> field which also contains computers
+            <a target="bonjour" href="https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/NetServices/Introduction.html">advertising</a>
+            SSH services.
         </p>
-        <!-- Jekyll:
-    side-om-side med Working Copy venstre og Safari højre,
-    og Jekyll som kører med:
-       jekyll serve --host pPro.local
+        <div class="ipad-pro"><img class="ipad-pro animated" src="img/ssh-upload.png" onload="imgLoaded(this)"/></div>
 
-    tænder for Upload og venter på upload færdig
-
-    laver lokal rettelse, venter på upload og laver Safari refresh -->
-        <div class="ipad-pro"><img class="ipad-pro animated" src="img/log-file.png" onload="imgLoaded(this)"/></div>
-
-        <p>You tap <em>Upload</em> to start uploading, where the app will compare files and directories
-           in the <em>Remote</em> directory to these in the <em>Local</em> directory uploading any files
-           missing on the remote server or where the local file is more recent than the remote file.
+        <p>Tap <em>Upload</em> to start, where the app will compare files and directories
+           in the <em>Remote</em> directory to those in the <em>Local</em> directory uploading any files
+           missing on the remote server or where the local file is newer than the remote file.
          </p>
          <p>Once initial upload has completed, the local directory is watched for changes
-            that are uploaded automatically until <em>Upload</em> is stopped. This is especially
-             useful when working on Jekyll sites, Node.js services or other technologies that
-             can be configured to reload when files on server changes.
+            and these are transferred automatically until <em>Upload</em> is stopped. This is especially
+             useful when working on Jekyll sites, Node.js services and other technologies that
+             can reload when files change.
          </p>
          <p>You can switch to other
             apps for editing files, but Working Copy is only allowed to keep running in the
-             background for a short while. A notification will inform you when <em>Upload</em>
+             background for a limited time. A notification will inform you when <em>Upload</em>
              is stopped for this reason.
          </p>
         <p>Once <em>SSH Upload</em> is configured for a repository, a new button is available
            in the upper right corner of the directory listing. This makes it easy to access
-            configuration but the icon will show status, switching to a green color when Upload
-            is enabled as well as indicating when files are being transferred and if there are
-            transfer errors. If you clear all fields in the configuration, you can tap <em>Hide</em>
-            to disable <em>SSH Upload</em> entirely and hide this button until you enable it
+            configuration and the icon will show status, turning green when <em>Upload</em>
+            is enabled and indicating when files are actively being transferred and if there are
+            errors. If you clear all fields in the configuration, you can tap <em>Hide</em>
+            to disable <em>SSH Upload</em> entirely until you enable it
             again with the share sheet.
            </p>
      </div>
 
     <h3 id="ssh-command">6.3 SSH Command</h3>
     <div class="inner">
-        <p>Sometimes you need to apply a tool from your server on the files you
-           have in your repositories in Working Copy. This could be running
+        <p>Sometimes you need to apply a tool on your server to the files in your
+            repository on iOS. You can run
             <a target="commands" href="https://www.gnu.org/software/make/">make</a>
-            on a Makefile, having <em>pdflatex</em> create a PDF file from
-            <span class="latex">L<sup>a</sup>T<sub>e</sub>X</span>, using
+            on a Makefile, have <em>pdflatex</em> create a PDF file from
+            <span class="latex">L<sup>a</sup>T<sub>e</sub>X</span>, use
             <a target="commands" href="https://developer.apple.com/library/content/technotes/tn2339/_index.html">xcodebuild</a>
-            to build apps on a remote Xcode or almost anything else you can invoke on the
-            command line.
-
-            <em>SSH Command</em> makes this
-           easy by letting you configure commands for different file types that can be
-           invoked on remote server using secure shell. Both output from the command
-           and files produced by running the command is brought back into Working Copy.
+            to build apps or almost anything else you can invoke on the command line.
         </p>
-        <div class="ipad-pro"><img class="ipad-pro animated" src="img/log-file.png" onload="imgLoaded(this)"/></div>
+        <p> <em>SSH Command</em> lets you configure commands for different file types that can be
+           invoked on your server using secure shell. Output from the command is shown as a log file,
+            where mentions of files that exist in your repository are converted into links.
+            Files on the server created or modified by running the command are
+            downloaded back into your repository.
+        </p>
+        <!--<div class="ipad-pro"><img class="ipad-pro animated" src="img/ssh-command.png" onload="imgLoaded(this)"/></div>-->
         <p>You enable this from the share sheet of files or directories. Configuration is similar to
-           <em>SSH Upload</em> but you also configure a <em>Command</em> that is run on your server.
+           <em>SSH Upload</em> but you also configure a <em>Command</em> to run on the server.
            When you tap <em>Start</em> a initial upload is performed, but instead of waiting for
             local changes the specified command is run on the remote server. When this command has
             completed, any files created or modified will be downloaded into your <em>Local</em>
             directory.
         </p>
-        <p>Since Working Copy has no way of knowing which files are relevant, everything in your
-           <em>Local</em> directory is synced to the <em>Remote</em> directory. When configuring
-           the command it can be helpful to create a subdirectory just for running this command,
-           which can be done by tapping <em>+</em> in the remote directory picker. If you run
-           the same command mamy times, using the same remote directory, there will often only
-            be a few files that have changed and need to be uploaded. </p>
+        <p>Machine generated files are often not versioned controlled,
+           and the easiest way to enforce this, is to add these to your <em>.gitignore</em> file.
+            Sliding left on files in the directory listing and picking <em>Ignore</em> is the fastest
+            way to achieve this.</p>
 
-        <p>The app will remember which commands have been used on which files and which
-           filetypes. Once you configure <em>SSH Command</em> it will be available as a
-           action when sliding right on files of the same type. Often the command you
-           run depends on the files you are running it on and Working Copy takes this into
-           account.</p>
-        <p>If you configure the command <pre>pdflatex article.tex</pre> on a file named
-          <em>article.tex</em> the suggested command for <em>thesis.tex</em> will run
-        <pre>pdflatex</pre> on the current file. You can clear all configuration and tap <em>Hide</em>
-           to disable this command.</p>
+        <p>Since Working Copy has no way of knowing which files are relevant, everything in your
+           <em>Local</em> directory is synced to the <em>Remote</em> directory. If you run
+           the same command many times using the same remote directory, there will often only
+            be a few files that have changed and need to be uploaded. When configuring
+            the command it can be helpful to create a subdirectory just for running this command,
+            which can be done by tapping <em>+</em> in the remote directory picker. </p>
+
+        <p>The app will remember previous commands and these are available from the
+            button to the right of the <em>Command</em>
+            field combining commands for the exact filename, the same file extension or
+            the most recent commands for any file. The top choice for a given file is available as a
+           action when sliding left on files in directory listings. </p>
 
         <p>You need a Linux or BSD server accessible through secure shell to use this feature,
            but it doesn't have to be a expensive server. A small virtual private server (vps)
-           will get you far. We suggest the following server providers:
-            <ul class="vps">
-              <li><img src="/img/germany.png" alt="flag of Germany"/>
-                  <a href="https://www.hetzner.com/cloud">Hetzner cloud server</a> </li>
-              <li><img src="/img/usa.png" alt="flag of the United States of America"/>
-                   <a href="https://www.linode.com/?r=d7ad6d4a9a88ff1f55d74d3849004845d31fb27d">Linode Standard Plan</a> </li>
-            </ul>
+           will get you far and can be purchased for as little as $5 per month.
         </p>
 
     </div>
