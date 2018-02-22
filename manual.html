@@ -1027,7 +1027,7 @@ andrew@company.se/home/andrew/git/site.git/
             Files on the server created or modified by running the command are
             downloaded back into your repository.
         </p>
-        <!--<div class="ipad-pro"><img class="ipad-pro animated" src="img/ssh-command.png" onload="imgLoaded(this)"/></div>-->
+        <div class="ipad-pro"><img class="ipad-pro animated" src="img/ssh-command.png" onload="imgLoaded(this)"/></div>
         <p>You enable this from the share sheet of files or directories. Configuration is similar to
            <em>SSH Upload</em> but you also configure a <em>Command</em> to run on the server.
            When you tap <em>Start</em> a initial upload is performed, but instead of waiting for
@@ -1056,6 +1056,15 @@ andrew@company.se/home/andrew/git/site.git/
         <p>You need a Linux or BSD server accessible through secure shell to use this feature,
            but it doesn't have to be a expensive server. A small virtual private server (vps)
            will get you far and can be purchased for as little as $5 per month.
+        </p>
+        <p>Even though you can run all sorts of commands this feature is not a
+            substitute for a standalone SSH clients. When your operation has many steps or you
+            are not 100% sure what option a command takes, a standalone interactive SSH client
+            should be used. A good compromise for complicated commands is to use a interactive client
+            to create shell scripts that you invoke with <em>SSH Command</em>.
+            <a target="app" href="https://itunes.apple.com/us/app/prompt-2/id917437289?mt=8&uo=4&at=1000lHq">Prompt</a>
+            and <a target="app" href="https://itunes.apple.com/app/id1156707581?at=1000lHq">Blink</a> are
+            both good SSH clients for iOS.
         </p>
 
     </div>
