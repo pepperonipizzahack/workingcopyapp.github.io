@@ -953,7 +953,10 @@ andrew@company.se/home/andrew/git/site.git/
 
         <p>Log files can be linked to a repository inside Working Copy, such that filenames
             are turned into references. Regular URL's and email addresses are detected
-            as well and tapping these will show a preview and let you act on them.</p>
+            as well and tapping these will show a preview and let you act on them and
+            while preview is shown, you will be able to
+            <a target="apple" href="https://support.apple.com/en-us/HT204681">Handoff</a> the link
+            to nearby Macs or iOS devices for browsing.</p>
 
         <p>Often the log files exist outside Working Copy in emails, on build-server
             status pages or as raw text in actual log files.
@@ -1022,12 +1025,12 @@ andrew@company.se/home/andrew/git/site.git/
             to build apps or almost anything else you can invoke on the command line.
         </p>
         <p> <em>SSH Command</em> lets you configure commands for different file types that can be
-           invoked on your server using secure shell. Output from the command is shown as a log file,
+           invoked on your server using secure shell. Output from the command is shown as a
+            <a href="#logfiles">log</a> file,
             where mentions of files that exist in your repository are converted into links.
             Files on the server created or modified by running the command are
             downloaded back into your repository.
         </p>
-        <div class="ipad-pro"><img class="ipad-pro animated" src="img/ssh-command.png" onload="imgLoaded(this)"/></div>
         <p>You enable this from the share sheet of files or directories. Configuration is similar to
            <em>SSH Upload</em> but you also configure a <em>Command</em> to run on the server.
            When you tap <em>Start</em> a initial upload is performed, but while waiting for
@@ -1039,7 +1042,7 @@ andrew@company.se/home/andrew/git/site.git/
            and the easiest way to enforce this, is to add these to your <em>.gitignore</em> file.
             Sliding left on files in the directory listing and picking <em>Ignore</em> is the fastest
             way to achieve this.</p>
-
+        <div class="ipad-pro"><img class="ipad-pro animated" src="img/ssh-command.png" onload="imgLoaded(this)"/></div>
         <p>Since Working Copy has no way of knowing which files are relevant, everything in your
            <em>Local</em> directory is synced to the <em>Remote</em> directory. If you run
            the same command many times using the same remote directory, there will often only
@@ -1057,13 +1060,13 @@ andrew@company.se/home/andrew/git/site.git/
            but it doesn't have to be a expensive server. A small virtual private server (vps)
            will get you far and can be purchased for as little as $5 per month.
         </p>
-        <p>Even though you can run all sorts of commands this feature is not a
-            substitute for a standalone SSH clients. When your operation has many steps or you
+        <p>Even though you can run all sorts of commands, this feature is not a
+            substitute for a standalone SSH client. When your operation has multiple steps or you
             are not 100% sure what option a command takes, a standalone interactive SSH client
             should be used. A good compromise for complicated commands is to use a interactive client
             to create shell scripts that you invoke with <em>SSH Command</em>.
             <a target="app" href="https://itunes.apple.com/us/app/prompt-2/id917437289?mt=8&uo=4&at=1000lHq">Prompt</a>
-            and <a target="app" href="https://itunes.apple.com/app/id1156707581?at=1000lHq">Blink</a> are
+            and <a target="app" href="https://itunes.apple.com/app/id1156707581?at=1000lHq">Blink Shell</a> are
             both good SSH clients for iOS.
         </p>
 
