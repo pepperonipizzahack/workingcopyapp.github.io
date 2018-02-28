@@ -1227,7 +1227,7 @@ andrew@company.se/home/andrew/git/site.git/
             }
         }
 
-        function setupVideos() {
+        function setupVideos(showControls) {
             $('img.animated').each(function() {
                 var img = $(this)[0];
                 var src = img.getAttribute("src");
@@ -1242,11 +1242,16 @@ andrew@company.se/home/andrew/git/site.git/
 
                 var video = document.createElement("video");
                 video.setAttribute("poster", "video/" + base + ".jpg");
-                video.setAttribute("muted", "true");
+                video.setAttribute("muted", "muted");
                 video.setAttribute("webkit-playsinline", "true");
                 video.setAttribute("playsinline", "true");
                 video.setAttribute("preload", "none");
-                video.setAttribute("class", "animated");
+                if(showControls) {
+                    video.setAttribute("class", "animated controls");
+                    video.setAttribute("controls", "true");
+                } else {
+                    video.setAttribute("class", "animated");
+                }
                 video.spinner_started = false;
                 if(alt) video.setAttribute("alt", alt);
 
@@ -1262,30 +1267,35 @@ andrew@company.se/home/andrew/git/site.git/
                 }
 
                 var source = document.createElement("source");
-                source.setAttribute("src", "video/" + base + ".mp4");
+                source.setAttribute("src", "//workingcopyapp.com/video/" + base + ".mp4");
                 source.setAttribute("type", "video/mp4");
-                video.oncanplay = function() {
-                    playButton.parentNode.removeChild(playButton);
-                    video.setAttribute("controls", "true");
-                    video.setAttribute("class", "animated started");
-                };
-                video.onclick = function() {
-                    if(!video.spinner_started) {
-                        video.spinner_started = true;
-                        playButton.setAttribute("class", "playButton spinning");
-                    }
+                if(!showControls) {
+                    video.oncanplay = function() {
+                        playButton.parentNode.removeChild(playButton);
+                        video.setAttribute("controls", "true");
+                        video.setAttribute("class", "animated started");
+                    };
 
-                    var isPlaying = !!(video.currentTime > 0 && !video.paused && !video.ended && video.readyState > 2);
-                    if(isPlaying) video.pause();
-                    else {
-                        video.play();
-                    }
-                };
-                playButton.onclick = video.onclick;
+                    video.onclick = function() {
+                        if(!video.spinner_started) {
+                            video.spinner_started = true;
+                            playButton.setAttribute("class", "playButton spinning");
+                        }
+
+                        var isPlaying = !!(video.currentTime > 0 && !video.paused && !video.ended && video.readyState > 2);
+                        if(isPlaying) video.pause();
+                        else {
+                            video.play();
+                        }
+                    };
+                    playButton.onclick = video.onclick;
+                }
 
                 video.appendChild(source);
                 container.appendChild(video);
-                container.appendChild(playButton);
+                if(!showControls) {
+                    container.appendChild(playButton);
+                }
 
                 img.parentNode.insertBefore(container, img.nextSibling);
             });
@@ -1312,8 +1322,9 @@ andrew@company.se/home/andrew/git/site.git/
             });
 
             var search = window.document.location.search;
-            var noVideos = search.indexOf('novideo') >= 0 || search.indexOf('darkmode') >= 0;
-            if(!noVideos) setupVideos();
+            var noVideos = search.indexOf('novideo') >= 0;
+            var showControls = search.indexOf('archive') >= 0 || search.indexOf('darkmode') >= 0;
+            if(!noVideos) setupVideos(showControls);
         });
     })();
 </script>
