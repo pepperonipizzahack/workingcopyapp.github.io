@@ -31,15 +31,6 @@
         }
     </script>
     <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-2084164-5', 'auto');
-        ga('send', 'pageview');
-    </script>
-    <script>
         function imgLoaded(img) {
             img.parentNode.style.background = 'transparent';
         };
@@ -85,13 +76,17 @@
             <li class="header3"><a href="#webdav-server">5.4 WebDAV access</a>,</li>
             <li class="header3"><a href="#workflows-callbacks">5.5 Workflows and Callbacks</a>,</li>
             <li class="header3"><a href="#draftcode">5.6 DraftCode</a></li>
-            <li class="header3"><a href="#logfiles">5.7 Log files</a></li>
             <!--<li class="header3"><a href="#swift-playgrounds">5.8 Swift Playgrounds</a></li>-->
 
-            <li class="header2"><a href="#support">6. Help and Support</a></li>
-            <li class="header3"><a href="#itunes-backup">6.1 File Backup</a>,</li>
-            <li class="header3"><a href="#purchase">6.2 How to purchase</a></li>
-            <li class="header3"><a href="#ios10">6.3 iOS 10 support</a></li>
+            <li class="header2"><a href="#beyond-ios">6. Beyond iOS:</a></li>
+            <li class="header3"><a href="#logfiles">6.1 Log files</a></li>
+            <li class="header3"><a href="#ssh-upload">6.2 SSH Upload</a></li>
+            <li class="header3"><a href="#ssh-command">6.3 SSH Command</a></li>
+
+            <li class="header2"><a href="#support">7. Help and Support</a></li>
+            <li class="header3"><a href="#itunes-backup">7.1 File Backup</a>,</li>
+            <li class="header3"><a href="#purchase">7.2 How to purchase</a></li>
+            <li class="header3"><a href="#ios10">7.3 iOS 10 support</a></li>
         </ul>
     </nav>
 </div>
@@ -808,24 +803,21 @@ andrew@company.se/home/andrew/git/site.git/
 
         <p><em>Open In …</em> or <em>Copy to …</em> is the most basic choice and lets you pick any app
             supporting that type of file. Editing will often be on a copy of the file and it must be transferred back
-            to Working Copy with <em>Save in Working Copy</em>, but if the app you pick says "" as opposed to "Copy to"
-            the application is able to edit the file inside your repository with no need to write back changes.
+            to Working Copy with <em>Save in Working Copy</em>, but if the app you pick
+            says <em>Open in</em> as opposed to <em>Copy to</em>
+            the application is able to edit the file in-place with no need to write back changes.
+            In some situations the iOS share sheet does not know whether editing will be on a copy of the
+            file or in-place until you have picked the action once. This has been known to happen with
+            <a target="app" href="https://itunes.apple.com/dk/app/textastic-code-editor-6/id1049254261?mt=8&amp;at=1000lHq">Textastic</a>
+            that might start out with the action <em>Copy to Textastic</em> even though editing happens in-place.
         </p>
-        <p>If <a target="app" href="https://itunes.apple.com/dk/app/textastic-code-editor-6/id1049254261?mt=8&amp;at=1000lHq">Textastic</a> is installed you can
-        use the <em>Edit in Textastic</em> action. A copy of the file is transferred to
-        Textastic with a filename such that Working Copy can recognise the file later on,
-            saving you the trouble of picking the destination file. </p>
-        <p id="edit-in-editorial">
-            <em>Edit in Editorial</em>
-            works similarly, but requires a workflow inside
-            <a target="app" href="https://itunes.apple.com/app/editorial/id673907758?mt=8&amp;at=1000lHq">Editorial</a>
-            to facilitate file transfer. It
+        <p>To edit with <a target="app" href="https://itunes.apple.com/app/editorial/id673907758?mt=8&amp;at=1000lHq">Editorial</a>
+            you transfer a copy of the file into Editorial with a filename such that Working Copy can recognise the file later on.
+            This requires a workflow inside Editorial to facilitate file transfer. It
             is installed the first time you use <em>Edit in Editorial</em> or if you delete
             or rename the workflow. This workflow serves a dual purpose in that it receives files
             when activated from Working Copy, and returns files to Working Copy when activated from Editorial. </p>
-    <p>The <em>Edit in <a target="app" href="https://itunes.apple.com/app/byword/id482063361?mt=8&amp;at=1000lHq">Byword</a></em>
-        action has one extra step, where you need to use the share sheet to save back to Working Copy.
-    </p><p>
+    <p><p>
         You will only see actions for apps you have already installed and you can change the order
         by picking <em>More</em> to the far right.
     </p>
@@ -909,8 +901,30 @@ andrew@company.se/home/andrew/git/site.git/
         </p>
     </div>
 
+    <!--<div class="inner">
+    <h3 id="swift-playgrounds">5.8 Swift Playgrounds</h3>
+    Apple has made
+    <a target="app" href="https://www.apple.com/swift/playgrounds/">Swift Playgrounds</a>
+    as a tool to learn Swift. There are some tricks that are nice to know when combining
+    Working Copy with Swift Playgrounds.
+
+    https://oleb.net/blog/2017/05/whats-new-in-swift-4-playground/ </div>-->
+
+
     <div style="clear: both;"></div>
-    <h3 id="logfiles">5.7 Log files</h3>
+    <h2 id="beyond-ios">6. Beyond iOS</h2>
+
+    <div class="inner">
+    <p>Not every tool is available on iOS, and Working Copy lets you
+       use remote computers to work on the files in your repositories.
+       Git remotes can be
+        <a target="gitbook" href="https://git-scm.com/book/gr/v2/Customizing-Git-Git-Hooks">configured</a>
+        to perform operations at <em>Push</em> or you can use secure-shell to upload files to remote server
+        and invoke commands.
+    </p>
+    </div>
+
+    <h3 id="logfiles">6.1 Log files</h3>
     <div class="inner">
         <p>
             Working Copy will record log files as you clone, fetch from and push to repositories.
@@ -922,15 +936,18 @@ andrew@company.se/home/andrew/git/site.git/
 
         <p>When something interesting is logged during a remote transfer, a log thumbnail
             will appear in the lower right corner. You can drag this out of the
-           screen to fully hide it or tap to open up the log.</p>
+            screen to fully hide it or tap to open up the log.</p>
 
         <p>Access the list of previous logs using a button at the top of the repository list.
             To keep this list tidy, only recent log files will be kept, but you can mark
             a log file as favourite by tapping the star to avoid automatic cleanup.</p>
 
-       <p>Log files can be linked to a repository inside Working Copy, such that filenames
+        <p>Log files can be linked to a repository inside Working Copy, such that filenames
             are turned into references. Regular URL's and email addresses are detected
-            as well and tapping these will show a preview and let you act on them.</p>
+            as well and tapping these will show a preview and let you act on them and
+            while preview is shown, you will be able to
+            <a target="apple" href="https://support.apple.com/en-us/HT204681">Handoff</a> the link
+            to nearby Macs or iOS devices for browsing.</p>
 
         <p>Often the log files exist outside Working Copy in emails, on build-server
             status pages or as raw text in actual log files.
@@ -946,25 +963,115 @@ andrew@company.se/home/andrew/git/site.git/
 
         </p>
     </div>
-    <!--<div class="inner">
-        <h3 id="swift-playgrounds">5.8 Swift Playgrounds</h3>
-        Apple has made
-        <a target="app" href="https://www.apple.com/swift/playgrounds/">Swift Playgrounds</a>
-        as a tool to learn Swift. There are some tricks that are nice to know when combining
-        Working Copy with Swift Playgrounds.
 
-        https://oleb.net/blog/2017/05/whats-new-in-swift-4-playground/
+    <h3 id="ssh-upload">6.2 SSH Upload</h3>
+    <div class="inner">
+        <p>
+            It can be convenient to upload the files in your repository to a test server,
+            and to keep server files in sync as you make changes on iOS. To do this you
+            enable the <em>SSH Upload</em> feature from the share sheet for a repository or directory.</p>
 
-    </div>-->
+        <p>As implied by the name, files are transferred using secure shell, where you either
+           authenticate using password or SSH keys. You pick a server, a <em>Remote</em>
+           directory and a <em>Local</em> directory where the entire repository is used if you
+           do not specify a Local directory. You access a list of previously used servers
+            with a button to the right of the <em>Server</em> field which also contains computers
+            <a target="bonjour" href="https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/NetServices/Introduction.html">advertising</a>
+            SSH services.
+        </p>
+        <div class="ipad-pro"><img class="ipad-pro animated" src="img/ssh-upload.png" onload="imgLoaded(this)"/></div>
+
+        <p>Tap <em>Upload</em> to start, where the app will compare files and directories
+           in the <em>Remote</em> directory to those in the <em>Local</em> directory uploading any files
+           missing on the remote server or where the local file is newer than the remote file.
+         </p>
+         <p>Once initial upload has completed, the local directory is watched for changes
+            and these are transferred automatically until <em>Upload</em> is stopped. This is especially
+             useful when working on Jekyll sites, Node.js services and other technologies that
+             can reload when files change.
+         </p>
+         <p>You can switch to other
+            apps for editing files, but Working Copy is only allowed to keep running in the
+             background for a limited time. A notification will inform you when <em>Upload</em>
+             is stopped for this reason.
+         </p>
+        <p>Once <em>SSH Upload</em> is configured for a repository, a new button is available
+           in the upper right corner of the directory listing. This makes it easy to access
+            configuration and the icon will show status, turning green when <em>Upload</em>
+            is enabled and indicating when files are actively being transferred and if there are
+            errors. If you clear all fields in the configuration, you can tap <em>Hide</em>
+            to disable <em>SSH Upload</em> entirely until you enable it
+            again with the share sheet.
+           </p>
+     </div>
+
+    <h3 id="ssh-command">6.3 SSH Command</h3>
+    <div class="inner">
+        <p>Sometimes you need to apply a tool on your server to the files in your
+            repository on iOS. You can run
+            <a target="commands" href="https://www.gnu.org/software/make/">make</a>
+            on a Makefile, have <em>pdflatex</em> create a PDF file from
+            <span class="latex">L<sup>a</sup>T<sub>e</sub>X</span>, use
+            <a target="commands" href="https://developer.apple.com/library/content/technotes/tn2339/_index.html">xcodebuild</a>
+            to build apps or almost anything else you can invoke on the command line.
+        </p>
+        <p> <em>SSH Command</em> lets you configure commands for different file types that can be
+           invoked on your server using secure shell. Output from the command is shown as a
+            <a href="#logfiles">log</a> file,
+            where mentions of files that exist in your repository are converted into links.
+            Files on the server created or modified by running the command are
+            downloaded back into your repository.
+        </p>
+        <p>You enable this from the share sheet of files or directories. Configuration is similar to
+           <em>SSH Upload</em> but you also configure a <em>Command</em> to run on the server.
+           When you tap <em>Start</em> a initial upload is performed, but while waiting for
+            local changes the specified command is run on the remote server. When this command has
+            completed upload syncing stops and any files created or modified will be
+            downloaded into your <em>Local</em> directory.
+        </p>
+        <p>Machine generated files are often not versioned controlled,
+           and the easiest way to enforce this, is to add these to your <em>.gitignore</em> file.
+            Sliding left on files in the directory listing and picking <em>Ignore</em> is the fastest
+            way to achieve this.</p>
+        <div class="ipad-pro"><img class="ipad-pro animated" src="img/ssh-command.png" onload="imgLoaded(this)"/></div>
+        <p>Since Working Copy has no way of knowing which files are relevant, everything in your
+           <em>Local</em> directory is synced to the <em>Remote</em> directory. If you run
+           the same command many times using the same remote directory, there will often only
+            be a few files that have changed and need to be uploaded. When configuring
+            the command it can be helpful to create a subdirectory just for running this command,
+            which can be done by tapping <em>+</em> in the remote directory picker. </p>
+
+        <p>The app will remember previous commands and these are available from the
+            button to the right of the <em>Command</em>
+            field combining commands for the exact filename, the same file extension or
+            the most recent commands for any file. The top choice for a given file is available as a
+           action when sliding left on files in directory listings. </p>
+
+        <p>You need a Linux or BSD server accessible through secure shell to use this feature,
+           but it doesn't have to be a expensive server. A small virtual private server (vps)
+           will get you far and can be purchased for as little as $5 per month.
+        </p>
+        <p>Even though you can run all sorts of commands, this feature is not a
+            substitute for a standalone SSH client. When your operation has multiple steps or you
+            are not 100% sure what option a command takes, a standalone interactive SSH client
+            should be used. A good compromise for complicated commands is to use a interactive client
+            to create shell scripts that you invoke with <em>SSH Command</em>.
+            <a target="app" href="https://itunes.apple.com/us/app/prompt-2/id917437289?mt=8&uo=4&at=1000lHq">Prompt</a>
+            and <a target="app" href="https://itunes.apple.com/app/id1156707581?at=1000lHq">Blink Shell</a> are
+            both good SSH clients for iOS.
+        </p>
+
+    </div>
+
 
     <div style="clear: both;"></div>
-    <h2 id="support">6. Help and Support</h2>
+    <h2 id="support">7. Help and Support</h2>
     <div class="inner">
         <p>A lot of work has gone into making Working Copy as trouble-free to use as possible,
             but despite that, problems will sometimes occur. Please send your
             questions by email to <a class="email"></a> and I will do my very best to assist.</p>
 
-        <h3 style="padding-top: 15px" id="itunes-backup">6.1 File Backup</h3>
+        <h3 style="padding-top: 15px" id="itunes-backup">7.1 File Backup</h3>
         <p>Files stored in Git are often very safe, since repositories are stored in multiple
            locations some on local computers and some on remote servers. Files that have not yet
            been committed and pushed to a server are somewhat vulnerable to data loss.</p>
@@ -978,27 +1085,32 @@ andrew@company.se/home/andrew/git/site.git/
         </p>
 
     </div>
+
     <div class="inner">
-        <h3 style="padding-top: 15px" id="purchase">6.2 How to purchase</h3>
+        <h3 style="padding-top: 15px" id="purchase">7.2 How to purchase</h3>
         <div class="right"><img class="right" onload="imgLoaded(this)" src="img/unlock.png"
                                 _dark_src="img/unlock-transparent.png"
                                srcset="img/unlock.png 200w, img/unlock-400.png 400w, img/unlock-645.png 645w"/></div>
-        <p>Working Copy is a free download but you need to pay to unlock the ability to push commits back
-            to remote servers. This unlock is a one-time purchase remembered by Apple such that you can
-            restore the unlock on other devices using the same Apple ID.
+        <p>Working Copy is a free download but you need to pay to unlock pro features such as
+            the ability to push commits back to remote servers. This unlock is a one-time purchase remembered by
+            Apple such that you can restore the unlock on other devices using the same Apple ID.
 
         </p>
         <p> Alternatively you can use
             <a target="app" href="https://itunes.apple.com/us/app/working-copy-enterprise/id965019520?mt=8&amp;at=1000lHq">Working Copy Enterprise</a>
-            that has the same features and includes the in-app purchase.
-            Avoiding in-app purchases makes it easier for IT departments to deploy
-            the application to employee devices. </p>
+            that has the same features and includes the in-app purchase. Avoiding in-app purchases makes it easier
+            for IT departments to deploy the application to employee devices. </p>
             <p>
             If you are purchasing Working Copy for yourself,
             there is no advantage or disadvantage in picking the Enterprise version.
             Note that repositories in one app will not show up in the other.</p>
+        <p>The features you unlock are permanently available and any other pro features
+            added the next 12 months after purchase are also permanently available. Even if you
+            do not purchase a new unlock after 12 months, the app will still be updated with
+            improvements and bug-fixes.
+        </p>
 
-        <h3 id="ios10">6.3 iOS 10 support</h3>
+        <h3 id="ios10">7.3 iOS 10 support</h3>
         <p>Working Copy 3.1.0 and later only supports iOS 11 and iOS 10 devices cannot upgrade.
            This is a unfortunate consequence of technical difficulties getting the iOS 10 document picker to work
             while also supporting the iOS 11 Files app.</p>
@@ -1106,7 +1218,7 @@ andrew@company.se/home/andrew/git/site.git/
             }
         }
 
-        function setupVideos() {
+        function setupVideos(showControls) {
             $('img.animated').each(function() {
                 var img = $(this)[0];
                 var src = img.getAttribute("src");
@@ -1121,11 +1233,16 @@ andrew@company.se/home/andrew/git/site.git/
 
                 var video = document.createElement("video");
                 video.setAttribute("poster", "video/" + base + ".jpg");
-                video.setAttribute("muted", "true");
+                video.setAttribute("muted", "muted");
                 video.setAttribute("webkit-playsinline", "true");
                 video.setAttribute("playsinline", "true");
                 video.setAttribute("preload", "none");
-                video.setAttribute("class", "animated");
+                if(showControls) {
+                    video.setAttribute("class", "animated controls");
+                    video.setAttribute("controls", "true");
+                } else {
+                    video.setAttribute("class", "animated");
+                }
                 video.spinner_started = false;
                 if(alt) video.setAttribute("alt", alt);
 
@@ -1141,30 +1258,35 @@ andrew@company.se/home/andrew/git/site.git/
                 }
 
                 var source = document.createElement("source");
-                source.setAttribute("src", "video/" + base + ".mp4");
+                source.setAttribute("src", "//workingcopyapp.com/video/" + base + ".mp4");
                 source.setAttribute("type", "video/mp4");
-                video.oncanplay = function() {
-                    playButton.parentNode.removeChild(playButton);
-                    video.setAttribute("controls", "true");
-                    video.setAttribute("class", "animated started");
-                };
-                video.onclick = function() {
-                    if(!video.spinner_started) {
-                        video.spinner_started = true;
-                        playButton.setAttribute("class", "playButton spinning");
-                    }
+                if(!showControls) {
+                    video.oncanplay = function() {
+                        playButton.parentNode.removeChild(playButton);
+                        video.setAttribute("controls", "true");
+                        video.setAttribute("class", "animated started");
+                    };
 
-                    var isPlaying = !!(video.currentTime > 0 && !video.paused && !video.ended && video.readyState > 2);
-                    if(isPlaying) video.pause();
-                    else {
-                        video.play();
-                    }
-                };
-                playButton.onclick = video.onclick;
+                    video.onclick = function() {
+                        if(!video.spinner_started) {
+                            video.spinner_started = true;
+                            playButton.setAttribute("class", "playButton spinning");
+                        }
+
+                        var isPlaying = !!(video.currentTime > 0 && !video.paused && !video.ended && video.readyState > 2);
+                        if(isPlaying) video.pause();
+                        else {
+                            video.play();
+                        }
+                    };
+                    playButton.onclick = video.onclick;
+                }
 
                 video.appendChild(source);
                 container.appendChild(video);
-                container.appendChild(playButton);
+                if(!showControls) {
+                    container.appendChild(playButton);
+                }
 
                 img.parentNode.insertBefore(container, img.nextSibling);
             });
@@ -1191,8 +1313,9 @@ andrew@company.se/home/andrew/git/site.git/
             });
 
             var search = window.document.location.search;
-            var noVideos = search.indexOf('novideo') >= 0 || search.indexOf('darkmode') >= 0;
-            if(!noVideos) setupVideos();
+            var noVideos = search.indexOf('novideo') >= 0;
+            var showControls = search.indexOf('archive') >= 0 || search.indexOf('darkmode') >= 0;
+            if(!noVideos) setupVideos(showControls);
         });
     })();
 </script>

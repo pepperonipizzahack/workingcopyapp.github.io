@@ -1,0 +1,4 @@
+<FilesMatch "\.sh$">
+  ForceType application/x-sh
+  Header set Content-Disposition attachment
+</FilesMatch>
