@@ -1,1 +1,0 @@
-git --version && echo && find "$1" -type d \( -exec sh -c 'cd "{}"; var=`git 2> /dev/null rev-parse --is-bare-repository`; if [ "$var" = "true" ]; then exit 0; else exit 1; fi' - \; -print -prune \)

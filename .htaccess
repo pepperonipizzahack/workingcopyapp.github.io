@@ -34,5 +34,5 @@ ErrorDocument 404 /404.html
 RewriteEngine On
 RewriteBase "/"
 RewriteRule "^x-callback-url\.html$"  "url-schemes.html"
-RewriteRule "^enterprise-upgrade$"  "https://itunes.apple.com/us/app/working-copy/id896694807?mt=8&uo=6&at=1000lHq&ct=workingcopyapp"
+RewriteRule "^enterprise-upgrade$"  "https://itunes.apple.com/us/app-bundle/id1356136222?mt=8&at=1000lHq"
 
