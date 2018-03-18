@@ -1,4 +1,4 @@
-<FilesMatch "\.sh$">
-  ForceType application/x-sh
+<FilesMatch "^working-copy-">
+  ForceType application/x-sh-unknown
   Header set Content-Disposition attachment
 </FilesMatch>
