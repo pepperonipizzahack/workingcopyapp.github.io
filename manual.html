@@ -78,10 +78,11 @@
             <li class="header3"><a href="#draftcode">5.6 DraftCode</a></li>
             <!--<li class="header3"><a href="#swift-playgrounds">5.8 Swift Playgrounds</a></li>-->
 
-            <li class="header2"><a href="#beyond-ios">6. Beyond iOS:</a></li>
+            <li class="header2"><a href="#beyond-ios">6. Server support:</a></li>
             <li class="header3"><a href="#logfiles">6.1 Log files</a></li>
             <li class="header3"><a href="#ssh-upload">6.2 SSH Upload</a></li>
             <li class="header3"><a href="#ssh-command">6.3 SSH Command</a></li>
+            <li class="header3"><a href="#hosting-provider">6.4 Hosting Providers</a></li>
 
             <li class="header2"><a href="#support">7. Help and Support</a></li>
             <li class="header3"><a href="#itunes-backup">7.1 File Backup</a>,</li>
@@ -115,7 +116,7 @@
             Working Copy can transfer data from the remote using http, https, git or ssh protocols. However, you should be careful
             using http transfer since data will be sent without encryption, which means your login credentials and your source
             code can be intercepted. If you are not on a trusted network you should avoid using http transfer.</p>
-        <p id="hosting-services">There is special support for BitBucket, GitHub and some other <a href="#clone-catalog">hosting
+        <p id="hosting-services">There is special support for BitBucket, GitHub and some other <a href="#hosting-provider">hosting
             providers</a> to list your available repositories such that cloning amounts to picking a repository and tapping clone.
             Even when Working Copy has no specific support for a hosting provider, you can copy-paste your
             URL into the top field and Working Copy will clone just as well. </p>
@@ -241,8 +242,7 @@ andrew@company.se/home/andrew/git/site.git/
         <div class="right"><img class="right" onload="imgLoaded(this)"
                                 _dark_src="img/clone-catalog-transparent.png" src="img/clone-catalog.png" /></div>
 
-        <p>When cloning repositories from BitBucket, GitHub and other supported hosting providers
-            you can enter your credentials to get a list of repositories to clone.
+        <p>When cloning repositories from BitBucket and GitHub you can enter your credentials to get a list of repositories to clone.
             Working Copy tries to show the most relevant repositories at the top, these being the ones where you have administrative
             or push privileges. Your GitHub Gists and BitBucket Snippets are also available from this list.
         </p>
@@ -252,95 +252,18 @@ andrew@company.se/home/andrew/git/site.git/
         <p id="restriced-github-orgs">Organizations on GitHub can be configured to
             <a target="GitHub" href="https://help.github.com/articles/about-third-party-application-restrictions/">restrict</a>
             third-party applications such that repositories are not listed and you might need to
-            <a target="GitHub" href="https://help.github.com/articles/requesting-organization-approval-for-your-authorized-applications/">ask your
-                administrator</a> to approve Working Copy.
+            <a target="GitHub" href="https://help.github.com/articles/requesting-organization-approval-for-your-authorized-applications/">ask
+                your administrator</a> to approve Working Copy.
         </p>
 
-        <p>Working Copy lets you configure private instances of
-            BitBucket <a target="hosting" href="https://www.atlassian.com/software/bitbucket/server">Server</a>
-            (previously known as Stash),
-            GitHub <a target="hosting" href="https://enterprise.github.com/">Enterprise</a>,
-            <a target="hosting" href="https://about.gitlab.com/features/">GitLab</a>,
-            <a target="hosting"
-               href="https://www.visualstudio.com/en-us/news/releasenotes/tfs2017-relnotes">Team Foundation Server</a>
-            and <a target="hosting" href="https://gogs.io">Go Git Service</a>
-            from Working Copy settings.
-            You enter the hostname of your server and the instance type is identified automatically.
-           </p>
-           <p>You can configure cloud instances of the above hosting providers as well as
-               <a target="hosting" href="https://www.visualstudio.com/team-services/">Visual Studio</a> Team Services,
-              <a target="hosting" href="http://beanstalkapp.com">Beanstalk</a> and
-               <a target="hosting" href="https://www.gitbook.com">GitBook</a>.
-           Even a regular Linux or BSD server can act as a hosting provider, using SSH
-               <a href="javascript:showSecureShellInfo();">commands</a>
-               for listing repositories.
-           </p>
-        <div class="left" style="margin-top: 1em"><img class="left" onload="imgLoaded(this)" src="img/hosting-provider.png"
-                                                       _dark_src="img/hosting-provider-transparent.png" /></div>
-        <p>In addition to listing repositories, this integration lets you create new repositories from within the
-            remote detail screen of Working Copy. </p>
-        <p>When you add hosting providers it is often a good idea to disable the built-in providers you are
-         not using to avoid clutter in other parts of Working Copy. </p>
+        <p>You configure additional <a href="#hosting-provider">hosting providers</a> from Working Copy settings
+           or you can clone using a URL from the clipboard.</p>
 
-        <p>Working Copy will not store your BitBucket or GitHub password used to populate the list of remotes,
-            but rather an authentication
-            token that you can revoke from the BitBucket or GitHub settings. This is why you are required to login through
-            a browser rather than inside Working Copy.</p>
-
-        <p>When actually cloning the repository you cannot use the authentication token for the transfer and will either need to
-            configure a SSH authentication key or enter your password inside Working Copy. This password is stored in an encrypted
-            keychain maintained by iOS that is only accessible when your phone is unlocked.
-            If you are using two-factor authentication, the password authentication will not work and you are required to use
-            SSH key authentication for transfer or generate a
-            <a target="GitHub" href="https://github.com/settings/tokens">access token</a> or
-            app password with your hosting provider.</p>
-
-    </div>
-
-    <div id="ssh-clone-catalog" class="inner" style="display: none">
-        <h3 id="ssh-host-info">SSH Providers</h3>
-        <p>
-            When Working Copy lists your repositories on a regular SSH server, it uses the built-in shell
-            on the server to execute commands. When you create a new repository a series of commands are also executed.</p>
-
-        <p>
-            For this to work <em>git</em>, <em>/bin/sh</em>, <em>find</em> amd <em>mkdir</em> need to be available
-            and have sensible behaviour.
-            If these commands are not available you will get error messages and the server will not work as
-            a hosting provider. The series of commands have been tested on major Linux and BSD variants to
-            work as expected when commands are available and to fail with no side-effects when commands are
-            unavailable.
-        </p>
-
-        <p> In the rare case where the above mentioned commands are available but do something different,
-            there is the possibility that the hosting provider commands will have unintended
-            consequences and could cause data loss. When enabling a SSH Server
-            as a hosting provider, Working Copy will execute commands on your behalf, and this is done entirely
-            at your own risk. </p>
-
-        <p>The scripts are listed for you to evaluate.  </p>
-<pre>git --version &amp;&amp; echo &amp;&amp; find "$path" -type d \( -exec sh -c 'cd "{}"; var=`git 2> /dev/null rev-parse --is-bare-repository`; if [ "$var" = "true" ]; then exit 0; else exit 1; fi' - \; -print -prune \)
-</pre>
-        <p>The script listing repositories starts by making sure <em>git</em> is installed, to avoid doing any work on a server
-        that is unable to function as a remote. It then looks at all directories from the starting <em>path</em>
-        of your hosting provider and outputs the ones that are <em>bare</em> repositories. Notice that non-bare repositories
-        will not be included.</p>
-<pre>git --version &amp;&amp; cd "$path" &amp;&amp; mkdir "$repo" &amp;&amp; cd "$repo" &amp;&amp; ( var=`git 2> /dev/null rev-parse --is-inside-git-dir`; if [ "$var" = "true" ]; then echo "Unable to create repository inside existing repository"; exit 1; fi ) &amp;&amp; ( var=`git 2> /dev/null rev-parse --is-inside-work-tree`; if [ "$var" = "true" ]; then echo "Unable to create repository inside existing repository"; exit 1; fi ) &amp;&amp; git init --bare
-</pre>
-        <p>When creating repositories we also make sure <em>git</em> is installed. All the commands need to
-            complete without error for the next one to start. If you try to create a <em>repo</em> where a directory already
-            exists, <em>mkdir</em> fails and <em>git init</em> never runs.</p>
-        <p>Some servers are configured to <a target="git" href="https://git-scm.com/docs/git-shell">restrict</a>
-            secure shell to only run Git. You can enable listing repositories and creating repositories from the app
-            by creating the directory <em>~/git-shell-commands</em> and placing the scripts
-            <a href="/shell-commands/working-copy-list">working-copy-list</a> and
-            <a href="/shell-commands/working-copy-create">working-copy-list</a> inside.
-        </p>
     </div>
 
     <div class="inner">
         <h3 id="ssh-keys">2.2 SSH keys</h3>
-        <div class="right"><img class="right" onload="imgLoaded(this)" src="img/ssh-config-30.png" _dark_src="img/ssh-config-30-transparent.png"
+        <div class="left"><img class="left" onload="imgLoaded(this)" src="img/ssh-config-30.png" _dark_src="img/ssh-config-30-transparent.png"
                                 srcset="img/ssh-config-30.png 200w, img/ssh-config-30-400.png 400w, img/ssh-config-30-645.png 645w"/></div>
 
         <p>SSH transfers support password authentication but also public/private key authentication for improved security.
@@ -919,7 +842,7 @@ andrew@company.se/home/andrew/git/site.git/
 
 
     <div style="clear: both;"></div>
-    <h2 id="beyond-ios">6. Beyond iOS</h2>
+    <h2 id="beyond-ios">6. Server support</h2>
 
     <div class="inner">
     <p>Not every tool is available on iOS, and Working Copy lets you
@@ -1067,7 +990,82 @@ andrew@company.se/home/andrew/git/site.git/
             and <a target="app" href="https://itunes.apple.com/app/id1156707581?at=1000lHq">Blink Shell</a> are
             both good SSH clients for iOS.
         </p>
+    </div>
 
+    <h3 id="hosting-provider">6.4 Hosting Providers</h3>
+    <div class="inner">
+       <p>To make it easier to <a href="#clone-catalog">list</a> your repositories, to create new remote repositories
+        and to configure your <a href="#ssh-keys">SSH keys</a> you can configure hosting providers.</p>
+
+        <div class="left" style="margin-top: 1em"><img class="left" onload="imgLoaded(this)" src="img/hosting-provider.png"
+                                                       _dark_src="img/hosting-provider-transparent.png" /></div>
+
+        <p>Working Copy supports private instances of
+            BitBucket <a target="hosting" href="https://www.atlassian.com/software/bitbucket/server">Server</a>
+            (previously known as Stash),
+            GitHub <a target="hosting" href="https://enterprise.github.com/">Enterprise</a>,
+            <a target="hosting" href="https://about.gitlab.com/features/">GitLab</a>,
+            <a target="hosting"
+               href="https://www.visualstudio.com/en-us/news/releasenotes/tfs2017-relnotes">Team Foundation Server</a>
+            and <a target="hosting" href="https://gogs.io">Go Git Service</a>.
+            You enter the hostname of your server and the instance type is identified automatically.
+        </p>
+        <p>You can configure cloud instances of the above hosting providers as well as
+            <a target="hosting" href="https://www.visualstudio.com/team-services/">Visual Studio</a> Team Services,
+            <a target="hosting" href="http://beanstalkapp.com">Beanstalk</a> and
+            <a target="hosting" href="https://www.gitbook.com">GitBook</a>.
+            Even a regular Linux or BSD server can act as a hosting provider, using SSH
+            <a href="javascript:showSecureShellInfo();">commands</a> for listing repositories.
+        </p>
+        <p>If you have several user accounts for a single hosting provider you can bake this
+           into the server field as <em>https://username@github.com</em> and have several hosting providers
+           for a single service.</p>
+        <p>When you add hosting providers it is often a good idea to disable the built-in providers you are
+            not using to avoid clutter in other parts of Working Copy. This is especially important when
+            you configure providers with a baked-in username as the default providers for the same service
+            will switch between user accounts. </p>
+
+    </div>
+
+    <div id="ssh-clone-catalog" class="inner" style="display: none">
+        <h3 id="ssh-host-info">SSH Providers</h3>
+        <p>
+            When Working Copy lists your repositories on a regular SSH server, it uses the built-in shell
+            on the server to execute commands. When you create a new repository a series of commands are also executed.</p>
+
+        <p>
+            For this to work <em>git</em>, <em>/bin/sh</em>, <em>find</em> amd <em>mkdir</em> need to be available
+            and have sensible behaviour.
+            If these commands are not available you will get error messages and the server will not work as
+            a hosting provider. The series of commands have been tested on major Linux and BSD variants to
+            work as expected when commands are available and to fail with no side-effects when commands are
+            unavailable.
+        </p>
+
+        <p> In the rare case where the above mentioned commands are available but do something different,
+            there is the possibility that the hosting provider commands will have unintended
+            consequences and could cause data loss. When enabling a SSH Server
+            as a hosting provider, Working Copy will execute commands on your behalf, and this is done entirely
+            at your own risk. </p>
+
+        <p>The scripts are listed for you to evaluate.  </p>
+<pre>git --version &amp;&amp; echo &amp;&amp; find "$path" -type d \( -exec sh -c 'cd "{}"; var=`git 2> /dev/null rev-parse --is-bare-repository`; if [ "$var" = "true" ]; then exit 0; else exit 1; fi' - \; -print -prune \)
+</pre>
+        <p>The script listing repositories starts by making sure <em>git</em> is installed, to avoid doing any work on a server
+            that is unable to function as a remote. It then looks at all directories from the starting <em>path</em>
+            of your hosting provider and outputs the ones that are <em>bare</em> repositories. Notice that non-bare repositories
+            will not be included.</p>
+<pre>git --version &amp;&amp; cd "$path" &amp;&amp; mkdir "$repo" &amp;&amp; cd "$repo" &amp;&amp; ( var=`git 2> /dev/null rev-parse --is-inside-git-dir`; if [ "$var" = "true" ]; then echo "Unable to create repository inside existing repository"; exit 1; fi ) &amp;&amp; ( var=`git 2> /dev/null rev-parse --is-inside-work-tree`; if [ "$var" = "true" ]; then echo "Unable to create repository inside existing repository"; exit 1; fi ) &amp;&amp; git init --bare
+</pre>
+        <p>When creating repositories we also make sure <em>git</em> is installed. All the commands need to
+            complete without error for the next one to start. If you try to create a <em>repo</em> where a directory already
+            exists, <em>mkdir</em> fails and <em>git init</em> never runs.</p>
+        <p>Some servers are configured to <a target="git" href="https://git-scm.com/docs/git-shell">restrict</a>
+            secure shell to only run Git. You can enable listing repositories and creating repositories from the app
+            by creating the directory <em>~/git-shell-commands</em> and placing the scripts
+            <a href="/shell-commands/working-copy-list">working-copy-list</a> and
+            <a href="/shell-commands/working-copy-create">working-copy-list</a> inside.
+        </p>
     </div>
 
 
