@@ -47,7 +47,7 @@ for section in $sections; do
 		srcset=`echo "$image" | tail -n 1`
 		image=`echo "$srcset" | awk '{print $(NF-1)}'`
 	fi
-		
+			
 	# compose content
 	#  <title>Working Copy Users’ guide</title>
 	#  <meta name="twitter:title" content="Working Copy - Users Guide">
@@ -57,6 +57,15 @@ for section in $sections; do
 	#  <meta name="twitter:description" content="Learn how to use this powerful Git client for iOS, for ...">
 	content=`cat $file | sed -e "s/<title>[^<]*<\/title>/<title>Working Copy - Users Guide - $title<\/title>/"` || exit
 	content=`echo "$content" | sed -e "s/<meta name=\"twitter:title\" [^>]*>/<meta name=\"twitter:title\" content=\"Working Copy - Users Guide - $title\">/"` || exit
+	
+	# determine if we have video for this image and insert after og:image
+	if echo $imginfo | grep animated; then
+		video=$(echo $imgsrc | sed 's/img/video/' | sed 's/-645\././' | sed -E 's/\.(png|jpg)/.mp4/')		
+	    echo "video: $video"
+		videotag="<meta property=\"og:video\" content=\"$video\"> "
+	else
+		videotag=''
+	fi
 	
 	# replace image when valid
 	if [[ ! -z "$image" ]]; then
@@ -68,10 +77,10 @@ for section in $sections; do
 		echo "image='$imgsrc'"
 				
 		# we use ! as regular expression delimiter intead of /
-		content=`echo "$content" | sed -e "s!<meta property=\"og:image\" [^>]*>!<meta property=\"og:image\" content=\"$imgsrc\">!"` || exit
+		content=`echo "$content" | sed -e "s!<meta property=\"og:image\" [^>]*>!$videotag<meta property=\"og:image\" content=\"$imgsrc\">!"` || exit
 		content=`echo "$content" | sed -e "s!<meta name=\"twitter:image\" [^>]*>!<meta name=\"twitter:image\" content=\"$imgsrc\">!"` || exit
 	fi
-	
+		
 	# replace description
 	content=`echo "$content" | sed -e "s/<meta property=\"og:description\" [^>]*>/<meta property=\"og:description\" content=\"$summary\">/"` || exit
 	content=`echo "$content" | sed -e "s/<meta name=\"twitter:description\" [^>]*>/<meta name=\"twitter:description\" content=\"$summary\">/"` || exit
