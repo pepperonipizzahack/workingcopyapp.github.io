@@ -877,6 +877,9 @@
 <![endif]-->
 <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script>
 <script type="text/javascript">
+    // clear cookie since popup is activated by click instead of timer
+    document.cookie = "MCPopupClosed=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+
     // newsletter signup when ?newsletter is present
     function newsletterSignup() {
         require(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us14.list-manage.com","uuid":"650f24a8eda4be09fddf370d7","lid":"c1eccfd902"}) })
