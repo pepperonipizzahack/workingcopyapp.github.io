@@ -14,15 +14,6 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <meta name="apple-itunes-app" content="app-id=896694807" affiliate-data="at=1000lHq">
 
-    <meta name="twitter:card" content="app">
-    <meta name="twitter:site" content="@workingcopyapp">
-    <meta name="twitter:description" content="Access Git repositories on the go. Clone, edit, commit and push while taking advantage of iOS advancements allowing other apps to also access repositories.">
-    <meta name="twitter:image" content="http://WorkingCopyApp.com/img/iPad-Air-Space.jpg">
-    <meta name="twitter:app:name:iphone" content="Working Copy">
-    <meta name="twitter:app:id:iphone" content="896694807">
-    <meta name="twitter:app:name:ipad" content="Working Copy">
-    <meta name="twitter:app:id:ipad" content="896694807">
-
     <style>
 
         img.old {
@@ -61,16 +52,16 @@
             requested and the IP address excluding the last number.
             </p>
 
-        <p>The Working Copy apps contain no crash reporting or analytics frameworks. The apps asks for your
-            name and email as needed by Git commits, but this is not transmitted to Working Copy servers,
-            only to Git remotes that you use with the app.</p>
+        <p>The Working Copy apps asks for your name and email as needed by Git commits, but this is not
+            transmitted to Working Copy servers only to Git remotes that you use with the app.
+            The apps contain no crash reporting or analytics frameworks with the exception of
+            beta versions that use <a href="https://hockeyapp.net/">HockeyApp</a>
+            for crash reporting.</p>
 
         <p>Avatar images in Working Copy are requested from Gravatar.com that have their own
             <a href="https://en.gravatar.com/site/privacy">privacy policy</a>. You can configure
             Working Copy to not use Gravatar.com. The app also communicates with Git remotes and you
             should consult their privacy policies for details.</p>
-
-        <p>Beta versions of Working Copy uses <a href="https://hockeyapp.net/">HockeyApp</a> for crash reporting.</p>
 
         <p id="universal-links">Universal links represent
             <a href="https://workingcopyapp.com/git/#repo=https://github.com/golang/go">repositories</a>,
@@ -80,8 +71,8 @@
             They can be generated from within the Working Copy app explicitly or as a
             fallback when <a href="https://support.apple.com/en-us/HT204681#handoff">Handoff</a> is not available. </p>
 
-        <p>These universal links and the page presenting them are considered part of the app where logging is
-            not acceptable. Information is passed in the fragment part of the URL,
+        <p>These universal links and the page presenting them have been created to avoid leaking data.
+            Information is passed in the fragment part of the URL,
             that is never seen by workingcopyapp.com webserver and never leaves the browser.
             As long as you do not share Universal Links with others, they are entirely private.</p>
 
