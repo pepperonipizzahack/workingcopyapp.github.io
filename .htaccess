@@ -35,6 +35,7 @@ RewriteEngine On
 RewriteBase "/"
 RewriteRule "^x-callback-url\.html$"  "url-schemes.html"
 RewriteRule "^review-count$"  "review-count.php"
+RewriteRule "^privacy$"  "privacy.html"
 RewriteRule "^enterprise-upgrade$"  "https://itunes.apple.com/us/app-bundle/id1356136222?mt=8&at=1000lHq"
 
 RewriteRule "^synology$"  "https://youtu.be/WMcAcUknHMw"
