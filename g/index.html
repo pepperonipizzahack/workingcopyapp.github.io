@@ -296,8 +296,11 @@
                 var args = decodeArgs();
                 var repo = args['repo'];
 
+                var thisHost = location.hostname;
+
                 var footer = "\n\n\n# Learn more about Working Copy, the powerful Git client for iOS\n" +
-                        "links <a class=\"guess\" href=\"https://workingcopyapp.com/manual.html\">https://workingcopyapp.com/manual.html</a>\n\n\n";
+                        "links <a class=\"guess\" href=\"https://" + thisHost + "/manual.html\">https://" + thisHost +
+                        "/manual.html</a>\n\n\n";
 
                 var html = '';
                 if(!repo) {
@@ -314,7 +317,8 @@
 
                     // intro
                     var html = "# This page contains command-line instructions for accessing " + escape(desc) + "\n";
-                    html += "# You can jump straight to " + escape(title) + " from Safari on iOS when <a class=\"guess\" href=\"https://workingcopyapp.com/\">Working Copy</a> is installed.\n\n";
+                    html += "# You can jump straight to " + escape(title) + " from Safari on iOS when <a class=\"guess\" href=\"https://" + thisHost +
+                            "/\">Working Copy</a> is installed.\n\n";
 
                     // repo cloning
                     html += '# clone <a class="guess" href="' + escape(link) + '">' + escape(dirname) +
