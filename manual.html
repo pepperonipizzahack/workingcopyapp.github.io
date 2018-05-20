@@ -1067,6 +1067,14 @@ andrew@company.se/home/andrew/git/site.git/
             and <a target="app" href="https://itunes.apple.com/app/id1156707581?at=1000lHq">Blink Shell</a> are
             both good SSH clients for iOS.
         </p>
+        <p>If the server claims your regular commands do not exist
+            the <em>$PATH</em> variable is probably not what you expect. Try running the
+            <em>echo $PATH</em> using SSH Command as a troubleshooting step.
+            Working Copy identifies itself as a interactive login shell,
+            but in reality it isn't interactive and if the server detects this your <em>.bashrc</em> script
+            might not run. Doing path configurations in <em>.profile</em> or <em>.bash_profile</em>
+            can fix this.
+           </p>
     </div>
 
     <div style="clear: both;"></div>
