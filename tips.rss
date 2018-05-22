@@ -1,24 +1,35 @@
-<rss version="2.0">
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"
+                   xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
     <channel>
         <title>Working Copy video tips</title>
         <link>https://workingcopyapp.com/</link>
         <description>Short videos showing what Working Copy can do.</description>
-        <language>en-us</language>
+        <language>en</language>
+        <itunes:author>Anders Borum</itunes:author>
+        <itunes:image href="https://workingcopyapp.com/img/icon-1024.png" />
+
         <item>
-            <title>
+            <title>Changing file mode</title>
+            <description>
                 Change the syntax highlighting mode for files with the dropdown in the upper right corner.
                 Your last choice for a given file extension is remembered.
-            </title>
+            </description>
             <pubDate>Mon, 21 May 2018 18:23:00 GMT</pubDate>
             <link>https://workingcopyapp.com/video/tips/filetype.mp4</link>
+            <enclosure url="https://workingcopyapp.com/video/tips/filetype.mp4" length="3433476" type="video/mp4" />
+            <guid>https://workingcopyapp.com/video/tips/filetype.mp4</guid>
         </item>
         <item>
-            <title>
+            <title>File mode settings</title>
+            <description>
                 Change editor and preview settings in the dropdown menu used to switch between modes.
                 Settings are remembered for each file extension.
-            </title>
+            </description>
             <pubDate>Tue, 22 May 2018 08:54:00 GMT</pubDate>
             <link>https://workingcopyapp.com/video/tips/mode-settings.mp4</link>
+            <enclosure url="https://workingcopyapp.com/video/tips/mode-settings.mp4" length="4497579" type="video/mp4" />
+            <guid>https://workingcopyapp.com/video/tips/mode-settings.mp4</guid>
         </item>
     </channel>
 </rss>
