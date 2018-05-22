@@ -1,0 +1,24 @@
+<rss version="2.0">
+    <channel>
+        <title>Working Copy video tips</title>
+        <link>https://workingcopyapp.com/</link>
+        <description>Short videos showing what Working Copy can do.</description>
+        <language>en-us</language>
+        <item>
+            <title>
+                Change the syntax highlighting mode for files with the dropdown in the upper right corner.
+                Your last choice for a given file extension is remembered.
+            </title>
+            <pubDate>Mon, 21 May 2018 18:23:00 GMT</pubDate>
+            <link>https://workingcopyapp.com/video/tips/filetype.mp4</link>
+        </item>
+        <item>
+            <title>
+                Change editor and preview settings in the dropdown menu used to switch between modes.
+                Settings are remembered for each file extension.
+            </title>
+            <pubDate>Tue, 22 May 2018 08:54:00 GMT</pubDate>
+            <link>https://workingcopyapp.com/video/tips/mode-settings.mp4</link>
+        </item>
+    </channel>
+</rss>

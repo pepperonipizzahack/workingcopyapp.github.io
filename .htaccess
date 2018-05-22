@@ -30,6 +30,8 @@ ErrorDocument 404 /404.html
     ForceType application/json
 </Files>
 
+AddType application/rss+xml .rss
+
 # Redirect /g/ %{ENV:ps}://%{SERVER_NAME}/git/
 RewriteEngine On
 RewriteBase "/"
