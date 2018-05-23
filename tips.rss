@@ -20,6 +20,7 @@
             <enclosure url="https://workingcopyapp.com/video/tips/filetype.mp4" length="3433476" type="video/mp4" />
             <guid>https://workingcopyapp.com/video/tips/filetype.mp4</guid>
         </item>
+
         <item>
             <title>File mode settings</title>
             <description>
@@ -30,6 +31,18 @@
             <link>https://workingcopyapp.com/video/tips/mode-settings.mp4</link>
             <enclosure url="https://workingcopyapp.com/video/tips/mode-settings.mp4" length="4497579" type="video/mp4" />
             <guid>https://workingcopyapp.com/video/tips/mode-settings.mp4</guid>
+        </item>
+
+        <item>
+            <title>Feature timeline</title>
+            <description>
+                Check a timeline of when pro and non-pro features were added.
+                Consult this when deciding whether to upgrade and to hide pro features you won't need.
+            </description>
+            <pubDate>Wed, 23 May 2018 12:18:00 GMT</pubDate>
+            <link>https://workingcopyapp.com/video/tips/feature-timeline.mp4</link>
+            <enclosure url="https://workingcopyapp.com/video/tips/feature-timeline.mp4" length="4665420" type="video/mp4" />
+            <guid>https://workingcopyapp.com/video/tips/feature-timeline.mp4</guid>
         </item>
     </channel>
 </rss>
