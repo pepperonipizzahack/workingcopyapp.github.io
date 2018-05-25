@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]>
+<html class="no-js ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]>
+<html class="no-js ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]>
+<html class="no-js ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Paid upgrades in Working Copy</title>
+    <link rel="shortcut icon" href="/img/favicon.png">
+    <base href="/">
+    <meta name="author" content="Anders Borum">
+    <meta name="keywords" content="iOS,git,repository,programming,log,build,server,ci">
+    <meta name="apple-itunes-app" content="app-id=896694807">
+    <link rel="mask-icon" href="/img/mask-icon.svg" color="#399CFC">
+    <link rel="stylesheet" type="text/css" href="css/style2.css">
+    <meta property="og:image" content="https://workingcopyapp.com/img/07-11-2017-logging.png">
+    <meta property="og:description"
+          content="Examples of how Working Copy uses log-files to build and install apps right on iOS.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@workingcopyapp">
+    <meta name="twitter:creator" content="@workingcopyapp">
+    <meta name="twitter:image" content="https://workingcopyapp.com/img/07-11-2017-logging.png">
+    <meta name="twitter:title" content="Logfiles as a Working Copy integration mechanism">
+    <meta name="twitter:description"
+          content="Examples of how Working Copy uses log-files to build and install apps right on iOS.">
+    <script>
+        function imgLoaded(img) {
+            img.parentNode.style.background = 'transparent';
+        }
+    </script>
+    <style>
+        .signup #status {
+            clear: both;
+        }
+
+        #email-field {
+            margin-right: 10px;
+        }
+
+        #status {
+            color: #555;
+            font-size: 75%;
+            display:none;
+            width: 100%;
+        }
+
+        #date {
+            color: #555;
+            font-size: 75%;
+            position: absolute;
+            top: 0px; left: 10px;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <a href="https://itunes.apple.com/us/app/working-copy/id896694807?mt=8&amp;uo=6&amp;at=1000lHq&amp;ct="
+       target="itunes"
+       title="Download on the App Store" class="download-button"><img src="img/download-on-the-app-store.png"/></a>
+    <div>
+        <header>
+            <h1>Paid upgrades in Working Copy</h1>
+            <div id="date">May 23, 2018</div>
+        </header>
+
+        <div class="outer">
+            <div class="inner">
+
+            <p><a href="/" target="app">Working Copy</a> is a Git client for iPad and iPhone. Launching in 2014
+                it has pushed the possibilities of development work on a mobile device
+                by giving Git capabilities to iOS itself and to 3rd party apps. </p>
+
+            <p>It has a rich feature-set and requires a continuous effort to evolve with alongside iOS, Git
+               and 3rd party apps but it still lacking some useful features from desktop Git clients.
+                The first 3 years development was funded by a single in-app purchase to permanently
+                unlock all pro features, which made it hard to work on significant features, since this
+                had to be funded entirely by new users.</p>
+
+            <p>
+                Inspired by the <a href="https://www.sketchapp.com/pricing/">Sketch pricing model</a> this was adjusted
+                in March 2018
+
+
+                A year of updates.
+                A lifetime of Sketch
+
+                <p>Your license comes with a year’s worth of updates. Once that year is up, you can keep using the last version of Sketch you downloaded,
+                forever.</p>
+
+
+                https://www.sketchapp.com/pricing/
+
+            </p>
+
+            <div class="ipad-pro"><img class="ipad-pro animated" src="img/bitrise-logs-deploy.png" onload="imgLoaded(this)"/></div>
+
+
+            <p>I expect to ship this feature for Working Copy version 3.2.0 early in December and testing starts today.
+                You need a email address and a iPhone or iPad running iOS 11 to participate. Some experience with build
+                or continous integration servers will make it a lot less frustrating, but maybe this test can be the reason to
+                learn about such servers.
+
+                <div class="signup"
+                     style="display: inline-block; float:right; padding: 0.5em;"><input id="email-field" name="email" type="email" autocapitalize="off"
+                             autocorrect="off" placeholder="email address">
+  			   <a href="#" onclick="return doSubmit();">Sign Up</a>
+                <div id="status"></div>
+            </div>
+
+
+            </p>
+           <br/>
+            <p>
+            </p>
+
+
+        </div>
+      </div>
+    </div>
+
+    <div style="clear: both"></div>
+    <footer>
+        Read the <a href="/manual.html">users’ guide</a> or the <a href="javascript:newsletterSignup()">newsletter</a>
+        and get in touch by <a href="/enable-js.html" class="email" title="email">email</a>
+        or on <a href="https://twitter.com/workingcopyapp" target="twitter">Twitter</a>.
+    </footer>
+    <!--[if lt IE 7 ]>
+    <script src="js/dd_belatedpng.js"></script>
+    <script>DD_belatedPNG.fix('img, .png_bg'); // Fix any <img> or .png_bg bg-images. Also, please read goo.gl/mZiyb</script>
+    <![endif]-->
+    <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/signup-forms/popup/embed.js"
+            data-dojo-config="usePlainJson: true, isDebug: false"></script>
+    <script type="text/javascript">
+        // newsletter signup when ?newsletter is present
+        function newsletterSignup() {
+            require(["mojo/signup-forms/Loader"], function (L) {
+                L.start({
+                    "baseUrl": "mc.us14.list-manage.com",
+                    "uuid": "650f24a8eda4be09fddf370d7",
+                    "lid": "c1eccfd902"
+                })
+            })
+            document.cookie = "MCEvilPopupClosed=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+        }
+        if (window.location.href.indexOf('?newsletter') >= 0) newsletterSignup();
+    </script>
+    <script>
+        function rev(s) { return s.length <= 1 ? s : rev(s.substr(1)) + s.substr(0,1); }
+
+        (function() {
+            function getScript(url,success){
+                var script=document.createElement('script');
+                script.src=url;
+                var head=document.getElementsByTagName('head')[0],
+                        done=false;
+                script.onload=script.onreadystatechange = function(){
+                    if ( !done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete') ) {
+                        done=true;
+                        success();
+                        script.onload = script.onreadystatechange = null;
+                        head.removeChild(script);
+                    }
+                };
+                head.appendChild(script);
+            }
+
+            function resolveEmails() {
+                var emails = document.getElementsByClassName("email");
+                for(var k = 0; k < emails.length; ++k) {
+                    var email = rev("moc.ppaypocgnikrow@sredna");
+                    emails[k].href = "mailto:" + email;
+                    if(emails[k].innerHTML == "") {
+                        emails[k].innerHTML = email;
+                    }
+                }
+            }
+
+            function setupVideos() {
+                $('img.animated').each(function() {
+                    var img = $(this)[0];
+                    var src = img.getAttribute("src");
+                    var alt = img.getAttribute("video-alt");
+                    if(!alt) alt = img.getAttribute("alt");
+
+                    var base = src.replace("img/", "");
+                    base = base.replace(".png", "").replace(".jpg", "");
+
+                    var container = document.createElement("div");
+                    container.setAttribute("class", "container");
+
+                    var video = document.createElement("video");
+                    video.setAttribute("poster", "video/" + base + ".jpg");
+                    video.setAttribute("muted", "true");
+                    video.setAttribute("webkit-playsinline", "true");
+                    video.setAttribute("playsinline", "true");
+                    video.setAttribute("preload", "none");
+                    video.setAttribute("class", "animated");
+                    video.spinner_started = false;
+                    if(alt) video.setAttribute("alt", alt);
+
+                    var playButton = document.createElement("img");
+                    playButton.setAttribute("class", "playButton");
+                    playButton.setAttribute("src", "video/play-grey.png");
+
+                    // we can override placement of grey play button with play_button_bottom
+                    // attribute on img tag
+                    var playButtonBottom = img.getAttribute("play_button_bottom");
+                    if(playButtonBottom) {
+                        playButton.style.bottom = playButtonBottom;
+                    }
+
+                    var source = document.createElement("source");
+                    source.setAttribute("src", "video/" + base + ".mp4");
+                    source.setAttribute("type", "video/mp4");
+                    video.oncanplay = function() {
+                        playButton.parentNode.removeChild(playButton);
+                        video.setAttribute("controls", "true");
+                        video.setAttribute("class", "animated started");
+                    };
+                    video.onclick = function() {
+                        if(!video.spinner_started) {
+                            video.spinner_started = true;
+                            playButton.setAttribute("class", "playButton spinning");
+                        }
+
+                        var isPlaying = !!(video.currentTime > 0 && !video.paused && !video.ended && video.readyState > 2);
+                        if(isPlaying) video.pause();
+                        else {
+                            video.play();
+                        }
+                    };
+                    playButton.onclick = video.onclick;
+
+                    video.appendChild(source);
+                    container.appendChild(video);
+                    container.appendChild(playButton);
+
+                    img.parentNode.insertBefore(container, img.nextSibling);
+                });
+            }
+
+            getScript('js/jquery.min.js',function(){
+                resolveEmails();
+                setupVideos();
+            });
+        })();
+
+        function showStatus(status) {
+            $('#status').text(status);
+            $('#status').delay(300).slideDown(400, function() {
+                $('html, body').animate({
+                    scrollTop: $("#status").offset().top
+                }, 400);
+            });
+        }
+
+        function submitEmail(email) {
+            var post = $.post("/signup.php", { "email": email, "subject": "Log file viewer"} )
+                    .done(function() {
+                        showStatus("You have signed up with " + email + ". Thank you! You will receive instructions on how to install shortly.");
+                    })
+                    .fail(function() {
+                        showStatus("Signup problem: " + post.responseText);
+                    });
+        }
+
+        function signUp(evt) {
+            var signup = $('.signup');
+
+            if(signup.is(":visible")) {
+                signup.slideUp(200);
+            } else {
+                signup.slideDown(400, function() {
+                    var field = document.getElementById('email-field');
+                    field.focus();
+                });
+
+                $('html, body').animate({
+                    scrollTop: $("#testflight-signup").offset().top
+                });
+            }
+
+            return false;
+        }
+
+        function preSignUp(evt) {
+            $('html, body').animate({
+                scrollTop: $("#testflight-signup").offset().top
+            }, 500, function() {
+                signUp();
+            });
+
+            return false;
+        }
+
+        function doSubmit() {
+            var field = document.getElementById('email-field');
+            var email = field.value.trim();
+            if(email.length > 0) {
+                submitEmail(email);
+            }
+            return false;
+        }
+    </script>
+</div>
+</body>
+</html>

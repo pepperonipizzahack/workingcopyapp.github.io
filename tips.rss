@@ -44,5 +44,17 @@
             <enclosure url="https://workingcopyapp.com/video/tips/feature-timeline.mp4" length="4665420" type="video/mp4" />
             <guid>https://workingcopyapp.com/video/tips/feature-timeline.mp4</guid>
         </item>
+
+        <item>
+            <title>Split Screen Preview</title>
+            <description>
+                Take advantage of Split Screen on iPad to show Preview and edit side by side.
+                Working Copy keeps track of dependencies and will also refresh if any of these change.
+            </description>
+            <pubDate>Fri, 25 May 2018 17:11:00 GMT</pubDate>
+            <link>https://workingcopyapp.com/video/tips/preview+textastic.mp4</link>
+            <enclosure url="https://workingcopyapp.com/video/tips/preview+textastic.mp4" length="14106524" type="video/mp4" />
+            <guid>https://workingcopyapp.com/video/tips/preview+textastic.mp4</guid>
+        </item>
     </channel>
 </rss>
