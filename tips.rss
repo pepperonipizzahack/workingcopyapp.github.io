@@ -56,5 +56,17 @@
             <enclosure url="https://workingcopyapp.com/video/tips/preview+textastic.mp4" length="14106524" type="video/mp4" />
             <guid>https://workingcopyapp.com/video/tips/preview+textastic.mp4</guid>
         </item>
+
+        <item>
+            <title>Keyboard shortcuts</title>
+            <description>
+                Hold down ⌘ on your external keyboard for a list of supported shortcuts. Fetch, Edit, Commit and Push
+                with you hands on the keyboard at all time and navigate repositories with the arrow keys.
+            </description>
+            <pubDate>Mon, 28 May 2018 15:24:00 GMT</pubDate>
+            <link>https://workingcopyapp.com/video/tips/keyboard-shortcuts.mp4</link>
+            <enclosure url="https://workingcopyapp.com/video/tips/keyboard-shortcuts.mp4" length="14106524" type="video/mp4" />
+            <guid>https://workingcopyapp.com/video/tips/keyboard-shortcuts.mp4</guid>
+        </item>
     </channel>
 </rss>
