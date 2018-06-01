@@ -12,8 +12,7 @@
         <item>
             <title>Changing file mode</title>
             <description>
-                Change the syntax highlighting mode for files with the dropdown in the upper right corner.
-                Your last choice for a given file extension is remembered.
+                Change the syntax highlighting mode for files with the dropdown in the upper right corner. Your last choice for a given file extension is remembered.
             </description>
             <pubDate>Mon, 21 May 2018 18:23:00 GMT</pubDate>
             <link>https://workingcopyapp.com/video/tips/filetype.mp4</link>
@@ -24,8 +23,7 @@
         <item>
             <title>File mode settings</title>
             <description>
-                Change editor and preview settings in the dropdown menu used to switch between modes.
-                Settings are remembered for each file extension.
+                Change editor and preview settings in the dropdown menu used to switch between modes. Settings are remembered for each file extension.
             </description>
             <pubDate>Tue, 22 May 2018 08:54:00 GMT</pubDate>
             <link>https://workingcopyapp.com/video/tips/mode-settings.mp4</link>
@@ -36,8 +34,7 @@
         <item>
             <title>Feature timeline</title>
             <description>
-                Check a timeline of when pro and non-pro features were added.
-                Consult this when deciding whether to upgrade and to hide pro features you won't need.
+                Check a timeline of when pro and non-pro features were added. Consult this when deciding whether to upgrade and to hide pro features you won't need.
             </description>
             <pubDate>Wed, 23 May 2018 12:18:00 GMT</pubDate>
             <link>https://workingcopyapp.com/video/tips/feature-timeline.mp4</link>
@@ -48,8 +45,7 @@
         <item>
             <title>Split Screen Preview</title>
             <description>
-                Take advantage of Split Screen on iPad to show Preview and edit side by side.
-                Working Copy keeps track of dependencies and will also refresh if any of these change.
+                Take advantage of Split Screen on iPad to show Preview and edit side by side. Working Copy keeps track of dependencies and will also refresh if any of these change.
             </description>
             <pubDate>Fri, 25 May 2018 17:11:00 GMT</pubDate>
             <link>https://workingcopyapp.com/video/tips/preview+textastic.mp4</link>
@@ -60,13 +56,34 @@
         <item>
             <title>Keyboard shortcuts</title>
             <description>
-                Hold down ⌘ on your external keyboard for a list of supported shortcuts. Fetch, Edit, Commit and Push
-                with you hands on the keyboard at all time and navigate repositories with the arrow keys.
+                Hold down ⌘ on your external keyboard for a list of supported shortcuts. Fetch, Edit, Commit and Push with you hands on the keyboard at all time and navigate repositories with the arrow keys.
             </description>
             <pubDate>Mon, 28 May 2018 15:24:00 GMT</pubDate>
             <link>https://workingcopyapp.com/video/tips/keyboard-shortcuts.mp4</link>
             <enclosure url="https://workingcopyapp.com/video/tips/keyboard-shortcuts.mp4" length="14106524" type="video/mp4" />
             <guid>https://workingcopyapp.com/video/tips/keyboard-shortcuts.mp4</guid>
+        </item>
+
+        <item>
+            <title>Blink Shell</title>
+            <description>
+                The awesome Blink Shell can mount directories from file providers such as Working Copy. Run shell commands on your Git repositories.
+            </description>
+            <pubDate>Thu, 31 May 2018 21:43:00 GMT</pubDate>
+            <link>https://workingcopyapp.com/video/tips/blink-grep.mp4</link>
+            <enclosure url="https://workingcopyapp.com/video/tips/blink-grep.mp4" length="3566659" type="video/mp4" />
+            <guid>https://workingcopyapp.com/video/tips/blink-grep.mp4</guid>
+        </item>
+
+        <item>
+            <title>Shift Selection</title>
+            <description>
+                When editing with a external keyboard you can hold down shift and tap or drag to change the selection.
+            </description>
+            <pubDate>Fri, 01 June 2018 20:58:00 GMT</pubDate>
+            <link>https://workingcopyapp.com/video/tips/shift-selection.mp4</link>
+            <enclosure url="https://workingcopyapp.com/video/tips/shift-selection.mp4" length="7590879" type="video/mp4" />
+            <guid>https://workingcopyapp.com/video/tips/shift-selection.mp4</guid>
         </item>
     </channel>
 </rss>
