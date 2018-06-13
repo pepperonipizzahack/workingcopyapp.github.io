@@ -199,8 +199,8 @@ working-copy://open?repo=my%20project&amp;path=README.md&amp;mode=preview</pre>
 
     <p>Working Copy supports exporting files with a filename with special information such that it can be identified
        as a specific file in a certain repository even though the original filename is used multiple times. To get
-       this behaviour in <em>x-callback-url</em> use the <em>write</em> command with a <em>filename</em> but no
-       <em>repo</em> parameter. The filename must be recognized for this to work or you will get a error that the
+       this behaviour in <em>x-callback-url</em> use the <em>write</em> command with a <em>path</em> but no
+       <em>repo</em> parameter. The path must be recognized for this to work or you will get a error that the
        file is not known.</p>
     <p>You can include <em>askcommit=1</em> to be asked to commit and push the file after saving.</p>
         <p>To avoid loosing information the command refuses to write to files that have uncommitted changes.
