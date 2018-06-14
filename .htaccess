@@ -35,6 +35,11 @@ AddType application/rss+xml .rss
 # Redirect /g/ %{ENV:ps}://%{SERVER_NAME}/git/
 RewriteEngine On
 RewriteBase "/"
+
+# redirect http to https
+RewriteCond %{HTTPS} !on
+RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
 RewriteRule "^x-callback-url\.html$"  "url-schemes.html"
 RewriteRule "^review-count$"  "review-count.php"
 RewriteRule "^privacy$"  "privacy.html"
