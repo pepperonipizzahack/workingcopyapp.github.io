@@ -211,14 +211,12 @@ working-copy://open?repo=my%20project&amp;path=README.md&amp;mode=preview</pre>
     <div class="inner">
         <p>You can get the contents of text files with the <em>read</em> command and result will be URL-encoded and appended to
             the x-success callback.</p>
-        <pre>working-copy://x-callback-url/read/?x-success=app://x-callback-url/read?t=/&amp;repo=my%20repo&amp;path=file </pre>
+        <pre>working-copy://x-callback-url/read/?repo=my%20repo&amp;path=file&amp;x-success=app%3A%2F%2Fx-callback-url%2Fread%3Ftext%3D</pre>
         <p>will make Working Copy open a url on the form:</p>
-        <pre> app://x-callback-url/read?t=hello%20there</pre>
-        <p>It should be noted that in order to support different apps that want to read text differently and might not
-            follow the x-callback-url conventions (<a href="http://omz-software.com/pythonista/docs/ios/urlscheme.html">Pythonista</a>
-            being the prime example),
-            you should include the parameter name at the end of <em>x-success</em>
-            as in this <a href="#textastic-example">Textastic example</a>. Working Copy tries to be smart about appending
+        <pre> app://x-callback-url/read?text=hello%20there</pre>
+        <p>You need to url encode <em>x-success</em> and to support different apps that want to receive text differently and might not
+            follow the x-callback-url conventions you should include the parameter name and then <em>=</em> at the
+            end of <em>x-success</em>. Working Copy tries to be smart about appending
             the file content as <em>&amp;text=...</em> if it detects a <em>x-callback-url</em> that would become malformed,
             but your best bet is to format <em>x-success</em> manually.</p>
         <p>If you are reading a binary file the result will be transferred as
