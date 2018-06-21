@@ -1,0 +1,6 @@
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+
+# Automatically put .php after URL's
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+RewriteRule ^(.*\.plist)$ $1.php [NC,L]
