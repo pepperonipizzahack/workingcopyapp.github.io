@@ -439,16 +439,10 @@ img.spinning {
     to {transform: rotate(359deg);}
 }
 
-span.oneWriter {
-    display: inline-block;
-    text-align: center;
-    vertical-align: middle;
-    background: #DE443D;
-    color: #fff;
-    border-radius: 50%;
+.oneWriter {
     width: 1em;
     height: 1em;
-    line-height: 0.942em;
+    vertical-align: bottom;
 }
 
 .latex, .tex > sub, .latex > sub {
