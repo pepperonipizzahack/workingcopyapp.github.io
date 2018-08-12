@@ -134,6 +134,7 @@ working-copy://open?repo=my%20project&amp;path=README.md&amp;mode=preview</pre>
         <li>list file <a href="#status">status</a>,</li>
         <li><a href="#pushing">push</a><sup>🔒</sup> to remote and</li>
         <li><a href="#pulling">pull</a> from remote.</li>
+        <li><a href="#fetching">fetch</a> from remote.</li>
         <li><a href="#checkout">checkout</a> branch.</li>
         <li><a href="#merging">merge</a> branches.</li>
         <li>start or stop the <a href="#webdav">WebDAV</a> server.</li></ul>
@@ -316,6 +317,15 @@ working-copy://open?repo=my%20project&amp;path=README.md&amp;mode=preview</pre>
       <pre> working-copy://x-callback-url/pull/?repo=my%20repo</pre>
      <p>Just like the <em>push</em> command you can use the <em>remote</em> parameter to pull from
       non-origin remotes and <em>repo</em> parameter can contain wildcards.</p>
+    </div>
+
+    <h2 id="fetching">Fetch from remote</h2>
+    <div class="inner">
+        <p>The <em>fetch</em> command fetches from your origin remote and if you need to authenticate, the
+            command will wait until you have entered your credentials. </p>
+        <pre> working-copy://x-callback-url/fetch/?repo=my%20repo</pre>
+        <p>Just like the <em>pull</em> command you can use the <em>remote</em> parameter to fetch from
+            non-origin remotes and <em>repo</em> parameter can contain wildcards.</p>
     </div>
 
     <h2 id="checkout">Checkout branch</h2>
