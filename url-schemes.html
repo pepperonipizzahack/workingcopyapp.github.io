@@ -181,13 +181,13 @@ working-copy://open?repo=my%20project&amp;path=README.md&amp;mode=preview</pre>
     be the content written to the file at the given <em>path</em>. The text parameter is transferred as UTF-8 but will
     be written in the encoding of the existing file or UTF-8 for new files. </p>
     <pre> working-copy://x-callback-url/write/?key=123ABC&amp;repo=my%20repo&amp;path=README.md&amp;text=hello%20there </pre>
-    <p>Include the parameter <em>append=1</em> to append the <em>text</em> or clipboard content to
-        the existing file. The <em>path</em> is relative to repository and must <em>not</em> start with /.</p>
+    <p>The <em>path</em> is relative to repository and must <em>not</em> start with /.</p>
     <p>If you need to write images or other binary files you can transfer the content as <a href="http://en.wikipedia.org/wiki/Base64">base-64</a>
        by using the parameter <em>base64=</em> instead of <em>text=</em>. You need to URL-encode after base-64
        encoding since the characters <em>+</em> and <em>/</em> occur after base-64 coding. This can also be handy
        if you want to overwrite the encoding of a existing file.</p>
-    <p>If you do not include either a <em>text</em> or <em>base64</em> parameter the clipboard content is written.</p>
+    <p>If you do not include either a <em>text</em> or <em>base64</em> parameter the clipboard content is written
+        or you can include <em>clipboard=1</em> as a more direct way to write from the clipboard.</p>
     <p>If no <em>path</em> parameter is specified the user will be asked to pick a file and if no <em>repo</em>
     is specified either the user will start out by picking a repository. In these situations you can suggest a filename
         with the <em>filename</em> parameter and <em>uti</em> to indicate the
@@ -203,8 +203,13 @@ working-copy://open?repo=my%20project&amp;path=README.md&amp;mode=preview</pre>
        <em>repo</em> parameter. The path must be recognized for this to work or you will get a error that the
        file is not known.</p>
     <p>You can include <em>askcommit=1</em> to be asked to commit and push the file after saving.</p>
-        <p>To avoid loosing information the command refuses to write to files that have uncommitted changes.
-        You can change this behaviour with <em>overwrite=1</em>.</p>
+
+        <p>You control how and when to write to the file with the <em>mode</em> parameter.
+            The default <em>mode=safe</em> will create new files or overwrite non-modified files but refuse to
+            write to files with uncommitted changes. When the user pick the file to write to you are allowed to
+            overwrite files with uncommitted changes and you can force this behaviour with <em>mode=overwrite</em>.
+            To combine new and old input you use <em>mode=append</em> or <em>mode=prepend</em>.</p>
+
     </div>
 
     <h2 id="reading">Reading files<sup>🔒</sup></h2>
@@ -230,6 +235,7 @@ working-copy://open?repo=my%20project&amp;path=README.md&amp;mode=preview</pre>
             the given <a href="http://en.wikipedia.org/wiki/Uniform_Type_Identifier">Uniform Type Identifier</a>. The
             default value for <em>uti</em> is "public.plain-text" but this is changed to "public.item"
             if <em>base64</em> indicates that you accept binary results.</p>
+        <p>Include <em>clipboard=1</em> to put the content of the file on the clipboard.</p>
     </div>
 
     <h2 id="moving">Moving files</h2>
