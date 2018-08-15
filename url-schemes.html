@@ -339,9 +339,11 @@ working-copy://open?repo=my%20project&amp;path=README.md&amp;mode=preview</pre>
         <p>Use this command to merge branches programmatically. </p>
         <pre>working-copy://x-callback-url/merge?repo=my%20repo&branch=develop</pre>
         <p>The <em>branch</em> parameter names the branch that will be merged on
-          the current branch. You can specify a particular remote for the <em>branch</em>
+          the current branch, but to merge the remote counterpart of the current branch
+            you leave the <em>branch</em> parameter missing or empty.
+            You can specify a particular remote for the <em>branch</em>
             with the <em>remote</em> parameter using either a remote name or URL.
-            This remote will be fetched before merge to make sure remote branch is up-to-date
+            This remote will be fetched before merge to make sure the remote branch is up-to-date
             and if you specify <em>create=1</em> the remote will even be created if missing.
           </p>
         <p>If there are any conflicts the user will be asked to fix these interactively
