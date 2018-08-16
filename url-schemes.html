@@ -142,6 +142,7 @@ working-copy://open?repo=my%20project&amp;path=README.md&amp;mode=preview</pre>
         <li>show commit <a href="#log">log</a></li></ul>
         <li>list <a href="#branches">branches</a></li></ul>
         <li><a href="#init">init</a> empty repository</li></ul>
+        <li>run <a href="#ssh-command">secure shell</a> commands</li></ul>
         <li><a href="#chain">chain</a> multiple commands</li></ul>
         <li>Universal Link <a href="#universal-url-arg">parameters</a></li>
         </ul>
@@ -330,7 +331,7 @@ working-copy://open?repo=my%20project&amp;path=README.md&amp;mode=preview</pre>
 
     <h2 id="checkout">Checkout branch</h2>
     <div class="inner">
-        <p>Default behaviour is to switch to a existig branches which requires that there are no current modifications.
+        <p>Default behaviour is to switch to a existing branch which requires that there are no current modifications.
            To create a new branch during checkout use <em>mode=create</em> or <em>mode=ensure</em> to only
            create the branch when missing.</p>
         <pre>working-copy://x-callback-url/checkout?repo=my%20repo&branch=develop</pre>
@@ -418,6 +419,17 @@ working-copy://open?repo=my%20project&amp;path=README.md&amp;mode=preview</pre>
     <p>Use the <em>init</em> command to create a new repository without any files or remotes,
         where <em>name</em> parameter must not be used by any other repository.</p>
     <pre> working-copy://x-callback-url/init/?name=new%20repository</pre>
+    </div>
+
+    <h2 id="ssh-command">Run secure shell command</h2>
+    <div class="inner">
+        <p>Use this command to automate the <a href="/manual/ssh-command">SSH Command</a> feature.
+           Remember that this will upload your local repository before running the <em>cmd</em>
+           and download files that change while the command is running.</p>
+        <pre>working-copy://x-callback-url/ssh-command/?server=remote.server.net&amp;cmd=run%20tests</pre>
+        <p>You can specify <em>source=subdir</em> and <em>remote=dir</em> to specify the local and remote
+           directories to keep upload to and download from. The default for <em>source</em> is the repository root
+           and the default for <em>remote</em> is the remote home directory.</p>
     </div>
 
     <h2 id="chain">Chain multiple commands</h2>
