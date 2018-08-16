@@ -330,7 +330,9 @@ working-copy://open?repo=my%20project&amp;path=README.md&amp;mode=preview</pre>
 
     <h2 id="checkout">Checkout branch</h2>
     <div class="inner">
-        <p>If you have no current modifications you can checkout another branch.</p>
+        <p>Default behaviour is to switch to a existig branches which requires that there are no current modifications.
+           To create a new branch during checkout use <em>mode=create</em> or <em>mode=ensure</em> to only
+           create the branch when missing.</p>
         <pre>working-copy://x-callback-url/checkout?repo=my%20repo&branch=develop</pre>
     </div>
 
