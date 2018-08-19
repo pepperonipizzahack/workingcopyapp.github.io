@@ -142,6 +142,7 @@ working-copy://open?repo=my%20project&amp;path=README.md&amp;mode=preview</pre>
         <li>show commit <a href="#log">log</a></li></ul>
         <li>list <a href="#branches">branches</a></li></ul>
         <li><a href="#init">init</a> empty repository</li></ul>
+        <li><a href="#clone">clone</a> repository from remote</li></ul>
         <li>run <a href="#ssh-command">secure shell</a> commands</li></ul>
         <li><a href="#chain">chain</a> multiple commands</li></ul>
         <li>Universal Link <a href="#universal-url-arg">parameters</a></li>
@@ -416,9 +417,17 @@ working-copy://open?repo=my%20project&amp;path=README.md&amp;mode=preview</pre>
 
     <h2 id="init">Init empty repository</h2>
     <div class="inner">
-    <p>Use the <em>init</em> command to create a new repository without any files or remotes,
-        where <em>name</em> parameter must not be used by any other repository.</p>
-    <pre> working-copy://x-callback-url/init/?name=new%20repository</pre>
+        <p>Use the <em>init</em> command to create a new repository without any files or remotes,
+            where <em>name</em> parameter must not be used by any other repository.</p>
+        <pre> working-copy://x-callback-url/init/?name=new%20repository</pre>
+    </div>
+
+    <h2 id="clone">Clone repository</h2>
+    <div class="inner">
+        <p>Use the <em>clone</em> command clone repository with <em>remote</em>
+            parameter. Result of callback will be the name of the repository
+            inside Working Copy.</p>
+        <pre> working-copy://x-callback-url/init/?remote=https%3A%2F%2Fgithub.com%2Flibgit2%2Flibgit2</pre>
     </div>
 
     <h2 id="ssh-command">Run secure shell command</h2>
