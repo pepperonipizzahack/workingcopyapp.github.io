@@ -136,6 +136,7 @@ working-copy://open?repo=my%20project&amp;path=README.md&amp;mode=preview</pre>
         <li><a href="#pulling">pull</a> from remote.</li>
         <li><a href="#fetching">fetch</a> from remote.</li>
         <li><a href="#checkout">checkout</a> branch.</li>
+        <li><a href="#delete-branch">delete</a> branch.</li>
         <li><a href="#merging">merge</a> branches.</li>
         <li>start or stop the <a href="#webdav">WebDAV</a> server.</li></ul>
         <li><a href="#listing">list</a> repositories</li></ul>
@@ -336,6 +337,14 @@ working-copy://open?repo=my%20project&amp;path=README.md&amp;mode=preview</pre>
            To create a new branch during checkout use <em>mode=create</em> or <em>mode=ensure</em> to only
            create the branch when missing.</p>
         <pre>working-copy://x-callback-url/checkout?repo=my%20repo&branch=develop</pre>
+    </div>
+
+    <h2 id="delete-branch">Delete branch</h2>
+    <div class="inner">
+        <p>Delete a branch if all commits are available in other branches. Set <em>mode</em> to
+            <em>force</em>, <em>refuse</em> or the default <em>prompt</em> to control behaviour when
+            commits would be lost. </p>
+        <pre>working-copy://x-callback-url/delete?repo=my%20repo&branch=develop&mode=refuse</pre>
     </div>
 
     <h2 id="merging">Merge branches</h2>
