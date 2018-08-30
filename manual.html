@@ -1192,7 +1192,8 @@ andrew@company.se/home/andrew/git/site.git/
             'scrollTop': $target.offset().top
         }, 900, 'swing', function () {
 
-            if(window.document.location.hostname != "workingcopyapp.com") return;
+            var hostname = window.document.location.hostname;
+            if(hostname != "workingcopyapp.com" && hostname != "workingcopy.app") return;
 
             if(history) {
                 var url = "/manual/" + id.substr(1);
