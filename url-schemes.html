@@ -273,9 +273,11 @@ working-copy://open?repo=my%20project&amp;path=README.md&amp;mode=preview</pre>
       all changed files.</p>
       <p>You can supply a <em>message</em> parameter for the commit message and formatting/wrapping
       this <em>message</em> in accordance with <a href="http://git-scm.com/book/ch5-2.html#_commit_guidelines">best practices</a>
-      is your responsibility.
+      is your responsibility. </p>
+      <p>If no <em>message</em> is supplied a dialog is shown to commit the given files. Since this
+         requires user interaction it's allowed without the callback <em>key</em>.</p>
+
       <pre>working-copy://x-callback-url/commit/?repo=my%20repo&amp;path=&amp;limit=999&amp;message=fix </pre>
-    </p>
     </div>
 
     <h2 id="status">Listing file status</h2>
