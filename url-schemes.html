@@ -170,12 +170,15 @@ working-copy://open?repo=my%20project&amp;path=README.md&amp;mode=preview</pre>
     <p>Most commands requires the <em>repo</em> parameter that specifies which repository the command is about.
      This can either be the name of the repository as seen in the list of repositories in the outermost view of the app or the full
      remote url of the repository. Remember to url-encode <em>repo</em> just like all other parameters. Space needs to be percent-
-     rather than plus-encoded.</p>
+     rather than plus-encoded. If you specify <em>repo=$current</em> repository shown inside the app will
+     be used.</p>
     <p>Many commands require the <em>path</em> parameter which specifies the file or directory the command
       will act on. Paths are specified relative to the root of the repository where a empty <em>path</em>
       is the root directory and this the entire repository. Some commands will ask the user to pick
       a file or directory if no <em>path</em> is specified and others will just use the root directory
-      as its default. The details are documented in the section for each command.</p>
+      as its default. The details are documented in the section for each command. You can use <em>path=$current</em>
+      to specify the currently shown path of a file or directory where the empty string will be substituted if
+      you are not looking at any path.</p>
     </div>
 
     <h2 id="writing">Writing files</h2>
@@ -336,6 +339,8 @@ working-copy://open?repo=my%20project&amp;path=README.md&amp;mode=preview</pre>
     <h2 id="checkout">Checkout branch</h2>
     <div class="inner">
         <p>Default behaviour is to switch to a existing branch which requires that there are no current modifications.
+            You can specify <em>branch=$current</em> to checkout the branch currently being shown in the app,
+            which is not the same thing as the current branch for the repository, which there is no need to checkout.
            To create a new branch during checkout use <em>mode=create</em> or <em>mode=ensure</em> to only
            create the branch when missing.</p>
         <pre>working-copy://x-callback-url/checkout?repo=my%20repo&branch=develop</pre>
