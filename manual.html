@@ -898,20 +898,35 @@ andrew@company.se/home/andrew/git/site.git/
     <div class="inner">
         <h3 id="callbacks">5.5 Shortcuts and Callbacks</h3>
 
-        <p>Working Copy supports the <a href="/url-schemes.html#x-callback-url">x-callback-url</a> mechanism for inter-app coorporation.
-            This allows reading and writing files from repositories as
-            well as committing changes and pushing commits to your remotes. As a security measure this mechanism needs
-            to be enabled from the settings
-            page and is protected by a random key.</p>
+        <p>Use <a href="https://www.apple.com/ios/ios-12-preview/" target="apple">Siri Shortcuts</a> and
+            <a href="/url-schemes.html#x-callback-url">x-callback-url</a>
+            to speed up common operations and to automate your Git operations. </p>
 
-        <div class="ipad"><img class="ipad animated" src="img/callback-editing.png" onload="imgLoaded(this)" /></div>
+        <p>The easiest way to automate something is to do it manually first, as
+            the latest actions performed will be shown as <em>Callback examples</em> inside settings where parameters
+            can be edited by tapping parameters.
+            You can create Siri Shortcuts to trigger actions through voice commands or <em>Copy</em>
+            and drag commands to apps supporting x-callback-url.</p>
 
-        <p>By using applications such as
-            <a target="app" href="https://itunes.apple.com/app/workflow-powerful-automation/id915249334?mt=8&amp;at=1000lHq">Workflow</a>,
-            <a target="app" href="https://itunes.apple.com/dk/app/drafts-4-quickly-capture-notes/id905337691?mt=8&amp;at=1000lHq">Drafts</a>
-            and <a target="app" href="https://itunes.apple.com/app/editorial/id673907758?mt=8&amp;at=1000lHq">Editorial</a>
-            you can achieve some of the power of shell-scripting on iOS by
-            combining actions of several applications into one action.</p>
+        <div class="ipad"><img class="ipad animated" src="img/callback-editing.png" onload="imgLoaded(this)"
+                               play_button_bottom="20%" /></div>
+
+        <p>Most Siri Actions can run in the background without Working Copy being shown, but the clipboard is the only
+            way to get data into or out of Siri Shortcuts. Use x-callback-url for greater control
+            over data and control flow  with apps such as Shortcuts,
+            <a target="app" href="https://itunes.apple.com/app/workflow-powerful-automation/id915249334?mt=8&amp;at=1000lHq">Workflow</a> or
+            <a target="app" href="https://itunes.apple.com/dk/app/drafts-4-quickly-capture-notes/id905337691?mt=8&amp;at=1000lHq">Drafts</a>.
+        </p>
+
+        <p>
+            As a security measure x-callback-url needs to be enabled from the settings screen and is protected by a random key.
+        </p>
+        <p>
+            Read more in the full <a href="/url-schemes.html#x-callback-url">x-callback-url</a> documentation,
+            where the ability to
+            <a href="/url-schemes.html#chain">chain</a> several commands into a single callback is noteworthy.
+        </p>
+
 
         <h3 id="draftcode">5.6 DraftCode</h3>
         <p>
