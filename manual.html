@@ -1188,6 +1188,11 @@ andrew@company.se/home/andrew/git/site.git/
         return false;
     }
 
+    function ourHost(hostname) {
+        if(hostname != "workingcopyapp.com" && hostname != "workingcopy.app") return false;
+        return true;
+    }
+
     function scrollToIdentifier(id) {
         var $target = $(id);
 
@@ -1196,7 +1201,7 @@ andrew@company.se/home/andrew/git/site.git/
         }, 900, 'swing', function () {
 
             var hostname = window.document.location.hostname;
-            if(hostname != "workingcopyapp.com" && hostname != "workingcopy.app") return;
+            if(!ourHost(hostname)) return;
 
             if(history) {
                 var url = "/manual/" + id.substr(1);
@@ -1275,7 +1280,7 @@ andrew@company.se/home/andrew/git/site.git/
 
                 var playButton = document.createElement("img");
                 playButton.setAttribute("class", "playButton");
-                playButton.setAttribute("src", "video/play-grey.png");
+                playButton.setAttribute("src", "/video/play-grey.png");
 
                 // we can override placement of grey play button with play_button_bottom
                 // attribute on img tag
@@ -1285,7 +1290,7 @@ andrew@company.se/home/andrew/git/site.git/
                 }
 
                 var source = document.createElement("source");
-                source.setAttribute("src", "//workingcopyapp.com/video/" + base + ".mp4");
+                source.setAttribute("src", "/video/" + base + ".mp4");
                 source.setAttribute("type", "video/mp4");
                 if(!showControls) {
                     video.oncanplay = function() {
@@ -1325,7 +1330,7 @@ andrew@company.se/home/andrew/git/site.git/
             var hash = window.location.hash;
             if(hash == "#ssh-host-warning" || hash == "#ssh-host-info") {
                 showSecureShellInfo();
-            } else if(hash && window.document.location.hostname == "workingcopyapp.com") {
+            } else if(hash && ourHost(window.document.location.hostname)) {
                 // if there is element with this name, we adjust style of url
                 var id = hash.substring(1);
                 if(history && document.getElementById(id)) {
