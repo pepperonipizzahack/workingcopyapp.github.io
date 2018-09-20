@@ -187,8 +187,7 @@ working-copy://open?repo=my%20project&amp;path=README.md&amp;mode=preview</pre>
     Write to existing or new files with the <em>write</em> command. If you include a <em>text</em> parameter this will
     be the content written to the file at the given <em>path</em>. The text parameter is transferred as UTF-8 but will
     be written in the encoding of the existing file or UTF-8 for new files. </p>
-    <pre> working-copy://x-callback-url/write/?key=123ABC&amp;repo=my%20repo&amp;path=README.md&amp;text=hello%20there </pre>
-    <p>The <em>path</em> is relative to repository and must <em>not</em> start with /.</p>
+    <pre> working-copy://x-callback-url/write/?key=123ABC&amp;repo=my%20repo&amp;path=README.md&amp;text=hello%20there</pre>
     <p>If you need to write images or other binary files you can transfer the content as <a href="http://en.wikipedia.org/wiki/Base64">base-64</a>
        by using the parameter <em>base64=</em> instead of <em>text=</em>. You need to URL-encode after base-64
        encoding since the characters <em>+</em> and <em>/</em> occur after base-64 coding. This can also be handy
