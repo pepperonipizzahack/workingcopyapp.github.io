@@ -881,6 +881,9 @@
 
     // newsletter signup when ?newsletter is present
     function newsletterSignup() {
+        document.cookie = "MCPopupClosed=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+        document.cookie = "MCEvilPopupClosed=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+
         require(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us14.list-manage.com","uuid":"650f24a8eda4be09fddf370d7","lid":"c1eccfd902"}) })
         document.cookie = "MCEvilPopupClosed=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
     }
