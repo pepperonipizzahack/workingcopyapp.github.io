@@ -591,7 +591,7 @@
     </script>
 </head><body><div>
 <a href="https://itunes.apple.com/us/app/working-copy/id896694807?mt=8&amp;uo=6&amp;at=1000lHq&amp;ct=workingcopyapp" target="itunes"
-   title="Download on the App Store"  class="download-button"><img src="img/download-on-the-app-store.png" /></a>
+   title="Download on the App Store" class="download-button"><img src="img/download-on-the-app-store.png" /></a>
 <div itemscope itemtype="http://schema.org/SoftwareApplication">
     <header>
         <h1 itemprop="name">Working Copy</h1>
@@ -887,7 +887,14 @@
         require(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us14.list-manage.com","uuid":"650f24a8eda4be09fddf370d7","lid":"c1eccfd902"}) })
         document.cookie = "MCEvilPopupClosed=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
     }
+
+    function adjustAppStoreLink() {
+        var anchor = document.getElementsByClassName('download-button')[0];
+        anchor.href = 'https://itunes.apple.com/app/apple-store/id896694807?pt=15897&ct=David%20Walsh&mt=8';
+    }
+
     if(window.location.href.indexOf('?newsletter') >= 0) newsletterSignup();
+    if(window.location.href.indexOf('?davidwalsh') >= 0) adjustAppStoreLink();
 </script>
 </div></body>
 </html>
