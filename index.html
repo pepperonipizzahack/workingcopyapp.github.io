@@ -888,13 +888,25 @@
         document.cookie = "MCEvilPopupClosed=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
     }
 
+    function gup( name, url ) {
+        if (!url) url = location.href;
+        name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+        var regexS = "[\\?&]"+name+"=([^&#]*)";
+        var regex = new RegExp( regexS );
+        var results = regex.exec( url );
+        return results == null ? null : results[1];
+    }
+
     function adjustAppStoreLink() {
+        var ct = gup("ct", window.location.href);
+        if(!ct) return;
+
         var anchor = document.getElementsByClassName('download-button')[0];
-        anchor.href = 'https://itunes.apple.com/app/apple-store/id896694807?pt=15897&ct=David%20Walsh&mt=8';
+        anchor.href = 'https://itunes.apple.com/app/apple-store/id896694807?pt=15897&ct=' + ct + '&mt=8';
     }
 
     if(window.location.href.indexOf('?newsletter') >= 0) newsletterSignup();
-    if(window.location.href.indexOf('?davidwalsh') >= 0) adjustAppStoreLink();
+    if(window.location.href.indexOf('ct=') >= 0) adjustAppStoreLink();
 </script>
 </div></body>
 </html>
