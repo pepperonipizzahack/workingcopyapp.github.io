@@ -79,9 +79,10 @@
             <li class="header3"><a href="#dragdrop">5.1 Drag and Drop</a>,</li>
             <li class="header3"><a href="#saving">5.2 Saving to Working Copy</a>,</li>
             <li class="header3"><a href="#edit-in-app">5.3 Edit in App</a>,</li>
-            <li class="header3"><a href="#webdav-server">5.4 WebDAV access</a>,</li>
-            <li class="header3"><a href="#callbacks">5.5 Shortcuts and Callbacks</a>,</li>
-            <li class="header3"><a href="#draftcode">5.6 DraftCode</a></li>
+            <li class="header3"><a href="#files-sync">5.4 Files synchronisation</a>,</li>
+            <li class="header3"><a href="#webdav-server">5.5 WebDAV access</a>,</li>
+            <li class="header3"><a href="#callbacks">5.6 Shortcuts and Callbacks</a>,</li>
+            <li class="header3"><a href="#draftcode">5.7 DraftCode</a></li>
             <!--<li class="header3"><a href="#swift-playgrounds">5.8 Swift Playgrounds</a></li>-->
 
             <li class="header2"><a href="#beyond-ios">6. Beyond iOS:</a></li>
@@ -871,8 +872,35 @@ andrew@company.se/home/andrew/git/site.git/
     </p>
     </div>
 
+    <div style="clear: left"></div>
     <div class="inner">
-        <h3 id="webdav-server">5.4 WebDAV access</h3>
+        <h3 id="files-sync">5.4 Files synchronisation</h3>
+        <p>You can configure directories inside Working Copy that will be synchronised with directories used by other
+            apps. As you edit files in the other app the changes will be synced back to Working Copy ready to be
+            committed and as you pull down commits from a Git remote, things are synced back to the directory of the
+            other app.</p>
+
+        <p>There are two ways to set this up.</p>
+
+        <p>To add existing documents from another app to Working Copy, tap + from the repository list then
+            <em>Setup synced directory</em> and pick a directory. All files from this directory will be imported into a
+            new repository ready to be committed. You probably want to add a remote at the Repository status screen
+            and push up the initial commit.</p>
+
+        <p>If you already have your documents managed by Git or want to setup syncing with a subdirectory of a
+            repository you invoke the share sheet on any directory or repository in Working Copy and
+            pick the <em>Files Sync</em> action.</p>
+
+        <p>Status is shown with a icon above directory listings that you tap for a list of recent sync operations
+            and the ability to Restore files overwritten or deleted.</p>
+
+        <div class="ipad"><img class="ipad animated" src="img/callback-editing.png" onload="imgLoaded(this)"
+                               play_button_bottom="20%" /></div>
+
+    </div>
+
+    <div class="inner">
+        <h3 id="webdav-server">5.5 WebDAV access</h3>
         <div class="right"><img class="right" onload="imgLoaded(this)" src="img/webdav-settings.png"
           srcset="img/webdav-settings.png 200w, img/webdav-settings-400.png 400w, img/webdav-settings-645.png 645w"/></div>
 
@@ -920,7 +948,7 @@ andrew@company.se/home/andrew/git/site.git/
 
     </div>
     <div class="inner">
-        <h3 id="callbacks">5.5 Shortcuts and Callbacks</h3>
+        <h3 id="callbacks">5.6 Shortcuts and Callbacks</h3>
 
         <p>Use <a href="https://help.apple.com/iphone/12/#/iph7d118960c" target="apple">Siri Shortcuts</a> and
             <a href="/url-schemes.html#x-callback-url">x-callback-url</a>
@@ -952,7 +980,7 @@ andrew@company.se/home/andrew/git/site.git/
         </p>
 
 
-        <h3 id="draftcode">5.6 DraftCode</h3>
+        <h3 id="draftcode">5.7 DraftCode</h3>
         <p>
             <a href="http://solesignal.com/draftcode/" target="app">DraftCode</a> is comphrehensive
             editor and runtime for PHP, that lets you run entire websites on your iPad or iPhone.
