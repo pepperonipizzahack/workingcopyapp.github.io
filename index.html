@@ -180,12 +180,13 @@
             top:0;
             width: 100%;
             height: auto;
+            z-index: 5;
         }
         #video {
             position: absolute;
-            left: 7.0%;
-            top: 5.7%;
-            width: 86%;
+            left: 3.4%;
+            top: 4.4%;
+            width: 93.44%;
             float: left;
             z-index: 1;
         }
@@ -193,7 +194,7 @@
         .preview > #placeholder {
             position: relative;
             width: 100%;
-            padding-bottom: 71.09%;
+            padding-bottom: 76.62%;   /* = frame.hei / frame.wid */
         }
 
         .download-button {
@@ -607,8 +608,9 @@
     </header>
     <div class="preview">
         <div id="placeholder"></div>
-        <img class="frame" src="img/iPad-Pro-frame@2x.png" srcset="img/iPad-Pro-frame@2x.png 1020w, img/iPad-Pro-frame.png 510w"
-             alt="Working Copy on iPad Air clones a Git repository which can then be edited
+        <img class="frame" src="img/video-frame-overlay@2x.png"
+             srcset="img/video-frame-overlay@2x.png 1020w, img/video-frame-overlay.png 510w"
+             alt="Working Copy on iPad Air clones a Git repository which is edited
              with Textastic and committed." />
         <video id="video" itemprop="video" controls="" preload="auto" autoplay="" muted="true"
                webkit-playsinline="true" playsinline="true"
