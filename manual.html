@@ -797,8 +797,8 @@ andrew@company.se/home/andrew/git/site.git/
             showing how. Picking entire directories requires you to tap <em>Select</em> then tap the directory to select followed by
             <em>Open</em>. On iPad <a href="#dragdrop">Drag and Drop</a> can be used as a alternative.
              </p>
-        <p><a target="app" href="https://itunes.apple.com/app/byword/id482063361?mt=8&amp;at=1000lHq">Byword</a> is a special purpose Markdown
-            editor that can also use the iCloud document picker to edit inside Working Copy
+        <p><a target="app" href="https://itunes.apple.com/app/byword/id482063361?mt=8&amp;at=1000lHq">Byword</a> is a special
+            purpose Markdown editor that can also use the iCloud document picker to edit inside Working Copy
             by choosing <em>Open Other…</em>. </p>
         <p><a target="app" href="https://itunes.apple.com/us/app/1writer/id680469088?ls=1&amp;mt=8&amp;at=1000lHq">1Writer</a>
         is another good Markdown editor and you open files in Working Copy by tapping <img class="oneWriter" alt="+" src="/img/1writer-plus.png"/>
@@ -875,26 +875,56 @@ andrew@company.se/home/andrew/git/site.git/
     <div style="clear: left"></div>
     <div class="inner">
         <h3 id="files-sync">5.4 Files synchronisation</h3>
-        <p>You can configure directories inside Working Copy that will be synchronised with directories used by other
-            apps. As you edit files in the other app the changes will be synced back to Working Copy ready to be
-            committed and as you pull down commits from a Git remote, things are synced back to the directory of the
-            other app.</p>
+        <p>Some apps do not support opening files or directories in-place, but if they use
+            iCloud Drive or "On My Device" to store documents, you can use Files Syncronization for Git
+            integration.</p>
 
-        <p>There are two ways to set this up.</p>
+        <p>Configure Working Copy to open directories used by these other apps in-place
+            and as you work in the other apps, your changes are synced back to Working Copy to be committed.
+            When you pull down commits from a remote any changed files are written back to the directory
+            in iCloud Drive or "On my Device" for the other apps to use.
+        </p>
 
-        <p>To add existing documents from another app to Working Copy, tap + from the repository list then
-            <em>Setup synced directory</em> and pick a directory. All files from this directory will be imported into a
-            new repository ready to be committed. You probably want to add a remote at the Repository status screen
-            and push up the initial commit.</p>
+        <p>You configure a brand new repository for syncing by tapping
+         <em>+</em> from the repository list, <em>Setup synced directory</em> and pick a directory.
+            All files from this directory will be imported into a new repository ready to be committed.
+            You can add a remote from the Repository status screen.
+        </p>
 
-        <p>If you already have your documents managed by Git or want to setup syncing with a subdirectory of a
-            repository you invoke the share sheet on any directory or repository in Working Copy and
-            pick the <em>Files Sync</em> action.</p>
+        <p>For existing repositories use the <em>Files Sync</em> action from the sharesheet of the
+            repository itself or a sub-directory. Initial synchronisation will combine all files from both sides
+            but later on the modification dates are used to determine what needs to be copied and what needs
+            to be deleted.
+        </p>
 
-        <p>Status is shown with a icon above directory listings that you tap for a list of recent sync operations
-            and the ability to Restore files overwritten or deleted.</p>
+        <p>Sync status is shown with a icon above directory listings that you tap for a list of recent sync operations.
+           You can restore files overwritten or deleted by tapping <em>Restore</em> from this list.
+            Backup files are kept for at least seven days.</p>
 
-        <div class="ipad"><img class="ipad animated" src="img/callback-editing.png" onload="imgLoaded(this)"
+        <p>You can deactivate syncing from the list of sync operations.</p>
+
+        <p>In some situations both sides of a file have been modified since the last sync and
+            Working Copy will pick the side most recently changed. To draw your attention to
+            this possible data-loss these sync entries have a warning icon and the sync icon shows a orange counter with
+            the number of warnings since you last viewed the history. A red counter indicates the number
+            of errors since you last displayed the sync history.</p>
+
+        <p>This can be used with apps such as
+              <a target="app" href="https://codea.io/">Codea</a>,
+              <a target="app" href="https://solesignal.com/draftcode/">DraftCode</a>,
+              <a target="app" href="https://ia.net/writer">iA Writer</a>,
+              <a target="app" href="https://scriptable.app/">Scriptable</a>,
+              <a target="app" href="https://www.apple.com/swift/playgrounds/">Swift Playgrounds</a>
+              and other apps that store documents in iCloud Drive or "On my Device" but depending on the
+            app in question they can be confused if the document files are changed while they are running.</p>
+
+        <p>Note that this feature isn't meant as a way to store repositories in iCloud Drive. Git uses
+           filters when you commit or checkout files to handle differences between filesystems. If you
+           keep a directory in iCloud Drive or another storage provider bypass this filtering. Only the
+           working copy or subdirectories of the working copy are synced.</p>
+
+        <pre>TODO: Record and upload video!!!</pre>
+        <div class="ipad"><img class="ipad animated" src="img/missing-callback-editing.png" onload="imgLoaded(this)"
                                play_button_bottom="20%" /></div>
 
     </div>
