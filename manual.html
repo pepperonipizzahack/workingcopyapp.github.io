@@ -1072,10 +1072,16 @@ andrew@company.se/home/andrew/git/site.git/
         <p>Often the log files exist outside Working Copy in emails, on build-server
             status pages or as raw text in actual log files.
             To import logs into the app, use the <em>Process in Working Copy</em>
-            action extension from the share sheet. It knows how to deal with special status pages from
+            action extension from the share sheet. It knows how to deal with build status pages from
+            <a target="ci" href="https://appcenter.ms/">App Center</a>,
             <a target="ci" href="https://www.bitrise.io/">BitRise</a>,
             <a target="ci" href="https://circleci.com/">Circle CI</a> and
             <a target="ci" href="https://jenkins.io">Jenkins</a> but it can be used on raw text as well.
+        </p>
+        <p>The best way to capture logs from App Center builds is to tap <em>Download Logs</em>
+           and use <em>Process in Working Copy</em> on the zip archive. When importing zip
+            files it will end up as a single log-file with special markers to indicate filenames
+            from the zip archive.
         </p>
 
         <p>Your log files are entirely private and unless you explicitly export them
