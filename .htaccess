@@ -48,3 +48,7 @@ RewriteRule "^users-guide$"  "manual.html"
 
 RewriteRule "^synology$"  "https://youtu.be/WMcAcUknHMw"
 RewriteRule "^sshinfo$"  "https://workingcopyapp.com/manual.html#ssh-host-info"   [NE]
+
+## Forbid access to certificate file
+RewriteCond %{REQUEST_FILENAME} ^.+\.pem$
+RewriteRule .* - [F,NS,L]
