@@ -10,7 +10,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Logfiles as a Working Copy integration mechanism</title>
+    <title>External Preview in Working Copy</title>
     <link rel="shortcut icon" href="/img/favicon.png">
     <base href="/">
     <meta name="author" content="Anders Borum">
@@ -73,96 +73,34 @@
        title="Download on the App Store" class="download-button"><img src="img/download-on-the-app-store.png"/></a>
     <div>
         <header>
-            <h1>Logfiles as a Working Copy integration mechanism</h1>
-            <div id="date">November 7, 2017</div>
+            <h1>External Preview in Working Copy</h1>
+            <div id="date">December 31, 2018</div>
         </header>
 
         <div class="outer">
             <div class="inner">
 
-            <p><a href="/" target="app">Working Copy</a> is a Git client for iPad and iPhone.
-                Development was prompted by iOS 8 introducing
-                <a target="doc" href="https://web.archive.org/web/20150204042155/https://developer.apple.com/app-extensions/">app
-                extensions</a> allowing apps to work together and share data in combined workflows and
-                Working Copy aims to bring Git capabilities to all apps on the device. </p>
+                <p><a href="/" target="app">Working Copy</a> is a Git client for iPad and iPhone.
+                </p>
 
-            <p>Many people would like to do development on iOS and having Git available is one piece of that puzzle.
-            We want a code editor and a tool-chain to build, test and deploy. There are a number of capable editors with
-            <a href="https://www.textasticapp.com" target="app">Textastic</a> being a particularly good choice.
-                There are impressive IDE’s for
-            <a href="http://omz-software.com/pythonista/" target="app">Python</a>,
-            <a href="http://solesignal.com/draftcode/" target="app">PHP</a>,
-            <a href="https://codea.io" target="app">Lua</a>,
-            <a href="http://continuous.codes" target="app">C# and F#</a>. But there is
-            no bash for running shell scripts, no Xcode or Android Studio for building apps and no Docker for running
-            containers.</p>
+                <p></p>
 
-            <p>The obvious solution is to delegate work to a server with the required tools. Build servers and Continous
-            Integration servers can be configured to start working when you push to a Git remote. When everything is
-            working, this can be a nice way to do work on the machine you have with you, instead of waiting to get back
-            to your regular computer and this has been possible in the 3 years Working Copy has existed.</p>
+                <div class="ipad-pro"><img class="ipad-pro" src="img/heroku-logs-deploy.png" onload="imgLoaded(this)"/></div>
 
-            <p>But when there are build or deployment errors, it becomes inconvenient to diagnose and fix the problem. The
-            next major feature in Working Copy will remedy this problem by adding powerful log import and browsing
-            capabilities.</p>
+                <p>Notice how pushing to Heroku will show the deployment log as you push. This log file is related to the
+                    repository you push from and when you tap on filenames there is no ambiguity. You jump straight into the
+                    editor and fix the error.</p>
 
-            <p>Watch how this can work in practice on a small Heroku project by tapping the screenshot to start
-                video playback.</p>
+                <br/>
+                <p>I would love to know what you think of this.
+                    Does it let you do things you couldn’t before or is there something you would like to see changed
+                    before it fits your workflow. You will receive instructions on how to best provide feedback
+                    as you get access to the TestFlight version of the app.
+                </p>
 
-            <div class="ipad-pro"><img class="ipad-pro animated" src="img/heroku-logs-deploy.png" onload="imgLoaded(this)"/></div>
 
-            <p>Notice how pushing to Heroku will show the deployment log as you push. This log file is related to the
-            repository you push from and when you tap on filenames there is no ambiguity. You jump straight into the
-            editor and fix the error.</p>
-
-            <p>Often the deployment process is lengthy and the push only triggers the start of the process.
-               If we receive a email complaining about build errors after the push has completed, Working Copy
-               can help you act on this log.</p>
-
-            <div class="ipad-pro"><img class="ipad-pro animated" src="img/bitrise-logs-deploy.png" onload="imgLoaded(this)"/></div>
-
-            <p>From a share sheet you invoke <em>Open in Working Copy</em> to transfer the log into the app. It will try to
-            be smart about some common status pages from
-                <a href="https://www.bitrise.io/" target="service">BitRise</a> and
-                <a href="https://circleci.com" target="service">Circle CI</a> but at the very least it can be invoked
-            directly on a plain text log.</p>
-
-            <p>Inside Working Copy the log will be analyzed to determine what repository it refers to. You can override
-            this by tapping repository names or remote links inside the app.</p>
-
-            <p>Notice how tapping the downwards arrow jumps straight the repository name that allows you
-                to make the connection between log and repository and later on jumps straight to the compile error.
-                Many lines are not important and it’s tedious to find the important parts of a large log especially
-                on a small-screen computer. Working Copy will look for certain clues as a sign of relevance.</p>
-
-            <p>Log files do not have a well defined structure but the app tries its best to take advantage of regular conventions.
-            This will mature as more people use this and tell me where it falls short and this is
-            where you can help.</p>
-
-            <p>I expect to ship this feature for Working Copy version 3.2.0 early in December and testing starts today.
-                You need a email address and a iPhone or iPad running iOS 11 to participate. Some experience with build
-                or continous integration servers will make it a lot less frustrating, but maybe this test can be the reason to
-                learn about such servers.
-
-                <div class="signup"
-                     style="display: inline-block; float:right; padding: 0.5em;"><input id="email-field" name="email" type="email" autocapitalize="off"
-                             autocorrect="off" placeholder="email address">
-  			   <a href="#" onclick="return doSubmit();">Sign Up</a>
-                <div id="status"></div>
             </div>
-
-
-            </p>
-           <br/>
-            <p>I would love to know what you think of this.
-                Does it let you do things you couldn’t before or is there something you would like to see changed
-                before it fits your workflow. You will receive instructions on how to best provide feedback
-                as you get access to the TestFlight version of the app.
-            </p>
-
-
         </div>
-      </div>
     </div>
 
     <div style="clear: both"></div>
