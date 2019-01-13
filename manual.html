@@ -183,7 +183,7 @@
         long-tapping and swiping making it possible to commit some changes in a file but leave others uncommitted.
          </p>
 
-    <p>When you have made one or more commits your on-device repository is seen as being ahead of the remote repository
+    <p id="push-feature">When you have made one or more commits your on-device repository is seen as being ahead of the remote repository
         and you <em>push</em> these commits to the remote. Because <em>Commit</em> and <em>Push</em> are distinct
         actions you can <em>Commit</em> while offline and <em>Push</em> once you get back online.</p>
 
@@ -496,6 +496,8 @@ andrew@company.se/home/andrew/git/site.git/
             </span>
            Font size is adjusted in the popup switching between modes and is remembered
            individually for different modes.</p>
+        <p id="font-customisation">You can pick between a number of included fonts or import new OpenType or TrueType fonts
+            as a pro feature.</p>
          <p>Looking at source code you can tap anywhere to start editing. <em>Done</em> in the upper right corner
           stops editing. You undo latest changes with the undo-button above the keyboard on iPad or by shaking
              your iPhone. If you want to undo all your changes, switch to the Status tab where you can revert the
@@ -527,10 +529,17 @@ andrew@company.se/home/andrew/git/site.git/
         in the context of the HTML page and when external keyboard is attached, the ↑↓ keys let you step through
         evaluation history.
     </p>
-        <p>
-            You can preview from other devices or computers, by enabling <em>External View</em>. Long tap the URL
-            to put on clipboard or use Bonjour &amp; Handoff to connect.
+        <p id="external-preview">
+            You can preview from other devices or computers, by enabling <em>External URL</em>. Long tap the URL
+            to put it on the clipboard or use Handoff to connect. This preview will keep working as you switch back to
+            editing mode.
+        </p><p>
+        Putting your iPad in split screen mode you can have Safari side-by-side with Working Copy to preview and edit
+        simultaneously. If you connect a external display through AirPlay or a HDMI adapter you can enable
+        preview on the external display by tapping the small monitor icon at the top of the screen.
         </p>
+        <p>External preview is a pro feature available to users that <a href="#purchase">purchased</a> the unlock or upgraded their
+            pro unlock on January 8, 2018 or later.</p>
 
     </div><div class="inner">
 
@@ -1247,8 +1256,17 @@ andrew@company.se/home/andrew/git/site.git/
         <div class="right"><img class="right" onload="imgLoaded(this)" src="img/unlock.png"
                                 _dark_src="img/unlock-transparent.png"
                                srcset="img/unlock.png 200w, img/unlock-400.png 400w, img/unlock-645.png 645w"/></div>
-        <p>Working Copy is a free download but you need to pay to unlock pro features such as
-            the ability to push commits back to remote servers. This unlock is a one-time purchase remembered by
+        <p>Working Copy is a free download but you need to pay to unlock pro features:
+            <ol>
+        <li><a href="#push-feature">Push</a> to remote</li>
+        <li>Dark Mode</li>
+        <li>SSH <a href="#ssh-upload">Upload</a></li>
+        <li>SSH <a href="#ssh-command">Command</a></li>
+        <li>Repository Folders</li>
+        <li>Font <a href="#font-customisation">customization</a></li>
+        <li>External <a href="#external-preview">Preview</a></li>
+            </ol>
+            This unlock is a one-time purchase remembered by
             Apple such that you can restore the unlock on other devices using the same Apple ID.
         </p>
         <p>The features you unlock are permanently available and any other pro features
