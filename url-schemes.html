@@ -241,7 +241,7 @@ working-copy://open?repo=my%20project&amp;path=README.md&amp;mode=preview</pre>
         <p>If you are reading a binary file the result will be transferred as
             <a href="http://en.wikipedia.org/wiki/Base64">base-64</a> and if Working Copy appends the
             parameter name it will be <em>&amp;base64=...</em> but to ensure the file content is returned
-            in base64 coding you include the input parameter <em>base64=1</em>.</p>
+            in base64 coding you include the input parameter <em>type=base64</em>.</p>
         <pre>working-copy://x-callback-url/read/?x-success=...&amp;repo=my%20repo&amp;path=README.md&amp;base64=1 </pre>
         <p>If no <em>path</em> parameter is specified the user will be asked to pick a file and if no <em>repo</em>
             is specified either the user will start out by picking a repository. You can use <em>uti</em> to
@@ -249,6 +249,9 @@ working-copy://open?repo=my%20project&amp;path=README.md&amp;mode=preview</pre>
             the given <a href="http://en.wikipedia.org/wiki/Uniform_Type_Identifier">Uniform Type Identifier</a>. The
             default value for <em>uti</em> is "public.plain-text" but this is changed to "public.item"
             if <em>base64</em> indicates that you accept binary results.</p>
+        <p>If you are asking the user to pick a file that will be used for a number of commands <em>type=url</em>
+            can be used to get a <a href="#universal-url-arg">universal url</a> that can be passed to other
+            x-callback-url commands.</p>
         <p>Include <em>clipboard=1</em> to put the content of the file on the clipboard.</p>
     </div>
 
@@ -500,6 +503,8 @@ working-copy://x-callback-url/read?repo=https://github.com/twbs/bootstrap&path=R
         <p>This is useful when you start a Workflow from within Working Copy, as you can specify
            the file, directory or repository to act on and send this along as a single parameter.
         </p>
+        <p>Use <a href="#reading">x-callback-url/read</a> with <em>type=url</em> to get back the
+            universal url of a file picked by the user.</p>
     </div>
 
     <h2 id="drafts-templates">Drafts Templates</h2>
