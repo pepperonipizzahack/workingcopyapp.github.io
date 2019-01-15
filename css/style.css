@@ -2,6 +2,10 @@
     video, img.playButton {
         display: none;
     }
+
+    #intro-image {
+        page-break-after: always;
+    }
 }
 
 * {
