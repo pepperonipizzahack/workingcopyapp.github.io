@@ -1,5 +1,7 @@
 <?php
 
 $hash = $_REQUEST['hash'];
-header("Location: https:/workingcopyapp.com/manual.html#" . $hash);
+$scheme = isset($_SERVER['HTTPS']) ? 'https' : 'http';
+$host = $_SERVER[HTTP_HOST];
+header("Location: $scheme://$host/manual.html#" . $hash);
 exit();
