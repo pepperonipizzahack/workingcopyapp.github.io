@@ -13,7 +13,7 @@
     <meta name="keywords" content="iOS,git,repository,programming,automation,workflow,x-callback-url,WebDAV">
     <meta name="apple-itunes-app" content="app-id=896694807">
     <link rel="mask-icon" href="/img/mask-icon.svg" color="#399CFC">
-    <link rel="stylesheet" type="text/css" href="/css/style3.css">
+    <link rel="stylesheet" type="text/css" href="/css/style4.css">
     <meta property="og:type" content="website" />
     <meta property="og:image" content="https://workingcopyapp.com/img/users-guide-open-graph.jpg">
     <meta property="og:description" content="Learn how to use this powerful Git client for iOS, for stand-alone Post-PC development or to complement your existing workflow.">
@@ -1353,7 +1353,9 @@ andrew@company.se/home/andrew/git/site.git/
 <script>DD_belatedPNG.fix('img, .png_bg'); // Fix any <img> or .png_bg bg-images. Also, please read goo.gl/mZiyb</script>
 <![endif]-->
 <script>
-    if(window.document.location.search.indexOf('darkmode') >= 0) {
+    if(window.document.location.search.indexOf('darkmode') >= 0 ||
+       window.matchMedia( "(prefers-color-scheme: dark)" )) {
+
         document.body.className = 'dark';
 
         // run through all image with _dark_src and replace src and remove srcset to get transparent

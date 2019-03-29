@@ -183,6 +183,11 @@
             z-index: 5;
             pointer-events: none;
         }
+
+        #light-frame {
+            display: none;
+        }
+
         #video {
             position: absolute;
             left: 3.4%;
@@ -330,6 +335,15 @@
             margin:0;
         }
 
+        .features div a,
+        .features div a:link,
+        .features div a:visited,
+        .features div a:hover,
+        .features div a:active {
+            color: #5a5a5a;
+            border-color: #5a5a5a;
+        }
+
         @media screen and (max-width: 400px) {
             footer {
                 font-size: 50%;
@@ -431,6 +445,37 @@
             float: right;
             height: 3em;
         }
+
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #060F19;
+                background: linear-gradient(#060F19, #000000);
+                color: #ddd;
+            }
+
+            a:link, a:visited, a:hover, a:active {
+                color: #ccc;
+                border-color: #ccc;
+            }
+            a:link, a:visited, a:active, a:hover {
+                border-color: #ccc;
+            }
+
+            .features div p,
+            .features div a,
+            .features div a:link,
+            .features div a:visited,
+            .features div a:hover,
+            .features div a:active {
+                color: #9a9a9a;
+                border-color: #9a9a9a;
+            }
+
+            #reviews {
+                color: #ddd;
+                background-color: rgba(255,255,255, 0.1);
+            }
+         }
 
     </style>
     <script>
