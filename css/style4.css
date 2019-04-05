@@ -350,6 +350,16 @@ div.noshadow {
     margin-left: 4%;
 }
 
+.iphonex > .container > video {
+    padding-top: 8%;
+}
+
+.iPhoneX-frame {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+}
+
 .ipad-pro {
     width: 100%;
     margin-top: 10px;

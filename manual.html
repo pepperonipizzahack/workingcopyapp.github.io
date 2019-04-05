@@ -111,10 +111,11 @@
                 <ul>
                     <li class="header3"><a href="/manual/commit-history">4.1 Commit history</a></li>
                     <li class="header3"><a href="/manual/branching">4.2 Branches</a></li>
-                    <li class="header3"><a href="/manual/commit-graph">4.3 Commit Graph</a></li>
-                    <li class="header3"><a href="/manual/resolve-tool">4.4 Resolving conflicts</a></li>
-                    <li class="header3"><a href="/manual/signed-commits">4.5 Signed Commits</a></li>
-                    <li class="header3"><a href="/manual/tagging">4.6 Tagging</a></li>
+                    <li class="header3"><a href="/manual/pull-requests">4.3 Pull Requests</a></li>
+                    <li class="header3"><a href="/manual/commit-graph">4.4 Commit Graph</a></li>
+                    <li class="header3"><a href="/manual/resolve-tool">4.5 Resolving conflicts</a></li>
+                    <li class="header3"><a href="/manual/signed-commits">4.6 Signed Commits</a></li>
+                    <li class="header3"><a href="/manual/tagging">4.7 Tagging</a></li>
                 </ul>
             </li>
 
@@ -755,15 +756,34 @@ andrew@company.se/home/andrew/git/site.git/
             confirm the <em>Reset</em>.
         </p>
 
-        <div style="clear: left"></div>
-        <h3 id="commit-graph">4.3 Commit Graph</h3>
+        <h3 id="pull-requests">4.3 Pull Requests</h3>
+        <div class="right iphonex"><img class="right animated iphonex" src="/img/pull-request.png" onload="imgLoaded(this)" /></div>
+        <p>
+            Where as <em>Merge</em> and <em>Rebase</em> will incorporate changes from other branches into your current
+            commit, a Pull Request or <em>PR</em> works in the opposite direction asking other to incorporate changes from
+            your current branch into some base branch. Working Copy supports creating these for
+            <a href="https://help.github.com/en/articles/about-pull-requests" target="pr">GitHub</a> and
+            <a href="https://docs.gitlab.com/ee/user/project/merge_requests/" target="pr">GitLab</a>.
+        </p>
+        <p>Creating a Pull Request is the first step in a workflow that might involve code review, discussions or
+           automated verification and ends up with the pull request being accepted or closed days or weeks later. </p>
+        <p>You manage existing Pull Requests in your browser of with apps such as
+            <a href="https://githawk.com" target="app">GitHawk</a> and
+            <a href="https://itunes.apple.com/app/apple-store/id1371929193?mt=8" target="app">Grape for Github</a>.
+            Tap the pull request confirmation message to open it. Which app to use for
+            this is configured at the bottom of App Integration settings.
+        </p>
 
-        <div class="right"><img class="right" onload="imgLoaded(this)" src="/img/commit-graph.png"
+        <div style="clear: right"></div>
+        <h3 id="commit-graph">4.4 Commit Graph</h3>
+
+        <div class="left"><img class="left" onload="imgLoaded(this)" src="/img/commit-graph.png"
                                 srcset="/img/commit-graph.png 200w, /img/commit-graph-400.png 400w, /img/commit-graph-645.png 645w" /></div>
 
         <p>To explore repository changes across branches use the Commit Graph available from the Repository screen.</p>
         <p>Commits are presented in chronological order with lines showing which commits are based on each other,
-            with tags and branch heads displayed as well as the commit message summary, date and information about the author of the commit.
+            with tags and branch heads displayed as well as the commit message summary, date and information about the
+            author of the commit.
         </p>
         <p>Pinch to zoom will let you explore additional details, such as the full commit message, the full name of the author
             rather than initials, a commit identifier and the files modified by this commit. If you connect an external
@@ -777,8 +797,8 @@ andrew@company.se/home/andrew/git/site.git/
             it will be used instead of the built-in Calendar app.</p>
 
         <div style="clear: both"></div>
-        <h3 id="resolve-tool">4.4 Resolving conflicts</h3>
-        <div class="left"><img class="left" onload="imgLoaded(this)" src="/img/resolve-tool.png" /></div>
+        <h3 id="resolve-tool">4.5 Resolving conflicts</h3>
+        <div class="right"><img class="right" onload="imgLoaded(this)" src="/img/resolve-tool.png" /></div>
 
         <p>Working Copy has a built-in Resolve tool that can be used to fix conflicts for the entire repository,
         a subdirectory or single files, depending on where in the directory hierarchy the tool is invoked.
@@ -808,7 +828,7 @@ andrew@company.se/home/andrew/git/site.git/
         has a <em>Resolve</em> button for marking the file as resolved, when you have picked the content
         you want and removed conflict markers.</p>
 
-        <h3 id="signed-commits">4.5 Signed Commits</h3>
+        <h3 id="signed-commits">4.6 Signed Commits</h3>
         <p>Git supports
             <a target="gitbook" href="https://git-scm.com/book/en/v2/Git-Tools-Signing-Your-Work#_signing_commits">signing commits</a>
            to make it possible for others to verify that commits have been made by you. When signing you need
@@ -836,7 +856,7 @@ andrew@company.se/home/andrew/git/site.git/
             but commit verification is possible in other environments
             by <a target="pgp" href="https://www.gnupg.org/gph/en/manual/x56.html#AEN83">importing public keys</a> into the GPG keyring.
         </p>
-        <h3 id="tagging">4.6 Tagging</h3>
+        <h3 id="tagging">4.7 Tagging</h3>
         <p>Git has the ability to create a <a target="gitbook" href="https://git-scm.com/book/en/v2/Git-Basics-Tagging">tag</a> in a
             repository to reference a specific point in history. This is typically used to mark a release or
             other milestone on a project.</p>
@@ -1309,6 +1329,7 @@ andrew@company.se/home/andrew/git/site.git/
         <li>Repository Folders</li>
         <li>Font <a href="/manual/font-customisation">customization</a></li>
         <li>External <a href=manual/#external-preview">Preview</a></li>
+        <li><a href=/manual/#pull-requests">Pull Request</a> creation</li>
             </ol>
             This unlock is a one-time purchase remembered by
             Apple such that you can restore the unlock on other devices using the same Apple ID.
@@ -1474,6 +1495,15 @@ andrew@company.se/home/andrew/git/site.git/
 
                 video.appendChild(source);
                 container.appendChild(video);
+
+                // put iPhone X frame on top
+                if(img.className.indexOf("iphonex") >= 0) {
+                    var overlay = document.createElement("img");
+                    overlay.setAttribute("src", "/img/iPhoneX-frame.png");
+                    overlay.setAttribute("class", "iPhoneX-frame");
+                    container.appendChild(overlay);
+                }
+
                 if(!showControls) {
                     container.appendChild(playButton);
                 }
