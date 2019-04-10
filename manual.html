@@ -759,12 +759,20 @@ andrew@company.se/home/andrew/git/site.git/
         <h3 id="pull-requests">4.3 Pull Requests</h3>
         <div class="right iphonex"><img class="right animated iphonex" src="/img/pull-request.png" onload="imgLoaded(this)" /></div>
         <p>
-            Where as <em>Merge</em> and <em>Rebase</em> will incorporate changes from other branches into your current
-            commit, a Pull Request or <em>PR</em> works in the opposite direction asking other to incorporate changes from
-            your current branch into some base branch. Working Copy supports creating these for
+            Where <em>Merge</em> and <em>Rebase</em> incorporates changes from other branches into your current
+            branch, a Pull Request or <em>PR</em> works in the opposite direction asking other to incorporate
+            changes from your current branch into some base branch. Working Copy supports creating these for
             <a href="https://help.github.com/en/articles/about-pull-requests" target="pr">GitHub</a> and
             <a href="https://docs.gitlab.com/ee/user/project/merge_requests/" target="pr">GitLab</a>.
         </p>
+        <p>You tap <em>PR</em> from the full list of branches and pick the remote branch that should be the base of
+            the Pull Request. It is the base branch that receives new commits from your current branch.</p>
+        <p>In order to open Pull
+           Requests between different repositories you need to have a remote configured corresponding to the
+           repository with the base branch. When cloning from GitHub and GitLab the app tries to
+           configure a <em>upstream</em> remote when the cloned repository is a fork.
+            Do a single <em>Fetch</em> after enabling the upstream remote to include
+           this repository in your branch list.</p>
         <p>Creating a Pull Request is the first step in a workflow that might involve code review, discussions or
            automated verification and ends up with the pull request being accepted or closed days or weeks later. </p>
         <p>You manage existing Pull Requests in your browser of with apps such as
