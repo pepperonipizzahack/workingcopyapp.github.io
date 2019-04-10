@@ -3,8 +3,10 @@
         display: none;
     }
 
-    #intro-image {
+    #first-intro-image, #second-intro-image {
         page-break-after: always;
+        height: 270px;
+        overflow: hidden;
     }
 }
 
