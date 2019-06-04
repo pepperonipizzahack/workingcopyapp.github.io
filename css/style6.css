@@ -68,6 +68,12 @@ em.our, em.their { padding-left: 0.15em; padding-right: 0.2em; }
     clear: both;
 }
 
+span.contact {
+    display: block;
+    font-size: x-small;
+    padding-top: 0.5em;
+}
+
 video.animated::-webkit-media-controls {
     opacity: 0.0;
 }
