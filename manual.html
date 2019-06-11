@@ -1253,7 +1253,8 @@ andrew@company.se/home/andrew/git/site.git/
         <p>Machine generated files are often not version controlled,
            and the easiest way to enforce this, is to add these to your <em>.gitignore</em> file.
             Sliding left on files in the directory listing and picking <em>Ignore</em> is the fastest
-            way to achieve this.</p>
+            way to achieve this. Note that files in <em>.gitignore</em> are still downloaded and uploaded.
+            It is only for version-control purposes they are ignored.</p>
         <div class="ipad-pro"><img class="ipad-pro animated" src="/img/ssh-command.png" onload="imgLoaded(this)"/></div>
         <p>Since Working Copy has no way of knowing which files are relevant, everything in your
            <em>Local</em> directory is synced to the <em>Remote</em> directory. If you run
@@ -1363,7 +1364,7 @@ andrew@company.se/home/andrew/git/site.git/
     if(window.document.location.search.indexOf('darkmode') >= 0) {
         document.body.className = 'dark';
     }
-
+    Machine generated files are often not version controlled
     function rev(s) { return s.length <= 1 ? s : rev(s.substr(1)) + s.substr(0,1); }
 
     function showLanguages() {
