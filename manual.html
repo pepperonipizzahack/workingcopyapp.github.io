@@ -1291,6 +1291,25 @@ andrew@company.se/home/andrew/git/site.git/
             and <a target="app" href="https://itunes.apple.com/app/id1156707581?at=1000lHq">Blink Shell</a> are
             both good standalone SSH clients for iOS.
         </p>
+        <p>To exclude the files uploaded and downloaded put a <em>.sshignore</em> file
+            in the outermost directory of your repository. The format is similar to <em>.gitignore</em>
+            in that each line is a glob pattern of files to exclude,
+            where <em>*</em> matches a number of filename characters and
+            <em>**</em> matches a number of characters including /. Matches are done against the entire path when /
+            is part of the pattern and otherwise only the filename should match. Details of the pattern
+            format is the same as for <a href="https://editorconfig.org/#file-format-details">.editorconfig</a>.
+        </p>
+        <p>
+            Lines starting with <em>#</em> are comments and
+            you start lines with <em>^</em> to make reverse rules overriding
+            earlier but not later lines.
+        </p>
+        <pre>
+# Ignore .bin files everywhere, but only .js files inside tmp &amp; don't ignore Index.js
+*.bin
+/tmp/*.js
+^Index.js
+</pre>
         <p>If the server claims your regular commands do not exist
             the <em>$PATH</em> variable is probably not what you expect. Try running the
             <em>echo $PATH</em> using SSH Command as a troubleshooting step.
