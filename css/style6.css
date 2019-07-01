@@ -140,6 +140,12 @@ footer {
     text-align: center;
     font-weight: bold;
     font-size: 35%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+footer span {
+    white-space: unset;
 }
 
 h1 {

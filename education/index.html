@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="/img/favicon.png">
-    <title>Privacy Policy for Working Copy</title>
+    <title>Working Copy for students</title>
     <meta name="author" content="Anders Borum">
     <meta name="keywords" content="iOS,git,repository,programming,automation,workflow,x-callback-url,url scheme">
     <link rel="mask-icon" href="/img/mask-icon.svg" color="#399CFC">
@@ -42,11 +42,11 @@
 <div>
     <header>
         <div class="outer">
-            <h1 itemprop="name"><a href="/">Working Copy</a> for students</h1>
+            <h1 itemprop="name">Working Copy for students</h1>
             <div class="inner">
-            <p>Working Copy is a powerful iOS client for iPhone and iPad.
-                All pro features are available to students for free as part of the <a href="https://education.github.com/pack"
-                                                      target="github">GitHub Student Developer Pack</a>.</p>
+                <p><a href="/">Working Copy</a> is a full featured iOS client for iPhone and iPad.
+                Pro features are available to students for free as part of the
+                    <a href="https://education.github.com/pack" target="github">GitHub Student Developer Pack</a>.</p>
             </div>
         </div>
     </header>
@@ -54,19 +54,29 @@
 
 <div class="outer">
     <div class="inner">
-        <div class="right" style="background-color: transparent; background-position: initial initial;
-    background-repeat: initial initial;"><img src="/img/css-content-45-transparent.png" onload="imgLoaded(this)"></div>
-        <p>
-            Visit this page from a iPhone or iPad where <a href="https://itunes.apple.com/us/app/working-copy/id896694807?mt=8&amp;uo=6&amp;ct=education"
-                                                           target="app">Working Copy</a> is installed. Inside the app you will
-            need to sign into your GitHub account.</p>
-        <p>If this account is registered to a student developer you will be able
-            to access all <a href="/manual/purchase" target="Users Guide">pro features</a> as long as you are logged into this GitHub account.
-        </p>
-        <p>
-           *** Edit your projects right from your mobile device, pushing back changes to GitHub, create pull requests, deploy to servers. ***
-        </p>
 
+        <img src="/img/github-developer-pack.png" style="float: right; width: 25%;"/>
+
+        <p>Clone your repositories onto your mobile device, make edits, commit, push,
+            open pull requests and much <a href="/manual/">more</a>. Repositories are available in other
+           apps on your device.</p>
+
+        <div class="left iphonex" style="background-color: transparent; background-position: initial initial;
+    background-repeat: initial initial;"><img class="iphonex" style="top: 1em" src="/img/education-unlock.png" onload="imgLoaded(this)"></div>
+
+        <p>First step is to install Working Copy from the <a href="https://itunes.apple.com/us/app/working-copy/id896694807?mt=8&amp;uo=6&amp;ct=education"
+                                                             target="app">App Store</a>.</p>
+        <p>Next you return to this page on your iPhone or iPad and tap <a href="https://workingcopy.app/education/verify/">here</a>.</p>
+        <p>Working Copy will open and ask you to authenticate and check your student
+           developer status.</p>
+
+        <p>If your Github account is verified as a student you will be able
+            to access all <a href="/manual/purchase" target="Users Guide">pro features</a>
+            as long as you are logged into this account.
+        </p>
+        <p>Email me at <a id="email2" href="#">Please Enable Javascript</a>
+            if you have any questions.
+           </p>
 
     </div>
 
@@ -79,6 +89,8 @@
     Read the <a href="/manual.html">manual</a> or the <a href="/?newsletter">newsletter</a> and get
     in touch by <a href="/enable-js.html" id="email" title="email">email</a> or
     on <a href="https://twitter.com/workingcopyapp" target="twitter">Twitter</a>.
+
+    <span class="contact">Anders Borum, Borgmester Jensens Alle 31D, 2100 København Ø, Denmark</span>
 </footer>
 <!--[if lt IE 7 ]>
 <script src="/js/dd_belatedpng.js"></script>
@@ -91,7 +103,11 @@
 
     $(document).ready(function () {
         var email = document.getElementById("email");
-        email.href = "mailto:" + rev("moc.ppaypocgnikrow@sredna");
+        email.href = "mailto:" + rev("ppa.ypocgnikrow@sredna");
+
+        email = document.getElementById("email2");
+        email.innerText = rev("ppa.ypocgnikrow@sredna");
+        email.href = "mailto:" + email.innerText;
     });
 </script>
 </body>

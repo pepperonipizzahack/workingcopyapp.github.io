@@ -4,7 +4,7 @@
     "details": [
       {
         "appID": "4U9NSKBV63.com.appliedphasor.working-copy",
-        "paths": [ "/git*", "/education*" ]
+        "paths": [ "/git*", "/education/verify*" ]
       },
       {
         "appID": "4U9NSKBV63.com.appliedphasor.working-copy-enterprise",
