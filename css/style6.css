@@ -135,8 +135,7 @@ span {
 }
 
 footer {
-    padding-top: 20px;
-    padding-bottom: 10px;
+    padding: 20px 20px 10px;
     text-align: center;
     font-weight: bold;
     font-size: 35%;
