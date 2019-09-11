@@ -125,8 +125,9 @@
                     <li class="header3"><a href="/manual/edit-in-app">5.3 Edit in App</a></li>
                     <li class="header3"><a href="/manual/files-sync">5.4 Files synchronisation</a></li>
                     <li class="header3"><a href="/manual/webdav-server">5.5 WebDAV access</a></li>
-                    <li class="header3"><a href="/manual/callbacks">5.6 Shortcuts and Callbacks</a></li>
-                    <li class="header3"><a href="/manual/draftcode">5.7 DraftCode</a></li>
+                    <li class="header3"><a href="/manual/shortcuts">5.6 Shortcuts and automation</a></li>
+                    <li class="header3"><a href="/manual/callbacks">5.7 URL Callbacks</a></li>
+                    <li class="header3"><a href="/manual/draftcode">5.8 DraftCode</a></li>
                     <!--<li class="header3"><a href="/manual/swift-playgrounds">5.8 Swift Playgrounds</a></li>-->
                 </ul>
             </li>
@@ -1080,11 +1081,46 @@ andrew@company.se/home/andrew/git/site.git/
 
     </div>
     <div class="inner">
-        <h3 id="callbacks">5.6 Shortcuts and Callbacks</h3>
+        <h3 id="shortcuts">5.6 Shortcuts and automation</h3>
+        <p>Working Copy supports automation through the iOS 13 Shortcuts app where files and other data can
+            flow between actions. You locate these actions inside <em>Apps > Working Copy</em>.</p>
+
+        <p>Use <em>Get Repository Files</em> to get one or several files from a repository that
+           can be passed to other actions. The <em>Path</em> parameters can contain wildcards such as
+           <em>docs/*.md</em> and if it points to a directory all files inside are returned.
+           You can configure the action to only include files with a particular status such as <em>modified</em>
+            and combining this with <em>Path=/</em> can be useful to get all files with this status.
+        </p>
+        <p>Files returned from <em>Get Repository Files</em> can be changed in-place by the shortcut
+           but only some actions work like that and often you need <em>Write Repository File</em>
+            to put content back into repositories.
+           This writes a single file at a time but you can use the built-in
+            <em>Repeat with Each</em> action to write several files. <em>Path</em> controls the
+            destination and can be a directory to write inside this directory,
+            but the action refuses to overwrite existing files unless you enable this as one
+            of the options shown when you tap <em>Show More</em>.</p>
+        <p>Once you have changes use <em>Commit Repository</em> to commit
+          with some <em>Message</em>. No commit dialog is shown and the action looks at what
+            has been staged for commit either through the <em>Write Repository File</em> that stages
+            written files by default, through the <em>Stage for Commit</em> action or from using
+            the Commit dialog elsewhere and cancelling that dialog. You can configure the commit to
+            include all <em>modified</em> files and not just the <em>staged</em> ones.
+          </p>
+        <p><em>Pull Repository</em> fetches and merges any new commits from the remote and
+           <em>Push Repository</em> pushes back commits. It can often be useful to include
+           these actions as the first and last in a shortcut to make sure work doesn't
+            just stay on your device. Both actions can be configured to use a
+           specific <em>Remote</em> if you have several.</p>
+        <p>Finally you can switch between branches with <em>Checkout Branch</em> as long
+            as there are no modified files.</p>
+
+    </div>
+    <div class="inner">
+        <h3 id="callbacks">5.7 URL Callbacks</h3>
 
         <p>Use <a href="https://help.apple.com/iphone/12/#/iph7d118960c" target="apple">Siri Shortcuts</a> and
-            <a href="/url-schemes.html#x-callback-url">x-callback-url</a>
-            to speed up common operations and to automate your Git operations. </p>
+          <a href="/url-schemes.html#x-callback-url">x-callback-url</a>
+           to speed up common operations and to automate your Git operations on iOS 12.</p>
 
         <p>The easiest way to automate something is to do it manually first, as
             the latest actions performed will be shown as <em>Callback examples</em> inside settings where parameters
@@ -1111,7 +1147,7 @@ andrew@company.se/home/andrew/git/site.git/
         </p>
 
 
-        <h3 id="draftcode">5.7 DraftCode</h3>
+        <h3 id="draftcode">5.8 DraftCode</h3>
         <p>
             <a href="http://solesignal.com/draftcode/" target="app">DraftCode</a> is comprehensive
             editor and runtime for PHP, that lets you run entire websites on your iPad or iPhone.
