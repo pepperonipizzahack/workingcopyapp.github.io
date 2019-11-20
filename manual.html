@@ -336,20 +336,22 @@ andrew@company.se/home/andrew/git/site.git/
         <h3 id="ssh-keys">2.2 SSH keys</h3>
         <div class="left"><img class="left" onload="imgLoaded(this)" src="/img/ssh-config-30-transparent.png" /></div>
 
-        <p>SSH transfers support password authentication but also public/private key authentication for improved security.
-            The public part of a SSH key corresponds to a padlock that you use to lock-down resources. The private part of the SSH
-            key corresponds to the physical key that opens the padlock. Your private key must be kept secret and the public key can be
+        <p>SSH transfers support password authentication but also public/private key authentication for
+            improved security. The public part of a SSH key corresponds to a padlock that you use to
+            lock-down resources. The private part of the SSH key corresponds to the physical key that
+            opens the padlock. Your private key must be kept secret and the public key can be
             distributed to servers where you want to store remote repositories.</p>
 
-        <p>If you tap “Connect with BitBucket” or “Connect with GitHub” your public key will automatically be registered with
-            BitBucket or GitHub. For other Git hosting providers such as
+        <p>If you tap “Connect with BitBucket” or “Connect with GitHub” your public key will automatically
+            be registered with BitBucket or GitHub. For other Git hosting providers such as
             <a target="server" href="https://www.openshift.com">OpenShift</a> or
-            <a target="server" href="https://aws.amazon.com/codecommit/">AWS CodeCommit</a> you need to enter your public key in
-            the settings page for that service. The details will depend upon the service in question,
-            but your first step is to Export the public key.
+            <a target="server" href="https://aws.amazon.com/codecommit/">AWS CodeCommit</a> you need to
+            enter your public key in  the settings page for that service. The details will depend upon
+            the service in question, but your first step is to Export the public key.
             When using a Linux server, you need to append the public key to the
             <em>$HOME/.ssh/authorized_keys</em> file.</p>
-        <p>Working Copy can import private keys in either OpenSSH or Putty format and export in OpenSSH format.</p>
+        <p>Working Copy generates 4096 bit RSA keys and imports RSA, ECDSA or Ed25519 private keys in
+            PEM or OpenSSH format.</p>
     </div>
     <div style="clear: both;"></div>
 
